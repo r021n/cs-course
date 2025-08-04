@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/styles/main.css" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
       rel="stylesheet"
     />
     <title>Awal Sebuah Perjalanan</title>
@@ -41,6 +45,9 @@
           jika ingin mengetahui output kode di modul ini
         </em>
         <hr size="1" />
+        <div class="img-container">
+          <img src="../static/images/toko_brando.png" alt="toko-roti-brando" />
+        </div>
         <p>
           Di sebuah kota yang tidak terlalu besar, tinggallah seorang pemuda
           bernama
@@ -72,14 +79,12 @@
           yang bisa ia beri label untuk menyimpan sesuatu. Ia butuh tempat untuk
           menyimpan nama-nama kue, jumlah yang terjual, dan harga per kue.
         </p>
-        <pre>
-                <code>
-            # Ini adalah kotak-kotak (variabel) Brando untuk menyimpan data
-            nama_kue = "Kue Cokelat"
-            jumlah_terjual = 15
-            harga_per_kue = 12000
-                </code>
-              </pre>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Ini adalah kotak-kotak (variabel) Brando untuk menyimpan data
+nama_kue = "Kue Cokelat"
+jumlah_terjual = 15
+harga_per_kue = 12000</code></pre>
         <p>
           Brando tersenyum melihat kode sederhana itu. Ia berhasil memberi nama
           pada kotak-kotaknya dan memasukkan "data" ke dalamnya. Ia juga belajar
@@ -104,15 +109,13 @@
           >) dan penambahan (<code class="code-piece">+</code>) untuk
           melakukannya.
         </p>
-        <pre>
-            <code>
-            # Operator untuk menghitung total penjualan
-            total_penjualan = jumlah_terjual * harga_per_kue
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Operator untuk menghitung total penjualan
+total_penjualan = jumlah_terjual * harga_per_kue
 
-            # Operator untuk menggabungkan teks dan angka
-            print("Hari ini, penjualan", nama_kue, "adalah", total_penjualan, "rupiah.")
-            </code>
-          </pre>
+# Operator untuk menggabungkan teks dan angka
+print("Hari ini, penjualan", nama_kue, "adalah", total_penjualan, "rupiah.")</code></pre>
         <p>
           Saat ia menjalankan kode itu, muncul output di layar:
           <code class="code-piece">
@@ -134,21 +137,19 @@
           informasi kembali. Brando berpikir, "Aku bisa meminta ibu untuk
           memasukkan data penjualan setiap hari !"
         </p>
-        <pre>
-            <code>
-            # Meminta input dari pengguna
-            nama_kue = input("Masukkan nama kue yang terjual: ")
-            jumlah_terjual_str = input("Masukkan jumlah yang terjual: ")
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Meminta input dari pengguna
+nama_kue = input("Masukkan nama kue yang terjual: ")
+jumlah_terjual_str = input("Masukkan jumlah yang terjual: ")
 
-            # Mengubah tipe data string dari input menjadi integer
-            jumlah_terjual = int(jumlah_terjual_str)
-            harga_per_kue = float(input("Masukkan harga per kue: "))
+# Mengubah tipe data string dari input menjadi integer
+jumlah_terjual = int(jumlah_terjual_str)
+harga_per_kue = float(input("Masukkan harga per kue: "))
 
-            # Menghitung total dan menampilkan output
-            total_penjualan = jumlah_terjual * harga_per_kue
-            print("Total penjualan dari", nama_kue, "adalah", total_penjualan, "rupiah.")
-            </code>
-          </pre>
+# Menghitung total dan menampilkan output
+total_penjualan = jumlah_terjual * harga_per_kue
+print("Total penjualan dari", nama_kue, "adalah", total_penjualan, "rupiah.")</code></pre>
         <p>
           Brando mempelajari hal penting di sini. Fungsi
           <code class="code-piece">input()</code> selalu mengembalikan data
@@ -165,5 +166,7 @@
         <footer></footer>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

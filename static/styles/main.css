@@ -13,10 +13,31 @@ body {
   /* text-align: justify; */
 }
 
+.code-container {
+  /* width: 100%; */
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgb(41, 49, 78);
+  box-sizing: border-box;
+}
+
 .content {
   margin: 10px 20px;
   max-width: 1000px;
   /* text-align: justify; */
+}
+
+img {
+  max-width: 100%;
+  align-self: center;
+}
+
+.img-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
@@ -54,6 +75,11 @@ pre {
   color: aliceblue;
   font-size: 20px;
   line-height: 30px;
+  margin: 0px;
+}
+
+.code-long {
+  padding: 20px;
 }
 
 .code-piece {
