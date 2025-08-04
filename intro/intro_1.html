@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Awal Sebuah Perjalanan</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Awal Sebuah Perjalanan dan Kekuatan Data</h1>
+        <p>
+          Modul ini akan dibagi menjadi beberapa bab atau bagian. Setiap bagian
+          akan berfokus pada sekelompok konsep Python, dan akan diceritakan
+          melalui tantangan baru yang dihadapi oleh Brando. Setiap konsep
+          dijelaskan dengan contoh kode yang relevan dan mudah dipahami, serta
+          dilengkapi dengan penjelasan yang detail. Tujuannya adalah agar Anda
+          bisa belajar Python secara bertahap, seolah-olah Anda adalah Brando
+          itu sendiri, yang sedang berjuang dan belajar untuk mencapai
+          tujuannya.
+        </p>
+        <p>
+          Apakah Anda siap untuk memulai perjalanan ini bersama Brando? Kita
+          akan menyelami dunia pemrograman Python dari dasar hingga ke seluk
+          beluknya.
+        </p>
+        <em>
+          **note: gunakan online compiler di
+          <a
+            href="https://www.onlinegdb.com/online_python_compiler"
+            target="_blank"
+            >internet</a
+          >
+          jika ingin mengetahui output kode di modul ini
+        </em>
+        <hr size="1" />
+        <p>
+          Di sebuah kota yang tidak terlalu besar, tinggallah seorang pemuda
+          bernama
+          <strong>Brando</strong>. Brando adalah seorang pemuda yang cerdas dan
+          penuh ide, namun seringkali merasa terjebak dalam rutinitas. Tujuannya
+          sederhana, namun mulia: ia ingin membantu ibunya yang seorang pedagang
+          kue untuk mengelola bisnis kecilnya agar lebih efisien. Setiap hari,
+          ibunya mencatat penjualan, bahan baku, dan pengeluaran secara manual
+          di buku catatan. Cara ini seringkali menimbulkan kesalahan, dan ibu
+          Brando kesulitan untuk mengetahui apakah bisnisnya benar-benar untung.
+        </p>
+        <p>
+          Suatu sore, saat melihat ibunya menghela napas lelah di depan tumpukan
+          buku catatan, Brando bertekad. Ia memutuskan untuk membangun sebuah
+          sistem sederhana menggunakan komputer yang bisa mengelola semua data
+          itu. Namun, ia tidak tahu harus mulai dari mana. Brando hanya tahu
+          sedikit tentang komputer, tetapi ia tidak tahu bahasa apa yang
+          digunakan untuk "berbicara" dengannya. Ia mencari di internet dan
+          menemukan banyak informasi tentang
+          <strong>Python</strong>, sebuah bahasa pemrograman yang terkenal
+          karena sintaksnya yang mudah dibaca dan fleksibel. Brando sadar, ini
+          adalah alat yang ia butuhkan.
+        </p>
+        <p>
+          Perjalanan Brando dimulai dari nol. Ia membuka editor teks pertamanya
+          dan menulis kode yang sangat sederhana. Awalnya, ia belajar tentang
+          <strong>Variabel</strong>, sebuah konsep fundamental dalam
+          pemrograman. Brando membayangkan variabel seperti sebuah kotak kosong
+          yang bisa ia beri label untuk menyimpan sesuatu. Ia butuh tempat untuk
+          menyimpan nama-nama kue, jumlah yang terjual, dan harga per kue.
+        </p>
+        <pre>
+                <code>
+            # Ini adalah kotak-kotak (variabel) Brando untuk menyimpan data
+            nama_kue = "Kue Cokelat"
+            jumlah_terjual = 15
+            harga_per_kue = 12000
+                </code>
+              </pre>
+        <p>
+          Brando tersenyum melihat kode sederhana itu. Ia berhasil memberi nama
+          pada kotak-kotaknya dan memasukkan "data" ke dalamnya. Ia juga belajar
+          bahwa
+          <strong>tipe data</strong> adalah hal yang sangat penting. Variabel
+          <code class="code-piece">nama_kue</code> berisi teks, yang dalam dunia
+          Python disebut sebagai <strong>String</strong>. Variabel
+          <code class="code-piece">jumlah_terjual</code> berisi angka bulat,
+          atau <strong>Integer</strong>. Sedangkan
+          <code class="code-piece">harga_per_kue</code> berisi angka dengan
+          desimal, yang disebut <strong>Float</strong>. Python secara otomatis
+          mengenali tipe data ini, tetapi Brando harus selalu memahaminya karena
+          perlakuan terhadap setiap tipe data berbeda.
+        </p>
+        <p>
+          Untuk menguji pemahamannya, Brando mencoba menggabungkan beberapa
+          data. Ia ingin membuat sebuah kalimat yang memberitahu berapa total
+          penjualan dari kue cokelat. Ia menggunakan
+          <strong>Operator</strong> dasar seperti perkalian (<code
+            class="code-piece"
+            >*</code
+          >) dan penambahan (<code class="code-piece">+</code>) untuk
+          melakukannya.
+        </p>
+        <pre>
+            <code>
+            # Operator untuk menghitung total penjualan
+            total_penjualan = jumlah_terjual * harga_per_kue
+
+            # Operator untuk menggabungkan teks dan angka
+            print("Hari ini, penjualan", nama_kue, "adalah", total_penjualan, "rupiah.")
+            </code>
+          </pre>
+        <p>
+          Saat ia menjalankan kode itu, muncul output di layar:
+          <code class="code-piece">
+            Hari ini, penjualan Kue Cokelat adalah 180000 rupiah. </code
+          >. Brando merasa seperti seorang pesulap. Ia berhasil membuat komputer
+          melakukan perhitungan dan menampilkan informasi yang ia inginkan. Ini
+          adalah langkah pertama yang sangat penting.
+        </p>
+        <p>
+          Namun, ia menyadari bahwa ibunya tidak hanya menjual satu jenis kue.
+          Ada banyak jenis kue lain yang harus dicatat. Ia juga harus bisa
+          memasukkan data penjualan secara manual setiap hari, bukan hanya
+          mengaturnya di dalam kode. Di sinilah ia menemukan fungsi
+          <strong>Input/Output</strong>.
+        </p>
+        <p>
+          <strong>Input</strong> adalah cara untuk "meminta" data dari pengguna,
+          sedangkan <strong>Output</strong> adalah cara untuk "menampilkan"
+          informasi kembali. Brando berpikir, "Aku bisa meminta ibu untuk
+          memasukkan data penjualan setiap hari !"
+        </p>
+        <pre>
+            <code>
+            # Meminta input dari pengguna
+            nama_kue = input("Masukkan nama kue yang terjual: ")
+            jumlah_terjual_str = input("Masukkan jumlah yang terjual: ")
+
+            # Mengubah tipe data string dari input menjadi integer
+            jumlah_terjual = int(jumlah_terjual_str)
+            harga_per_kue = float(input("Masukkan harga per kue: "))
+
+            # Menghitung total dan menampilkan output
+            total_penjualan = jumlah_terjual * harga_per_kue
+            print("Total penjualan dari", nama_kue, "adalah", total_penjualan, "rupiah.")
+            </code>
+          </pre>
+        <p>
+          Brando mempelajari hal penting di sini. Fungsi
+          <code class="code-piece">input()</code> selalu mengembalikan data
+          dalam bentuk <strong>String</strong>. Jika ia ingin melakukan operasi
+          matematika, ia harus mengubahnya menjadi <strong>Integer</strong> atau
+          <strong>Float</strong> terlebih dahulu menggunakan fungsi
+          <code class="code-piece">int()</code> dan
+          <code class="code-piece">float()</code>. Ia merasa selangkah lebih
+          dekat dengan tujuannya. Modul pertama ini adalah fondasi yang kokoh.
+          Brando tahu bahwa perjalanan ini masih sangat panjang, tetapi ia sudah
+          merasakan kegembiraan dari menciptakan sesuatu yang bisa menyelesaikan
+          masalah nyata.
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>
