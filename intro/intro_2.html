@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <title>Mengambil Keputusan dan Mengulang Tugas</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Mengambil Keputusan dan Mengulang Tugas</h1>
+        <p>
+          Seiring berjalannya waktu, Brando mulai menyadari bahwa sistem yang
+          sederhana tadi belum cukup. Kadang, ada kue yang tidak terjual sama
+          sekali, atau ada diskon khusus yang harus diterapkan jika pembeli
+          membeli dalam jumlah banyak. Ia butuh cara agar programnya bisa
+          "berpikir" dan mengambil keputusan. Ini membawanya ke konsep
+          <strong>Percabangan (if-elif-else)</strong>.
+        </p>
+        <p>
+          Brando membayangkan percabangan seperti sebuah jalur bercabang di
+          jalan. "Jika" kondisinya terpenuhi, maka ambil jalur ini. "Kalau
+          tidak", coba periksa kondisi lain, dan "kalau tidak ada yang lain",
+          ambil jalur yang terakhir.
+        </p>
+        <p>
+          Brando ingin membuat programnya memberikan diskon 10% jika pembeli
+          membeli lebih dari 20 buah kue. Jika tidak, harga tetap normal. Ia
+          mulai menulis kode percabangannya:
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Meminta input dari pengguna
+jumlah_terjual = int(input("Masukkan jumlah kue yang terjual: "))
+harga_per_kue = float(input("Masukkan harga per kue: "))
+
+# Logika percabangan untuk diskon
+if jumlah_terjual > 20:
+    diskon = 0.10  # 10% diskon
+    total_penjualan_sebelum_diskon = jumlah_terjual * harga_per_kue
+    total_penjualan_setelah_diskon = total_penjualan_sebelum_diskon * (1 - diskon)
+    print("Selamat! Anda mendapatkan diskon 10%.")
+    print("Total yang harus dibayar adalah:", total_penjualan_setelah_diskon)
+elif jumlah_terjual >= 10:
+    print("Anda membeli cukup banyak! Total pembelian Anda adalah", jumlah_terjual * harga_per_kue)
+else:
+    total_penjualan = jumlah_terjual * harga_per_kue
+    print("Total yang harus dibayar adalah:", total_penjualan)</code></pre>
+        <p>
+          Brando memperhatikan setiap detail dalam kode itu.
+          <code class="code-piece">if</code> adalah kondisi pertama. Jika
+          <code class="code-piece">jumlah_terjual</code> lebih besar dari 20,
+          blok kode di bawahnya akan dieksekusi.
+          <code class="code-piece">elif</code> (singkatan dari else if) adalah
+          kondisi kedua. Jika kondisi <code class="code-piece">if</code> tidak
+          terpenuhi, Python akan memeriksa kondisi
+          <code class="code-piece">elif</code>. Dan
+          <code class="code-piece">else</code> adalah pilihan terakhir yang akan
+          dieksekusi jika semua kondisi sebelumnya tidak terpenuhi. Brando
+          menyadari bahwa indentasi (spasi menjorok ke dalam) sangat penting di
+          Python. Itu adalah cara Python mengelompokkan kode-kode yang termasuk
+          dalam satu blok percabangan.
+        </p>
+        <p>
+          Tantangan selanjutnya datang saat ibunya ingin mencatat penjualan
+          harian selama seminggu penuh. Menulis kode input yang sama sebanyak 7
+          kali tentu tidak efisien dan melelahkan. Di sinilah Brando menemukan
+          solusi: <strong>Perulangan (Looping)</strong>.
+        </p>
+        <p>
+          Perulangan memungkinkan Brando untuk mengulang sebuah blok kode
+          berkali-kali tanpa harus menulisnya berulang-ulang. Ada dua jenis
+          perulangan yang ia pelajari: <code class="code-piece">for</code> dan
+          <code class="code-piece">while</code>.
+        </p>
+        <p>
+          <strong>Perulangan <code class="code-piece">for</code></strong> sangat
+          cocok untuk mengulang sesuatu dalam jumlah yang sudah ditentukan.
+          Brando ingin mengulang proses pencatatan selama 7 hari, jadi ia
+          menggunakan <code class="code-piece">for</code> loop.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Perulangan for untuk 7 hari
+print("--- Pencatatan Penjualan Mingguan ---")
+for hari in range(7):
+    print("\nHari ke-", hari + 1)
+    nama_kue = input("Masukkan nama kue: ")
+    jumlah_terjual = int(input("Masukkan jumlah terjual: "))
+    # ... logika perhitungan dan lainnya
+    total_penjualan = jumlah_terjual * 12000
+    print("Penjualan hari ini:", total_penjualan)</code></pre>
+        <p>
+          Ia menggunakan fungsi <code class="code-piece">range(7)</code> yang
+          akan menghasilkan urutan angka dari 0 hingga 6. Variabel
+          <code class="code-piece">hari</code> akan mengambil setiap nilai ini
+          secara bergantian, dan setiap kali perulangan berjalan, blok kode di
+          dalamnya akan dieksekusi. Brando merasa takjub, betapa ringkasnya kode
+          yang ia tulis sekarang.
+        </p>
+        <p>
+          Sementara itu,
+          <strong>perulangan <code class="code-piece">while</code></strong>
+          digunakan untuk mengulang sebuah blok kode selama sebuah kondisi masih
+          bernilai benar (<code class="code-piece">True</code>). Brando
+          berpikir, ia bisa menggunakan
+          <code class="code-piece">while</code> untuk membuat programnya terus
+          berjalan sampai ibunya ingin berhenti.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Perulangan while untuk terus berjalan sampai pengguna ingin berhenti
+lanjutkan = True
+
+while lanjutkan:
+    nama_kue = input("Masukkan nama kue yang terjual (ketik 'selesai' untuk mengakhiri): ")
+
+    if nama_kue.lower() == 'selesai':
+        lanjutkan = False  # Mengubah kondisi menjadi False untuk menghentikan loop
+        print("Pencatatan selesai. Terima kasih.")
+    else:
+        jumlah_terjual = int(input("Masukkan jumlah yang terjual: "))
+        harga_per_kue = float(input("Masukkan harga per kue: "))
+        total_penjualan = jumlah_terjual * harga_per_kue
+        print("Total penjualan dari", nama_kue, "adalah", total_penjualan, "rupiah.")</code></pre>
+        <p>
+          Dengan <code class="code-piece">while</code>, program Brando menjadi
+          lebih interaktif dan fleksibel. Ia bisa mencatat data sebanyak yang ia
+          mau tanpa harus mematikan dan menyalakan kembali programnya. Kedua
+          konsep ini, percabangan dan perulangan, adalah kekuatan nyata yang
+          membuat programnya menjadi "pintar" dan dinamis. Brando semakin
+          bersemangat karena ia tahu bahwa setiap baris kode yang ia tulis akan
+          membuat hidup ibunya lebih mudah.
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>
