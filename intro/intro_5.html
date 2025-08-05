@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <title>Mengaplikasikan Semua Pengetahuan untuk Mencapai Tujuan</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Mengaplikasikan Semua Pengetahuan untuk Mencapai Tujuan</h1>
+        <p>
+          Brando kini telah menguasai semua konsep dasar yang ia butuhkan. Ia
+          memiliki pondasi yang kuat: <strong>variabel</strong> dan
+          <strong>tipe data</strong> untuk menyimpan informasi,
+          <strong>operator untuk</strong> memanipulasinya,
+          <strong>input/output</strong> untuk berinteraksi,
+          <strong>percabangan untuk</strong>
+          membuat keputusan, <strong>perulangan</strong> untuk otomasi,
+          <strong>fungsi</strong>
+          untuk organisasi, dan <strong>struktur data</strong> (<code
+            class="code-piece"
+            >list</code
+          >, <code class="code-piece">dictionary</code>,
+          <code class="code-piece">tuple</code>,
+          <code class="code-piece">set</code>) untuk mengelola data yang
+          kompleks. Sekarang, saatnya ia menggabungkan semua ini untuk
+          menciptakan program impiannya.
+        </p>
+        <p>
+          Tujuannya adalah membuat program yang bisa mencatat penjualan,
+          menghitung laba, dan memberikan ringkasan mingguan. Ia mulai merancang
+          kode utamanya dengan menggunakan semua konsep yang sudah ia pelajari.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Mendefinisikan harga dan stok kue menggunakan dictionary
+daftar_kue = {
+    "Kue Cokelat": {"harga": 12000, "stok": 50},
+    "Kue Keju": {"harga": 15000, "stok": 40},
+    "Kue Pandan": {"harga": 13500, "stok": 60}
+}
+
+# Mendefinisikan biaya produksi per kue
+biaya_produksi = {
+    "Kue Cokelat": 8000,
+    "Kue Keju": 10000,
+    "Kue Pandan": 9500
+}
+
+# List untuk menyimpan catatan penjualan harian
+catatan_penjualan_mingguan = []
+
+# Fungsi untuk mencatat penjualan
+def catat_penjualan(kue_terjual, jumlah):
+    if kue_terjual in daftar_kue:
+        if jumlah <= daftar_kue[kue_terjual]["stok"]:
+            # Menghitung laba dan total
+            harga_jual = daftar_kue[kue_terjual]["harga"]
+            harga_pokok = biaya_produksi[kue_terjual]
+            laba_per_kue = harga_jual - harga_pokok
+            
+            total_penjualan = jumlah * harga_jual
+            total_laba = jumlah * laba_per_kue
+            
+            # Mengurangi stok
+            daftar_kue[kue_terjual]["stok"] -= jumlah
+            
+            # Menyimpan data penjualan ke dalam list
+            catatan_penjualan_mingguan.append({
+                "nama": kue_terjual,
+                "jumlah": jumlah,
+                "total_penjualan": total_penjualan,
+                "total_laba": total_laba
+            })
+            print(f"Berhasil mencatat {jumlah} {kue_terjual}.")
+            return True
+        else:
+            print("Maaf, stok tidak mencukupi.")
+            return False
+    else:
+        print("Maaf, kue tidak ditemukan dalam daftar.")
+        return False
+
+# Fungsi untuk menampilkan ringkasan mingguan
+def tampilkan_ringkasan():
+    total_laba_mingguan = 0
+    total_penjualan_mingguan = 0
+    
+    print("\n--- Ringkasan Penjualan Mingguan ---")
+    
+    # Perulangan for untuk menjumlahkan semua penjualan
+    for catatan in catatan_penjualan_mingguan:
+        print(f"{catatan['nama']} - Terjual: {catatan['jumlah']} - Total Penjualan: {catatan['total_penjualan']} - Laba: {catatan['total_laba']}")
+        total_laba_mingguan += catatan["total_laba"]
+        total_penjualan_mingguan += catatan["total_penjualan"]
+        
+    print("-" * 30)
+    print(f"Total Penjualan Mingguan: {total_penjualan_mingguan} rupiah")
+    print(f"Total Laba Mingguan: {total_laba_mingguan} rupiah")
+    print("-" * 30)
+    
+# Perulangan while untuk interaksi program
+while True:
+    print("\n[Pilihan] 1. Catat Penjualan | 2. Lihat Ringkasan | 3. Keluar")
+    pilihan = input("Masukkan pilihan Anda: ")
+    
+    if pilihan == "1":
+        print("\n--- Mencatat Penjualan ---")
+        kue = input("Nama kue yang terjual: ")
+        jumlah = int(input("Jumlah yang terjual: "))
+        catat_penjualan(kue, jumlah)
+    elif pilihan == "2":
+        tampilkan_ringkasan()
+    elif pilihan == "3":
+        print("Terima kasih. Program selesai.")
+        break  # Menghentikan perulangan while
+    else:
+        print("Pilihan tidak valid.")</code></pre>
+        <p>
+          Kode di atas adalah puncak dari semua yang telah Brando pelajari. Ia
+          menggunakan <code class="code-piece">dictionary</code> yang
+          terstruktur untuk menyimpan data kue, termasuk harga dan stok. Ia
+          menggunakan <code class="code-piece">list</code> untuk menyimpan semua
+          catatan penjualan sebagai entri-entri terpisah. Ia menggunakan fungsi
+          untuk mengorganisir logika pencatatan dan ringkasan. Ia menggunakan
+          percabangan (<code class="code-piece">if-elif-else</code>) untuk
+          memvalidasi pilihan pengguna dan memeriksa ketersediaan stok. Dan ia
+          menggunakan perulangan (<code class="code-piece">while</code>) untuk
+          menjaga programnya tetap berjalan sampai ibunya selesai
+          menggunakannya.
+        </p>
+        <p>
+          Ketika Brando menunjukkan program ini kepada ibunya, mata ibunya
+          berkaca-kaca. Semua data yang dulunya tersebar di tumpukan kertas
+          sekarang tersaji rapi di layar komputer. Ibunya bisa melihat laba
+          mingguan dengan cepat dan membuat keputusan bisnis yang lebih baik.
+        </p>
+        <p>
+          Brando menyadari, tujuannya telah tercapai. Bukan hanya karena ia
+          berhasil membuat program, tetapi karena ia telah menguasai sebuah
+          bahasa baru untuk menyelesaikan masalah. Perjalanan ini memberinya
+          lebih dari sekadar pengetahuan teknis, hal tersebut memberinya
+          keyakinan bahwa ia bisa mengatasi rintangan apa pun, selama ia gigih
+          dan terus belajar.
+        </p>
+        <p>
+          Ini adalah akhir dari kisah Brando, tetapi ini adalah awal dari
+          perjalanan Anda. Dengan dasar-dasar ini, Anda sekarang memiliki alat
+          untuk menciptakan solusi sendiri. Apa yang akan Anda bangun
+          selanjutnya?
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <title>Menyimpan dan Mengorganisir Data yang Kompleks</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Menyimpan dan Mengorganisir Data yang Kompleks</h1>
+        <p>
+          Setelah berhasil mengorganisir logika programnya dengan fungsi, Brando
+          menghadapi tantangan baru. Ibunya sekarang menjual lebih dari sepuluh
+          jenis kue, dan setiap kue memiliki nama, harga, dan stok yang berbeda.
+          Menyimpan semua data ini dalam variabel-variabel tunggal akan menjadi
+          kacau. Brando tahu ia membutuhkan struktur data yang lebih canggih.
+        </p>
+        <p>
+          Ia menemukan empat struktur data utama di Python yang bisa mengatasi
+          masalah ini: <strong>List</strong>, <strong>Tuple</strong>,
+          <strong>Set</strong>, dan <strong>Dictionary</strong>.
+        </p>
+        <p>
+          <strong>List</strong> adalah struktur data yang paling serbaguna. List
+          memungkinkan Brando untuk menyimpan banyak item dalam satu wadah dan
+          item-item ini bisa diubah (mutable). Ia membayangkan list seperti
+          sebuah rak panjang yang berisi banyak buku, dan ia bisa mengambil,
+          mengganti, atau menambahkan buku kapan saja.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Membuat list untuk menyimpan nama-nama kue
+daftar_kue = ["Kue Cokelat", "Kue Keju", "Kue Pandan", "Bolu Kukus"]
+
+# Menambah item baru ke dalam list
+daftar_kue.append("Donat")
+
+# Mengakses item list berdasarkan indeks (dimulai dari 0)
+kue_favorit = daftar_kue[0]
+print(f"Kue favorit ibu adalah {kue_favorit}.")
+
+# Mengubah item list
+daftar_kue[3] = "Bolu Mekar"
+print("Daftar kue terbaru:", daftar_kue)</code></pre>
+        <p>
+          Dengan list, Brando bisa dengan mudah mengelola daftar kue yang dijual
+          ibunya. Ia bisa menambahkan kue baru, mengubah nama kue, atau
+          menghapus kue yang sudah tidak dijual lagi.
+        </p>
+        <p>
+          Selanjutnya, ia belajar tentang <strong>Dictionary</strong>.
+          Dictionary sangat cocok untuk menyimpan data dalam bentuk pasangan
+          kunci-nilai (key-value). Brando membayangkan dictionary seperti buku
+          telepon, di mana ia bisa mencari nomor telepon (nilai) dengan
+          menggunakan nama orang (kunci).
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Dictionary untuk menyimpan detail harga kue
+harga_kue = {
+    "Kue Cokelat": 12000,
+    "Kue Keju": 15000,
+    "Kue Pandan": 13500
+}
+
+# Mengakses nilai dengan menggunakan kunci
+harga_cokelat = harga_kue["Kue Cokelat"]
+print(f"Harga Kue Cokelat adalah {harga_cokelat} rupiah.")
+
+# Menambah pasangan kunci-nilai baru
+harga_kue["Donat"] = 5000
+print("Harga kue terbaru:", harga_kue)
+
+# Mengubah nilai dari sebuah kunci
+harga_kue["Kue Keju"] = 16000
+print("Harga Kue Keju yang diperbarui:", harga_kue["Kue Keju"])</code></pre>
+        <p>
+          Dictionary adalah solusi sempurna untuk menyimpan harga, stok, atau
+          detail lainnya dari setiap jenis kue. Kunci (misalnya, "Kue Cokelat")
+          sangat unik dan digunakan untuk mencari nilainya (misalnya, 12000).
+        </p>
+        <p>
+          Kemudian, Brando belajar tentang <strong>Tuple</strong>. Tuple sangat
+          mirip dengan list, tetapi tidak bisa diubah (immutable). Sekali ia
+          membuat tuple, isinya tidak bisa diganti, ditambahkan, atau dihapus.
+          Brando menyadari tuple cocok untuk menyimpan data yang sifatnya
+          permanen, seperti hari-hari dalam seminggu atau nama-nama bulan.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Tuple untuk menyimpan nama-nama hari
+hari_kerja = ("Senin", "Selasa", "Rabu", "Kamis", "Jumat")
+
+# Mencoba mengubah item dalam tuple akan menghasilkan error
+# hari_kerja[0] = "Minggu" # Ini akan error!
+
+print("Hari kerja ibu adalah:", hari_kerja)</code></pre>
+        <p>
+          Terakhir, Brando menemukan <strong>Set</strong>. Set adalah koleksi
+          item yang tidak berurutan dan setiap itemnya unik. Tidak ada item yang
+          bisa duplikat di dalam sebuah set. Set sangat berguna jika Brando
+          ingin memastikan daftar kue yang ia miliki tidak ada yang kembar.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Set untuk menyimpan jenis-jenis bahan baku unik
+bahan_baku = {"tepung", "gula", "telur", "cokelat", "gula", "telur"}
+
+# Perhatikan bahwa "gula" dan "telur" hanya muncul satu kali
+print("Bahan baku yang dibutuhkan:", bahan_baku)
+
+# Menambah item baru
+bahan_baku.add("keju")
+print("Bahan baku terbaru:", bahan_baku)</code></pre>
+        <p>
+          Dengan pengetahuan tentang empat struktur data ini, Brando kini bisa
+          mengelola data bisnis ibunya dengan sangat terstruktur. Ia bisa
+          menggunakan <strong>list</strong> untuk menyimpan catatan penjualan
+          harian, <strong>dictionary</strong> untuk menyimpan detail setiap kue,
+          <strong>tuple</strong> untuk data yang tidak berubah, dan
+          <strong>set</strong> untuk memastikan tidak ada data yang duplikat. Ia
+          telah melangkah jauh dari hanya sekadar menggunakan variabel tunggal.
+        </p>
+        <a href="./intro_5.html" class="next-page"
+          >Lanjut: Mengaplikasikan Semua Pengetahuan untuk Mencapai Tujuan
+          <span>&#x2192</span></a
+        >
+        <footer></footer>
+      </div>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <title>Membangun Blok Kode yang Terorganisir</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Membangun Blok Kode yang Terorganisir</h1>
+        <p>
+          Setelah berhasil membuat program yang bisa mengambil keputusan dan
+          mengulang tugas, Brando mulai melihat programnya menjadi semakin
+          panjang dan rumit. Logika diskon, perhitungan total, dan pencatatan
+          data semuanya tercampur aduk. Ia menyadari bahwa ia butuh cara untuk
+          mengorganisir kode-kodenya menjadi bagian-bagian yang lebih kecil dan
+          bisa digunakan kembali. Di sinilah ia menemukan konsep
+          <strong>Fungsi (Function)</strong>.
+        </p>
+        <p>
+          <strong>Fungsi</strong> adalah blok kode yang diberi nama dan hanya
+          akan dieksekusi ketika dipanggil. Brando membayangkan fungsi seperti
+          sebuah resep masakan. Ia bisa menulis resepnya sekali, dan setiap kali
+          ia butuh membuat kue, ia hanya perlu "memanggil" resep itu, daripada
+          menulis semua langkahnya dari awal.
+        </p>
+        <p>
+          Brando memutuskan untuk membuat fungsi-fungsi untuk tugas-tugas
+          spesifik, seperti
+          <code class="code-piece">hitung_total_penjualan</code> dan
+          <code class="code-piece">tampilkan_informasi_penjualan</code>.
+          Fungsi-fungsi ini akan membuat kode utamanya jauh lebih rapi dan mudah
+          dibaca.
+        </p>
+        <p>
+          Ia mempelajari bahwa fungsi bisa menerima
+          <strong>parameter</strong> (informasi yang dibutuhkan untuk bekerja)
+          dan bisa <strong>mengembalikan</strong> (return) sebuah nilai sebagai
+          hasilnya.
+        </p>
+        <pre
+          class="line-numbers"
+        ><code class="language-python"># Mendefinisikan fungsi untuk menghitung total penjualan
+def hitung_total_penjualan(jumlah_terjual, harga_per_kue):
+    """
+    Fungsi ini menghitung total penjualan berdasarkan jumlah dan harga per kue.
+    """
+    total = jumlah_terjual * harga_per_kue
+    return total  # Mengembalikan nilai total
+
+# Mendefinisikan fungsi untuk menampilkan informasi penjualan
+def tampilkan_informasi_penjualan(nama_kue, total_penjualan):
+    """
+    Fungsi ini menampilkan informasi penjualan yang sudah dihitung.
+    """
+    print(f"Penjualan dari {nama_kue} adalah {total_penjualan} rupiah.")
+
+# Program utama Brando
+print("--- Pencatatan Penjualan Harian ---")
+nama_kue = input("Masukkan nama kue: ")
+jumlah = int(input("Masukkan jumlah yang terjual: "))
+harga = float(input("Masukkan harga per kue: "))
+
+# Memanggil fungsi dan menyimpan nilai yang dikembalikan
+total_harian = hitung_total_penjualan(jumlah, harga)
+
+# Memanggil fungsi untuk menampilkan informasi
+tampilkan_informasi_penjualan(nama_kue, total_harian)</code></pre>
+        <p>
+          Dalam contoh di atas, fungsi
+          <code class="code-piece">hitung_total_penjualan</code> menerima dua
+          parameter: <code class="code-piece">jumlah_terjual</code> dan
+          <code class="code-piece">harga_per_kue</code>. Di dalam fungsi, ia
+          menghitung total dan mengembalikan nilai tersebut menggunakan kata
+          kunci <code class="code-piece">return</code>. Nilai yang dikembalikan
+          ini kemudian bisa disimpan di dalam variabel lain (<code
+            class="code-piece"
+            >total_harian</code
+          >). Begitu juga dengan fungsi
+          <code class="code-piece">tampilkan_informasi_penjualan</code> yang
+          menerima dua parameter, tapi tidak mengembalikan nilai apapun (hanya
+          mencetak output).
+        </p>
+        <p>
+          Brando sekarang merasa programnya jauh lebih terstruktur. Jika ada
+          kesalahan dalam perhitungan, ia hanya perlu memeriksa satu fungsi,
+          bukan seluruh kode. Jika ia ingin menambahkan fitur baru, ia bisa
+          membuat fungsi baru tanpa mengganggu bagian kode yang sudah ada.
+          Fungsi adalah kunci untuk membuat program yang besar dan kompleks
+          menjadi lebih mudah dikelola.
+        </p>
+        <a href="./intro_4.html" class="next-page"
+          >Lanjut: Menyimpan dan Mengorganisir Data yang Kompleks
+          <span>&#x2192</span></a
+        >
+        <footer></footer>
+      </div>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>
