@@ -1,1 +1,57 @@
-<p>To intro <a href="./intro/intro_1.html">intro</a></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/styles/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Interactive Cards</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Interactive Learning Platform</h1>
+      <p>Explore our resources to enhance your programming skills</p>
+    </div>
+
+    <div class="cards-container">
+      <div class="card" onclick="window.open('')">
+        <div class="card-icon">📓</div>
+        <h2 class="card-title">Notebook</h2>
+        <p class="card-description">
+          Interactive coding environment for experimentation and learning
+        </p>
+      </div>
+
+      <div class="card" onclick="window.open('./intro/intro_1.html')">
+        <div class="card-icon">🐍</div>
+        <h2 class="card-title">Intro Python</h2>
+        <p class="card-description">
+          Beginner-friendly introduction to Python programming concepts
+        </p>
+      </div>
+
+      <div class="card" onclick="window.open('')">
+        <div class="card-icon">🚀</div>
+        <h2 class="card-title">Fundamental Python</h2>
+        <p class="card-description">Core Python concepts</p>
+      </div>
+
+      <div class="card" onclick="window.open('')">
+        <div class="card-icon">🛠️</div>
+        <h2 class="card-title">Tools</h2>
+        <p class="card-description">
+          Essential tools and utilities for Python development
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Click on any card to explore the resource</p>
+    </div>
+  </body>
+</html>
