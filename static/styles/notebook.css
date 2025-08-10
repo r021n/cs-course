@@ -1,0 +1,81 @@
+body {
+  background-color: rgb(22, 30, 41);
+  font-family: Nata Sans, Helvetica, sans-serif; /* Menggunakan Noto Sans sebagai pengganti Nata Sans */
+  color: #e0e0e0;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+h3 {
+  color: #64b5f6;
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  font-size: 1.5em;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notebook-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.notebook-link {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding: 15px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1em;
+  border: 1px solid rgba(100, 181, 246, 0.3);
+}
+
+.notebook-link:hover {
+  background-color: rgba(187, 134, 252, 0.15);
+}
+
+.notebook-link:hover::after {
+  margin-left: 8px;
+}
+
+.notebook-link::before {
+  content: "📘";
+  margin-right: 10px;
+}
+
+.notebook-link:nth-child(2)::before {
+  content: "💻";
+}
+
+.section {
+  background-color: rgba(30, 40, 55, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.coming-soon {
+  color: #90a4ae;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: 15px;
+}
