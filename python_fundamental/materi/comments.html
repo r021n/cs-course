@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Komentar" – Catatan dalam Kode Python</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(22, 30, 41);
+        font-family: Nata Sans, Helvetica, sans-serif;
+        color: aliceblue;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .main-content {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .content {
+        margin: 10px 0;
+        width: 100%;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(240, 248, 255, 0.1);
+        margin-bottom: 20px;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #26b0d2;
+      }
+      .logo i {
+        margin-right: 10px;
+      }
+      img {
+        max-width: 100%;
+        align-self: center;
+      }
+      .img-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        margin: 18px 0;
+        line-height: 50px;
+        font-weight: 700;
+        font-size: 40px;
+        color: aliceblue;
+      }
+      h2 {
+        margin: 25px 0 15px;
+        line-height: 40px;
+        font-weight: 700;
+        font-size: 30px;
+        color: aliceblue;
+      }
+      hr {
+        margin: 17px 0px;
+        border: 0.5px solid rgba(240, 248, 255, 0.1);
+      }
+      p,
+      em {
+        margin: 20px 0;
+        line-height: 35px;
+        font-size: 20px;
+        font-weight: 300;
+        color: aliceblue;
+      }
+      strong {
+        font-weight: 800;
+      }
+      a {
+        color: rgb(38, 176, 210);
+      }
+      pre {
+        color: aliceblue;
+        font-size: 18px;
+        line-height: 26px;
+        margin: 20px 0;
+        border-radius: 5px;
+        overflow: auto;
+        padding: 15px;
+        background-color: #2d3748;
+      }
+      .code-piece {
+        background-color: rgb(0, 99, 99);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .next-page {
+        margin: 30px 0;
+        line-height: 35px;
+        font-size: 20px;
+        font-weight: 300;
+        background-color: rgb(19, 46, 46);
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #26b0d2;
+      }
+      footer {
+        margin: 50px 0 100px;
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(240, 248, 255, 0.1);
+      }
+      .whatsapp-button {
+        position: fixed;
+        bottom: var(--whatsapp-bottom);
+        padding: 15px 25px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        background-color: #25d366;
+        color: white;
+        font-weight: 800;
+        font-size: 18px;
+        text-decoration: none;
+        border-radius: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, bottom 0.3s ease;
+      }
+      .whatsapp-button i {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+      .whatsapp-button:hover {
+        transform: scale(1.1);
+      }
+      #floating-navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(35, 50, 70);
+        color: aliceblue;
+        padding: 15px 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateY(100%);
+        opacity: 0;
+        z-index: 999;
+      }
+      .nav-button {
+        color: aliceblue;
+        text-decoration: none;
+        font-weight: bolder;
+        font-size: 30px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+      .nav-button:hover {
+        color: rgba(22, 208, 255, 0.819);
+      }
+      .nav-title {
+        flex-grow: 1;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0 20%;
+      }
+      @media (max-width: 768px) {
+        .main-content {
+          padding: 20px 15px;
+        }
+        h1 {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        h2 {
+          font-size: 26px;
+          line-height: 35px;
+        }
+        p,
+        em {
+          font-size: 18px;
+          line-height: 30px;
+        }
+        pre {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Komentar" – Catatan dalam Kode Python</h1>
+        <p>
+          Bayangkan Anda sedang menulis catatan di buku pelajaran Anda. Catatan
+          itu bukan bagian dari materi pelajaran utama, tetapi Anda
+          menuliskannya untuk membantu Anda memahami isi pelajaran, atau untuk
+          mengingatkan diri sendiri tentang sesuatu. Dalam pemrograman Python,
+          kita juga bisa melakukan hal yang sama dengan
+          <strong>Komentar</strong>.
+        </p>
+        <p>
+          Komentar adalah baris atau blok teks dalam kode program yang diabaikan
+          sepenuhnya oleh Python. Artinya, ketika Anda menjalankan program,
+          Python akan melewati komentar-komentar ini tanpa memprosesnya.
+          Komentar bukan perintah yang harus dijalankan; mereka ada di sana
+          hanya untuk membantu manusia (Anda sendiri, atau teman Anda yang
+          membaca kode) memahami apa yang sedang dilakukan oleh kode tersebut.
+        </p>
+        <h2>Menggunakan Tanda # untuk Komentar Satu Baris</h2>
+        <p>
+          Cara paling umum dan sederhana untuk menulis komentar dalam Python
+          adalah dengan menggunakan tanda pagar (<code class="code-piece"
+            >#</code
+          >). Apapun yang Anda tulis setelah tanda
+          <code class="code-piece">#</code> pada baris yang sama akan dianggap
+          sebagai komentar.
+        </p>
+        <pre><code class="language-python"># Ini adalah komentar satu baris. Python akan mengabaikan baris ini.
+print("Halo siswa SMA!") # Komentar juga bisa diletakkan setelah kode.
+print("Belajar Python itu menyenangkan.")
+# Baris ini juga akan diabaikan oleh Python.
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Halo siswa SMA!
+Belajar Python itu menyenangkan.
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dalam contoh di atas, setiap baris yang dimulai dengan
+          <code class="code-piece">#</code> adalah komentar. Anda bisa melihat
+          bahwa meskipun ada banyak baris komentar, output program hanya
+          menampilkan pesan dari perintah
+          <code class="code-piece">print()</code>. Python sama sekali tidak
+          menampilkan teks-teks yang dimulai dengan
+          <code class="code-piece">#</code>. Bahkan ketika
+          <code class="code-piece">#</code> diletakkan setelah perintah
+          <code class="code-piece">print("Halo siswa SMA!")</code>, Python hanya
+          menjalankan perintah <code class="code-piece">print</code> dan
+          mengabaikan sisa baris setelah <code class="code-piece">#</code>.
+        </p>
+        <h2>Komentar "Multi-Baris": Catatan Panjang Tanpa Ribet</h2>
+        <p>
+          Bagaimana jika Anda ingin menulis komentar yang sangat panjang, lebih
+          dari satu baris? Menambahkan <code class="code-piece">#</code> di
+          setiap baris akan terasa merepotkan. Python tidak memiliki tanda
+          khusus seperti <code class="code-piece">#</code> untuk komentar
+          multi-baris. Namun, ada trik cerdas yang sering digunakan para
+          programmer: yaitu dengan menggunakan tiga tanda kutip (baik
+          <code class="code-piece">'''</code> atau
+          <code class="code-piece">"""</code>).
+        </p>
+        <p>
+          Python menganggap teks yang diapit oleh tiga tanda kutip sebagai
+          sebuah "teks biasa" (atau lebih tepatnya, "string"). Namun, jika teks
+          panjang ini tidak disimpan ke dalam sebuah wadah (yang nanti akan kita
+          pelajari sebagai "variabel"), maka Python akan melihatnya dan kemudian
+          mengabaikannya. Ini seperti Anda menulis catatan di selembar kertas,
+          tapi tidak Anda simpan ke dalam map, jadi Anda biarkan saja tergeletak
+          dan tidak diproses lebih lanjut.
+        </p>
+        <pre><code class="language-python">'''
+Ini adalah komentar yang mencakup beberapa baris.
+Saya bisa menulis banyak hal di sini
+untuk menjelaskan bagian kode yang kompleks atau
+sekadar meninggalkan pesan penting.
+Python akan mengabaikan semua teks di antara tiga tanda kutip ini.
+'''
+print("Selamat datang di dunia pemrograman!")
+
+"""
+Ini juga merupakan komentar multi-baris,
+tapi menggunakan tiga tanda kutip ganda.
+Hasilnya sama saja, Python tetap mengabaikannya.
+"""
+print("Semangat belajar!")
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Selamat datang di dunia pemrograman!
+Semangat belajar!
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Di sini, blok teks yang diawali dan diakhiri dengan tiga tanda kutip
+          (<code class="code-piece">'''</code> atau
+          <code class="code-piece">"""</code>) akan diabaikan oleh Python.
+          Meskipun secara teknis Python mengenali teks tersebut sebagai "teks",
+          karena teks itu tidak digunakan untuk tujuan lain (seperti ditampilkan
+          atau disimpan), Python akan melewatinya begitu saja. Ini adalah cara
+          yang sangat praktis untuk menulis penjelasan panjang, petunjuk, atau
+          bahkan informasi hak cipta di awal program Anda tanpa perlu
+          menambahkan <code class="code-piece">#</code> di setiap baris.
+        </p>
+        <h2>Mengapa Komentar Itu Sangat Penting?</h2>
+        <p>
+          Mungkin Anda berpikir, "Kalau Python mengabaikannya, untuk apa
+          repot-repot menulis komentar?" Komentar memiliki beberapa peran yang
+          sangat vital dalam menulis kode yang baik:
+        </p>
+        <p>
+          <strong>Untuk Diri Sendiri di Masa Depan:</strong> Pernahkah Anda
+          menulis catatan untuk ujian, lalu beberapa bulan kemudian lupa maksud
+          catatan itu? Kode juga sama. Komentar membantu Anda mengingat kembali
+          mengapa Anda menulis bagian kode tertentu, terutama setelah lama tidak
+          melihatnya. Ini sangat membantu saat Anda perlu memperbarui atau
+          memperbaiki program Anda di kemudian hari.
+        </p>
+        <p>
+          <strong>Untuk Orang Lain (dan Tim):</strong> Jika Anda bekerja sama
+          dengan teman atau orang lain dalam membuat program, komentar adalah
+          "penerjemah" kode Anda. Mereka bisa dengan cepat memahami tujuan dan
+          cara kerja bagian-bagian program tanpa harus menebak-nebak. Ini
+          mempercepat kolaborasi dan mengurangi kesalahpahaman.
+        </p>
+        <p>
+          <strong>Sebagai "Tombol Nonaktif" Sementara:</strong> Komentar bisa
+          menjadi alat yang ampuh saat Anda sedang mencoba-coba atau memperbaiki
+          program. Jika ada bagian kode yang Anda curigai menyebabkan masalah,
+          atau Anda hanya ingin melihat bagaimana program berjalan tanpa bagian
+          itu, Anda bisa mengubahnya menjadi komentar.
+        </p>
+        <pre><code class="language-python"># Ini adalah kode yang menghitung sesuatu (nanti kita akan pelajari)
+# hasil_hitung = 10 * 5
+# print("Hasil perhitungan:", hasil_hitung)
+
+print("Program berjalan dengan baik tanpa bagian yang dikomentari.")
+
+# print("Baris ini dinonaktifkan sementara.")
+print("Ini adalah baris penting yang harus selalu aktif.")
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Program berjalan dengan baik tanpa bagian yang dikomentari.
+Ini adalah baris penting yang harus selalu aktif.
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dalam contoh ini, baris
+          <code class="code-piece">hasil_hitung = 10 * 5</code> dan
+          <code class="code-piece"
+            >print("Hasil perhitungan:", hasil_hitung)</code
+          >
+          diubah menjadi komentar. Ini berarti Python tidak akan menjalankannya
+          sama sekali. Bayangkan jika Anda sedang mencari tahu di mana letak
+          kesalahan di program Anda. Daripada menghapus baris kode yang mungkin
+          penting, Anda bisa mengubahnya menjadi komentar. Jika ternyata bukan
+          itu masalahnya, Anda tinggal menghapus tanda
+          <code class="code-piece">#</code> untuk mengaktifkannya kembali. Ini
+          adalah teknik yang sangat umum dan efektif dalam proses pengembangan
+          program.
+        </p>
+        <p>
+          Dengan memahami dan menggunakan komentar secara bijak, Anda tidak
+          hanya membuat kode yang berfungsi, tetapi juga kode yang "ramah" bagi
+          manusia!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./variable.html"
+            >"Variabel" – Kotak Penyimpanan Data di Program Python</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./output.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./variable.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

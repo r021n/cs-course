@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Mengenal "Output" – Bagaimana Python Berbicara kepada Kita</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+
+      <div class="content">
+        <h1>Mengenal "Output" – Bagaimana Python Berbicara kepada Kita</h1>
+
+        <p>
+          Saat kita menulis program, seringkali kita ingin program itu
+          menampilkan sesuatu, entah itu hasil perhitungan, sebuah pesan, atau
+          sekadar salam. Proses menampilkan informasi dari program kepada kita
+          (pengguna) inilah yang disebut <strong>Output</strong>. Dalam Python,
+          cara paling dasar untuk membuat program "berbicara" adalah dengan
+          menggunakan perintah <code class="code-piece">print()</code>.
+        </p>
+
+        <h2>Mengucapkan "Halo Dunia!"</h2>
+        <p>
+          Perintah <code class="code-piece">print()</code> adalah jendela
+          program kita untuk menampilkan teks atau angka. Apapun yang kita tulis
+          di dalam tanda kurung <code class="code-piece">()</code> setelah
+          <code class="code-piece">print</code>, akan muncul di layar. Jika itu
+          adalah teks, kita perlu menuliskannya di antara tanda kutip (" atau
+          ').
+        </p>
+
+        <pre><code class="language-python">print("Halo Dunia!")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Halo Dunia!</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perintah <code class="code-piece">print("Halo Dunia!")</code> berarti
+          kita meminta Python untuk menampilkan deretan karakter "Halo Dunia!"
+          ke layar. Tanda kutip memberitahu Python bahwa "Halo Dunia!" adalah
+          sebaris teks yang harus ditampilkan persis seperti itu.
+        </p>
+
+        <h2>Menampilkan Berbagai Jenis Informasi</h2>
+        <p>
+          <code class="code-piece">print()</code> tidak hanya cerdas dalam
+          menampilkan teks, tapi juga sangat fleksibel. Ia bisa menampilkan
+          angka, baik bilangan bulat maupun bilangan desimal, atau bahkan
+          menggabungkan teks dengan angka dalam satu baris yang sama.
+        </p>
+
+        <pre><code class="language-python">print(1945)
+print(3.14159)
+print("Saya suka mata pelajaran", "Matematika.")
+print("Nilai rata-rata saya adalah", 85)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">1945
+3.14159
+Saya suka mata pelajaran Matematika.
+Nilai rata-rata saya adalah 85</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika Anda menulis <code class="code-piece">print(1945)</code> atau
+          <code class="code-piece">print(3.14159)</code>, Python langsung
+          mengerti bahwa itu adalah angka dan menampilkannya. Perhatikan baris
+          <code class="code-piece"
+            >print("Saya suka mata pelajaran", "Matematika.")</code
+          >
+          dan
+          <code class="code-piece"
+            >print("Nilai rata-rata saya adalah", 85)</code
+          >. Di sini, kita memberikan beberapa hal yang dipisahkan oleh tanda
+          koma di dalam <code class="code-piece">print()</code>. Python secara
+          otomatis menambahkan spasi di antara setiap bagian yang kita berikan
+          itu. Ini adalah perilaku bawaan
+          <code class="code-piece">print()</code> yang memudahkan kita dalam
+          menampilkan beberapa informasi sekaligus dengan rapi.
+        </p>
+
+        <h2>Mengatur Jarak Antar Informasi (Bukan Cuma Spasi!)</h2>
+        <p>
+          Kita sudah tahu bahwa <code class="code-piece">print()</code> secara
+          otomatis menambahkan spasi di antara setiap informasi yang dipisahkan
+          koma. Namun, bagaimana jika kita ingin pemisah itu bukan spasi?
+          <code class="code-piece">print()</code> punya sebuah pengaturan untuk
+          hal ini.
+        </p>
+
+        <pre><code class="language-python">print("Siswa", "SMAN", "1", "Jakarta")
+print("Siswa", "SMAN", "1", "Jakarta", sep="-")
+print("Angka", 1, 2, 3, 4, 5, sep=":")
+print("Ini", "Adalah", "Contoh", sep="***")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Siswa SMAN 1 Jakarta
+Siswa-SMAN-1-Jakarta
+Angka:1:2:3:4:5
+Ini***Adalah***Contoh</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada baris pertama,
+          <code class="code-piece">print()</code> menggunakan spasi sebagai
+          pemisah antar teks. Namun, pada baris kedua, kita menambahkan
+          <code class="code-piece">sep="-"</code>. Bagian sep ini adalah
+          kependekan dari <strong>"separator"</strong> atau
+          <strong>"pemisah"</strong>. Dengan menuliskannya di dalam
+          <code class="code-piece">print()</code>, kita memberi tahu Python
+          untuk menggunakan tanda <code class="code-piece">-</code> sebagai
+          pemisah antar informasi, bukan spasi. Anda bisa mengganti "<code
+            class="code-piece"
+            >-</code
+          >" dengan karakter atau teks lain yang Anda inginkan, seperti "<code
+            class="code-piece"
+            >:</code
+          >" atau <code class="code-piece">***</code> seperti pada contoh
+          lainnya. Ini adalah trik yang sangat berguna untuk mengatur tampilan
+          output Anda agar sesuai kebutuhan.
+        </p>
+
+        <h2>Mengatur Akhir Tampilan: Baris Baru Otomatis?</h2>
+        <p>
+          Salah satu hal yang sering tidak disadari tentang
+          <code class="code-piece">print()</code> adalah bahwa setelah selesai
+          menampilkan semua yang diminta, ia secara otomatis akan "pindah ke
+          baris baru". Ini seperti Anda mengetik sesuatu di Microsoft Word lalu
+          menekan tombol Enter, kursor akan pindah ke baris di bawahnya. Namun,
+          kadang kita tidak ingin <code class="code-piece">print()</code> pindah
+          ke baris baru, melainkan ingin melanjutkan tampilan di baris yang
+          sama.
+        </p>
+
+        <pre><code class="language-python">print("Selamat Pagi!")
+print("Ini adalah baris kedua.")
+
+print("Halo", end=" ")
+print("Dunia!")
+
+print("Jumlah Angka:", end="")
+print(100)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Selamat Pagi!
+Ini adalah baris kedua.
+Halo Dunia!
+Jumlah Angka:100</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Secara standar, setelah
+          <code class="code-piece">print("Selamat Pagi!")</code> selesai, Python
+          akan membuat kursor pindah ke baris baru, sehingga
+          <code class="code-piece"> print("Ini adalah baris kedua.")</code>
+          muncul di baris berikutnya.
+        </p>
+        <p>
+          Namun, pada baris
+          <code class="code-piece">print("Halo", end=" ")</code>, kita
+          menambahkan <code class="code-piece">end=" "</code>. Bagian
+          <code class="code-piece">end</code> ini memberi tahu Python apa yang
+          harus diletakkan di akhir tampilan. Alih-alih berpindah ke baris baru,
+          dalam contoh ini, kita meminta
+          <code class="code-piece">print()</code> untuk menaruh satu spasi
+          <code class="code-piece">(" ")</code>
+          di akhir, bukan pindah baris. Itu sebabnya
+          <code class="code-piece">print("Dunia!")</code> muncul di baris yang
+          sama, persis setelah spasi tersebut.
+        </p>
+        <p>
+          Jika Anda ingin tidak ada apapun di akhir teks dan tampilan berikutnya
+          langsung menyambung, Anda bisa menggunakan
+          <code class="code-piece">end=""</code>, seperti pada
+          <code class="code-piece"> print("Jumlah Angka:", end="")</code> yang
+          membuat 100 langsung menyambung tanpa spasi atau berpindah baris.
+        </p>
+
+        <h2>Membuat Baris Kosong untuk Keterbacaan</h2>
+        <p>
+          Terkadang, Anda ingin ada sedikit "jarak" antar bagian informasi di
+          output Anda, seperti halnya jarak antar paragraf dalam sebuah tulisan.
+          <code class="code-piece">print()</code> memiliki cara yang sangat
+          sederhana untuk melakukan ini: cukup panggil
+          <code class="code-piece">print()</code> tanpa memberikan informasi
+          apapun di dalamnya.
+        </p>
+
+        <pre><code class="language-python">print("Ini adalah bagian pertama dari cerita.")
+print() # Ini akan mencetak satu baris kosong
+print("Kemudian, di bagian selanjutnya, ada hal menarik terjadi.")
+print() # Anda bisa mencetak beberapa baris kosong juga
+print()
+print("Selesai.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Ini adalah bagian pertama dari cerita.
+
+Kemudian, di bagian selanjutnya, ada hal menarik terjadi.
+
+
+Selesai.</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap kali Anda menulis <code class="code-piece">print()</code> tanpa
+          apapun di dalam tanda kurung, Python akan mencetak satu baris kosong.
+          Ini seperti Anda menekan tombol Enter satu kali di aplikasi pengolah
+          kata (ex: microsoft word). Anda bisa menuliskannya beberapa kali
+          berturut-turut untuk menciptakan lebih banyak baris kosong, seperti
+          yang ditunjukkan sebelum kata "Selesai.". Hal ini sangat berguna untuk
+          membuat tampilan program Anda lebih mudah dibaca dan tidak terlihat
+          penuh atau sesak.
+        </p>
+
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./comments.html">"Komentar" – Catatan dalam Kode Python</a>
+        </div>
+
+        <footer></footer>
+      </div>
+    </div>
+
+    <div id="floating-navbar">
+      <a href="#" class="nav-button"><i class="fas fa-arrow-left"></i></a>
+      <span class="nav-title"></span>
+      <a href="./comments.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

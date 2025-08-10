@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Variabel" – Kotak Penyimpanan Data di Program Python</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Variabel" – Kotak Penyimpanan Data di Program Python</h1>
+        <p>
+          Bayangkan Anda memiliki sebuah kotak kosong di rumah, dan Anda memberi
+          label pada kotak tersebut, misalnya "Buku Pelajaran". Di dalam kotak
+          itu, Anda bisa menyimpan buku apa saja, dan Anda bisa mengganti isinya
+          kapan pun Anda mau. Saat Anda ingin mengambil atau melihat buku di
+          dalamnya, Anda hanya perlu mencari kotak dengan label "Buku
+          Pelajaran".
+        </p>
+        <p>
+          Dalam pemrograman Python, <strong>Variabel</strong> itu persis seperti
+          "kotak penyimpanan" berlabel tadi. Variabel adalah nama yang kita
+          berikan untuk sebuah tempat di memori komputer yang bisa kita gunakan
+          untuk menyimpan berbagai jenis informasi, seperti angka, teks, atau
+          data lainnya. Informasi yang disimpan dalam variabel bisa berubah-ubah
+          selama program berjalan.
+        </p>
+        <h2>Menyimpan dan Menampilkan Informasi</h2>
+        <p>
+          Untuk membuat sebuah variabel, kita hanya perlu memberi nama pada
+          "kotak" itu, lalu menggunakan tanda sama dengan (<code
+            class="code-piece"
+            >=</code
+          >) untuk "memasukkan" informasi ke dalamnya. Setelah itu, kita bisa
+          menggunakan nama variabel tersebut di mana pun kita membutuhkan
+          informasi yang disimpannya, termasuk untuk ditampilkan menggunakan
+          perintah <code class="code-piece">print()</code>.
+        </p>
+        <pre><code class="language-python"># Ini adalah variabel yang menyimpan nama seseorang
+nama_siswa = "Budi Santoso"
+
+# Ini adalah variabel yang menyimpan umur
+umur_siswa = 16
+
+# Kita bisa mencetak informasi dari variabel
+print("Nama:", nama_siswa)
+print("Umur:", umur_siswa, "tahun")
+
+# Komentar ini menjelaskan kegunaan variabel 'nilai_mtk'
+nilai_mtk = 90
+print("Nilai Matematika:", nilai_mtk)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama: Budi Santoso
+Umur: 16 tahun
+Nilai Matematika: 90</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada baris
+          <code class="code-piece">nama_siswa = "Budi Santoso"</code>, kita
+          membuat sebuah variabel bernama
+          <code class="code-piece">nama_siswa</code> dan "mengisi"nya dengan
+          teks "Budi Santoso". Demikian pula,
+          <code class="code-piece">umur_siswa = 16</code> membuat variabel
+          <code class="code-piece">umur_siswa</code> yang diisi dengan angka 16.
+        </p>
+        <p>
+          Ketika kita menggunakan
+          <code class="code-piece">print("Nama:", nama_siswa)</code>, Python
+          akan melihat <code class="code-piece">nama_siswa</code>, lalu
+          mengambil isi dari "kotak" itu (yaitu "Budi Santoso"), dan
+          menampilkannya bersamaan dengan teks "Nama:". Sama halnya dengan
+          <code class="code-piece">umur_siswa</code> dan
+          <code class="code-piece">nilai_mtk</code>. Kita bisa memanggil nama
+          variabel berkali-kali tanpa perlu menuliskan ulang datanya.
+        </p>
+        <h2>Aturan Penamaan Variabel (Agar Python Tidak Bingung!)</h2>
+        <p>
+          Sama seperti memberi label pada kotak, ada beberapa aturan dan
+          kebiasaan baik saat memberi nama variabel agar Python mengerti dan
+          program kita mudah dibaca:
+        </p>
+        <ul>
+          <li>
+            <strong>Hanya Huruf, Angka, dan Garis Bawah (_):</strong> Nama
+            variabel hanya boleh terdiri dari huruf (a-z, A-Z), angka (0-9), dan
+            karakter garis bawah (<code class="code-piece">_</code>).
+          </li>
+          <li>
+            <strong>Tidak Boleh Diawali Angka:</strong> Nama variabel tidak
+            boleh dimulai dengan angka.
+            <code class="code-piece">1nama</code> itu salah, tapi
+            <code class="code-piece">nama1</code> itu benar.
+          </li>
+          <li>
+            <strong>Peka Huruf Besar/Kecil:</strong> Python sangat peka terhadap
+            huruf besar dan kecil.
+            <code class="code-piece">nama_siswa</code> itu berbeda dengan
+            <code class="code-piece">Nama_Siswa</code> atau
+            <code class="code-piece">NAMA_SISWA</code>. Mereka dianggap sebagai
+            tiga variabel yang berbeda!
+          </li>
+          <li>
+            <strong>Hindari Kata Khusus Python:</strong> Ada beberapa kata yang
+            sudah dipakai oleh Python untuk perintah-perintah khusus (seperti
+            <code class="code-piece">print</code>,
+            <code class="code-piece">if</code>,
+            <code class="code-piece">for</code>). Kita tidak boleh menggunakan
+            kata-kata ini sebagai nama variabel. Jika Anda mencobanya, Python
+            akan menanggapinya dengan pesan kesalahan/error.
+          </li>
+          <li>
+            <strong>Gunakan Nama yang Jelas:</strong> Selalu coba berikan nama
+            variabel yang menggambarkan isinya. Daripada
+            <code class="code-piece">x = 10</code>, lebih baik
+            <code class="code-piece">jumlah_buku = 10</code>. Ini membuat kode
+            Anda lebih mudah dipahami oleh Anda sendiri di masa depan, atau oleh
+            orang lain yang membaca kode Anda. Kebiasaan umum di Python adalah
+            menggunakan <code class="code-piece">_</code> (garis bawah) untuk
+            memisahkan kata, seperti
+            <code class="code-piece">nama_lengkap</code> atau
+            <code class="code-piece">nilai_rata_rata</code>.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh nama variabel yang BENAR:
+nama_depan = "Ani"
+total_harga = 25000
+_jenis_produk = "Pakaian" # Boleh dimulai dengan underscore
+nilai_UAS = 88
+
+# Contoh nama variabel yang SALAH (akan menimbulkan error):
+# 1tahun = 2024 # ERROR: Tidak boleh dimulai dengan angka
+# for = "loop"   # ERROR: 'for' adalah kata kunci Python
+# Nama Depan = "Budi" # ERROR: Tidak boleh ada spasi
+
+print("Nama Depan:", nama_depan)
+print("Total Harga:", total_harga)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama Depan: Ani
+Total Harga: 25000</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh di atas menunjukkan nama variabel yang sesuai dengan aturan
+          Python. Ketika Anda mencoba membuat variabel seperti
+          <code class="code-piece">1tahun</code> atau
+          <code class="code-piece">Nama Depan</code>, Python akan mengeluarkan
+          pesan kesalahan karena melanggar aturan penamaan. Python butuh nama
+          yang jelas dan tidak ambigu untuk "kotaknya".
+        </p>
+        <h2>Variabel Bisa Berubah Isi (Bahkan Tipe Informasi!)</h2>
+        <p>
+          Salah satu hal menarik tentang variabel di Python adalah Anda bisa
+          mengganti isi "kotak" kapan saja. Bahkan, Anda bisa menyimpan jenis
+          informasi yang berbeda di kotak yang sama!
+        </p>
+        <pre><code class="language-python"># Awalnya, variabel 'pesan' berisi teks salam
+pesan = "Selamat pagi!"
+print(pesan)
+
+# Kemudian, kita ganti isi variabel 'pesan' dengan teks lain
+pesan = "Halo semua, ayo belajar Python."
+print(pesan)
+
+# Sekarang, kita ubah 'pesan' untuk menyimpan angka
+pesan = 12345
+print(pesan)
+
+# Bahkan bisa diubah lagi ke teks
+pesan = "Angka di atas adalah kode rahasia."
+print(pesan)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Selamat pagi!
+Halo semua, ayo belajar Python.
+12345
+Angka di atas adalah kode rahasia.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada awalnya, variabel <code class="code-piece">pesan</code> berisi
+          teks "Selamat pagi!". Ketika kita mencetaknya, itulah yang muncul.
+          Namun, pada baris berikutnya, kita "memasukkan" teks yang berbeda ke
+          dalam variabel <code class="code-piece">pesan</code>. Isi yang lama
+          akan tergantikan. Python tidak keberatan jika Anda mengubah isi
+          variabel, bahkan jika Anda menggantinya dari teks menjadi angka
+          (seperti pada <code class="code-piece">pesan = 12345</code>) atau
+          sebaliknya. Python secara otomatis akan menyesuaikan diri dengan jenis
+          data terbaru yang Anda masukkan. Ini membuat Python sangat fleksibel!
+        </p>
+        <h2>Menyalin Isi Variabel (Bukan Kotaknya!)</h2>
+        <p>
+          Ketika Anda membuat satu variabel sama dengan variabel lain, Anda
+          sebenarnya sedang menyalin isi dari variabel pertama ke variabel
+          kedua, bukan membuat kedua variabel itu saling terhubung. Bayangkan
+          Anda punya dua kotak: Kotak A dan Kotak B. Anda mengambil isi dari
+          Kotak A, lalu menyalinnya ke Kotak B. Setelah itu, jika Anda mengubah
+          isi Kotak A, isi Kotak B tidak akan ikut berubah karena mereka adalah
+          kotak yang terpisah.
+        </p>
+        <pre><code class="language-python">nilai_ulangan_ani = 85
+nilai_ulangan_budi = nilai_ulangan_ani # Budi menyalin nilai Ani
+
+print("Nilai Ani sebelum diubah:", nilai_ulangan_ani)
+print("Nilai Budi (setelah menyalin Ani):", nilai_ulangan_budi)
+
+# Ani memperbaiki ulangannya, nilainya berubah
+nilai_ulangan_ani = 95
+
+print("Nilai Ani setelah diubah:", nilai_ulangan_ani)
+print("Nilai Budi (tetap sama):", nilai_ulangan_budi) # Nilai Budi tidak berubah</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai Ani sebelum diubah: 85
+Nilai Budi (setelah menyalin Ani): 85
+Nilai Ani setelah diubah: 95
+Nilai Budi (tetap sama): 85</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada awalnya, <code class="code-piece">nilai_ulangan_ani</code> adalah
+          85. Ketika kita menulis
+          <code class="code-piece">nilai_ulangan_budi = nilai_ulangan_ani</code
+          >, Python mengambil nilai 85 dari
+          <code class="code-piece">nilai_ulangan_ani</code> dan menyimpannya ke
+          dalam <code class="code-piece">nilai_ulangan_budi</code>. Jadi,
+          sekarang <code class="code-piece">nilai_ulangan_budi</code> juga
+          berisi 85.
+        </p>
+        <p>
+          Kemudian, ketika
+          <code class="code-piece">nilai_ulangan_ani</code> diubah menjadi 95,
+          itu hanya memengaruhi isi "kotak"
+          <code class="code-piece">nilai_ulangan_ani</code>. "Kotak"
+          <code class="code-piece">nilai_ulangan_budi</code> tetap berisi nilai
+          yang disalin sebelumnya, yaitu 85, karena tidak ada lagi hubungan
+          langsung di antara keduanya setelah proses penyalinan nilai. Ini
+          adalah konsep penting untuk dipahami agar tidak kebingungan saat
+          program Anda menjadi lebih kompleks.
+        </p>
+        <p>
+          Dengan memahami konsep variabel ini, Anda sudah memiliki pemahaman
+          dasar yang kuat untuk menyimpan dan mengelola informasi dalam program
+          Python Anda!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./output.html"></a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./comments.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="#" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>
