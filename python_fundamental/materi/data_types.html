@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Tipe Data" – Jenis-Jenis Informasi yang Dimengerti Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html" class="active">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Tipe Data" – Jenis-Jenis Informasi yang Dimengerti Python</h1>
+        <p>
+          Bayangkan Anda memiliki sebuah kotak berisi pensil,dan sebuah kotak
+          berisi permen. Anda tidak akan mencoba menulis dengan permen, atau
+          memakan pensil. Setiap "barang" memiliki jenisnya sendiri dan cara
+          kita memperlakukannya juga berbeda.
+        </p>
+        <p>
+          Sama seperti itu, dalam dunia pemrograman, komputer perlu tahu jenis
+          informasi apa yang sedang ia tangani. Apakah itu angka, teks, atau
+          sesuatu yang lain? Inilah yang disebut <strong>Tipe Data</strong>.
+          Python sangat cerdas dalam mengenali berbagai tipe data secara
+          otomatis. Memahami tipe data membantu kita memastikan program
+          melakukan operasi yang benar pada jenis informasi yang tepat.
+        </p>
+        <h2>Angka Utuh: Tipe Data Integer (Bilangan Bulat)</h2>
+        <p>
+          Ketika kita berurusan dengan bilangan bulat – yaitu angka yang tidak
+          memiliki tanda koma atau bagian pecahan – Python menyebutnya sebagai
+          <strong>Integer</strong> (sering disingkat
+          <code class="code-piece">int</code>). Ini adalah tipe data yang paling
+          umum untuk menghitung jumlah barang, umur, tahun, dan sejenisnya.
+        </p>
+        <pre><code class="language-python"># Ini adalah variabel yang menyimpan bilangan bulat
+jumlah_apel = 10
+tahun_lahir = 2007
+skor_ujian = 95
+
+print("Jumlah apel yang tersedia:", jumlah_apel)
+print("Anda lahir di tahun:", tahun_lahir)
+print("Skor ujian Anda:", skor_ujian)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Jumlah apel yang tersedia: 10
+Anda lahir di tahun: 2007
+Skor ujian Anda: 95</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dalam contoh di atas, angka 10, 2007, dan 95 semuanya adalah bilangan
+          bulat. Ketika kita menyimpannya ke dalam variabel seperti
+          <code class="code-piece">jumlah_apel</code>, Python secara otomatis
+          mengenali bahwa ini adalah tipe data <strong>Integer</strong>. Python
+          akan memproses angka-angka ini sebagai angka utuh, yang cocok untuk
+          operasi matematika dasar.
+        </p>
+        <h2>Angka Pecahan: Tipe Data Float (Bilangan Desimal)</h2>
+        <p>
+          Jika Anda membutuhkan angka yang memiliki bagian desimal (angka di
+          belakang koma, atau lebih tepatnya di belakang titik dalam penulisan
+          standar internasional), Python memiliki tipe data khusus yang disebut
+          <strong>Float</strong>. Tipe ini sangat berguna untuk mengukur sesuatu
+          yang tidak selalu bulat, seperti tinggi badan, berat, suhu, atau
+          harga.
+        </p>
+        <pre><code class="language-python"># Ini adalah variabel yang menyimpan bilangan desimal
+tinggi_badan_meter = 1.75
+suhu_ruangan = 25.5
+harga_barang = 15500.50 # Gunakan titik untuk desimal, bukan koma
+
+print("Tinggi badan saya:", tinggi_badan_meter, "meter")
+print("Suhu ruangan saat ini:", suhu_ruangan, "derajat Celsius")
+print("Harga satuannya adalah Rp", harga_barang)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Tinggi badan saya: 1.75 meter
+Suhu ruangan saat ini: 25.5 derajat Celsius
+Harga satuannya adalah Rp 15500.5</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan angka 1.75, 25.5, dan 15500.50. Mereka semua memiliki
+          bagian desimal. Python secara otomatis mengidentifikasinya sebagai
+          tipe data <strong>Float</strong>. Penting diingat bahwa dalam Python
+          (dan kebanyakan bahasa pemrograman), tanda titik (<code
+            class="code-piece"
+            >.</code
+          >) digunakan sebagai pemisah desimal, bukan koma. Jadi, 15.500,50 yang
+          biasa kita tulis dalam rupiah akan menjadi 15500.50 di Python.
+        </p>
+        <h2>Teks: Tipe Data String (Deretan Karakter)</h2>
+        <p>
+          Ketika Anda ingin menyimpan nama, alamat, kalimat, atau bahkan kode
+          pos yang mungkin mengandung angka tetapi Anda tidak akan menghitungnya
+          (misalnya "40123"), Python menggunakan tipe data
+          <strong>String</strong> (sering disingkat
+          <code class="code-piece">str</code>). String adalah urutan karakter
+          apa pun yang diapit oleh tanda kutip, baik itu kutip tunggal (<code
+            class="code-piece"
+            >'</code
+          >) atau kutip ganda (<code class="code-piece">"</code>).
+        </p>
+        <pre><code class="language-python"># Ini adalah variabel yang menyimpan teks (string)
+nama_sekolah = "SMA Negeri 1 Jaya"
+pesan_motivasi = 'Jangan menyerah, teruslah belajar!'
+kode_pos = "40123" # Meskipun angka, ini adalah teks karena diapit kutip
+
+print("Nama sekolah saya:", nama_sekolah)
+print("Pesan hari ini:", pesan_motivasi)
+print("Kode pos daerah saya:", kode_pos)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama sekolah saya: SMA Negeri 1 Jaya
+Pesan hari ini: Jangan menyerah, teruslah belajar!
+Kode pos daerah saya: 40123</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Teks <code class="code-piece">"SMA Negeri 1 Jaya"</code>,
+          <code class="code-piece">'Jangan menyerah, teruslah belajar!'</code>,
+          dan <code class="code-piece">"40123"</code> semuanya adalah
+          <strong>String</strong>. Python mengenali mereka sebagai teks karena
+          diapit oleh tanda kutip. Penting untuk diingat: meskipun
+          <code class="code-piece">kode_pos</code> berisi angka, karena diapit
+          tanda kutip, Python memperlakukannya sebagai teks. Anda tidak bisa
+          melakukan operasi matematika pada string ini, bahkan jika isinya
+          angka. Mencoba menambahkan
+          <code class="code-piece">kode_pos</code> dengan angka lain akan
+          menghasilkan error, karena Python tidak tahu bagaimana "menambahkan"
+          teks dengan angka.
+        </p>
+        <h2>True dan False: Tipe Data Boolean</h2>
+        <p>
+          Ada kalanya kita hanya perlu menyimpan informasi yang jawabannya hanya
+          "ya" atau "tidak", "benar" atau "salah". Untuk situasi ini, Python
+          memiliki tipe data <strong>Boolean</strong> (sering disingkat
+          <code class="code-piece">bool</code>). Tipe data ini hanya memiliki
+          dua kemungkinan nilai: <code class="code-piece">True</code> (Benar)
+          atau <code class="code-piece">False</code> (Salah). Perhatikan bahwa
+          huruf pertama (<code class="code-piece">T</code> dan
+          <code class="code-piece">F</code>) harus selalu huruf kapital.
+        </p>
+        <pre><code class="language-python"># Ini adalah variabel Boolean
+apakah_siswa_hadir = True
+sudah_pulang = False
+nilai_memuaskan = True
+
+print("Apakah siswa ini hadir?", apakah_siswa_hadir)
+print("Apakah pelajaran sudah selesai?", sudah_pulang)
+print("Apakah nilai Anda memuaskan?", nilai_memuaskan)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Apakah siswa ini hadir? True
+Apakah pelajaran sudah selesai? False
+Apakah nilai Anda memuaskan? True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Variabel <code class="code-piece">apakah_siswa_hadir</code>,
+          <code class="code-piece">sudah_pulang</code>, dan
+          <code class="code-piece">nilai_memuaskan</code> semuanya menyimpan
+          nilai <strong>Boolean</strong>. Nilai
+          <code class="code-piece">True</code> dan
+          <code class="code-piece">False</code> ini sangat penting dalam membuat
+          keputusan di program Anda, yang akan kita pelajari lebih lanjut di
+          modul Kondisional.
+        </p>
+        <h2>Mengapa Python Perlu Tahu Tipe Data?</h2>
+        <p>
+          Mungkin Anda bertanya, "Untuk apa saya pusing-pusing memikirkan tipe
+          data kalau Python sudah otomatis tahu?" Nah, ini bagian yang
+          seringkali tidak disadari dan sangat penting!
+        </p>
+        <p>
+          Python perlu tahu tipe data karena cara ia mengolah informasi sangat
+          tergantung pada tipenya. Contoh paling sederhana adalah tanda
+          <code class="code-piece">+</code>:
+        </p>
+        <ul>
+          <li>
+            Jika Anda menambahkan dua angka (Integer atau Float), Python akan
+            melakukan operasi penjumlahan.
+          </li>
+          <li>
+            Jika Anda "menambahkan" dua teks (String), Python tidak akan
+            menjumlahkannya, melainkan menggabungkannya (menyambungnya).
+          </li>
+          <li>
+            Mencoba menggabungkan tipe data yang tidak cocok bisa menyebabkan
+            kesalahan fatal pada program Anda.
+          </li>
+        </ul>
+        <p>
+          Untuk mengetahui tipe data dari sebuah variabel atau nilai apa pun,
+          Python menyediakan sebuah "fungsi" khusus bernama
+          <code class="code-piece">type()</code>. Anda cukup menulis
+          <code class="code-piece">type()</code> dan meletakkan variabel atau
+          nilai yang ingin Anda periksa di dalam tanda kurungnya.
+        </p>
+        <pre><code class="language-python"># Mari kita lihat tipe data dari variabel-variabel kita
+nama_lengkap = "Dian Permata"
+umur_siswa = 17
+berat_badan = 55.7
+apakah_punya_laptop = True
+
+# Menggunakan print() untuk menampilkan tipe data
+print("Tipe data dari nama_lengkap adalah:", type(nama_lengkap))
+print("Tipe data dari umur_siswa adalah:", type(umur_siswa))
+print("Tipe data dari berat_badan adalah:", type(berat_badan))
+print("Tipe data dari apakah_punya_laptop adalah:", type(apakah_punya_laptop))
+
+print("\n--- Contoh Operasi Berbeda Tipe ---")
+print("Penjumlahan angka:", 5 + 3) # Hasilnya 8
+print("Penggabungan teks:", "Selamat" + " " + "Belajar") # Hasilnya "Selamat Belajar"
+
+# print("Ini akan ERROR:", "Angka" + 10) # Ini akan menyebabkan error karena menggabungkan teks dan angka</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Tipe data dari nama_lengkap adalah: <class 'str'>
+Tipe data dari umur_siswa adalah: <class 'int'>
+Tipe data dari berat_badan adalah: <class 'float'>
+Tipe data dari apakah_punya_laptop adalah: <class 'bool'>
+
+--- Contoh Operasi Berbeda Tipe ---
+Penjumlahan angka: 8
+Penggabungan teks: Selamat Belajar</code></pre>
+        <p>
+          <em
+            >(Catatan: Baris
+            <code class="code-piece"
+              >print("Ini akan ERROR:", "Angka" + 10)</code
+            >
+            sengaja dikomentari (<code class="code-piece">#</code>) agar program
+            bisa berjalan tanpa error. Jika Anda menghapus tanda
+            <code class="code-piece">#</code> dan mencobanya, Python akan
+            menampilkan pesan kesalahan karena Anda mencoba "menambahkan" teks
+            dengan angka, yang tidak mungkin dilakukan secara langsung.)</em
+          >
+        </p>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika Anda menggunakan <code class="code-piece">type()</code>, Python
+          akan memberitahu Anda jenis "kelas" dari data tersebut. Misalnya,
+          <code class="code-piece">&lt;class 'str'&gt;</code> berarti itu adalah
+          <strong>String</strong>,
+          <code class="code-piece">&lt;class 'int'&gt;</code> adalah
+          <strong>Integer</strong>,
+          <code class="code-piece">&lt;class 'float'&gt;</code> adalah
+          <strong>Float</strong>, dan
+          <code class="code-piece">&lt;class 'bool'&gt;</code> adalah
+          <strong>Boolean</strong>.
+        </p>
+        <p>
+          Contoh penjumlahan angka (<code class="code-piece">5 + 3</code>) dan
+          penggabungan teks (<code class="code-piece"
+            >"Selamat" + " " + "Belajar"</code
+          >) menunjukkan bagaimana Python melakukan operasi yang berbeda
+          tergantung pada tipe datanya. Ini adalah bukti pentingnya Python
+          memahami tipe data dari setiap informasi yang Anda berikan. Jika Anda
+          mencoba mencampur aduk operasi yang tidak cocok (seperti menambahkan
+          string dengan integer), Python akan langsung memberi tahu Anda bahwa
+          ada masalah.
+        </p>
+        <p>
+          Memahami tipe data adalah langkah awal yang sangat penting agar Anda
+          bisa menulis program yang benar dan menghindari kesalahan yang tidak
+          perlu.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./operators.html">"Operator" – Alat Aksi di Python</a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./variable.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./operators.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

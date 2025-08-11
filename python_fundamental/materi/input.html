@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Input" – Menerima Masukan dari Pengguna</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html" class="active">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Input" – Menerima Masukan dari Pengguna</h1>
+        <p>
+          Sebelumnya, kita sudah belajar bagaimana program Python "berbicara"
+          kepada kita melalui <strong>Output</strong> menggunakan
+          <code class="code-piece">print()</code>. Sekarang, saatnya kita
+          belajar bagaimana kita bisa "berbicara" kembali kepada program. Proses
+          di mana program menerima informasi dari pengguna (misalnya, melalui
+          ketikan di keyboard) inilah yang disebut <strong>Input</strong>.
+        </p>
+        <p>
+          Dalam Python, ada satu alat utama yang kita gunakan untuk meminta
+          input dari pengguna, yaitu fungsi
+          <code class="code-piece">input()</code>.
+        </p>
+        <h2>
+          Meminta Nama: Penggunaan Dasar <code class="code-piece">input()</code>
+        </h2>
+        <p>
+          Fungsi <code class="code-piece">input()</code> akan "menunggu" sampai
+          pengguna mengetik sesuatu dan menekan tombol Enter. Apapun yang
+          diketik pengguna akan diambil oleh
+          <code class="code-piece">input()</code> dan bisa kita simpan ke dalam
+          sebuah variabel.
+        </p>
+        <pre><code class="language-python"># Program meminta nama Anda
+nama = input()
+
+# Lalu program menampilkan nama yang Anda masukkan
+print("Halo,", nama + "! Senang bertemu denganmu.")</code></pre>
+        <p><strong>Outputnya (contoh interaksi):</strong></p>
+        <pre><code class="language-plain">Budi Santoso  <-- Ini adalah ketikan pengguna
+Halo, Budi Santoso! Senang bertemu denganmu.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada baris <code class="code-piece">nama = input()</code>, program
+          berhenti sejenak dan menunggu Anda mengetik sesuatu. Saat Anda
+          mengetik <code class="code-piece">Budi Santoso</code> dan menekan
+          Enter, teks tersebut akan diambil oleh fungsi
+          <code class="code-piece">input()</code> dan langsung disimpan ke dalam
+          variabel <code class="code-piece">nama</code>. Kemudian,
+          <code class="code-piece"
+            >print("Halo,", nama + "! Senang bertemu denganmu.")</code
+          >
+          akan menampilkan pesan sambutan yang berisi nama yang baru saja Anda
+          masukkan.
+        </p>
+        <h2>Memahami Rahasia <code class="code-piece">input()</code></h2>
+        <p>
+          Ini adalah salah satu hal penting dan sering tidak disadari tentang
+          <code class="code-piece">input()</code>:
+          <strong
+            >Apapun yang Anda ketik, Python akan selalu menganggapnya sebagai
+            sebuah teks (tipe data
+            <code class="code-piece">string</code>)</strong
+          >. Bahkan jika Anda mengetik angka, Python akan melihatnya sebagai
+          teks, bukan sebagai angka yang bisa dihitung.
+        </p>
+        <p>Mari kita buktikan dengan contoh:</p>
+        <pre><code class="language-python"># Meminta umur dan mencoba mengetahui tipenya
+print("Berapa umur Anda?")
+umur_anda = input()
+
+print("Umur Anda adalah:", umur_anda)
+print("Tipe data dari umur yang Anda masukkan adalah:", type(umur_anda))
+
+# Mari kita coba menambahkan angka ke umur_anda (akan terjadi error!)
+# hasil_penambahan = umur_anda + 5 # Ini akan error!
+# print(hasil_penambahan)</code></pre>
+        <p><strong>Outputnya (contoh interaksi):</strong></p>
+        <pre><code class="language-plain">Berapa umur Anda?
+17              <-- Saya mengetik angka 17
+Umur Anda adalah: 17
+Tipe data dari umur yang Anda masukkan adalah: &lt;class 'str'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Meskipun kita mengetik angka <code class="code-piece">17</code>,
+          <code class="code-piece">type(umur_anda)</code> menunjukkan bahwa
+          Python menyimpannya sebagai
+          <code class="code-piece">&lt;class 'str'&gt;</code> (string). Karena
+          <code class="code-piece">umur_anda</code> adalah teks, operasi
+          penjumlahan <code class="code-piece">umur_anda + 5</code> tidak bisa
+          dilakukan dan akan menyebabkan error, persis seperti ketika kita
+          mencoba menambahkan <code class="code-piece">"Angka"</code> dengan
+          <code class="code-piece">10</code> di modul Tipe Data. Ini adalah poin
+          yang harus selalu diingat saat bekerja dengan input dari pengguna.
+        </p>
+        <h2>Menghadapi Angka dari Pengguna</h2>
+        <p>
+          Karena <code class="code-piece">input()</code> selalu menghasilkan
+          string, jika kita ingin melakukan perhitungan matematika dengan angka
+          yang dimasukkan pengguna, kita harus
+          <strong>mengonversi</strong> string tersebut menjadi tipe data angka
+          (<code class="code-piece">int</code> atau
+          <code class="code-piece">float</code>) terlebih dahulu. Kita sudah
+          belajar tentang fungsi <code class="code-piece">int()</code> dan
+          <code class="code-piece">float()</code> di modul Konversi Tipe Data.
+        </p>
+        <pre><code class="language-python"># Meminta angka dan mengonversinya untuk perhitungan
+print("Masukkan sebuah angka bulat pertama:")
+angka_1_text = input()
+angka_1 = int(angka_1_text) # Konversi teks ke angka bulat
+
+print("Masukkan sebuah angka bulat kedua:")
+angka_2_text = input()
+angka_2 = int(angka_2_text) # Konversi teks ke angka bulat
+
+# Sekarang kita bisa menjumlahkannya karena sudah menjadi angka
+hasil_penjumlahan = angka_1 + angka_2
+print("Hasil penjumlahan kedua angka adalah:", hasil_penjumlahan)
+
+print("\n")
+
+# Contoh dengan angka desimal
+print("Masukkan tinggi badan Anda dalam meter (misal 1.75):")
+tinggi_text = input()
+tinggi_float = float(tinggi_text) # Konversi teks ke angka desimal
+
+berat_badan_kg = 60
+# Ini adalah contoh sederhana untuk demonstrasi
+# Nanti kita bisa minta input berat badan juga
+indeks_massa_tubuh = berat_badan_kg / (tinggi_float ** 2)
+print("Indeks Massa Tubuh Anda adalah:", indeks_massa_tubuh)</code></pre>
+        <p><strong>Outputnya (contoh interaksi):</strong></p>
+        <pre><code class="language-plain">Masukkan sebuah angka bulat pertama:
+15            <-- Pengguna mengetik 15
+Masukkan sebuah angka bulat kedua:
+20            <-- Pengguna mengetik 20
+Hasil penjumlahan kedua angka adalah: 35
+
+Masukkan tinggi badan Anda dalam meter (misal 1.75):
+1.68          <-- Pengguna mengetik 1.68
+Indeks Massa Tubuh Anda adalah: 21.25877843846618</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada contoh ini, kita pertama kali meminta input angka bulat. Meskipun
+          pengguna mengetik <code class="code-piece">15</code>,
+          <code class="code-piece">input()</code> tetap menyimpannya sebagai
+          <code class="code-piece">"15"</code> (string). Barulah pada baris
+          <code class="code-piece">angka_1 = int(angka_1_text)</code>, kita
+          menggunakan <code class="code-piece">int()</code> untuk mengubah
+          <code class="code-piece">"15"</code> menjadi angka
+          <code class="code-piece">15</code> yang sebenarnya, siap untuk
+          perhitungan. Hal yang sama berlaku untuk
+          <code class="code-piece">angka_2</code>.
+        </p>
+        <p>
+          Untuk tinggi badan, karena kita mengharapkan angka desimal, kita
+          menggunakan <code class="code-piece">float(tinggi_text)</code> untuk
+          mengubah input string <code class="code-piece">"1.68"</code> menjadi
+          angka desimal <code class="code-piece">1.68</code>. Setelah
+          dikonversi, kita bisa melakukan perhitungan matematika yang melibatkan
+          pangkat dan pembagian dengan benar.
+        </p>
+        <h2>
+          Memberi Petunjuk Jelas: Menggunakan
+          <code class="code-piece">input()</code> dengan Pesan Prompt
+        </h2>
+        <p>
+          Agar pengguna tidak bingung apa yang harus mereka ketik, fungsi
+          <code class="code-piece">input()</code> memiliki kemampuan untuk
+          menampilkan sebuah pesan sebelum menunggu input. Pesan ini disebut
+          "prompt". Anda cukup menuliskannya di dalam tanda kurung
+          <code class="code-piece">()</code>.
+        </p>
+        <pre><code class="language-python"># input() tanpa prompt (kurang jelas bagi pengguna)
+# nama_hewan = input()
+# print("Nama hewan favorit Anda:", nama_hewan)
+
+print("\n--- Contoh dengan Prompt Jelas ---")
+
+# input() dengan prompt
+nama_siswa = input("Siapa nama lengkap Anda? ")
+print("Halo, ", nama_siswa)
+
+umur_siswa = input("Berapa usia Anda saat ini? ")
+# Jangan lupa konversi jika ingin angka!
+umur_sekarang = int(umur_siswa)
+tahun_depan = umur_sekarang + 1
+print("Tahun depan Anda akan berusia", tahun_depan, "tahun.")</code></pre>
+        <p><strong>Outputnya (contoh interaksi):</strong></p>
+        <pre><code class="language-plain">--- Contoh dengan Prompt Jelas ---
+Siapa nama lengkap Anda? Siti Rahmawati  <-- Pengguna mengetik
+Halo,  Siti Rahmawati
+Berapa usia Anda saat ini? 16            <-- Pengguna mengetik
+Tahun depan Anda akan berusia 17 tahun.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bagaimana
+          <code class="code-piece">input("Siapa nama lengkap Anda? ")</code>
+          langsung menampilkan pertanyaan di layar dan kursor menunggu di
+          sebelahnya. Ini jauh lebih ramah pengguna dibandingkan hanya kursor
+          yang berkedip-kedip tanpa petunjuk. Pengguna langsung tahu apa yang
+          harus diisikan.
+        </p>
+        <p>
+          Setelah pengguna mengetik <code class="code-piece">16</code> dan
+          menekan Enter, <code class="code-piece">umur_siswa</code> akan berisi
+          <code class="code-piece">"16"</code>. Kita kemudian mengubahnya
+          menjadi <code class="code-piece">int(umur_siswa)</code> agar bisa
+          dijumlahkan dengan <code class="code-piece">1</code> untuk mendapatkan
+          usia tahun depan.
+        </p>
+        <h2>
+          Keindahan <code class="code-piece">input</code>: Program yang
+          Berdialog
+        </h2>
+        <p>
+          Kemampuan untuk menerima input dari pengguna mengubah program dari
+          sekadar menjalankan perintah satu arah menjadi sebuah "dialog". Ini
+          membuka banyak sekali kemungkinan:
+        </p>
+        <ul>
+          <li>Membuat program kuis interaktif.</li>
+          <li>Membuat kalkulator yang meminta angka dari pengguna.</li>
+          <li>Membuat game sederhana di mana pengguna memasukkan pilihan.</li>
+          <li>
+            Mengumpulkan data dari pengguna untuk disimpan atau diproses lebih
+            lanjut.
+          </li>
+        </ul>
+        <p>
+          Saat Anda mulai menggabungkan
+          <code class="code-piece">input()</code> dengan variabel, tipe data,
+          operator, dan konversi tipe data, Anda sudah bisa membuat program
+          sederhana yang cukup canggih dan berguna!
+        </p>
+        <p>
+          Dengan modul ini, Anda sekarang bisa membuat program yang tidak hanya
+          berbicara, tetapi juga mendengarkan! Ini adalah langkah besar dalam
+          perjalanan pemrograman Anda.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./string_manipulation.html"
+            >"Manipulasi String & Formatting" – Merapikan Teks di Python</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./type_conversion.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./string_manipulation.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

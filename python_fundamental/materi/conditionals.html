@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Kondisi" – Membuat Keputusan di Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html" class="active">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Kondisi" – Membuat Keputusan di Python</h1>
+        <p>
+          Dalam kehidupan sehari-hari, kita sering membuat keputusan berdasarkan
+          kondisi tertentu:
+        </p>
+        <ul>
+          <li>
+            <strong>"Jika</strong> hari ini cerah, <strong>maka</strong> saya
+            akan pergi bermain di luar."
+          </li>
+          <li>
+            <strong>"Jika</strong> saya lapar, <strong>maka</strong> saya akan
+            makan. <strong>Jika tidak</strong>, <strong>maka</strong> saya akan
+            belajar."
+          </li>
+          <li>
+            <strong>"Jika</strong> nilai saya A, <strong>maka</strong> saya akan
+            senang sekali. <strong>Jika</strong> nilainya B,
+            <strong>maka</strong> saya cukup senang.
+            <strong>Jika tidak</strong> (nilai saya C, D, atau E),
+            <strong>maka</strong> saya harus belajar lebih giat."
+          </li>
+        </ul>
+        <p>
+          Dalam pemrograman, kita juga perlu membuat program melakukan hal yang
+          sama. Kita perlu memberitahu program untuk menjalankan kode tertentu
+          <strong>hanya jika</strong> suatu kondisi terpenuhi. Inilah inti dari
+          <strong>Kondisional</strong> atau
+          <strong>Pernyataan Kondisional</strong>. Python menggunakan kata kunci
+          khusus seperti <code class="code-piece">if</code>,
+          <code class="code-piece">elif</code>, dan
+          <code class="code-piece">else</code> untuk membuat keputusan ini.
+        </p>
+        <h2><code class="code-piece">if</code>: Pernyataan "Jika..."</h2>
+        <p>
+          Pernyataan <code class="code-piece">if</code> adalah dasar dari semua
+          keputusan. Ia bekerja seperti ini: "<strong>Jika</strong> suatu
+          kondisi ini benar, <strong>maka</strong> jalankan kode di bawah ini."
+          Jika kondisi itu salah, Python akan melewati kode tersebut.
+        </p>
+        <p>
+          Kondisi yang kita gunakan di sini adalah hasil dari operasi
+          perbandingan (seperti <code class="code-piece">==</code>,
+          <code class="code-piece">></code>, <code class="code-piece"><</code>,
+          dll.) atau operasi logika (<code class="code-piece">and</code>,
+          <code class="code-piece">or</code>,
+          <code class="code-piece">not</code>) yang sudah kita pelajari. Ingat,
+          hasil dari perbandingan ini selalu
+          <code class="code-piece">True</code> (benar) atau
+          <code class="code-piece">False</code> (salah).
+        </p>
+        <p>
+          Perhatikan baik-baik, setelah kondisi
+          <code class="code-piece">if</code>, selalu ada tanda titik dua (<code
+            class="code-piece"
+            >:</code
+          >) dan baris kode di bawahnya harus menjorok ke dalam (menggunakan
+          spasi atau Tab). Ini namanya <strong>indentasi</strong> dan sangat
+          penting di Python!
+        </p>
+        <pre><code class="language-python"># Contoh 1: Cek apakah nilai siswa lulus KKM
+nilai_ujian = 80
+kkm = 75
+
+if nilai_ujian >= kkm: # Kondisi: apakah 80 lebih besar atau sama dengan 75? (True)
+    print("Selamat! Anda dinyatakan LULUS.") # Baris ini akan dijalankan
+
+print("Program selesai.")
+
+print("\n")
+
+# Contoh 2: Jika kondisi tidak terpenuhi
+suhu_luar = 20 # Suhu dalam Celsius
+if suhu_luar > 25: # Kondisi: apakah 20 lebih besar dari 25? (False)
+    print("Hari ini sangat panas!") # Baris ini TIDAK akan dijalankan
+
+print("Cek suhu selesai.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Selamat! Anda dinyatakan LULUS.
+Program selesai.
+
+
+Cek suhu selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1,
+          <code class="code-piece">nilai_ujian >= kkm</code> (yaitu
+          <code class="code-piece">80 >= 75</code>) hasilnya adalah
+          <code class="code-piece">True</code>. Karena kondisinya benar, baris
+          <code class="code-piece"
+            >print("Selamat! Anda dinyatakan LULUS.")</code
+          >
+          yang berada di bawah <code class="code-piece">if</code> dan menjorok
+          ke dalam akan dieksekusi.
+        </p>
+        <p>
+          Pada Contoh 2, <code class="code-piece">suhu_luar > 25</code> (yaitu
+          <code class="code-piece">20 > 25</code>) hasilnya adalah
+          <code class="code-piece">False</code>. Karena kondisinya salah, baris
+          <code class="code-piece">print("Hari ini sangat panas!")</code> yang
+          menjorok ke dalam di bawah <code class="code-piece">if</code> akan
+          <strong>diabaikan</strong> oleh Python. Python langsung melanjutkan ke
+          baris setelah blok <code class="code-piece">if</code>, yaitu
+          <code class="code-piece">print("Cek suhu selesai.")</code>.
+        </p>
+        <h2>
+          <code class="code-piece">if-else</code>: Memberi Pilihan "Jika...
+          Maka... Jika Tidak..."
+        </h2>
+        <p>
+          Pernyataan <code class="code-piece">if-else</code> memberi program dua
+          jalur berbeda. Jika kondisi di
+          <code class="code-piece">if</code> benar, maka satu blok kode akan
+          dijalankan. <strong>Jika tidak</strong> (kondisi di
+          <code class="code-piece">if</code> salah), maka blok kode yang ada di
+          bawah <code class="code-piece">else</code> akan dijalankan.
+        </p>
+        <p>
+          Sama seperti <code class="code-piece">if</code>,
+          <code class="code-piece">else</code> juga diikuti oleh tanda titik dua
+          (<code class="code-piece">:</code>) dan kode di bawahnya harus
+          menjorok ke dalam.
+        </p>
+        <pre><code class="language-python"># Meminta input dari pengguna
+usia_pengunjung_str = input("Berapa usia Anda? ")
+usia_pengunjung = int(usia_pengunjung_str) # Konversi ke integer
+
+batas_usia_masuk = 17
+
+if usia_pengunjung >= batas_usia_masuk: # Kondisi: apakah usia >= 17?
+    print("Anda diizinkan masuk.")
+    print("Selamat menikmati acara!")
+else: # Jika kondisi di atas salah (usia < 17)
+    print("Maaf, usia Anda belum mencukupi.")
+    print("Anda tidak diizinkan masuk.")
+
+print("Terima kasih sudah berkunjung.")</code></pre>
+        <p><strong>Outputnya (Contoh 1: Usia 18):</strong></p>
+        <pre><code class="language-plain">Berapa usia Anda? 18
+Anda diizinkan masuk.
+Selamat menikmati acara!
+Terima kasih sudah berkunjung.</code></pre>
+        <p><strong>Outputnya (Contoh 2: Usia 15):</strong></p>
+        <pre><code class="language-plain">Berapa usia Anda? 15
+Maaf, usia Anda belum mencukupi.
+Anda tidak diizinkan masuk.
+Terima kasih sudah berkunjung.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Program akan meminta usia pengguna. Jika usia yang dimasukkan
+          <code class="code-piece">18</code>, maka kondisi
+          <code class="code-piece">usia_pengunjung >= batas_usia_masuk</code>
+          akan menjadi <code class="code-piece">True</code>, dan blok kode di
+          bawah <code class="code-piece">if</code> akan dieksekusi.
+        </p>
+        <p>
+          Namun, jika usia yang dimasukkan <code class="code-piece">15</code>,
+          kondisi tersebut menjadi <code class="code-piece">False</code>. Oleh
+          karena itu, Python akan melewati blok
+          <code class="code-piece">if</code> dan langsung melompat ke blok
+          <code class="code-piece">else</code>, menjalankan pesan "Maaf, usia
+          Anda belum mencukupi."
+        </p>
+        <h2>
+          <code class="code-piece">if-elif-else</code>: Banyak Pilihan "Jika...
+          Atau Jika... Atau Jika Tidak..."
+        </h2>
+        <p>
+          Bagaimana jika ada lebih dari dua kemungkinan? Misalnya, Anda ingin
+          memberikan peringkat (grade) A, B, C, D, atau E berdasarkan nilai
+          siswa. Di sinilah <code class="code-piece">elif</code> (kependekan
+          dari "else if") sangat berguna. Anda bisa menambahkan berapa pun
+          jumlah <code class="code-piece">elif</code> yang Anda butuhkan untuk
+          memeriksa kondisi tambahan secara berurutan.
+        </p>
+        <p>
+          Python akan memeriksa kondisi
+          <code class="code-piece">if</code> terlebih dahulu. Jika salah, ia
+          akan memeriksa <code class="code-piece">elif</code> pertama. Jika itu
+          juga salah, ia akan memeriksa
+          <code class="code-piece">elif</code> berikutnya, dan seterusnya. Jika
+          tidak ada satu pun <code class="code-piece">if</code> atau
+          <code class="code-piece">elif</code> yang benar, maka blok
+          <code class="code-piece">else</code> (jika ada) akan dijalankan
+          sebagai pilihan terakhir.
+        </p>
+        <p>
+          <strong>Penting:</strong> Urutan
+          <code class="code-piece">elif</code> sangat memengaruhi hasil! Kondisi
+          yang lebih spesifik atau lebih ketat biasanya diletakkan di atas.
+        </p>
+        <pre><code class="language-python"># Program penentuan nilai huruf (grade)
+nilai_rata_rata_str = input("Masukkan nilai rata-rata Anda: ")
+nilai_rata_rata = float(nilai_rata_rata_str) # Konversi ke float, karena bisa desimal
+
+if nilai_rata_rata >= 90:
+    print("Nilai Anda: A (Sangat Baik)")
+elif nilai_rata_rata >= 80: # Hanya akan diperiksa jika nilai < 90
+    print("Nilai Anda: B (Baik)")
+elif nilai_rata_rata >= 70: # Hanya akan diperiksa jika nilai < 80
+    print("Nilai Anda: C (Cukup)")
+elif nilai_rata_rata >= 60: # Hanya akan diperiksa jika nilai < 70
+    print("Nilai Anda: D (Kurang)")
+else: # Jika semua kondisi di atas salah (nilai < 60)
+    print("Nilai Anda: E (Sangat Kurang), perlu remedial.")
+
+print("Pengecekan nilai selesai.")</code></pre>
+        <p><strong>Outputnya (Contoh 1: Nilai 92):</strong></p>
+        <pre><code class="language-plain">Masukkan nilai rata-rata Anda: 92
+Nilai Anda: A (Sangat Baik)
+Pengecekan nilai selesai.</code></pre>
+        <p><strong>Outputnya (Contoh 2: Nilai 78):</strong></p>
+        <pre><code class="language-plain">Masukkan nilai rata-rata Anda: 78
+Nilai Anda: C (Cukup)
+Pengecekan nilai selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Jika Anda memasukkan <code class="code-piece">92</code>, kondisi
+          <code class="code-piece">nilai_rata_rata >= 90</code> akan
+          <code class="code-piece">True</code>, dan Python akan mencetak "Nilai
+          Anda: A". Python kemudian akan <strong>melewati</strong> semua
+          <code class="code-piece">elif</code> dan
+          <code class="code-piece">else</code> lainnya dan langsung ke bagian
+          <code class="code-piece">print("Pengecekan nilai selesai.")</code>.
+        </p>
+        <p>Jika Anda memasukkan <code class="code-piece">78</code>:</p>
+        <ol>
+          <li>
+            <code class="code-piece">nilai_rata_rata >= 90</code> (78 >= 90) ->
+            <code class="code-piece">False</code>
+          </li>
+          <li>
+            <code class="code-piece">elif nilai_rata_rata >= 80</code> (78 >=
+            80) -> <code class="code-piece">False</code>
+          </li>
+          <li>
+            <code class="code-piece">elif nilai_rata_rata >= 70</code> (78 >=
+            70) -> <code class="code-piece">True</code>! Python akan mencetak
+            "Nilai Anda: C" dan langsung melewati sisa
+            <code class="code-piece">elif</code> dan
+            <code class="code-piece">else</code>.
+          </li>
+        </ol>
+        <p>
+          Inilah mengapa urutan sangat penting. Jika
+          <code class="code-piece">elif nilai_rata_rata >= 70</code> diletakkan
+          di atas <code class="code-piece">elif nilai_rata_rata >= 80</code>,
+          maka nilai <code class="code-piece">85</code> akan menghasilkan
+          <code class="code-piece">C</code> padahal seharusnya
+          <code class="code-piece">B</code>!
+        </p>
+        <h2>Kondisi yang Lebih Canggih dengan Operator Logika</h2>
+        <p>
+          Kita bisa membuat kondisi yang sangat kompleks dengan menggabungkan
+          operator perbandingan dan operator logika (<code class="code-piece"
+            >and</code
+          >, <code class="code-piece">or</code>,
+          <code class="code-piece">not</code>).
+        </p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">and</code>:</strong> Kedua sisi
+            harus Benar.
+          </li>
+          <li>
+            <strong><code class="code-piece">or</code>:</strong> Salah satu sisi
+            (atau keduanya) harus Benar.
+          </li>
+          <li>
+            <strong><code class="code-piece">not</code>:</strong> Membalik
+            kebenaran.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Program cek kelayakan pinjaman
+penghasilan_bulanan_str = input("Masukkan penghasilan bulanan Anda: ")
+penghasilan_bulanan = int(penghasilan_bulanan_str)
+
+usia_str = input("Masukkan usia Anda: ")
+usia = int(usia_str)
+
+status_menikah_str = input("Apakah Anda sudah menikah? (ya/tidak): ").lower() # Ubah ke huruf kecil
+
+# Syarat kelayakan:
+# 1. Penghasilan di atas 5 juta DAN usia di atas 20
+# ATAU
+# 2. Sudah menikah DAN penghasilan di atas 3 juta
+
+if (penghasilan_bulanan > 5000000 and usia > 20) or \
+   (status_menikah_str == "ya" and penghasilan_bulanan > 3000000):
+    print("Selamat! Anda memenuhi syarat untuk mengajukan pinjaman.")
+else:
+    print("Maaf, Anda belum memenuhi syarat pinjaman.")
+
+print("Terima kasih.")</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh 1: Penghasilan 6 juta, Usia 22, Belum
+            menikah):</strong
+          >
+        </p>
+        <pre><code class="language-plain">Masukkan penghasilan bulanan Anda: 6000000
+Masukkan usia Anda: 22
+Apakah Anda sudah menikah? (ya/tidak): tidak
+Selamat! Anda memenuhi syarat untuk mengajukan pinjaman.
+Terima kasih.</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh 2: Penghasilan 4 juta, Usia 19, Sudah
+            menikah):</strong
+          >
+        </p>
+        <pre><code class="language-plain">Masukkan penghasilan bulanan Anda: 4000000
+Masukkan usia Anda: 19
+Apakah Anda sudah menikah? (ya/tidak): ya
+Selamat! Anda memenuhi syarat untuk mengajukan pinjaman.
+Terima kasih.</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh 3: Penghasilan 2 juta, Usia 25, Belum
+            menikah):</strong
+          >
+        </p>
+        <pre><code class="language-plain">Masukkan penghasilan bulanan Anda: 2000000
+Masukkan usia Anda: 25
+Apakah Anda sudah menikah? (ya/tidak): tidak
+Maaf, Anda belum memenuhi syarat pinjaman.
+Terima kasih.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Kondisi di sini sangat kompleks. Python akan mengevaluasi bagian dalam
+          kurung terlebih dahulu karena prioritas operator.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece"
+              >penghasilan_bulanan > 5000000 and usia > 20</code
+            >
+            akan bernilai <code class="code-piece">True</code> jika kedua
+            kondisi di dalamnya benar.
+          </li>
+          <li>
+            <code class="code-piece"
+              >status_menikah_str == "ya" and penghasilan_bulanan >
+              3000000</code
+            >
+            akan bernilai <code class="code-piece">True</code> jika kedua
+            kondisi di dalamnya benar.
+          </li>
+        </ul>
+        <p>
+          Kemudian, hasil dari kedua bagian tersebut akan digabungkan dengan
+          <code class="code-piece">or</code>. Jika salah satu dari dua kelompok
+          kondisi besar itu benar, maka seluruh kondisi
+          <code class="code-piece">if</code> akan menjadi
+          <code class="code-piece">True</code>. Ini menunjukkan betapa kuatnya
+          operator logika untuk membuat keputusan yang sangat spesifik dan
+          berlapis.
+        </p>
+        <h2>Pentingnya Indentasi</h2>
+        <p>
+          Di modul ini sudah berkali-kali menyebutkan
+          <strong>indentasi</strong>. Ini bukan sekadar masalah kerapian, tapi
+          adalah
+          <strong>aturan sintaksis yang WAJIB dipatuhi di Python</strong>.
+          Python menggunakan indentasi untuk mengetahui blok kode mana yang
+          "milik" suatu <code class="code-piece">if</code>,
+          <code class="code-piece">elif</code>, atau
+          <code class="code-piece">else</code>. Biasanya, indentasi menggunakan
+          <strong>4 spasi</strong>.
+        </p>
+        <p>
+          Jika indentasi Anda salah, Python akan langsung mengeluarkan error
+          yang disebut <code class="code-piece">IndentationError</code>, dan
+          program Anda tidak akan bisa berjalan.
+        </p>
+        <pre><code class="language-python"># Contoh Indentasi yang BENAR
+usia = 18
+if usia >= 17:
+    print("Anda dewasa.") # Ini di dalam blok 'if'
+    print("Bisa memiliki KTP.") # Ini juga di dalam blok 'if'
+print("Pengecekan usia selesai.") # Ini di luar blok 'if'
+
+print("\n")
+
+# Contoh Indentasi yang SALAH (akan menyebabkan error!)
+# usia_lain = 16
+# if usia_lain >= 17:
+# print("Maaf, Anda belum dewasa.") # ERROR: Indentasi salah, tidak menjorok!
+#    print("Tetap semangat!") # ERROR: Indentasi salah, tidak konsisten dengan baris di atasnya
+
+# print("Program berakhir.")</code></pre>
+        <p><strong>Outputnya (dari kode yang benar):</strong></p>
+        <pre><code class="language-plain">Anda dewasa.
+Bisa memiliki KTP.
+Pengecekan usia selesai.</code></pre>
+        <p>
+          <em
+            >(Catatan: Bagian kode yang salah sengaja dikomentari (<code
+              class="code-piece"
+              >#</code
+            >) agar program bisa berjalan tanpa error. Jika Anda menghapus tanda
+            pagar <code class="code-piece">#</code> pada baris yang salah dan
+            menjalankannya, Anda akan melihat pesan
+            <code class="code-piece">IndentationError</code>.)</em
+          >
+        </p>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada contoh yang benar,
+          <code class="code-piece">print("Anda dewasa.")</code> dan
+          <code class="code-piece">print("Bisa memiliki KTP.")</code> sama-sama
+          menjorok ke dalam dengan jumlah spasi yang sama (misalnya 4 spasi).
+          Ini memberitahu Python bahwa kedua baris ini adalah bagian dari blok
+          kode <code class="code-piece">if</code>. Sedangkan
+          <code class="code-piece">print("Pengecekan usia selesai.")</code>
+          tidak menjorok, sehingga Python tahu itu adalah kode yang akan
+          dijalankan setelah <code class="code-piece">if</code> selesai, tidak
+          peduli apakah kondisi <code class="code-piece">if</code> benar atau
+          salah.
+        </p>
+        <p>
+          Kesalahan indentasi adalah salah satu error yang paling umum ditemui
+          pemula di Python. Selalu pastikan Anda konsisten dengan jumlah spasi
+          untuk indentasi!
+        </p>
+        <h2>Apa yang Mungkin Tidak Disadari: Kondisi "Truthy" dan "Falsy"</h2>
+        <p>
+          Ini adalah konsep yang lebih lanjut tapi sangat berguna: di Python,
+          tidak hanya <code class="code-piece">True</code> dan
+          <code class="code-piece">False</code> yang bisa digunakan dalam
+          kondisi <code class="code-piece">if</code>. Python memiliki konsep
+          "Truthy" (dianggap benar) dan "Falsy" (dianggap salah). Ini berarti
+          Anda bisa menulis kondisi tanpa perlu operator perbandingan eksplisit.
+        </p>
+        <p>Secara umum:</p>
+        <ul>
+          <li>
+            <strong
+              >Nilai "Falsy" (dianggap
+              <code class="code-piece">False</code>):</strong
+            >
+            <ul>
+              <li>
+                Angka nol (<code class="code-piece">0</code> dan
+                <code class="code-piece">0.0</code>)
+              </li>
+              <li>
+                String kosong (<code class="code-piece">""</code> atau
+                <code class="code-piece">''</code>)
+              </li>
+              <li>
+                Nilai khusus <code class="code-piece">None</code> (berarti
+                "tidak ada nilai")
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong
+              >Semua nilai lainnya dianggap "Truthy" (dianggap
+              <code class="code-piece">True</code>).</strong
+            >
+          </li>
+        </ul>
+        <pre><code class="language-python">nama_pengguna = input("Masukkan nama Anda (kosongkan jika tidak ada): ")
+jumlah_produk = 0 # Angka 0 akan dianggap False
+pesan_khusus = "Selamat datang kembali!" # String tidak kosong akan dianggap True
+
+print("\n--- Contoh Truthy/Falsy ---")
+
+if nama_pengguna: # Jika nama_pengguna tidak kosong (Truthy)
+    print(f"Halo, {nama_pengguna}!")
+else:
+    print("Anda belum memasukkan nama.")
+
+if jumlah_produk: # Jika jumlah_produk tidak nol (Truthy)
+    print(f"Ada {jumlah_produk} produk di keranjang.")
+else:
+    print("Keranjang belanja Anda kosong.")
+
+if pesan_khusus: # Jika pesan_khusus tidak kosong (Truthy)
+    print(pesan_khusus)
+else:
+    print("Tidak ada pesan khusus.")</code></pre>
+        <p>
+          <strong>Outputnya (Contoh 1: Nama diisi, jumlah produk 0):</strong>
+        </p>
+        <pre><code class="language-plain">Masukkan nama Anda (kosongkan jika tidak ada): Budi
+
+--- Contoh Truthy/Falsy ---
+Halo, Budi!
+Keranjang belanja Anda kosong.
+Selamat datang kembali!</code></pre>
+        <p>
+          <strong>Outputnya (Contoh 2: Nama kosong, jumlah produk 5):</strong>
+        </p>
+        <pre><code class="language-plain">Masukkan nama Anda (kosongkan jika tidak ada): 
+
+--- Contoh Truthy/Falsy ---
+Anda belum memasukkan nama.
+Keranjang belanja Anda kosong. <-- ini karena saya set jumlah_produk = 0
+Selamat datang kembali!</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">if nama_pengguna:</code>, Python secara
+          otomatis mengecek apakah string
+          <code class="code-piece">nama_pengguna</code> itu kosong atau tidak.
+          Jika tidak kosong (pengguna mengetik sesuatu), maka
+          <code class="code-piece">nama_pengguna</code> dianggap
+          <code class="code-piece">True</code> dan blok
+          <code class="code-piece">if</code> dijalankan. Jika kosong, dianggap
+          <code class="code-piece">False</code> dan blok
+          <code class="code-piece">else</code> dijalankan.
+        </p>
+        <p>
+          Sama halnya dengan <code class="code-piece">if jumlah_produk:</code>.
+          Karena <code class="code-piece">jumlah_produk</code> adalah
+          <code class="code-piece">0</code>, Python menganggapnya
+          <code class="code-piece">False</code>, sehingga blok
+          <code class="code-piece">else</code> yang dieksekusi. Jika
+          <code class="code-piece">jumlah_produk</code> adalah
+          <code class="code-piece">5</code>, maka akan dianggap
+          <code class="code-piece">True</code>.
+        </p>
+        <p>
+          Konsep truthy/falsy ini memungkinkan Anda menulis kode yang lebih
+          ringkas dan elegan untuk memeriksa keberadaan data atau jumlah nol.
+        </p>
+        <h2>
+          Kondisional Bersarang (Nested Conditionals): Keputusan di Dalam
+          Keputusan
+        </h2>
+        <p>
+          Anda bisa meletakkan pernyataan kondisional (
+          <code class="code-piece">if</code>,
+          <code class="code-piece">elif</code>,
+          <code class="code-piece">else</code>) di dalam blok kode kondisional
+          lainnya. Ini disebut <strong>kondisional bersarang</strong>. Ini
+          berguna ketika Anda perlu membuat keputusan berlapis.
+        </p>
+        <pre><code class="language-python"># Program pemeriksaan kelayakan masuk tim olahraga
+nilai_rapor_str = input("Masukkan nilai rata-rata rapor Anda: ")
+nilai_rapor = float(nilai_rapor_str)
+
+tinggi_badan_str = input("Masukkan tinggi badan Anda (cm): ")
+tinggi_badan = int(tinggi_badan_str)
+
+jenis_kelamin = input("Jenis kelamin (L/P): ").upper() # Ubah ke huruf besar
+
+print("\n--- Hasil Pengecekan ---")
+
+if nilai_rapor >= 75:
+    print("Nilai rapor memenuhi syarat.")
+    if jenis_kelamin == "L":
+        if tinggi_badan >= 170:
+            print("Anda memenuhi syarat untuk tim basket putra!")
+        else:
+            print("Untuk tim basket putra, tinggi badan belum mencukupi.")
+    elif jenis_kelamin == "P":
+        if tinggi_badan >= 160:
+            print("Anda memenuhi syarat untuk tim basket putri!")
+        else:
+            print("Untuk tim basket putri, tinggi badan belum mencukupi.")
+    else:
+        print("Jenis kelamin tidak valid.")
+else:
+    print("Maaf, nilai rapor Anda belum memenuhi syarat.")
+
+print("Pengecekan selesai.")</code></pre>
+        <p><strong>Outputnya (Contoh: Rapor 80, Tinggi 175, L):</strong></p>
+        <pre><code class="language-plain">Masukkan nilai rata-rata rapor Anda: 80
+Masukkan tinggi badan Anda (cm): 175
+Jenis kelamin (L/P): L
+
+--- Hasil Pengecekan ---
+Nilai rapor memenuhi syarat.
+Anda memenuhi syarat untuk tim basket putra!
+Pengecekan selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pertama, program memeriksa
+          <code class="code-piece">if nilai_rapor >= 75</code>. Jika kondisi ini
+          benar, barulah program masuk ke blok kode di dalamnya (yang menjorok
+          dua kali). Di dalam blok itu, ada
+          <code class="code-piece">if jenis_kelamin == "L"</code>. Jika itu
+          benar, program masuk lagi ke blok di dalamnya (menjorok tiga kali)
+          untuk memeriksa tinggi badan.
+        </p>
+        <p>
+          Perhatikan bagaimana setiap lapisan kondisional memiliki tingkat
+          indentasi yang berbeda. Ini adalah cara Python memahami struktur
+          keputusan yang berlapis. Kondisional bersarang memungkinkan Anda untuk
+          membuat program yang sangat cerdas dalam merespons berbagai skenario.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./loops.html"
+            >"Perulangan" – Membuat Program Melakukan Tugas Berulang</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./string_manipulation.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./loops.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

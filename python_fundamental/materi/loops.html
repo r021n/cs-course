@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Perulangan" – Membuat Program Melakukan Tugas Berulang</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html" class="active">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Perulangan" – Membuat Program Melakukan Tugas Berulang</h1>
+        <p>
+          Bayangkan Anda diminta untuk menulis angka 1 sampai 100, atau
+          menghitung jumlah siswa di 10 kelas yang berbeda. Jika Anda harus
+          menulis perintah <code class="code-piece">print()</code> seratus kali,
+          atau menulis perhitungan yang sama berulang kali, itu akan sangat
+          melelahkan dan rawan kesalahan.
+        </p>
+        <p>
+          Di sinilah <strong>Perulangan</strong> (atau <strong>Loop</strong>)
+          menjadi penyelamat! Perulangan adalah instruksi yang memberitahu
+          Python untuk mengulang satu atau beberapa baris kode berkali-kali. Ada
+          dua jenis perulangan utama di Python:
+          <code class="code-piece">for</code> dan
+          <code class="code-piece">while</code>, masing-masing dengan
+          kegunaannya sendiri.
+        </p>
+        <h2>
+          Perulangan <code class="code-piece">for</code>: Mengulang Berdasarkan
+          Jumlah atau Kumpulan
+        </h2>
+        <p>
+          Perulangan <code class="code-piece">for</code> digunakan ketika Anda
+          tahu berapa kali Anda ingin mengulang sesuatu, atau ketika Anda ingin
+          mengulang untuk setiap "barang" dalam sebuah kumpulan. Ia seperti Anda
+          berkata, "Untuk setiap barang di kotak ini, lakukan A." atau "Untuk
+          setiap angka dari 1 sampai 5, lakukan B."
+        </p>
+        <p>
+          Python menggunakan fungsi khusus bernama
+          <code class="code-piece">range()</code> untuk membantu kita membuat
+          urutan angka yang dapat diulang oleh perulangan
+          <code class="code-piece">for</code>.
+        </p>
+        <h2>
+          Mengulang Dengan Angka: Menggunakan
+          <code class="code-piece">range()</code>
+        </h2>
+        <p>
+          Fungsi <code class="code-piece">range()</code> sangat berguna untuk
+          membuat perulangan yang berjalan sejumlah tertentu.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">range(jumlah)</code>: Akan menghasilkan
+            angka dari <code class="code-piece">0</code> sampai
+            <code class="code-piece">jumlah-1</code>.
+          </li>
+          <li>
+            <code class="code-piece">range(mulai, akhir)</code>: Akan
+            menghasilkan angka dari <code class="code-piece">mulai</code> sampai
+            <code class="code-piece">akhir-1</code>.
+          </li>
+          <li>
+            <code class="code-piece">range(mulai, akhir, langkah)</code>: Akan
+            menghasilkan angka dari <code class="code-piece">mulai</code> sampai
+            <code class="code-piece">akhir-1</code>, dengan melompati sejumlah
+            <code class="code-piece">langkah</code>.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh 1: Menghitung dari 0 sampai 4
+print("--- Menghitung 0 sampai 4 ---")
+for angka in range(5): # range(5) menghasilkan 0, 1, 2, 3, 4
+    print(angka)
+
+print("\n") # Baris kosong untuk keterbacaan
+
+# Contoh 2: Menghitung dari 1 sampai 5
+print("--- Menghitung 1 sampai 5 ---")
+for i in range(1, 6): # range(1, 6) menghasilkan 1, 2, 3, 4, 5
+    print(i)
+
+print("\n")
+
+# Contoh 3: Menghitung mundur dari 5 sampai 1
+print("--- Menghitung Mundur dari 5 ---")
+for hitung_mundur in range(5, 0, -1): # range(5, 0, -1) menghasilkan 5, 4, 3, 2, 1
+    print(hitung_mundur)
+
+print("\n")
+
+# Contoh 4: Menampilkan pesan berulang kali
+print("--- Pesan Berulang ---")
+for _ in range(3): # Jika kita tidak peduli dengan angkanya, pakai underscore (_)
+    print("Semangat belajar Python!")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Menghitung 0 sampai 4 ---
+0
+1
+2
+3
+4
+
+--- Menghitung 1 sampai 5 ---
+1
+2
+3
+4
+5
+
+--- Menghitung Mundur dari 5 ---
+5
+4
+3
+2
+1
+
+--- Pesan Berulang ---
+Semangat belajar Python!
+Semangat belajar Python!
+Semangat belajar Python!</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1,
+          <code class="code-piece">for angka in range(5):</code> memberitahu
+          Python untuk mengulang kode di dalamnya sebanyak 5 kali. Setiap kali
+          perulangan, variabel <code class="code-piece">angka</code> akan diisi
+          dengan angka berikutnya dari
+          <code class="code-piece">range(5)</code> (yaitu 0, lalu 1, lalu 2,
+          dst.).
+        </p>
+        <p>
+          Pada Contoh 2, <code class="code-piece">range(1, 6)</code> membuat
+          urutan angka dimulai dari 1 hingga sebelum 6, yaitu 1, 2, 3, 4, 5.
+        </p>
+        <p>
+          Pada Contoh 3, <code class="code-piece">range(5, 0, -1)</code> adalah
+          trik untuk menghitung mundur. Dimulai dari 5, berakhir sebelum 0,
+          dengan langkah <code class="code-piece">-1</code> (berarti mengurangi
+          1 setiap kali).
+        </p>
+        <p>
+          Pada Contoh 4, kita menggunakan
+          <code class="code-piece">_</code> (underscore) sebagai nama variabel
+          di <code class="code-piece">for _ in range(3):</code>. Ini adalah
+          kebiasaan umum di Python ketika kita hanya ingin mengulang sejumlah
+          kali dan tidak benar-benar peduli dengan nilai angka di setiap
+          perulangan. Ini memberitahu pembaca bahwa variabel itu tidak akan
+          digunakan di dalam perulangan.
+        </p>
+        <h2>Mengulang Untuk Setiap Karakter dalam Teks (String)</h2>
+        <p>
+          String (teks) juga merupakan sebuah "kumpulan" karakter. Perulangan
+          <code class="code-piece">for</code> bisa digunakan untuk "mengunjungi"
+          setiap karakter satu per satu.
+        </p>
+        <pre><code class="language-python"># Contoh 1: Mencetak setiap huruf dari nama
+nama_siswa = "Python"
+print("--- Huruf demi Huruf ---")
+for huruf in nama_siswa:
+    print(huruf)
+
+print("\n")
+
+# Contoh 2: Menghitung jumlah huruf vokal dalam sebuah kata
+kata = "Komputer"
+jumlah_vokal = 0
+for karakter in kata:
+    # Mengubah karakter menjadi huruf kecil agar mudah dibandingkan
+    if karakter.lower() == 'a' or karakter.lower() == 'i' or \
+       karakter.lower() == 'u' or karakter.lower() == 'e' or \
+       karakter.lower() == 'o':
+        jumlah_vokal += 1 # Tambahkan 1 ke jumlah_vokal
+
+print(f"Kata: '{kata}' memiliki {jumlah_vokal} huruf vokal.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Huruf demi Huruf ---
+P
+y
+t
+h
+o
+n
+
+Kata: 'Komputer' memiliki 3 huruf vokal.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1,
+          <code class="code-piece">for huruf in nama_siswa:</code> akan membuat
+          perulangan berjalan sebanyak jumlah huruf di dalam
+          <code class="code-piece">nama_siswa</code>. Pada setiap putaran,
+          variabel <code class="code-piece">huruf</code> akan diisi dengan
+          karakter berikutnya dari string
+          <code class="code-piece">Python</code> (<code class="code-piece"
+            >P</code
+          >, lalu <code class="code-piece">y</code>, lalu
+          <code class="code-piece">t</code>, dst.) hingga semua karakter
+          selesai.
+        </p>
+        <p>
+          Pada Contoh 2, kita mengulang setiap
+          <code class="code-piece">karakter</code> dalam
+          <code class="code-piece">kata</code>. Di dalam perulangan, kita
+          menggunakan <code class="code-piece">if</code> (kondisional) untuk
+          memeriksa apakah karakter tersebut adalah huruf vokal (setelah diubah
+          ke huruf kecil menggunakan metode
+          <code class="code-piece">.lower()</code>). Jika ya, kita menggunakan
+          operator penugasan <code class="code-piece">+=</code> untuk
+          menambahkan <code class="code-piece">1</code> ke
+          <code class="code-piece">jumlah_vokal</code>. Ini menunjukkan
+          bagaimana perulangan seringkali digabungkan dengan kondisional untuk
+          melakukan tugas yang lebih cerdas.
+        </p>
+        <h2>
+          Perulangan <code class="code-piece">while</code>: Mengulang Selama
+          Kondisi Benar
+        </h2>
+        <p>
+          Perulangan <code class="code-piece">while</code> sedikit berbeda. Ia
+          akan terus mengulang selama suatu kondisi yang Anda berikan tetap
+          <code class="code-piece">True</code> (benar). Ini seperti Anda
+          berkata, "<strong>Selama</strong> ada makanan di kulkas, saya akan
+          terus makan."
+        </p>
+        <p>
+          Kunci dari perulangan <code class="code-piece">while</code> adalah
+          memastikan bahwa kondisi yang Anda berikan suatu saat akan menjadi
+          <code class="code-piece">False</code>, agar perulangan bisa berhenti.
+          Jika tidak, Anda akan membuat "perulangan tak terbatas" (infinite
+          loop) yang tidak akan pernah berhenti!
+        </p>
+        <pre><code class="language-python"># Contoh 1: Menghitung dari 1 sampai 5 menggunakan while
+angka_saat_ini = 1
+print("--- Menghitung 1 sampai 5 (While) ---")
+while angka_saat_ini <= 5: # Kondisi: apakah angka_saat_ini kurang dari atau sama dengan 5?
+    print(angka_saat_ini)
+    angka_saat_ini += 1 # Penting! Ini mengubah nilai agar kondisi suatu saat False
+
+print("\n")
+
+# Contoh 2: Meminta input sampai pengguna memasukkan jawaban yang benar
+jawaban_benar = "Python"
+tebakan_pengguna = "" # Variabel awal agar loop bisa dimulai
+
+print("--- Tebak Nama Bahasa Pemrograman ---")
+while tebakan_pengguna != jawaban_benar: # Selama tebakan belum benar, ulangi
+    tebakan_pengguna = input("Tebak nama bahasa pemrograman favorit saya: ")
+    if tebakan_pengguna != jawaban_benar:
+        print("Tebakan salah, coba lagi!")
+    else:
+        print("Selamat! Tebakan Anda benar!")
+
+print("Permainan tebak-tebakan selesai.")</code></pre>
+        <p><strong>Outputnya (Contoh 1):</strong></p>
+        <pre><code class="language-plain">--- Menghitung 1 sampai 5 (While) ---
+1
+2
+3
+4
+5</code></pre>
+        <p><strong>Outputnya (Contoh 2: Contoh interaksi):</strong></p>
+        <pre><code class="language-plain">--- Tebak Nama Bahasa Pemrograman ---
+Tebak nama bahasa pemrograman favorit saya: Java
+Tebakan salah, coba lagi!
+Tebak nama bahasa pemrograman favorit saya: C++
+Tebakan salah, coba lagi!
+Tebak nama bahasa pemrograman favorit saya: Python
+Selamat! Tebakan Anda benar!
+Permainan tebak-tebakan selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1,
+          <code class="code-piece">while angka_saat_ini <= 5:</code> akan terus
+          berjalan selama <code class="code-piece">angka_saat_ini</code> kurang
+          dari atau sama dengan 5. Yang paling penting adalah baris
+          <code class="code-piece">angka_saat_ini += 1</code>. Ini adalah
+          "penjaga" yang memastikan bahwa pada suatu titik,
+          <code class="code-piece">angka_saat_ini</code> akan melebihi 5
+          (menjadi 6), membuat kondisi <code class="code-piece">False</code>,
+          dan perulangan berhenti. Jika baris ini tidak ada,
+          <code class="code-piece">angka_saat_ini</code> akan selalu 1, dan
+          program akan terus mencetak 1 selamanya (perulangan tak terbatas!).
+        </p>
+        <p>
+          Pada Contoh 2, perulangan
+          <code class="code-piece"
+            >while tebakan_pengguna != jawaban_benar:</code
+          >
+          akan terus meminta input dari pengguna <strong>selama</strong> tebakan
+          yang dimasukkan belum sama dengan "Python". Begitu pengguna mengetik
+          "Python", kondisi
+          <code class="code-piece">tebakan_pengguna != jawaban_benar</code> akan
+          menjadi <code class="code-piece">False</code>, dan perulangan akan
+          berhenti. Ini sangat berguna untuk memvalidasi input atau membuat menu
+          interaktif.
+        </p>
+        <h2>
+          Menghentikan Perulangan Dini: Perintah
+          <code class="code-piece">break</code>
+        </h2>
+        <p>
+          Terkadang, Anda ingin perulangan berhenti sepenuhnya bahkan sebelum
+          kondisinya menjadi <code class="code-piece">False</code> atau sebelum
+          semua item dalam kumpulan selesai diulang. Perintah
+          <code class="code-piece">break</code> digunakan untuk hal ini. Ketika
+          Python bertemu dengan <code class="code-piece">break</code>, ia akan
+          langsung keluar dari perulangan terdekat dan melanjutkan eksekusi kode
+          setelah perulangan tersebut.
+        </p>
+        <pre><code class="language-python"># Contoh 1: Mencari angka dan berhenti jika sudah ketemu
+target_angka = 7
+print("--- Mencari Angka 7 ---")
+for angka in range(1, 11): # Akan mencoba angka 1 sampai 10
+    print(f"Sedang memeriksa angka: {angka}")
+    if angka == target_angka:
+        print(f"Angka {target_angka} ditemukan! Berhenti mencari.")
+        break # Langsung keluar dari loop
+print("Pencarian selesai.")
+
+print("\n")
+
+# Contoh 2: Loop tak terbatas yang dihentikan oleh input 'exit'
+print("--- Chat Sederhana (ketik 'exit' untuk keluar) ---")
+while True: # Ini adalah perulangan tak terbatas
+    pesan_anda = input("Anda: ")
+    if pesan_anda.lower() == "exit": # Ubah input ke huruf kecil untuk perbandingan
+        print("Bot: Sampai jumpa!")
+        break # Keluar dari perulangan
+    else:
+        print(f"Bot: Anda bilang '{pesan_anda}'.")
+print("Sesi chat berakhir.")</code></pre>
+        <p><strong>Outputnya (Contoh 1):</strong></p>
+        <pre><code class="language-plain">--- Mencari Angka 7 ---
+Sedang memeriksa angka: 1
+Sedang memeriksa angka: 2
+Sedang memeriksa angka: 3
+Sedang memeriksa angka: 4
+Sedang memeriksa angka: 5
+Sedang memeriksa angka: 6
+Sedang memeriksa angka: 7
+Angka 7 ditemukan! Berhenti mencari.
+Pencarian selesai.</code></pre>
+        <p><strong>Outputnya (Contoh 2: Contoh interaksi):</strong></p>
+        <pre><code class="language-plain">--- Chat Sederhana (ketik 'exit' untuk keluar) ---
+Anda: Halo
+Bot: Anda bilang 'Halo'.
+Anda: Apa kabar?
+Bot: Anda bilang 'Apa kabar?'.
+Anda: exit
+Bot: Sampai jumpa!
+Sesi chat berakhir.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1, perulangan <code class="code-piece">for</code> akan
+          terus berjalan. Begitu <code class="code-piece">angka</code> mencapai
+          <code class="code-piece">7</code>, kondisi
+          <code class="code-piece">if angka == target_angka</code> menjadi
+          <code class="code-piece">True</code>. Program mencetak pesan
+          <code class="code-piece">ditemukan</code>, lalu bertemu
+          <code class="code-piece">break</code>. Seketika itu juga, perulangan
+          <code class="code-piece">for</code> berhenti, dan program langsung
+          lompat ke <code class="code-piece">print("Pencarian selesai.")</code>,
+          tanpa lagi memeriksa angka 8, 9, dan 10.
+        </p>
+        <p>
+          Pada Contoh 2, <code class="code-piece">while True:</code> adalah cara
+          membuat perulangan yang secara default akan berjalan selamanya. Namun,
+          di dalamnya ada kondisi
+          <code class="code-piece">if pesan_anda.lower() == "exit":</code> yang
+          jika terpenuhi, akan menjalankan
+          <code class="code-piece">break</code> dan menghentikan perulangan. Ini
+          sering digunakan dalam program yang terus berjalan sampai pengguna
+          memberi perintah khusus untuk keluar.
+        </p>
+        <h2>
+          Melewatkan Iterasi Saat Ini: Perintah
+          <code class="code-piece">continue</code>
+        </h2>
+        <p>
+          Berbeda dengan <code class="code-piece">break</code> yang menghentikan
+          seluruh perulangan, perintah
+          <code class="code-piece">continue</code> akan melewatkan sisa kode di
+          dalam perulangan untuk putaran (iterasi) saat ini, dan langsung
+          melompat ke putaran berikutnya.
+        </p>
+        <pre><code class="language-python"># Contoh 1: Hanya mencetak angka ganjil
+print("--- Hanya Angka Ganjil dari 1 sampai 10 ---")
+for angka in range(1, 11):
+    if angka % 2 == 0: # Jika angka genap (sisa bagi 2 adalah 0)
+        print(f"Melewatkan angka genap: {angka}")
+        continue # Lewati sisa kode di bawah, langsung ke iterasi berikutnya
+    print(f"Angka ganjil: {angka}") # Baris ini hanya dijalankan jika angka ganjil</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Hanya Angka Ganjil dari 1 sampai 10 ---
+Angka ganjil: 1
+Melewatkan angka genap: 2
+Angka ganjil: 3
+Melewatkan angka genap: 4
+Angka ganjil: 5
+Melewatkan angka genap: 6
+Angka ganjil: 7
+Melewatkan angka genap: 8
+Angka ganjil: 9
+Melewatkan angka genap: 10</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada setiap putaran,
+          <code class="code-piece">if angka % 2 == 0</code> akan memeriksa
+          apakah <code class="code-piece">angka</code> adalah genap. Jika
+          <code class="code-piece">True</code>, ia mencetak pesan
+          <code class="code-piece">Melewatkan angka genap</code> lalu bertemu
+          <code class="code-piece">continue</code>. Ketika
+          <code class="code-piece">continue</code> dieksekusi, Python tidak akan
+          menjalankan
+          <code class="code-piece">print(f"Angka ganjil: {angka}")</code> untuk
+          angka genap tersebut, melainkan langsung melompat ke putaran
+          berikutnya dari perulangan <code class="code-piece">for</code>. Jika
+          angka ganjil, kondisi <code class="code-piece">if</code> menjadi
+          <code class="code-piece">False</code>,
+          <code class="code-piece">continue</code> tidak dijalankan, dan
+          <code class="code-piece">print(f"Angka ganjil: {angka}")</code> tetap
+          dieksekusi.
+        </p>
+        <h2>
+          <code class="code-piece">else</code> dengan Perulangan: Sesuatu yang
+          Tidak Biasa (Tapi Sangat Berguna!)
+        </h2>
+        <p>
+          Ini adalah salah satu fitur Python yang mungkin tidak Anda temukan di
+          banyak bahasa pemrograman lain, dan seringkali tidak disadari:
+          perulangan <code class="code-piece">for</code> dan
+          <code class="code-piece">while</code> juga bisa memiliki blok
+          <code class="code-piece">else</code>!
+        </p>
+        <p>
+          Blok <code class="code-piece">else</code> yang berpasangan dengan
+          perulangan akan dieksekusi <strong>hanya jika</strong> perulangan
+          selesai dengan cara yang "normal" (yaitu, tidak dihentikan oleh
+          perintah <code class="code-piece">break</code>).
+        </p>
+        <pre><code class="language-python"># Contoh 1: Mencari nama dalam daftar (misalnya nanti List)
+# Untuk saat ini, bayangkan saja kita sedang mencari huruf dalam sebuah kata
+kata_rahasia = "kucing"
+cari_huruf = input("Cari huruf apa dalam kata 'kucing'? ")
+
+ditemukan = False # Variabel untuk menandai apakah huruf ditemukan
+
+for huruf in kata_rahasia:
+    if huruf == cari_huruf:
+        print(f"Huruf '{cari_huruf}' ditemukan di kata!")
+        ditemukan = True
+        break # Hentikan perulangan karena sudah ketemu
+# Blok else ini akan dijalankan HANYA jika loop selesai tanpa 'break'
+else:
+    print(f"Maaf, huruf '{cari_huruf}' tidak ditemukan di kata.")
+
+print("Pencarian selesai.")</code></pre>
+        <p><strong>Outputnya (Contoh 1: Cari 'c'):</strong></p>
+        <pre><code class="language-plain">Cari huruf apa dalam kata 'kucing'? c
+Huruf 'c' ditemukan di kata!
+Pencarian selesai.</code></pre>
+        <p><strong>Outputnya (Contoh 2: Cari 'z'):</strong></p>
+        <pre><code class="language-plain">Cari huruf apa dalam kata 'kucing'? z
+Maaf, huruf 'z' tidak ditemukan di kata.
+Pencarian selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>Ketika Anda mencari huruf 'c':</p>
+        <ol>
+          <li>Perulangan dimulai.</li>
+          <li>
+            Ketika <code class="code-piece">huruf</code> menjadi 'c', kondisi
+            <code class="code-piece">if huruf == cari_huruf</code> menjadi
+            <code class="code-piece">True</code>.
+          </li>
+          <li>
+            Pesan <code class="code-piece">ditemukan</code> dicetak,
+            <code class="code-piece">ditemukan</code> diubah menjadi
+            <code class="code-piece">True</code>, dan
+            <code class="code-piece">break</code> dieksekusi.
+          </li>
+          <li>
+            Karena <code class="code-piece">break</code> menghentikan
+            perulangan, blok <code class="code-piece">else</code>
+            <strong>tidak</strong> dijalankan.
+          </li>
+        </ol>
+        <p>Ketika Anda mencari huruf 'z':</p>
+        <ol>
+          <li>
+            Perulangan berjalan untuk semua huruf 'k', 'u', 'c', 'i', 'n', 'g'.
+          </li>
+          <li>
+            Kondisi <code class="code-piece">if huruf == cari_huruf</code> tidak
+            pernah menjadi <code class="code-piece">True</code>.
+          </li>
+          <li>
+            <code class="code-piece">break</code> tidak pernah dieksekusi.
+          </li>
+          <li>
+            Perulangan selesai secara "normal" (semua item sudah diperiksa).
+          </li>
+          <li>
+            Karena perulangan selesai normal, blok
+            <code class="code-piece">else</code> pun dijalankan, mencetak pesan
+            <code class="code-piece">tidak ditemukan</code>.
+          </li>
+        </ol>
+        <p>
+          Fitur <code class="code-piece">else</code> dengan perulangan ini
+          sangat rapi untuk skenario "cari sesuatu, jika ketemu lakukan A dan
+          berhenti, jika tidak ketemu sama sekali lakukan B setelah selesai
+          mencari".
+        </p>
+        <h2>Perulangan Bersarang (Nested Loops): Loop di Dalam Loop</h2>
+        <p>
+          Sama seperti kondisional, Anda juga bisa meletakkan satu perulangan di
+          dalam perulangan lainnya. Ini disebut
+          <strong>perulangan bersarang</strong> (nested loops). Ini sangat
+          berguna untuk tugas-tugas yang melibatkan "grid" atau "tabel", di mana
+          Anda perlu mengulang sesuatu untuk setiap baris dan juga untuk setiap
+          kolom.
+        </p>
+        <pre><code class="language-python"># Contoh: Membuat tabel perkalian sederhana
+print("--- Tabel Perkalian Sederhana (3x3) ---")
+
+for i in range(1, 4): # Ini adalah perulangan LUAR (untuk baris, i akan 1, 2, 3)
+    for j in range(1, 4): # Ini adalah perulangan DALAM (untuk kolom, j akan 1, 2, 3)
+        # print(f"{i} x {j} = {i*j}") # Akan mencetak setiap hasil di baris baru
+        print(f"{i}x{j}={i*j}\t", end="") # \t adalah "tab", untuk jarak antar kolom
+    print() # Cetak baris baru setelah perulangan dalam selesai (pindah ke baris berikutnya)
+
+print("\n")
+
+# Contoh: Membuat pola bintang persegi
+sisi_persegi = 5
+print("--- Pola Persegi Bintang ---")
+for baris in range(sisi_persegi): # Untuk setiap baris
+    for kolom in range(sisi_persegi): # Untuk setiap kolom di baris itu
+        print("* ", end="") # Cetak bintang dan spasi, tanpa pindah baris
+    print() # Pindah ke baris baru setelah satu baris bintang selesai</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Tabel Perkalian Sederhana (3x3) ---
+1x1=1	1x2=2	1x3=3	
+2x1=2	2x2=4	2x3=6	
+3x1=3	3x2=6	3x3=9	
+
+--- Pola Persegi Bintang ---
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * *</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>Pada contoh tabel perkalian:</p>
+        <ul>
+          <li>
+            Perulangan luar
+            <code class="code-piece">for i in range(1, 4)</code> akan berjalan 3
+            kali.
+          </li>
+          <li>
+            Setiap kali perulangan luar berjalan, perulangan dalam
+            <code class="code-piece">for j in range(1, 4)</code> akan berjalan
+            penuh 3 kali.
+          </li>
+          <li>
+            Jadi, total ada 3 x 3 = 9 kali operasi
+            <code class="code-piece">print()</code>.
+          </li>
+          <li>
+            <code class="code-piece">print(f"{i}x{j}={i*j}\t", end="")</code>
+            mencetak hasil perkalian diikuti dengan karakter tab (<code
+              class="code-piece"
+              >\t</code
+            >) untuk membuat jarak, dan
+            <code class="code-piece">end=""</code> penting agar tidak langsung
+            pindah baris.
+          </li>
+          <li>
+            <code class="code-piece">print()</code> setelah perulangan dalam
+            selesai berfungsi untuk pindah ke baris baru, sehingga hasil
+            berikutnya akan tercetak di baris yang berbeda, membentuk tabel.
+          </li>
+        </ul>
+        <p>
+          Perulangan bersarang adalah alat yang sangat ampuh untuk memproses
+          data dalam bentuk tabel, membuat pola, atau melakukan tugas-tugas yang
+          memerlukan iterasi ganda.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="#">-</a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./conditionals.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="#" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

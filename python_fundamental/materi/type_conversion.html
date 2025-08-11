@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Konversi Tipe Data – Mengubah Jenis Data</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li>
+          <a href="./type_conversion.html" class="active">Type Conversion</a>
+        </li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Konversi Tipe Data" – Mengubah Jenis Data</h1>
+        <p>
+          Kita sudah belajar bahwa setiap informasi di Python punya "jenis" atau
+          "tipe data" (seperti angka bulat <code class="code-piece">int</code>,
+          angka desimal <code class="code-piece">float</code>, atau teks
+          <code class="code-piece">str</code>). Kita juga tahu bahwa operator
+          (seperti <code class="code-piece">+</code>) bisa memiliki perilaku
+          yang berbeda tergantung pada tipe data yang dioperasikannya. Misalnya,
+          <code class="code-piece">5 + 3</code> akan menjumlahkan, tapi
+          <code class="code-piece">"Halo" + "Dunia"</code> akan menggabungkan
+          teks.
+        </p>
+        <p>
+          Kadang-kadang, informasi yang kita miliki tidak sesuai dengan tipe
+          data yang kita butuhkan. Misalnya, Anda punya angka
+          <code class="code-piece">10</code> sebagai teks (<code
+            class="code-piece"
+            >"10"</code
+          >), tapi Anda ingin menjumlahkannya dengan angka lain. Atau, Anda
+          punya angka desimal <code class="code-piece">3.14</code>, tapi Anda
+          hanya ingin bagian bulatnya <code class="code-piece">3</code>. Di
+          sinilah konsep <strong>Konversi Tipe Data</strong> berperan.
+        </p>
+        <p>
+          Konversi tipe data adalah proses mengubah satu jenis data menjadi
+          jenis data yang lain. Python menyediakan "alat bantu" khusus berupa
+          fungsi yang bisa kita gunakan untuk melakukan konversi ini secara
+          sengaja.
+        </p>
+        <h2>
+          Mengubah ke Bilangan Bulat: Fungsi
+          <code class="code-piece">int()</code>
+        </h2>
+        <p>
+          Jika Anda memiliki sebuah angka desimal (<code class="code-piece"
+            >float</code
+          >) dan Anda hanya ingin mengambil bagian bilangan bulatnya, atau Anda
+          memiliki sebuah teks (<code class="code-piece">string</code>) yang
+          isinya adalah angka bulat, Anda bisa menggunakan fungsi
+          <code class="code-piece">int()</code>.
+        </p>
+        <pre><code class="language-python"># Mengubah dari float ke int
+tinggi_meter = 1.78
+tinggi_bulat = int(tinggi_meter) # Mengambil bagian bulatnya saja (membulatkan ke bawah)
+
+print("Tinggi dalam meter (asli):", tinggi_meter)
+print("Tinggi setelah diubah ke bilangan bulat:", tinggi_bulat)
+
+print("\n") # Baris kosong untuk keterbacaan
+
+# Mengubah dari string ke int (jika isinya angka bulat)
+jumlah_barang_text = "50"
+jumlah_barang_angka = int(jumlah_barang_text)
+
+print("Jumlah barang (sebagai teks):", jumlah_barang_text, type(jumlah_barang_text))
+print("Jumlah barang (setelah diubah ke angka):", jumlah_barang_angka, type(jumlah_barang_angka))
+
+# Sekarang kita bisa menjumlahkannya!
+hasil_jumlah = jumlah_barang_angka + 10
+print("Jumlah barang ditambah 10:", hasil_jumlah)
+
+print("\n")
+
+# Apa yang terjadi jika string tidak berisi angka bulat? ERROR!
+teks_bukan_angka = "lima belas"
+# angka_dari_teks = int(teks_bukan_angka) # Baris ini akan menyebabkan error!
+# print(angka_dari_teks)
+
+teks_desimal = "3.14"
+# angka_dari_desimal_text = int(teks_desimal) # Baris ini juga akan menyebabkan error!
+# print(angka_dari_desimal_text)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Tinggi dalam meter (asli): 1.78
+Tinggi setelah diubah ke bilangan bulat: 1
+
+Jumlah barang (sebagai teks): 50 &lt;class 'str'&gt;
+Jumlah barang (setelah diubah ke angka): 50 &lt;class 'int'&gt;
+Jumlah barang ditambah 10: 60</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika Anda menggunakan
+          <code class="code-piece">int(tinggi_meter)</code>, Python akan
+          mengambil <code class="code-piece">1.78</code> dan hanya
+          mempertahankan bagian bulatnya, yaitu
+          <code class="code-piece">1</code>. Ingat,
+          <code class="code-piece">int()</code> akan membulatkan ke bawah, jadi
+          <code class="code-piece">1.99</code> pun akan menjadi
+          <code class="code-piece">1</code>.
+        </p>
+        <p>
+          Ketika <code class="code-piece">int("50")</code> dijalankan, Python
+          mengenali bahwa teks <code class="code-piece">"50"</code> benar-benar
+          merepresentasikan angka bulat, sehingga akan mengubahnya menjadi angka
+          <code class="code-piece">50</code> bertipe
+          <code class="code-piece">int</code>. Setelah itu, kita bisa melakukan
+          operasi matematika pada
+          <code class="code-piece">jumlah_barang_angka</code>.
+        </p>
+        <p>
+          Namun, penting untuk diingat: Anda hanya bisa mengubah string ke
+          <code class="code-piece">int</code> jika string itu
+          <strong>benar-benar terlihat seperti angka bulat</strong>. Jika Anda
+          mencoba mengubah <code class="code-piece">"lima belas"</code> atau
+          <code class="code-piece">"3.14"</code> menjadi
+          <code class="code-piece">int</code>, Python akan "bingung" dan
+          mengeluarkan pesan kesalahan (disebut
+          <code class="code-piece">ValueError</code>), karena tidak bisa
+          menemukan angka bulat di dalamnya.
+        </p>
+        <h2>
+          Mengubah ke Bilangan Desimal: Fungsi
+          <code class="code-piece">float()</code>
+        </h2>
+        <p>
+          Jika Anda memiliki sebuah angka bulat (<code class="code-piece"
+            >int</code
+          >) dan Anda ingin menganggapnya sebagai angka desimal, atau Anda
+          memiliki sebuah teks (<code class="code-piece">string</code>) yang
+          isinya adalah angka desimal atau bulat, Anda bisa menggunakan fungsi
+          <code class="code-piece">float()</code>.
+        </p>
+        <pre><code class="language-python"># Mengubah dari int ke float
+umur = 17
+umur_desimal = float(umur)
+
+print("Umur (sebagai angka bulat):", umur, type(umur))
+print("Umur (setelah diubah ke desimal):", umur_desimal, type(umur_desimal))
+
+print("\n")
+
+# Mengubah dari string ke float (bisa angka bulat atau desimal)
+harga_text = "25000"
+harga_float = float(harga_text)
+
+berat_text = "60.5"
+berat_float = float(berat_text)
+
+print("Harga (sebagai teks):", harga_text, type(harga_text))
+print("Harga (setelah diubah ke desimal):", harga_float, type(harga_float))
+
+print("Berat (sebagai teks):", berat_text, type(berat_text))
+print("Berat (setelah diubah ke desimal):", berat_float, type(berat_float))
+
+# Sekarang kita bisa menghitung sesuatu dengan angka desimal
+total_harga_diskon = harga_float * 0.9 # Diskon 10%
+print("Total harga setelah diskon:", total_harga_diskon)
+
+print("\n")
+
+# Apa yang terjadi jika string tidak berisi angka? ERROR!
+ukuran_invalid = "ukuran besar"
+# ukuran_angka = float(ukuran_invalid) # Baris ini akan menyebabkan error!
+# print(ukuran_angka)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Umur (sebagai angka bulat): 17 &lt;class 'int'&gt;
+Umur (setelah diubah ke desimal): 17.0 &lt;class 'float'&gt;
+
+Harga (sebagai teks): 25000 &lt;class 'str'&gt;
+Harga (setelah diubah ke desimal): 25000.0 &lt;class 'float'&gt;
+Berat (sebagai teks): 60.5 &lt;class 'str'&gt;
+Berat (setelah diubah ke desimal): 60.5 &lt;class 'float'&gt;
+Total harga setelah diskon: 22500.0</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika <code class="code-piece">float(umur)</code> dijalankan, Python
+          mengubah angka bulat <code class="code-piece">17</code> menjadi
+          <code class="code-piece">17.0</code>, menjadikannya tipe
+          <code class="code-piece">float</code>. Ini berguna jika Anda ingin
+          melakukan perhitungan yang melibatkan presisi desimal.
+        </p>
+        <p>
+          Fungsi <code class="code-piece">float()</code> juga bisa mengubah
+          string menjadi angka desimal, selama string itu berisi representasi
+          angka yang valid, baik itu angka bulat (<code class="code-piece"
+            >"25000"</code
+          >) maupun angka desimal (<code class="code-piece">"60.5"</code>). Teks
+          <code class="code-piece">"25000"</code> akan menjadi
+          <code class="code-piece">25000.0</code> setelah diubah oleh
+          <code class="code-piece">float()</code>.
+        </p>
+        <p>
+          Sama seperti <code class="code-piece">int()</code>,
+          <code class="code-piece">float()</code> akan menghasilkan error jika
+          string yang Anda coba ubah tidak bisa dikenali sebagai angka.
+        </p>
+        <h2>Mengubah ke Teks: Fungsi <code class="code-piece">str()</code></h2>
+        <p>
+          Mungkin ini yang paling sering Anda butuhkan! Jika Anda memiliki angka
+          (<code class="code-piece">int</code> atau
+          <code class="code-piece">float</code>) atau nilai Boolean (<code
+            class="code-piece"
+            >True</code
+          >/<code class="code-piece">False</code>) dan Anda ingin menampilkannya
+          bersama dengan teks lain, cara terbaik adalah mengubahnya menjadi
+          <code class="code-piece">string</code> terlebih dahulu. Python
+          seringkali bisa melakukannya secara otomatis dalam perintah
+          <code class="code-piece">print()</code>, tetapi ada kalanya Anda perlu
+          melakukannya secara manual, terutama saat menggabungkan teks
+          menggunakan operator <code class="code-piece">+</code>.
+        </p>
+        <pre><code class="language-python"># Mengubah dari int ke str
+nilai = 90
+pesan_nilai = "Nilai Anda adalah: " + str(nilai) # Mengubah 90 menjadi "90"
+
+print(pesan_nilai, type(pesan_nilai))
+
+print("\n")
+
+# Mengubah dari float ke str
+phi = 3.14159
+teks_phi = "Nilai PI adalah: " + str(phi)
+
+print(teks_phi, type(teks_phi))
+
+print("\n")
+
+# Mengubah dari bool ke str
+is_aktif = True
+status_akun = "Status akun: " + str(is_aktif)
+
+print(status_akun, type(status_akun))
+
+print("\n")
+
+# Mengapa perlu str()?
+# print("Total" + 100) # Ini akan ERROR!
+print("Total " + str(100)) # Ini akan bekerja karena 100 sudah jadi teks "100"</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai Anda adalah: 90 &lt;class 'str'&gt;
+
+Nilai PI adalah: 3.14159 &lt;class 'str'&gt;
+
+Status akun: True &lt;class 'str'&gt;
+
+Total 100</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Fungsi <code class="code-piece">str()</code> adalah kebalikan dari
+          <code class="code-piece">int()</code> atau
+          <code class="code-piece">float()</code>. Ia mengambil nilai dari tipe
+          data apapun (angka, boolean, dll.) dan mengubahnya menjadi
+          representasi teksnya. Jadi, angka
+          <code class="code-piece">90</code> akan menjadi string
+          <code class="code-piece">"90"</code>,
+          <code class="code-piece">3.14159</code> menjadi
+          <code class="code-piece">"3.14159"</code>, dan
+          <code class="code-piece">True</code> menjadi
+          <code class="code-piece">"True"</code>.
+        </p>
+        <p>
+          Ini sangat penting ketika Anda ingin menggabungkan teks dengan angka
+          menggunakan operator <code class="code-piece">+</code>. Python tidak
+          tahu bagaimana "menambahkan" teks
+          <code class="code-piece">"Total"</code> dengan angka
+          <code class="code-piece">100</code>. Tapi, jika Anda mengubah
+          <code class="code-piece">100</code> menjadi string
+          <code class="code-piece">"100"</code> menggunakan
+          <code class="code-piece">str(100)</code>, maka Python bisa dengan
+          mudah menggabungkan <code class="code-piece">"Total "</code> dengan
+          <code class="code-piece">"100"</code> menjadi
+          <code class="code-piece">"Total 100"</code>.
+        </p>
+        <h2>
+          Mengubah ke Boolean: Fungsi <code class="code-piece">bool()</code>
+        </h2>
+        <p>
+          Fungsi <code class="code-piece">bool()</code> digunakan untuk mengubah
+          nilai dari tipe data lain menjadi nilai Boolean (<code
+            class="code-piece"
+            >True</code
+          >
+          atau <code class="code-piece">False</code>). Ini seringkali tidak
+          disadari, tetapi ada aturan menarik tentang bagaimana Python
+          menentukan apakah suatu nilai "benar" atau "salah" dalam konteks
+          Boolean:
+        </p>
+        <ul>
+          <li>
+            <strong>Angka:</strong> Angka
+            <code class="code-piece">0</code> (nol) akan dianggap
+            <code class="code-piece">False</code>. Semua angka lain (positif
+            atau negatif, bulat atau desimal) akan dianggap
+            <code class="code-piece">True</code>.
+          </li>
+          <li>
+            <strong>Teks (String):</strong> String kosong (<code
+              class="code-piece"
+              >""</code
+            >
+            atau <code class="code-piece">''</code>) akan dianggap
+            <code class="code-piece">False</code>. Semua string lain yang berisi
+            setidaknya satu karakter (termasuk spasi) akan dianggap
+            <code class="code-piece">True</code>.
+          </li>
+          <li>
+            <strong>Nilai Khusus <code class="code-piece">None</code>:</strong>
+            Ada nilai khusus di Python bernama
+            <code class="code-piece">None</code> (yang berarti "tidak ada
+            nilai"). <code class="code-piece">None</code> akan dianggap
+            <code class="code-piece">False</code>.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Mengubah angka ke boolean
+print("Angka 0:", bool(0))
+print("Angka 1:", bool(1))
+print("Angka -5:", bool(-5))
+print("Angka 0.0:", bool(0.0))
+print("Angka 3.14:", bool(3.14))
+
+print("\n")
+
+# Mengubah string ke boolean
+print("String kosong (''):", bool(""))
+print("String berisi ('Halo'):", bool("Halo"))
+print("String berisi spasi (' '):", bool(" ")) # Spasi juga dianggap karakter!
+
+print("\n")
+
+# Mengubah nilai khusus None ke boolean
+# (Kita akan belajar lebih banyak tentang None nanti)
+data_kosong = None
+print("Nilai None:", bool(data_kosong))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka 0: False
+Angka 1: True
+Angka -5: True
+Angka 0.0: False
+Angka 3.14: True
+
+String kosong (''): False
+String berisi ('Halo'): True
+String berisi spasi (' '): True
+
+Nilai None: False</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Fungsi <code class="code-piece">bool()</code> sangat menarik karena ia
+          menerapkan aturan "truthy" dan "falsy". Artinya, beberapa nilai secara
+          inheren dianggap "benar" atau "salah" ketika diubah ke Boolean. Angka
+          nol (<code class="code-piece">0</code>) dan string kosong (<code
+            class="code-piece"
+            >""</code
+          >) adalah contoh nilai "falsy" yang akan menjadi
+          <code class="code-piece">False</code> saat dikonversi ke Boolean.
+          Sementara itu, semua angka selain nol, dan semua string yang tidak
+          kosong (bahkan hanya spasi), akan menjadi
+          <code class="code-piece">True</code> ("truthy"). Konsep ini akan
+          sangat berguna ketika Anda mulai membuat program yang membuat
+          keputusan berdasarkan ada tidaknya data atau nilai.
+        </p>
+        <h2>Mengapa Konversi Itu Penting dan Sering Terjadi?</h2>
+        <p>
+          Konversi tipe data adalah salah satu hal yang paling sering Anda
+          lakukan (secara sadar atau tidak) saat membuat program. Ini adalah
+          jembatan yang memungkinkan Anda untuk:
+        </p>
+        <ol>
+          <li>
+            <strong>Melakukan Perhitungan:</strong> Jika Anda menerima input
+            angka dari pengguna (yang seringkali datang sebagai string), Anda
+            harus mengubahnya menjadi <code class="code-piece">int</code> atau
+            <code class="code-piece">float</code> sebelum bisa menjumlahkan,
+            mengurangi, dan sebagainya.
+          </li>
+          <li>
+            <strong>Menampilkan Informasi:</strong> Jika Anda ingin menampilkan
+            hasil perhitungan (angka) bersamaan dengan teks penjelasan, Anda
+            mungkin perlu mengubah angka tersebut menjadi
+            <code class="code-piece">string</code>.
+          </li>
+          <li>
+            <strong>Memastikan Kompatibilitas:</strong> Memastikan bahwa data
+            yang Anda gunakan dalam suatu operasi memiliki tipe yang sesuai.
+          </li>
+        </ol>
+        <p>
+          Memahami kapan dan bagaimana melakukan konversi tipe data adalah kunci
+          untuk menulis kode Python yang bekerja dengan benar dan efisien, serta
+          menghindari kesalahan yang umum terjadi.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./input.html">"Input" – Menerima Masukan dari Pengguna</a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./operators.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./input.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

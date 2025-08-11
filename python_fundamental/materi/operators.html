@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Operator" – Alat Aksi di Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html" class="active">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Operator" – Alat Aksi di Python</h1>
+        <p>
+          Kita sudah belajar tentang "variabel" sebagai "kotak penyimpanan" dan
+          "tipe data" sebagai "jenis barang" di dalam kotak itu. Sekarang,
+          bayangkan Anda ingin melakukan sesuatu dengan barang-barang di dalam
+          kotak. Mungkin Anda ingin menjumlahkan dua angka, membandingkan dua
+          nama, atau mengubah nilai di dalam kotak. Di sinilah peran Operator.
+        </p>
+        <p>
+          Operator adalah simbol atau kata kunci khusus yang memberitahu Python
+          untuk melakukan operasi tertentu pada satu atau lebih nilai atau
+          variabel. Mereka seperti "kata kerja" dalam kalimat yang memungkinkan
+          data untuk "beraksi".
+        </p>
+        <h2>Operator Aritmatika: Melakukan Perhitungan Seperti Kalkulator</h2>
+        <p>
+          Operator aritmatika adalah yang paling sering kita temui, karena
+          fungsinya mirip dengan tombol-tombol pada kalkulator Anda. Mereka
+          digunakan untuk melakukan operasi matematika dasar pada angka (baik
+          bilangan bulat atau desimal).
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">+</code> (Penjumlahan): Menambah dua nilai.
+          </li>
+          <li>
+            <code class="code-piece">-</code> (Pengurangan): Mengurangi satu
+            nilai dari nilai lain.
+          </li>
+          <li>
+            <code class="code-piece">*</code> (Perkalian): Mengalikan dua nilai.
+          </li>
+          <li>
+            <code class="code-piece">/</code> (Pembagian): Membagi satu nilai
+            dengan nilai lain. Hasilnya selalu berupa bilangan desimal (<code
+              class="code-piece"
+              >float</code
+            >), meskipun hasil pembagiannya bulat.
+          </li>
+          <li>
+            <code class="code-piece">//</code> (Pembagian Bulat / Floor
+            Division): Membagi satu nilai dengan nilai lain, tetapi hanya
+            mengambil bagian bilangan bulatnya saja (membulatkan ke bawah).
+          </li>
+          <li>
+            <code class="code-piece">%</code> (Sisa Bagi / Modulus): Membagi
+            satu nilai dengan nilai lain, dan hasilnya adalah sisa dari
+            pembagian tersebut.
+          </li>
+          <li>
+            <code class="code-piece">**</code> (Pangkat): Memangkatkan satu
+            nilai dengan nilai lain (misalnya, 2 pangkat 3 ditulis
+            <code class="code-piece">2 ** 3</code>).
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh penggunaan operator aritmatika
+
+panjang = 10
+lebar = 4
+total_belanja = 50000
+jumlah_orang = 3
+
+# Penjumlahan dan Pengurangan
+jumlah_total = panjang + lebar
+sisa_stok = panjang - 3
+
+# Perkalian
+luas_persegi_panjang = panjang * lebar
+
+# Pembagian biasa (hasilnya float)
+rata_rata_pengeluaran = total_belanja / jumlah_orang # 50000 / 3
+
+# Pembagian bulat (hanya ambil bagian bulatnya)
+jumlah_kelompok = 17 // 3 # 17 dibagi 3, hasilnya 5 (bulat)
+
+# Sisa bagi (modulus)
+sisa_siswa = 17 % 3 # 17 dibagi 3, sisanya 2
+
+# Pangkat
+dua_pangkat_tiga = 2 ** 3 # Sama dengan 2 * 2 * 2
+
+print("Panjang + Lebar:", jumlah_total)
+print("Sisa Stok:", sisa_stok)
+print("Luas Persegi Panjang:", luas_persegi_panjang)
+print("Rata-rata Pengeluaran:", rata_rata_pengeluaran)
+print("Jumlah Kelompok (Pembagian Bulat):", jumlah_kelompok)
+print("Sisa Siswa (Modulus):", sisa_siswa)
+print("Dua Pangkat Tiga:", dua_pangkat_tiga)
+
+# Contoh penggunaan '+' untuk teks (string)
+salam = "Selamat"
+pesan = "Datang"
+gabungan_kata = salam + " " + pesan
+print("Gabungan Kata:", gabungan_kata)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Panjang + Lebar: 14
+Sisa Stok: 7
+Luas Persegi Panjang: 40
+Rata-rata Pengeluaran: 16666.666666666668
+Jumlah Kelompok (Pembagian Bulat): 5
+Sisa Siswa (Modulus): 2
+Dua Pangkat Tiga: 8
+Gabungan Kata: Selamat Datang</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada contoh ini, kita melihat bagaimana setiap operator aritmatika
+          bekerja. Perhatikan perbedaan antara
+          <code class="code-piece">/</code> dan
+          <code class="code-piece">//</code>. Ketika
+          <code class="code-piece">total_belanja</code> dibagi
+          <code class="code-piece">jumlah_orang</code> menggunakan tanda
+          <code class="code-piece">/</code>, hasilnya adalah 16666.666...
+          (bilangan desimal), meskipun aslinya kita membagi angka bulat (<code
+            class="code-piece"
+            >integer</code
+          >). Namun, ketika 17 dibagi 3 dengan
+          <code class="code-piece">//</code>, hasilnya adalah 5, karena Python
+          hanya mengambil bagian bilangan bulatnya. Operator
+          <code class="code-piece">%</code> sangat berguna untuk mengetahui
+          "sisa" dari suatu pembagian, misalnya untuk memeriksa apakah suatu
+          angka genap atau ganjil (jika dibagi 2 dan sisanya 0, maka angkat
+          tersebut genap). Operator <code class="code-piece">**</code> digunakan
+          untuk pangkat.
+        </p>
+        <p>
+          Kita juga melihat bagaimana operator
+          <code class="code-piece">+</code> bisa digunakan untuk menggabungkan
+          dua string (teks). Python memahami bahwa jika Anda menambahkan teks,
+          yang Anda inginkan adalah menyambungkan mereka, bukan menjumlahkan
+          secara matematis. Ini adalah contoh bagaimana Python menyesuaikan
+          perilaku operator tergantung pada tipe data yang digunakannya.
+        </p>
+        <h2>Operator Penugasan: Operator Pengubah Isi Variabel</h2>
+        <p>
+          Kita sudah familiar dengan tanda
+          <code class="code-piece">=</code> yang digunakan untuk "memasukkan"
+          atau "menugaskan" sebuah nilai ke dalam variabel (contoh:
+          <code class="code-piece">usia = 17</code>). Namun, seringkali kita
+          ingin mengubah nilai suatu variabel berdasarkan nilainya sendiri,
+          misalnya menambahkannya dengan angka tertentu. Python menyediakan
+          "operator penugasan gabungan" yang lebih ringkas untuk melakukan ini.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">=</code> (Penugasan Sederhana): Mengisi
+            variabel dengan nilai baru.
+          </li>
+          <li>
+            <code class="code-piece">+=</code> (Tambah dan Tugaskan):
+            Menambahkan nilai ke variabel yang sudah ada, lalu menyimpan
+            hasilnya kembali ke variabel itu. (Contoh:
+            <code class="code-piece">x += 5</code> sama dengan
+            <code class="code-piece">x = x + 5</code>)
+          </li>
+          <li>
+            <code class="code-piece">-=</code> (Kurang dan Tugaskan): Mengurangi
+            nilai dari variabel, lalu menyimpan hasilnya. (Contoh:
+            <code class="code-piece">x -= 5</code> sama dengan
+            <code class="code-piece">x = x - 5</code>)
+          </li>
+          <li>
+            <code class="code-piece">*=</code> (Kali dan Tugaskan): Mengalikan
+            variabel dengan nilai, lalu menyimpan hasilnya. (Contoh:
+            <code class="code-piece">x *= 5</code> sama dengan
+            <code class="code-piece">x = x * 5</code>)
+          </li>
+          <li>
+            <code class="code-piece">/=</code> (Bagi dan Tugaskan): Membagi
+            variabel dengan nilai, lalu menyimpan hasilnya. (Contoh:
+            <code class="code-piece">x /= 5</code> sama dengan
+            <code class="code-piece">x = x / 5</code>)
+          </li>
+          <li>
+            Dan seterusnya untuk <code class="code-piece">//=</code>,
+            <code class="code-piece">%=</code>,
+            <code class="code-piece">**=</code>.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh penggunaan operator penugasan
+
+total_poin = 100
+print("Poin awal:", total_poin)
+
+# Menambahkan 20 poin
+total_poin += 20 # Sama dengan: total_poin = total_poin + 20
+print("Poin setelah tambahan:", total_poin) # Output: 120
+
+# Mengurangi 50 poin karena penalti
+total_poin -= 50 # Sama dengan: total_poin = total_poin - 50
+print("Poin setelah penalti:", total_poin) # Output: 70
+
+# Menggandakan poin
+total_poin *= 2 # Sama dengan: total_poin = total_poin * 2
+print("Poin setelah digandakan:", total_poin) # Output: 140
+
+jumlah_siswa = 30
+jumlah_siswa /= 2 # Sama dengan: jumlah_siswa = jumlah_siswa / 2
+print("Jumlah siswa dibagi dua:", jumlah_siswa) # Output: 15.0 (hasilnya float)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Poin awal: 100
+Poin setelah tambahan: 120
+Poin setelah penalti: 70
+Poin setelah digandakan: 140
+Jumlah siswa dibagi dua: 15.0</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Operator penugasan gabungan ini adalah cara cepat dan rapi untuk
+          mengubah nilai sebuah variabel. Daripada menulis
+          <code class="code-piece">total_poin = total_poin + 20</code>, kita
+          cukup menulis <code class="code-piece">total_poin += 20</code>. Ini
+          membuat kode lebih singkat, lebih mudah dibaca, dan efisien.
+        </p>
+        <h2>
+          Operator Perbandingan: Membandingkan Nilai dan Mencari Nilai
+          True/False
+        </h2>
+        <p>
+          Operator perbandingan digunakan untuk membandingkan dua nilai. Hasil
+          dari perbandingan ini selalu berupa tipe data Boolean, yaitu
+          <code class="code-piece">True</code> (Benar) atau
+          <code class="code-piece">False</code> (Salah). Ini sangat penting
+          untuk membuat keputusan dalam program Anda, yang akan kita bahas di
+          modul selanjutnya (Kondisional).
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">==</code> (Sama Dengan): Memeriksa apakah
+            terdapat kesamaan antara dua nilai. Perhatikan, ini berbeda dengan
+            <code class="code-piece">=</code> (penugasan)!
+          </li>
+          <li>
+            <code class="code-piece">!=</code> (Tidak Sama Dengan): Memeriksa
+            apakah dua nilai tidak bernilai sama.
+          </li>
+          <li>
+            <code class="code-piece">></code> (Lebih Besar Dari): Memeriksa
+            apakah nilai kiri lebih besar dari nilai kanan.
+          </li>
+          <li>
+            <code class="code-piece"><</code> (Lebih Kecil Dari): Memeriksa
+            apakah nilai kiri lebih kecil dari nilai kanan.
+          </li>
+          <li>
+            <code class="code-piece">>=</code> (Lebih Besar Dari atau Sama
+            Dengan): Memeriksa apakah nilai kiri lebih besar dari atau sama
+            dengan nilai kanan.
+          </li>
+          <li>
+            <code class="code-piece"><=</code> (Lebih Kecil Dari atau Sama
+            Dengan): Memeriksa apakah nilai kiri lebih kecil dari atau sama
+            dengan nilai kanan.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh penggunaan operator perbandingan
+
+nilai_siswa = 85
+nilai_minimal_lulus = 75
+nama_depan_1 = "Andi"
+nama_depan_2 = "Budi"
+
+# Membandingkan angka
+apakah_lulus = nilai_siswa >= nilai_minimal_lulus
+apakah_nilai_sempurna = nilai_siswa == 100
+apakah_di_bawah_kkm = nilai_siswa < nilai_minimal_lulus
+
+# Membandingkan teks (huruf besar/kecil berpengaruh!)
+apakah_nama_sama = nama_depan_1 == "andi" # Perhatikan huruf kecil 'andi'
+apakah_nama_berbeda = nama_depan_1 != nama_depan_2
+
+print("Apakah siswa lulus?", apakah_lulus)
+print("Apakah nilai sempurna?", apakah_nilai_sempurna)
+print("Apakah nilai di bawah KKM?", apakah_di_bawah_kkm)
+print("Apakah nama depan 1 sama dengan 'andi'?", apakah_nama_sama)
+print("Apakah nama depan 1 tidak sama dengan nama depan 2?", apakah_nama_berbeda)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Apakah siswa lulus? True
+Apakah nilai sempurna? False
+Apakah nilai di bawah KKM? False
+Apakah nama depan 1 sama dengan 'andi'? False
+Apakah nama depan 1 tidak sama dengan nama depan 2? True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap hasil dari operasi perbandingan adalah
+          <code class="code-piece">True</code> atau
+          <code class="code-piece">False</code>. Misalnya,
+          <code class="code-piece">nilai_siswa >= nilai_minimal_lulus</code>
+          menghasilkan <code class="code-piece">True</code> karena 85 memang
+          lebih besar dari atau sama dengan 75. Perhatikan juga bahwa saat
+          membandingkan teks, Python sangat peka terhadap huruf besar dan kecil.
+          <code class="code-piece">"Andi"</code> tidak sama dengan
+          <code class="code-piece">"andi"</code>, sehingga
+          <code class="code-piece">apakah_nama_sama</code> menjadi
+          <code class="code-piece">False</code>. Operator perbandingan adalah
+          fondasi untuk membuat program yang dapat "berpikir" dan merespons
+          kondisi yang berbeda.
+        </p>
+        <h2>Operator Logika: Menggabungkan Nilai Boolean</h2>
+        <p>
+          Operator logika digunakan untuk menggabungkan atau membalik
+          nilai-nilai Boolean (<code class="code-piece">True</code> atau
+          <code class="code-piece">False</code>). Mereka memungkinkan kita untuk
+          membuat kondisi yang lebih kompleks.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">and</code> (Dan): Hasilnya
+            <code class="code-piece">True</code> jika kedua kondisi yang
+            dibandingkan <code class="code-piece">True</code>. Jika salah satu
+            atau keduanya <code class="code-piece">False</code>, maka hasilnya
+            <code class="code-piece">False</code>.
+          </li>
+          <li>
+            <code class="code-piece">or</code> (Atau): Hasilnya
+            <code class="code-piece">True</code> jika salah satu (atau keduanya)
+            kondisi yang dibandingkan <code class="code-piece">True</code>.
+            Hasilnya hanya <code class="code-piece">False</code> jika kedua
+            kondisi <code class="code-piece">False</code>.
+          </li>
+          <li>
+            <code class="code-piece">not</code> (Bukan): Membalik nilai Boolean.
+            Jika kondisinya <code class="code-piece">True</code>,
+            <code class="code-piece">not</code> akan mengubahnya menjadi
+            <code class="code-piece">False</code>, dan sebaliknya.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh penggunaan operator logika
+
+punya_kartu_pelajar = True
+bawa_buku = False
+umur = 17
+syarat_umur_masuk = 16
+
+# Menggunakan 'and'
+boleh_ikut_ekskul = punya_kartu_pelajar and (umur >= syarat_umur_masuk) # True dan True = True
+print("Boleh ikut ekskul?", boleh_ikut_ekskul)
+
+# Menggunakan 'or'
+bisa_masuk_perpustakaan = punya_kartu_pelajar or bawa_buku # True atau False = True
+print("Bisa masuk perpustakaan?", bisa_masuk_perpustakaan)
+
+# Menggunakan 'not'
+tidak_bawa_buku = not bawa_buku # not False = True
+print("Tidak bawa buku?", tidak_bawa_buku)
+
+# Contoh kombinasi
+apakah_siap_ujian = (punya_kartu_pelajar and bawa_buku) or (umur > 18)
+# (True dan False) atau (False) --> False atau False --> False
+print("Apakah siap ujian?", apakah_siap_ujian)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Boleh ikut ekskul? True
+Bisa masuk perpustakaan? True
+Tidak bawa buku? True
+Apakah siap ujian? False</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Operator logika <code class="code-piece">and</code>,
+          <code class="code-piece">or</code>, dan
+          <code class="code-piece">not</code> sangat berguna untuk membuat
+          keputusan berlapis. <code class="code-piece">and</code> membutuhkan
+          semua kondisi untuk benar agar hasilnya benar.
+          <code class="code-piece">or</code> hanya membutuhkan satu kondisi saja
+          yang benar agar hasilnya benar. Sedangkan
+          <code class="code-piece">not</code> adalah operator "pembalik". Kita
+          juga bisa menggabungkan operator logika dengan tanda kurung
+          <code class="code-piece">()</code> untuk mengatur urutan evaluasinya,
+          mirip seperti perhitungan dalam matematika.
+        </p>
+        <h2>Prioritas Operator: Siapa yang Dikerjakan Lebih Dulu?</h2>
+        <p>
+          Sama seperti dalam pelajaran matematika di mana ada aturan "Kali/Bagi
+          dulu, baru Tambah/Kurang" (urutan operasi), dalam Python juga ada
+          aturan prioritas operator. Python akan mengeksekusi operasi dengan
+          operator yang memiliki prioritas lebih tinggi terlebih dahulu.
+        </p>
+        <p>
+          Urutan prioritas (dari yang tertinggi ke terendah, beberapa yang
+          umum):
+        </p>
+        <ol>
+          <li>Pangkat (<code class="code-piece">**</code>)</li>
+          <li>
+            Perkalian (<code class="code-piece">*</code>), Pembagian (<code
+              class="code-piece"
+              >/</code
+            >, <code class="code-piece">//</code>,
+            <code class="code-piece">%</code>)
+          </li>
+          <li>
+            Penjumlahan (<code class="code-piece">+</code>), Pengurangan (<code
+              class="code-piece"
+              >-</code
+            >)
+          </li>
+          <li>
+            Perbandingan (<code class="code-piece">==</code>,
+            <code class="code-piece">!=</code>,
+            <code class="code-piece">></code>,
+            <code class="code-piece"><</code>,
+            <code class="code-piece">>=</code>,
+            <code class="code-piece"><=</code>)
+          </li>
+          <li>
+            Logika (<code class="code-piece">not</code>,
+            <code class="code-piece">and</code>,
+            <code class="code-piece">or</code>)
+          </li>
+        </ol>
+        <p>
+          Jika ada operator dengan prioritas yang sama, Python akan
+          mengeksekusinya dari kiri ke kanan. Anda bisa menggunakan tanda kurung
+          <code class="code-piece">()</code> untuk mengubah atau mengesampingkan
+          urutan prioritas standar, memaksa Python untuk mengerjakan bagian di
+          dalam kurung terlebih dahulu.
+        </p>
+        <pre><code class="language-python"># Contoh prioritas operator
+
+hasil_1 = 5 + 2 * 3 # Perkalian dulu, lalu penjumlahan
+print("Hasil 1 (5 + 2 * 3):", hasil_1) # 5 + 6 = 11
+
+hasil_2 = (5 + 2) * 3 # Penjumlahan di dalam kurung dulu, lalu perkalian
+print("Hasil 2 ((5 + 2) * 3):", hasil_2) # 7 * 3 = 21
+
+hasil_3 = 10 / 2 + 3 # Pembagian dulu, lalu penjumlahan
+print("Hasil 3 (10 / 2 + 3):", hasil_3) # 5.0 + 3 = 8.0
+
+kondisi_gabungan = True or False and False # 'and' dulu, lalu 'or'
+print("Kondisi Gabungan (True or False and False):", kondisi_gabungan) # True or (False) = True
+
+kondisi_gabungan_2 = (True or False) and False # 'or' di dalam kurung dulu, lalu 'and'
+print("Kondisi Gabungan 2 ((True or False) and False):", kondisi_gabungan_2) # (True) and False = False</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hasil 1 (5 + 2 * 3): 11
+Hasil 2 ((5 + 2) * 3): 21
+Hasil 3 (10 / 2 + 3): 8.0
+Kondisi Gabungan (True or False and False): True
+Kondisi Gabungan 2 ((True or False) and False): False</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh ini dengan jelas menunjukkan bagaimana prioritas operator
+          memengaruhi hasil akhir. Pada <code class="code-piece">hasil_1</code>,
+          perkalian <code class="code-piece">2 * 3</code> dikerjakan lebih dulu,
+          baru hasilnya ditambahkan dengan 5. Namun, pada
+          <code class="code-piece">hasil_2</code>, tanda kurung memaksa Python
+          untuk menjumlahkan <code class="code-piece">5 + 2</code> terlebih
+          dahulu, baru hasilnya dikalikan dengan 3.
+        </p>
+        <p>
+          Hal yang sama berlaku untuk operator logika.
+          <code class="code-piece">and</code> memiliki prioritas lebih tinggi
+          daripada <code class="code-piece">or</code>. Oleh karena itu, di
+          <code class="code-piece">kondisi_gabungan</code>,
+          <code class="code-piece">False and False</code> dievaluasi terlebih
+          dahulu dan hasilnya menjadi <code class="code-piece">False</code>,
+          barulah <code class="code-piece">True or False</code> dievaluasi yang
+          menghasilkan nilai <code class="code-piece">True</code>. Ketika kita
+          menambahkan tanda kurung di
+          <code class="code-piece">kondisi_gabungan_2</code>, maka urutannya
+          berubah.
+        </p>
+        <p>
+          Memahami prioritas operator sangat penting agar perhitungan atau
+          logika di program Anda berjalan sesuai yang Anda inginkan. Jika ragu,
+          selalu gunakan tanda kurung untuk memastikan urutan operasi yang
+          tepat!
+        </p>
+        <p>
+          Dengan menguasai operator, Anda kini memiliki kemampuan untuk
+          melakukan perhitungan yang kompleks, membandingkan informasi, dan
+          membuat program Anda bertindak lebih dinamis berdasarkan data yang
+          ada!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./type_conversion.html"
+            >"Konversi Tipe Data" – Mengubah Jenis Data</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./data_types.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./type_conversion.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

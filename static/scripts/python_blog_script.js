@@ -36,6 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
     navbar.style.opacity = "1";
   }
 
+  // --- Sidebar Toggle Logic ---
+  const sidebarToggle = document.getElementById("sidebar-toggle");
+  const sidebarOverlay = document.getElementById("sidebar-overlay");
+  const body = document.body;
+
+  sidebarToggle.addEventListener("click", () => {
+    body.classList.toggle("sidebar-open");
+  });
+
+  sidebarOverlay.addEventListener("click", () => {
+    body.classList.remove("sidebar-open");
+  });
+
   // Initialize syntax highlighting
   hljs.highlightAll();
 });

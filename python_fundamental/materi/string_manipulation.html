@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"Manipulasi String & Formatting" – Merapikan Teks di Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li>
+          <a href="./string_manipulation.html" class="active"
+            >String Manipulation</a
+          >
+        </li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="#">Lists</a></li>
+        <li><a href="#">Tuples</a></li>
+        <li><a href="#">Sets</a></li>
+        <li><a href="#">Dictionaries</a></li>
+        <li><a href="#">List Comprehension</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <i class="fas fa-laptop-code"></i> Python Fundamental
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Manipulasi String & Formatting" – Merapikan Teks di Python</h1>
+        <p>
+          Kita sudah tahu bahwa <strong>String</strong> adalah tipe data untuk
+          menyimpan teks (deretan karakter). Dari nama, alamat, hingga pesan
+          panjang, semuanya adalah string. Namun, jarang sekali kita menyimpan
+          teks hanya untuk ditampilkan persis seperti itu. Seringkali, kita
+          perlu mengubahnya, memotongnya, menggabungkannya, atau merapikannya
+          agar terlihat lebih baik dan informatif.
+        </p>
+        <p>
+          Bayangkan Anda memiliki nama depan dan nama belakang secara terpisah,
+          lalu Anda ingin menggabungkannya menjadi nama lengkap. Atau, Anda
+          ingin menampilkan angka yang besar dengan format ribuan, atau membuat
+          tabel sederhana dengan teks yang rapi. Di sinilah peran "Manipulasi
+          String & Formatting". Ini adalah seni membuat teks di program Anda
+          bekerja sesuai keinginan dan terlihat menarik.
+        </p>
+        <h2>
+          Menggabungkan Teks: Operator
+          <code class="code-piece">+</code>
+        </h2>
+        <p>
+          Kita sudah melihat sekilas bagaimana operator
+          <code class="code-piece">+</code> bisa digunakan untuk menggabungkan
+          dua teks (string) menjadi satu. Ini seperti menyambung dua potongan
+          tali menjadi satu tali yang lebih panjang.
+        </p>
+        <pre><code class="language-python">nama_depan = "Dian"
+nama_belakang = "Permata"
+
+# Menggabungkan dua string dengan spasi di tengah
+nama_lengkap = nama_depan + " " + nama_belakang
+print("Nama Lengkap:", nama_lengkap)
+
+kota = "Bandung"
+provinsi = "Jawa Barat"
+alamat = "Tinggal di " + kota + ", " + provinsi
+print(alamat)
+
+# Ingat, jika ada angka, harus dikonversi ke string dulu!
+usia = 17
+pesan_usia = "Usia saya " + str(usia) + " tahun." # str(usia) mengubah 17 menjadi "17"
+print(pesan_usia)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama Lengkap: Dian Permata
+Tinggal di Bandung, Jawa Barat
+Usia saya 17 tahun.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Operator <code class="code-piece">+</code> mengambil string di kiri
+          dan string di kanan, lalu menggabungkannya. Kita menambahkan spasi
+          <code class="code-piece">" "</code> di antara
+          <code class="code-piece">nama_depan</code> dan
+          <code class="code-piece">nama_belakang</code> agar tidak terlihat
+          menempel. Penting untuk diingat lagi, jika Anda ingin menggabungkan
+          teks dengan angka, Anda <strong>harus</strong> mengubah angka itu
+          menjadi teks terlebih dahulu menggunakan
+          <code class="code-piece">str()</code>, seperti pada
+          <code class="code-piece">str(usia)</code>. Kalau tidak, Python akan
+          bingung dan mengeluarkan error.
+        </p>
+        <h2>Mengulang Teks: Operator <code class="code-piece">*</code></h2>
+        <p>
+          Kadang Anda ingin mengulang sebuah teks berkali-kali. Operator
+          <code class="code-piece">*</code> yang biasanya untuk perkalian angka,
+          juga bisa digunakan untuk mengulang string! Anda bisa mengalikan
+          string dengan sebuah angka (bilangan bulat positif).
+        </p>
+        <pre><code class="language-python"># Mengulang sebuah kata
+teks_ulang = "Hai!" * 3
+print("Teks diulang:", teks_ulang)
+
+# Membuat garis pemisah sederhana
+garis_pemisah = "=" * 20
+print(garis_pemisah)
+print("Selamat Datang")
+print(garis_pemisah)
+
+# Mengulang spasi
+spasi_banyak = " " * 5
+print("Ini adalah" + spasi_banyak + "teks dengan banyak spasi.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Teks diulang: Hai!Hai!Hai!
+====================
+Selamat Datang
+====================
+Ini adalah     teks dengan banyak spasi.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika Anda menulis <code class="code-piece">"Hai!" * 3</code>, Python
+          akan membuat string <code class="code-piece">"Hai!"</code> muncul
+          sebanyak 3 kali secara berurutan. Ini sangat berguna untuk membuat
+          pola sederhana, garis pembatas, atau indentasi (jarak kosong) dengan
+          mudah.
+        </p>
+        <h2>
+          Mengetahui Panjang Teks: Fungsi <code class="code-piece">len()</code>
+        </h2>
+        <p>
+          Seringkali kita perlu tahu berapa banyak karakter (termasuk spasi)
+          yang ada dalam sebuah teks. Python punya fungsi bawaan yang disebut
+          <code class="code-piece">len()</code> (kependekan dari "length" atau
+          panjang). Anda cukup meletakkan string atau variabel string di dalam
+          kurung <code class="code-piece">()</code>.
+        </p>
+        <pre><code class="language-python">kalimat = "Python itu mudah dipelajari."
+panjang_kalimat = len(kalimat)
+
+nama_kosong = ""
+panjang_nama_kosong = len(nama_kosong)
+
+print("Kalimat:", kalimat)
+print("Panjang kalimat:", panjang_kalimat, "karakter.") # Spasi juga dihitung!
+
+print("Panjang nama kosong:", panjang_nama_kosong, "karakter.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Kalimat: Python itu mudah dipelajari.
+Panjang kalimat: 28 karakter.
+Panjang nama kosong: 0 karakter.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Fungsi <code class="code-piece">len(kalimat)</code> menghitung setiap
+          karakter dalam string <code class="code-piece">kalimat</code>,
+          termasuk spasi dan tanda baca, menghasilkan angka
+          <code class="code-piece">28</code>. String kosong
+          <code class="code-piece">""</code> memiliki panjang
+          <code class="code-piece">0</code>.
+          <code class="code-piece">len()</code> sangat berguna, misalnya, untuk
+          membatasi jumlah karakter yang bisa dimasukkan pengguna atau untuk
+          mengatur tampilan agar rapi.
+        </p>
+        <h2>Mengambil Bagian Teks: Mengakses Karakter Individu (Indexing)</h2>
+        <p>
+          Sebuah string sebenarnya adalah kumpulan karakter yang berurutan. Kita
+          bisa mengambil satu karakter tertentu dari sebuah string dengan
+          mengetahui "posisinya" atau yang disebut <strong>Indeks</strong>.
+          Dalam Python (dan banyak bahasa pemrograman lain), penghitungan indeks
+          selalu dimulai dari <strong>nol (0)</strong>, bukan satu.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama[0]</code> berarti karakter pertama.
+          </li>
+          <li>
+            <code class="code-piece">nama[1]</code> berarti karakter kedua, dst.
+          </li>
+        </ul>
+        <p>
+          Anda juga bisa menggunakan indeks negatif untuk menghitung dari
+          belakang:
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama[-1]</code> berarti karakter terakhir.
+          </li>
+          <li>
+            <code class="code-piece">nama[-2]</code> berarti karakter kedua dari
+            belakang, dst.
+          </li>
+        </ul>
+        <pre><code class="language-python">huruf_vokal = "AEIOU"
+
+print("Huruf pertama:", huruf_vokal[0])
+print("Huruf kedua:", huruf_vokal[1])
+print("Huruf terakhir:", huruf_vokal[4]) # Karena total 5 huruf, indeks terakhir 4
+print("Huruf terakhir (dari belakang):", huruf_vokal[-1])
+print("Huruf kedua dari belakang:", huruf_vokal[-2])
+
+nama_lengkap_siswa = "Rudi Hartono"
+print("Inisial depan:", nama_lengkap_siswa[0])
+print("Inisial belakang:", nama_lengkap_siswa[5]) # Karakter 'H' ada di indeks 5 (setelah spasi)
+
+# print(huruf_vokal[5]) # Ini akan error! Indeks di luar batas</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Huruf pertama: A
+Huruf kedua: E
+Huruf terakhir: U
+Huruf terakhir (dari belakang): U
+Huruf kedua dari belakang: O
+Inisial depan: R
+Inisial belakang: H</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">huruf_vokal[0]</code> memberikan 'A' karena
+          'A' adalah karakter pertama (indeks 0).
+          <code class="code-piece">huruf_vokal[-1]</code> juga memberikan 'U'
+          karena itu adalah karakter terakhir. Teknik ini berguna untuk
+          mengambil inisial, atau memproses karakter satu per satu. Anda harus
+          berhati-hati agar tidak mencoba mengakses indeks yang tidak ada,
+          karena itu akan menyebabkan error. (Baris
+          <code class="code-piece">print(huruf_vokal[5])</code> sengaja
+          dikomentari karena akan menyebabkan error
+          <code class="code-piece">IndexError</code>.)
+        </p>
+        <h2>Mengambil Sebagian Teks: Memotong String (Slicing)</h2>
+        <p>
+          Selain mengambil satu karakter, kita juga bisa mengambil "potongan"
+          atau sebagian dari string yang lebih panjang. Ini disebut
+          <strong>Slicing</strong>. Anda perlu menentukan titik awal dan titik
+          akhir (opsional, bisa juga langkah-langkahnya). Sintaksnya adalah
+          <code class="code-piece">[mulai:akhir:langkah]</code>.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">mulai</code>: Indeks di mana potongan
+            dimulai (termasuk karakter di indeks ini). Jika dikosongkan, mulai
+            dari awal.
+          </li>
+          <li>
+            <code class="code-piece">akhir</code>: Indeks di mana potongan
+            berakhir (karakter di indeks ini TIDAK termasuk). Jika dikosongkan,
+            sampai akhir.
+          </li>
+          <li>
+            <code class="code-piece">langkah</code>: Seberapa jauh kita
+            melangkah (misalnya, ambil setiap 2 karakter). Jika dikosongkan,
+            defaultnya 1.
+          </li>
+        </ul>
+        <pre><code class="language-python">teks_panjang = "Belajar Python itu sangat menyenangkan!"
+
+# Mengambil dari indeks 0 sampai sebelum indeks 7
+kata_pertama = teks_panjang[0:7]
+print("Kata pertama:", kata_pertama)
+
+# Mengambil dari indeks 8 sampai akhir
+sisa_kalimat = teks_panjang[8:]
+print("Sisa kalimat:", sisa_kalimat)
+
+# Mengambil dari awal sampai sebelum indeks 7
+kata_lain = teks_panjang[:7]
+print("Kata lain:", kata_lain)
+
+# Mengambil 5 karakter terakhir
+lima_terakhir = teks_panjang[-5:]
+print("Lima karakter terakhir:", lima_terakhir)
+
+# Membalikkan string (trik slicing khusus!)
+teks_terbalik = teks_panjang[::-1]
+print("Teks terbalik:", teks_terbalik)
+
+# Mengambil setiap 2 karakter
+setiap_dua = teks_panjang[::2]
+print("Setiap dua karakter:", setiap_dua)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Kata pertama: Belajar
+Sisa kalimat: Python itu sangat menyenangkan!
+Kata lain: Belajar
+Lima karakter terakhir: gkan!
+Teks terbalik: !nakgnaneynem tagnas uti nohtyP rajaleB
+Setiap dua karakter: BljrPto t agtmneaga!</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Slicing sangat fleksibel.
+          <code class="code-piece">teks_panjang[0:7]</code> mengambil karakter
+          dari indeks 0 hingga indeks 6 (ingat, indeks
+          <code class="code-piece">akhir</code> tidak termasuk).
+          <code class="code-piece">teks_panjang[8:]</code> berarti ambil dari
+          indeks 8 sampai akhir.
+          <code class="code-piece">teks_panjang[:7]</code> berarti ambil dari
+          awal sampai sebelum indeks 7.
+        </p>
+        <p>
+          Trik <code class="code-piece">[::-1]</code> sangat menarik: ini
+          berarti mulai dari awal hingga akhir, dengan langkah
+          <code class="code-piece">-1</code> (mundur). Hasilnya adalah string
+          yang terbalik! Sedangkan <code class="code-piece">[::2]</code> berarti
+          mulai dari awal hingga akhir, mengambil setiap karakter kedua.
+        </p>
+        <h2>Aksi Keren String: Menggunakan "Metode String"</h2>
+        <p>
+          String di Python itu bukan cuma kumpulan karakter, tapi juga punya
+          "kemampuan" atau "aksi" bawaan yang bisa mereka lakukan. Aksi-aksi ini
+          disebut <strong>Metode String</strong>. Anda bisa memanggil metode
+          dengan menulis nama variabel string, lalu titik (<code
+            class="code-piece"
+            >.</code
+          >), lalu nama metodenya, diikuti tanda kurung
+          <code class="code-piece">()</code>. Ini seperti Anda meminta variabel
+          string untuk "melakukan sesuatu".
+        </p>
+        <p>Berikut beberapa metode string yang sangat berguna:</p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">lower()</code>:</strong> Mengubah
+            semua huruf menjadi huruf kecil.
+          </li>
+          <li>
+            <strong><code class="code-piece">upper()</code>:</strong> Mengubah
+            semua huruf menjadi huruf kapital.
+          </li>
+          <li>
+            <strong><code class="code-piece">strip()</code>:</strong>
+            Menghilangkan spasi berlebihan (di awal atau akhir string).
+          </li>
+          <li>
+            <strong
+              ><code class="code-piece">replace(lama, baru)</code>:</strong
+            >
+            Mengganti semua kemunculan teks
+            <code class="code-piece">lama</code> dengan teks
+            <code class="code-piece">baru</code>.
+          </li>
+          <li>
+            <strong><code class="code-piece">startswith(awalan)</code>:</strong>
+            Memeriksa apakah string dimulai dengan teks
+            <code class="code-piece">awalan</code> tertentu (hasilnya
+            <code class="code-piece">True</code> atau
+            <code class="code-piece">False</code>).
+          </li>
+          <li>
+            <strong><code class="code-piece">endswith(akhiran)</code>:</strong>
+            Memeriksa apakah string diakhiri dengan teks
+            <code class="code-piece">akhiran</code> tertentu (hasilnya
+            <code class="code-piece">True</code> atau
+            <code class="code-piece">False</code>).
+          </li>
+          <li>
+            <strong><code class="code-piece">count(teks)</code>:</strong>
+            Menghitung berapa kali sebuah teks atau karakter muncul di dalam
+            string.
+          </li>
+          <li>
+            <strong><code class="code-piece">find(teks)</code>:</strong> Mencari
+            posisi (indeks) pertama kali sebuah teks muncul. Jika tidak
+            ditemukan, hasilnya <code class="code-piece">-1</code>.
+          </li>
+        </ul>
+        <pre><code class="language-python">judul_artikel = "   Belajar PYTHON itu MUDAH!   "
+
+# Mengubah huruf
+judul_kecil = judul_artikel.lower()
+judul_besar = judul_artikel.upper()
+print("Judul kecil:", judul_kecil)
+print("Judul besar:", judul_besar)
+
+# Menghilangkan spasi berlebih
+judul_bersih = judul_artikel.strip()
+print("Judul bersih:", judul_bersih)
+
+# Mengganti kata
+judul_baru = judul_bersih.replace("MUDAH", "MENYENANGKAN")
+print("Judul baru:", judul_baru)
+
+# Memeriksa awalan dan akhiran
+apakah_dimulai_belajar = judul_bersih.startswith("Belajar")
+apakah_diakhiri_mudah = judul_bersih.endswith("MUDAH!") # Perhatikan tanda seru!
+print("Dimulai dengan 'Belajar'?", apakah_dimulai_belajar)
+print("Diakhiri dengan 'MUDAH!'?", apakah_diakhiri_mudah)
+
+# Menghitung kemunculan huruf 'u'
+jumlah_u = judul_bersih.count('u')
+print("Jumlah huruf 'u':", jumlah_u)
+
+# Mencari posisi kata 'itu'
+posisi_itu = judul_bersih.find("itu")
+print("Kata 'itu' ditemukan di indeks:", posisi_itu)
+posisi_tidak_ada = judul_bersih.find("sulit") # Kata 'sulit' tidak ada
+print("Kata 'sulit' ditemukan di indeks:", posisi_tidak_ada)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Judul kecil:    belajar python itu mudah!   
+Judul besar:    BELAJAR PYTHON ITU MUDAH!   
+Judul bersih: Belajar PYTHON itu MUDAH!
+Judul baru: Belajar PYTHON itu MENYENANGKAN!
+Dimulai dengan 'Belajar'? True
+Diakhiri dengan 'MUDAH!'? True
+Jumlah huruf 'u': 2
+Kata 'itu' ditemukan di indeks: 15
+Kata 'sulit' ditemukan di indeks: -1</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap metode ini melakukan tugas spesifik pada string dan
+          mengembalikan string baru (atau nilai Boolean/angka). Penting untuk
+          diingat bahwa metode ini <strong>tidak mengubah string asli</strong>,
+          tetapi mengembalikan string yang sudah diubah. Jadi,
+          <code class="code-piece">judul_artikel</code> tetap sama, sedangkan
+          <code class="code-piece">judul_kecil</code> adalah hasil dari
+          <code class="code-piece">lower()</code>.
+        </p>
+        <p>
+          <code class="code-piece">strip()</code> sangat berguna untuk
+          membersihkan input pengguna yang mungkin memiliki spasi tidak sengaja
+          di awal atau akhir. <code class="code-piece">replace()</code> bisa
+          sangat ampuh untuk melakukan koreksi teks secara otomatis. Metode
+          <code class="code-piece">startswith()</code> dan
+          <code class="code-piece">endswith()</code> sangat bagus untuk
+          memvalidasi input atau mengidentifikasi jenis teks tertentu.
+          <code class="code-piece">find()</code> sangat berguna untuk mencari
+          keberadaan teks dan mengetahui lokasinya.
+        </p>
+        <h2>Memformat String: f-strings (Cara Paling Modern dan Canggih)</h2>
+        <p>
+          Meskipun operator <code class="code-piece">+</code> bisa menggabungkan
+          string, itu bisa jadi rumit jika Anda punya banyak variabel dan teks
+          yang ingin digabungkan. Python 3.6 ke atas memperkenalkan cara yang
+          jauh lebih elegan dan kuat untuk memformat string, yang disebut
+          <strong>f-strings</strong> (kependekan dari "formatted string
+          literals").
+        </p>
+        <p>
+          Dengan f-strings, Anda cukup menulis huruf
+          <code class="code-piece">f</code> di depan tanda kutip string, lalu
+          Anda bisa langsung menulis nama variabel atau bahkan melakukan
+          perhitungan di dalam kurung kurawal
+          <code class="code-piece">{}</code> di dalam string tersebut. Python
+          akan secara otomatis mengganti
+          <code class="code-piece">{}</code> dengan nilai yang sesuai.
+        </p>
+        <pre><code class="language-python"># Contoh menggunakan f-strings
+
+nama_produk = "Buku Sejarah"
+harga_satuan = 75000
+stok = 12
+
+# Menggabungkan teks dan angka dengan mudah
+pesan_produk = f"Produk: {nama_produk}, Harga: Rp{harga_satuan}, Stok Tersedia: {stok} unit."
+print(pesan_produk)
+
+# Bisa melakukan perhitungan langsung di dalam f-string
+total_harga = harga_satuan * stok
+ringkasan_pesanan = f"Anda memesan {stok} buah {nama_produk} dengan total harga Rp{total_harga}."
+print(ringkasan_pesanan)
+
+# Memformat angka desimal (akan dibahas lebih lanjut di formatting lanjutan)
+pi_value = 3.1415926535
+formatted_pi = f"Nilai PI yang dibulatkan: {pi_value:.2f}" # .2f artinya 2 angka di belakang koma
+print(formatted_pi)
+
+# Menampilkan Boolean atau tipe data lain
+apakah_aktif = True
+status = f"Status akun: {apakah_aktif}"
+print(status)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Produk: Buku Sejarah, Harga: Rp75000, Stok Tersedia: 12 unit.
+Anda memesan 12 buah Buku Sejarah dengan total harga Rp900000.
+Nilai PI yang dibulatkan: 3.14
+Status akun: True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Kekuatan f-strings terletak pada kemampuannya untuk "memasukkan" nilai
+          variabel atau hasil ekspresi langsung ke dalam string dengan sangat
+          mudah. Bandingkan
+          <code class="code-piece">f"Produk: {nama_produk}"</code> dengan
+          <code class="code-piece">"Produk: " + nama_produk</code>, tentu jauh
+          lebih ringkas yang pertama, bukan?
+        </p>
+        <p>
+          Anda bisa memasukkan variabel apapun ke dalam
+          <code class="code-piece">{}</code>. Python akan secara otomatis
+          mengubahnya menjadi teks. Bahkan, Anda bisa melakukan operasi
+          matematika di dalamnya, seperti
+          <code class="code-piece">{harga_satuan * stok}</code>. Fitur
+          formatting seperti
+          <code class="code-piece">{pi_value:.2f}</code> (yang membulatkan angka
+          <code class="code-piece">pi_value</code> menjadi dua angka di belakang
+          koma) menunjukkan betapa canggihnya f-strings.
+        </p>
+        <p>
+          Dengan memahami manipulasi string dan teknik formatting, Anda sekarang
+          memiliki kendali penuh atas bagaimana teks ditampilkan di program
+          Anda. Ini adalah kemampuan yang sangat penting untuk menciptakan
+          program yang tidak hanya berfungsi dengan baik, tetapi juga mudah
+          digunakan dan dipahami oleh orang lain!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./conditionals.html"
+            >"Kondisi" – Membuat Keputusan di Python</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./input.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./conditionals.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>
