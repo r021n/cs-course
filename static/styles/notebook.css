@@ -59,10 +59,6 @@ h3 {
   margin-right: 10px;
 }
 
-.notebook-link:nth-child(2)::before {
-  content: "💻";
-}
-
 .section {
   background-color: rgba(30, 40, 55, 0.7);
   padding: 20px;
