@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"List Comprehension" – Cara Cepat Membuat List</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li>
+          <a href="./list_comprehension.html" class="active"
+            >List Comprehension</a
+          >
+        </li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>"List Comprehension" – Cara Cepat Membuat List</h1>
+        <p>
+          Kita sudah belajar banyak tentang <strong>List</strong>, bagaimana
+          membuat, mengubah, dan mengulang isinya. Seringkali, dalam
+          pemrograman, kita perlu membuat List baru. Misalnya, membuat List
+          berisi angka kuadrat dari List angka lain, atau membuat List baru yang
+          hanya berisi item-item tertentu dari List lama (misalnya, hanya nama
+          siswa yang lulus).
+        </p>
+        <p>
+          Biasanya, kita akan melakukan ini dengan perulangan
+          <code class="code-piece">for</code> dan menambahkan item satu per satu
+          ke List kosong. Cara itu memang benar, tapi Python punya cara yang
+          lebih ringkas dan "Pythonic" (sesuai gaya Python) untuk melakukannya,
+          yang disebut <strong>List Comprehension</strong>.
+        </p>
+        <p>
+          List Comprehension adalah cara menulis satu baris kode untuk membuat
+          List baru, menggabungkan proses perulangan (<code class="code-piece"
+            >for</code
+          >) dan kondisional (<code class="code-piece">if</code>) dalam bentuk
+          yang sangat padat dan mudah dibaca (setelah Anda terbiasa). Ini
+          seperti resep ringkas untuk membuat List.
+        </p>
+        <h2>Dasar List Comprehension: Membuat List Angka Kuadrat</h2>
+        <p>
+          Mari kita lihat perbandingan cara tradisional (dengan
+          <code class="code-piece">for</code> loop) dan cara List Comprehension
+          untuk membuat List baru.
+        </p>
+        <h2>
+          Cara Tradisional (Menggunakan Perulangan
+          <code class="code-piece">for</code>)
+        </h2>
+        <pre><code class="language-python"># Membuat list angka kuadrat dari 1 sampai 5 (cara tradisional)
+angka_asli = [1, 2, 3, 4, 5]
+angka_kuadrat_tradisional = [] # Membuat list kosong dulu
+
+for angka in angka_asli: # Ulangi setiap angka di list_asli
+    kuadrat = angka ** 2 # Hitung kuadratnya
+    angka_kuadrat_tradisional.append(kuadrat) # Tambahkan ke list baru
+
+print("Angka kuadrat (tradisional):", angka_kuadrat_tradisional)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka kuadrat (tradisional): [1, 4, 9, 16, 25]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Cara ini jelas dan berfungsi. Kita membuat list kosong, lalu
+          menggunakan perulangan <code class="code-piece">for</code> untuk
+          menghitung kuadrat setiap angka, dan akhirnya menambahkan hasil
+          kuadrat itu ke list baru menggunakan
+          <code class="code-piece">append()</code>.
+        </p>
+        <h2>Cara List Comprehension (Satu Baris)</h2>
+        <p>
+          Sekarang, mari kita lakukan hal yang sama dengan List Comprehension:
+        </p>
+        <pre><code class="language-python"># Membuat list angka kuadrat dari 1 sampai 5 (dengan List Comprehension)
+angka_asli = [1, 2, 3, 4, 5]
+angka_kuadrat_lc = [angka ** 2 for angka in angka_asli]
+# Sintaks: [ekspresi_yang_dihasilkan for item in koleksi_yang_diulang]
+
+print("Angka kuadrat (List Comprehension):", angka_kuadrat_lc)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka kuadrat (List Comprehension): [1, 4, 9, 16, 25]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan baris
+          <code class="code-piece"
+            >angka_kuadrat_lc = [angka ** 2 for angka in angka_asli]</code
+          >.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">angka ** 2</code>: Ini adalah
+            <strong>ekspresi</strong> yang akan dihasilkan untuk setiap item
+            dalam list baru.
+          </li>
+          <li>
+            <code class="code-piece">for angka in angka_asli</code>: Ini adalah
+            bagian <strong>perulangan</strong> yang sama seperti
+            <code class="code-piece">for</code> loop biasa, yang akan mengambil
+            setiap <code class="code-piece">angka</code> dari
+            <code class="code-piece">angka_asli</code>.
+          </li>
+        </ul>
+        <p>
+          List Comprehension membaca seperti ini: "Buatlah sebuah list baru yang
+          berisi <code class="code-piece">angka</code> pangkat
+          <code class="code-piece">2</code>, untuk setiap
+          <code class="code-piece">angka</code> yang ada di
+          <code class="code-piece">angka_asli</code>." Lebih ringkas, bukan?
+        </p>
+        <h2>
+          List Comprehension dengan Kondisional (<code class="code-piece"
+            >if</code
+          >): Memilih Item Tertentu
+        </h2>
+        <p>
+          List Comprehension juga memungkinkan Anda untuk menambahkan kondisi
+          (<code class="code-piece">if</code>) untuk memilih item mana yang akan
+          dimasukkan ke dalam List baru. Ini sangat berguna untuk memfilter atau
+          menyaring item.
+        </p>
+        <p>
+          Sintaksnya menjadi:
+          <code class="code-piece"
+            >[ekspresi_yang_dihasilkan for item in koleksi_yang_diulang if
+            kondisi]</code
+          >
+        </p>
+        <pre><code class="language-python"># Membuat list angka genap dari 1 sampai 10 (cara tradisional)
+semua_angka = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+angka_genap_tradisional = []
+
+for angka in semua_angka:
+    if angka % 2 == 0: # Jika angka genap
+        angka_genap_tradisional.append(angka)
+
+print("Angka genap (tradisional):", angka_genap_tradisional)
+
+print("\n")
+
+# Membuat list angka genap dari 1 sampai 10 (dengan List Comprehension)
+semua_angka = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+angka_genap_lc = [angka for angka in semua_angka if angka % 2 == 0]
+# Sintaks: [item_yang_disertakan for item in koleksi if kondisi_pemilihan]
+
+print("Angka genap (List Comprehension):", angka_genap_lc)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka genap (tradisional): [2, 4, 6, 8, 10]
+
+Angka genap (List Comprehension): [2, 4, 6, 8, 10]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >angka_genap_lc = [angka for angka in semua_angka if angka % 2 ==
+            0]</code
+          >:
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">angka</code>: Ini adalah item yang akan
+            dimasukkan ke List baru jika kondisi terpenuhi.
+          </li>
+          <li>
+            <code class="code-piece">for angka in semua_angka</code>: Perulangan
+            yang mengambil setiap <code class="code-piece">angka</code>.
+          </li>
+          <li>
+            <code class="code-piece">if angka % 2 == 0</code>: Ini adalah
+            <strong>kondisi</strong> yang akan dicek. Hanya jika kondisi ini
+            <code class="code-piece">True</code>,
+            <code class="code-piece">angka</code> akan dimasukkan ke List baru.
+          </li>
+        </ul>
+        <p>
+          List Comprehension ini membaca seperti ini: "Buatlah sebuah list baru
+          yang berisi <code class="code-piece">angka</code>, untuk setiap
+          <code class="code-piece">angka</code> di
+          <code class="code-piece">semua_angka</code>, <strong>jika</strong>
+          <code class="code-piece">angka</code> itu adalah genap."
+        </p>
+        <h2>Kombinasi Ekspresi dan Kondisi: Lebih Lanjut!</h2>
+        <p>
+          Anda bisa menggabungkan ekspresi yang lebih kompleks dengan kondisi.
+        </p>
+        <pre><code class="language-python"># Membuat list kategori nilai: 'Lulus' jika >= 70, 'Gagal' jika < 70
+nilai_siswa = [65, 80, 72, 55, 90]
+
+status_lulus = ["Lulus" if nilai >= 70 else "Gagal" for nilai in nilai_siswa]
+# Sintaks: [ekspresi_jika_true if kondisi else ekspresi_jika_false for item in koleksi]
+
+print("Status kelulusan:", status_lulus)
+
+print("\n")
+
+# Mengambil nama-nama buah yang dimulai dengan huruf 'M'
+daftar_buah = ["Apel", "Mangga", "Pisang", "Melon", "Jambu"]
+buah_dimulai_m = [buah for buah in daftar_buah if buah.startswith('M')]
+print("Buah yang dimulai dengan 'M':", buah_dimulai_m)
+
+print("\n")
+
+# Mengubah semua nama menjadi huruf kapital, tapi hanya untuk nama yang panjangnya lebih dari 4 huruf
+daftar_nama = ["ani", "budi", "cici", "dina", "eko"]
+nama_kapital_panjang = [nama.upper() for nama in daftar_nama if len(nama) > 4]
+print("Nama kapital (>4 huruf):", nama_kapital_panjang)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Status kelulusan: ['Gagal', 'Lulus', 'Lulus', 'Gagal', 'Lulus']
+
+Buah yang dimulai dengan 'M': ['Mangga', 'Melon']
+
+Nama kapital (>4 huruf): ['BUDI', 'CICI', 'DINA']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >status_lulus = ["Lulus" if nilai >= 70 else "Gagal" for nilai in
+            nilai_siswa]</code
+          >:
+        </p>
+        <p>
+          Ini adalah bentuk <code class="code-piece">if-else</code> yang
+          diletakkan di bagian
+          <code class="code-piece">ekspresi_yang_dihasilkan</code>.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">"Lulus" if nilai >= 70 else "Gagal"</code>:
+            Ini adalah ekspresi yang akan dievaluasi. Jika
+            <code class="code-piece">nilai >= 70</code> itu
+            <code class="code-piece">True</code>, hasilnya adalah
+            <code class="code-piece">"Lulus"</code>. Jika
+            <code class="code-piece">False</code>, hasilnya adalah
+            <code class="code-piece">"Gagal"</code>.
+          </li>
+          <li>
+            <code class="code-piece">for nilai in nilai_siswa</code>: Perulangan
+            seperti biasa.
+          </li>
+        </ul>
+        <p>
+          List Comprehension ini membaca: "Buatlah list baru yang berisi
+          <code class="code-piece">"Lulus"</code> jika
+          <code class="code-piece">nilai</code>
+          <code class="code-piece">>= 70</code>,
+          <code class="code-piece">jika tidak</code> berisi
+          <code class="code-piece">"Gagal"</code>, untuk setiap
+          <code class="code-piece">nilai</code> di
+          <code class="code-piece">nilai_siswa</code>." Ini sangat kuat untuk
+          membuat transformasi bersyarat pada item.
+        </p>
+        <p>
+          Dua contoh berikutnya juga menunjukkan bagaimana Anda bisa
+          menggabungkan metode string (<code class="code-piece"
+            >.startswith()</code
+          >, <code class="code-piece">.upper()</code>) dan
+          <code class="code-piece">len()</code> di dalam List Comprehension
+          untuk filtering dan transformasi yang canggih.
+        </p>
+        <h2>List Comprehension Bersarang (Nested List Comprehensions)</h2>
+        <p>
+          Anda bahkan bisa membuat List Comprehension di dalam List
+          Comprehension lainnya! Ini sangat berguna untuk membuat list bersarang
+          (seperti matriks atau tabel) atau memproses item dari list bersarang.
+        </p>
+        <p>
+          Sintaksnya mirip dengan perulangan bersarang:
+          <code class="code-piece"
+            >[ekspresi for item_luar in koleksi_luar for item_dalam in
+            koleksi_dalam]</code
+          >
+        </p>
+        <pre><code class="language-python"># Membuat matriks (list of lists) 3x3 dengan angka dari 0 sampai 8
+# Cara tradisional
+matriks_tradisional = []
+baris_sekarang = 0
+for i in range(3): # Loop untuk baris
+    kolom_baru = []
+    for j in range(3): # Loop untuk kolom
+        kolom_baru.append(baris_sekarang)
+        baris_sekarang += 1
+    matriks_tradisional.append(kolom_baru)
+print("Matriks tradisional:", matriks_tradisional)
+
+print("\n")
+
+# Membuat matriks 3x3 dengan List Comprehension
+# [angka_kolom for angka_kolom in range(i*3, (i+1)*3)] akan dijalankan untuk setiap i
+matriks_lc = [[i * 3 + j for j in range(3)] for i in range(3)]
+# Membaca: [ [hasil untuk j] untuk setiap j dalam range(3) ] untuk setiap i dalam range(3)
+
+# Atau cara lebih sederhana untuk membuat list of lists dari 1 sampai 9
+matriks_sederhana = [[j for j in range(i, i+3)] for i in [1,4,7]]
+
+
+# Mari kita buat matriks 3x3 dari 1 sampai 9 lebih intuitif
+# hasil ini akan menjadi [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matriks_1_ke_9 = [[kolom + (baris * 3) + 1 for kolom in range(3)] for baris in range(3)]
+
+
+print("Matriks List Comprehension:", matriks_lc)
+print("Matriks Sederhana:", matriks_sederhana)
+print("Matriks 1 ke 9:", matriks_1_ke_9)
+
+print("\n")
+
+# Contoh lain: Meratakan list bersarang menjadi satu list datar
+list_bersarang = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+list_datar = [angka for sublist in list_bersarang for angka in sublist]
+print("List datar dari list bersarang:", list_datar)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Matriks tradisional: [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+
+Matriks List Comprehension: [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+Matriks Sederhana: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Matriks 1 ke 9: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+List datar dari list bersarang: [1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          List Comprehension bersarang terlihat sedikit lebih rumit pada
+          awalnya, tetapi sangat efisien.
+        </p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >matriks_lc = [[i * 3 + j for j in range(3)] for i in
+            range(3)]</code
+          >:
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">for i in range(3)</code> adalah perulangan
+            luar (untuk baris).
+          </li>
+          <li>
+            <code class="code-piece">[i * 3 + j for j in range(3)]</code> adalah
+            List Comprehension di dalam, yang akan dieksekusi untuk setiap
+            <code class="code-piece">i</code>. Ini akan membuat satu baris (list
+            kecil) dari matriks.
+          </li>
+          <li>
+            <code class="code-piece">j</code> adalah variabel untuk kolom.
+          </li>
+        </ul>
+        <p>
+          Contoh <code class="code-piece">list_datar</code> menunjukkan cara
+          meratakan list bersarang.
+          <code class="code-piece">for sublist in list_bersarang</code> akan
+          mengambil setiap list kecil, lalu
+          <code class="code-piece">for angka in sublist</code> akan mengambil
+          setiap angka dari list kecil tersebut, dan memasukkannya ke
+          <code class="code-piece">list_datar</code>.
+        </p>
+        <h2>Mengapa Menggunakan List Comprehension?</h2>
+        <ol>
+          <li>
+            <strong>Lebih Ringkas dan Mudah Dibaca:</strong> Setelah terbiasa,
+            List Comprehension seringkali lebih pendek dan lebih mudah dipahami
+            daripada perulangan <code class="code-piece">for</code> yang panjang
+            untuk tugas yang sama.
+          </li>
+          <li>
+            <strong>Lebih Cepat (Efisiensi):</strong> Dalam banyak kasus, List
+            Comprehension sedikit lebih cepat dieksekusi daripada
+            <code class="code-piece">for</code> loop tradisional karena
+            dioptimalkan di tingkat internal Python.
+          </li>
+          <li>
+            <strong>"Pythonic":</strong> Menggunakan List Comprehension dianggap
+            sebagai praktik yang baik dan "Pythonic" untuk membuat List baru.
+          </li>
+        </ol>
+        <h2>Kapan Tidak Menggunakan List Comprehension?</h2>
+        <p>
+          Meskipun List Comprehension sangat powerful, ada beberapa situasi di
+          mana perulangan <code class="code-piece">for</code> tradisional
+          mungkin lebih baik:
+        </p>
+        <ol>
+          <li>
+            <strong>Jika logikanya sangat kompleks:</strong> Jika Anda memiliki
+            banyak kondisi <code class="code-piece">if/elif/else</code> yang
+            berlapis, atau banyak operasi yang perlu dilakukan di setiap
+            iterasi, List Comprehension bisa menjadi terlalu padat dan sulit
+            dibaca.
+          </li>
+          <li>
+            <strong>Jika Anda tidak perlu List baru:</strong> Jika Anda hanya
+            ingin melakukan operasi pada setiap item (misalnya, mencetak atau
+            mengubah variabel di luar loop) dan tidak perlu mengumpulkan
+            hasilnya dalam List baru, maka
+            <code class="code-piece">for</code> loop biasa lebih tepat.
+          </li>
+          <li>
+            <strong>Untuk pemula absolut:</strong> Terkadang, memulai dengan
+            <code class="code-piece">for</code> loop tradisional lebih mudah
+            dipahami sebelum beralih ke List Comprehension yang lebih ringkas.
+          </li>
+        </ol>
+        <p>
+          Dengan modul "List Comprehension" ini, Anda telah mempelajari cara
+          yang sangat efisien dan elegan untuk membuat dan memanipulasi List di
+          Python. Ini adalah alat canggih yang akan sangat berguna saat Anda
+          menulis kode yang lebih kompleks dan efisien!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./function.html"
+            >Fungsi – Membuat "Alat Bantu" dalam Program Python</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./dictionaries.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./function.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Fungsi – Membuat "Alat Bantu" dalam Program Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html" class="active">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Fungsi" – Membuat "Alat Bantu" dalam Program Python</h1>
+        <p>
+          Bayangkan Anda memiliki sebuah resep masakan favorit. Daripada menulis
+          ulang semua langkah resep setiap kali Anda ingin memasak hidangan itu,
+          Anda cukup menulis nama resepnya, dan semua orang tahu langkah-langkah
+          apa yang harus dilakukan. Atau, bayangkan sebuah kalkulator. Anda
+          cukup menekan tombol <code class="code-piece">+</code> atau
+          <code class="code-piece">x</code>, dan kalkulator akan melakukan
+          serangkaian perhitungan rumit di balik layar untuk memberikan hasil.
+        </p>
+        <p>
+          Dalam pemrograman Python, <strong>Fungsi</strong> adalah persis
+          seperti itu. Fungsi adalah sebuah
+          <strong>blok kode yang diberi nama</strong>, yang melakukan tugas
+          tertentu. Anda bisa "memanggil" atau "menggunakan" fungsi ini
+          berkali-kali di berbagai bagian program Anda tanpa perlu menulis ulang
+          semua kode di dalamnya. Fungsi membantu kita membuat kode menjadi
+          lebih rapi, terstruktur, dan mudah digunakan kembali.
+        </p>
+        <h2>
+          Mengapa Kita Butuh Fungsi? (Prinsip DRY - Don't Repeat Yourself)
+        </h2>
+        <p>Ada beberapa alasan kuat mengapa fungsi itu sangat penting:</p>
+        <ol>
+          <li>
+            <strong>Mengurangi Pengulangan Kode:</strong> Jika ada beberapa
+            bagian kode yang melakukan tugas yang sama, kita bisa mengubahnya
+            menjadi fungsi. Daripada menulis ulang kode yang sama berkali-kali,
+            kita cukup memanggil fungsi tersebut. Ini mengikuti prinsip "DRY"
+            (Don't Repeat Yourself - Jangan Mengulang Diri Sendiri).
+          </li>
+          <li>
+            <strong>Membuat Kode Lebih Terstruktur:</strong> Fungsi membantu
+            memecah program besar menjadi bagian-bagian yang lebih kecil dan
+            mudah dikelola, seperti bab-bab dalam sebuah buku.
+          </li>
+          <li>
+            <strong>Memudahkan Perawatan:</strong> Jika ada kesalahan atau perlu
+            perubahan pada suatu tugas, kita hanya perlu mengubah kode di dalam
+            satu fungsi, bukan mencari dan mengubahnya di banyak tempat.
+          </li>
+          <li>
+            <strong>Meningkatkan Keterbacaan Kode:</strong> Dengan nama fungsi
+            yang jelas, kita bisa memahami apa yang dilakukan sebuah program
+            hanya dengan melihat nama-nama fungsinya, tanpa harus membaca detail
+            setiap baris kode.
+          </li>
+          <li>
+            <strong>Kode Bisa Digunakan Kembali (Reusability):</strong> Fungsi
+            yang sudah dibuat bisa digunakan kembali di proyek program lain,
+            menghemat waktu dan tenaga.
+          </li>
+        </ol>
+        <h2>Membuat dan Memanggil Fungsi Sederhana: "Sapaan Pagi"</h2>
+        <p>
+          Untuk membuat sebuah fungsi di Python, kita menggunakan kata kunci
+          <code class="code-piece">def</code> (kependekan dari "define" atau
+          "mendefinisikan"), diikuti dengan nama fungsi, lalu tanda kurung
+          <code class="code-piece">()</code>, dan diakhiri dengan tanda titik
+          dua (<code class="code-piece">:</code>). Semua baris kode yang menjadi
+          bagian dari fungsi harus menjorok ke dalam (indentasi).
+        </p>
+        <pre><code class="language-python"># Ini adalah definisi fungsi sederhana
+def sapa_pagi():
+    # Baris ini menjorok, berarti bagian dari fungsi sapa_pagi()
+    print("Selamat pagi, dunia Python!")
+    print("Semoga harimu menyenangkan.")
+
+# Memanggil fungsi (menggunakan atau menjalankan fungsi)
+print("--- Mulai Program ---")
+sapa_pagi() # Ini akan menjalankan kode di dalam fungsi sapa_pagi()
+print("--- Selesai Sapaan ---")
+sapa_pagi() # Kita bisa memanggilnya lagi!
+print("--- Program Berakhir ---")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Mulai Program ---
+Selamat pagi, dunia Python!
+Semoga harimu menyenangkan.
+--- Selesai Sapaan ---
+Selamat pagi, dunia Python!
+Semoga harimu menyenangkan.
+--- Program Berakhir ---</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada baris <code class="code-piece">def sapa_pagi():</code>, kita
+          memberi tahu Python bahwa kita sedang mendefinisikan sebuah fungsi
+          bernama <code class="code-piece">sapa_pagi</code>. Dua baris
+          <code class="code-piece">print()</code> di bawahnya yang menjorok ke
+          dalam (indentasi) adalah "isi" dari fungsi tersebut.
+        </p>
+        <p>
+          Ketika kita menulis <code class="code-piece">sapa_pagi()</code>, ini
+          berarti kita "memanggil" atau "menjalankan" fungsi
+          <code class="code-piece">sapa_pagi</code>. Python akan langsung
+          melompat ke definisi fungsi tersebut, menjalankan semua kode yang
+          menjorok di dalamnya, dan setelah itu kembali melanjutkan kode di
+          bagian program yang memanggilnya. Anda bisa melihat kita memanggil
+          fungsinya dua kali, dan setiap kali dipanggil (ditulis), kedua pesan
+          sapaan dicetak.
+        </p>
+        <h2>Fungsi dengan Parameter (Argumen): "Sapaan Personal"</h2>
+        <p>
+          Seringkali, fungsi perlu menerima informasi dari luar agar bisa
+          melakukan tugasnya. Informasi ini disebut
+          <strong>parameter</strong> (atau <strong>argumen</strong> ketika kita
+          memberikannya saat memanggil fungsi). Parameter ditulis di dalam tanda
+          kurung <code class="code-piece">()</code> setelah nama fungsi. Mereka
+          bertindak seperti variabel di dalam fungsi yang menyimpan informasi
+          yang dilewatkan.
+        </p>
+        <pre><code class="language-python"># Fungsi yang menerima satu parameter: 'nama'
+def sapa_personal(nama):
+    print(f"Halo, {nama}!")
+    print("Apa kabar hari ini?")
+
+# Fungsi yang menerima dua parameter: 'pesan' dan 'pengirim'
+def kirim_pesan_dari(pesan, pengirim):
+    print(f"Pesan dari {pengirim}: {pesan}")
+
+# Memanggil fungsi dengan memberikan argumen
+print("--- Sapaan untuk Budi ---")
+sapa_personal("Budi") # Memberikan string "Budi" sebagai argumen untuk parameter 'nama'
+
+print("\n--- Sapaan untuk Siti ---")
+sapa_personal("Siti") # Memberikan string "Siti"
+
+print("\n--- Pesan dari Aplikasi ---")
+kirim_pesan_dari("Jadwal ujian diubah.", "Guru BK") # Memberikan dua argumen</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Sapaan untuk Budi ---
+Halo, Budi!
+Apa kabar hari ini?
+
+--- Sapaan untuk Siti ---
+Halo, Siti!
+Apa kabar hari ini?
+
+--- Pesan dari Aplikasi ---
+Pesan dari Guru BK: Jadwal ujian diubah.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">def sapa_personal(nama):</code>,
+          <code class="code-piece">nama</code> adalah parameter. Ketika
+          <code class="code-piece">sapa_personal("Budi")</code> dipanggil,
+          string <code class="code-piece">"Budi"</code> akan disimpan ke dalam
+          parameter <code class="code-piece">nama</code> di dalam fungsi. Jadi,
+          di dalam fungsi, parameter <code class="code-piece">nama</code> berisi
+          <code class="code-piece">"Budi"</code>.
+        </p>
+        <p>
+          Untuk
+          <code class="code-piece">kirim_pesan_dari(pesan, pengirim)</code>, ada
+          dua parameter. Urutan argumen saat memanggil fungsi sangat penting:
+          argumen pertama (<code class="code-piece">"Jadwal ujian diubah."</code
+          >) akan masuk ke parameter pertama (<code class="code-piece"
+            >pesan</code
+          >), dan argumen kedua (<code class="code-piece">"Guru BK"</code>) akan
+          masuk ke parameter kedua (<code class="code-piece">pengirim</code>).
+        </p>
+        <h2>
+          Fungsi yang Mengembalikan Nilai (<code class="code-piece">return</code
+          >): "Menghitung dan Memberi Hasil"
+        </h2>
+        <p>
+          Sebuah fungsi tidak hanya bisa melakukan tugas, tetapi juga bisa
+          "memberikan hasil" kembali ke bagian program yang memanggilnya. Ini
+          dilakukan dengan kata kunci <code class="code-piece">return</code>.
+          Ketika Python bertemu <code class="code-piece">return</code> di dalam
+          fungsi, ia akan segera keluar dari fungsi tersebut dan "mengirimkan"
+          nilai yang ditentukan kembali ke tempat fungsi itu dipanggil.
+        </p>
+        <p>
+          Nilai yang dikembalikan oleh fungsi biasanya disimpan ke dalam
+          variabel.
+        </p>
+        <pre><code class="language-python"># Fungsi untuk menjumlahkan dua angka dan mengembalikan hasilnya
+def jumlahkan(angka1, angka2):
+    hasil_penjumlahan = angka1 + angka2
+    return hasil_penjumlahan # Mengembalikan nilai hasil_penjumlahan
+
+# Fungsi untuk menentukan status kelulusan dan mengembalikan teks
+def cek_kelulusan(nilai, kkm):
+    if nilai >= kkm:
+        return "Lulus"
+    else:
+        return "Tidak Lulus"
+
+# Memanggil fungsi dan menyimpan hasil kembaliannya
+nilai_a = 10
+nilai_b = 25
+total = jumlahkan(nilai_a, nilai_b) # total akan berisi nilai yang dikembalikan oleh fungsi
+print(f"Jumlah {nilai_a} dan {nilai_b} adalah: {total}")
+
+nilai_ujian_siswa = 78
+kkm_mata_pelajaran = 75
+status_siswa = cek_kelulusan(nilai_ujian_siswa, kkm_mata_pelajaran)
+print(f"Siswa dengan nilai {nilai_ujian_siswa} dinyatakan: {status_siswa}")
+
+# Apa yang terjadi jika tidak ada return?
+def fungsi_tanpa_return():
+    print("Saya hanya mencetak sesuatu.")
+    # Tidak ada 'return' di sini
+
+hasil_tanpa_return = fungsi_tanpa_return()
+print("Hasil dari fungsi tanpa return:", hasil_tanpa_return) # Output: None</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Jumlah 10 dan 25 adalah: 35
+Siswa dengan nilai 78 dinyatakan: Lulus
+Saya hanya mencetak sesuatu.
+Hasil dari fungsi tanpa return: None</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">jumlahkan(angka1, angka2)</code>, fungsi
+          ini menghitung <code class="code-piece">angka1 + angka2</code> dan
+          menyimpan hasilnya di
+          <code class="code-piece">hasil_penjumlahan</code>. Kemudian,
+          <code class="code-piece">return hasil_penjumlahan</code> mengirimkan
+          nilai itu keluar dari fungsi. Ketika kita menulis
+          <code class="code-piece">total = jumlahkan(nilai_a, nilai_b)</code>,
+          nilai <code class="code-piece">35</code> yang dikembalikan oleh fungsi
+          akan disimpan ke dalam variabel <code class="code-piece">total</code>.
+        </p>
+        <p>
+          Pada <code class="code-piece">cek_kelulusan</code>, fungsi ini
+          mengembalikan string <code class="code-piece">"Lulus"</code> atau
+          <code class="code-piece">"Tidak Lulus"</code> tergantung pada kondisi.
+        </p>
+        <p>
+          Yang sering tidak disadari: jika sebuah fungsi tidak memiliki
+          pernyataan <code class="code-piece">return</code> eksplisit (seperti
+          <code class="code-piece">fungsi_tanpa_return()</code>), Python secara
+          otomatis akan mengembalikan nilai khusus
+          <code class="code-piece">None</code>.
+          <code class="code-piece">None</code> berarti "tidak ada nilai" atau
+          "kosong". Jadi,
+          <code class="code-piece">hasil_tanpa_return</code> akan berisi
+          <code class="code-piece">None</code>.
+        </p>
+        <h2>Parameter Default: Memberi Nilai Bawaan</h2>
+        <p>
+          Anda bisa memberikan nilai bawaan (default) untuk parameter. Jika saat
+          memanggil fungsi, Anda tidak memberikan argumen untuk parameter
+          tersebut, maka nilai defaultnya akan digunakan. Jika Anda memberikan
+          argumen, nilai default akan diganti.
+        </p>
+        <p>
+          Parameter dengan nilai default harus diletakkan
+          <strong>setelah</strong> parameter tanpa nilai default.
+        </p>
+        <pre><code class="language-python"># Fungsi dengan parameter default
+def cetak_laporan(judul, halaman=1, penulis="Anonim"): # halaman dan penulis punya nilai default
+    print(f"--- Laporan: {judul} ---")
+    print(f"Penulis: {penulis}")
+    print(f"Halaman: {halaman}")
+    print("-" * 20)
+
+# Memanggil fungsi dengan berbagai cara
+print("Contoh 1: Semua argumen diberikan")
+cetak_laporan("Studi Kasus AI", 15, "Dr. Informatika")
+
+print("\nContoh 2: Menggunakan default halaman")
+cetak_laporan("Pengantar Fisika", penulis="Prof. Einstein") # Halaman akan default 1
+
+print("\nContoh 3: Menggunakan default penulis dan halaman")
+cetak_laporan("Hasil Penelitian Kimia") # Halaman akan default 1, penulis akan default "Anonim"</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Contoh 1: Semua argumen diberikan
+--- Laporan: Studi Kasus AI ---
+Penulis: Dr. Informatika
+Halaman: 15
+--------------------
+
+Contoh 2: Menggunakan default halaman
+--- Laporan: Pengantar Fisika ---
+Penulis: Prof. Einstein
+Halaman: 1
+--------------------
+
+Contoh 3: Menggunakan default penulis dan halaman
+--- Laporan: Hasil Penelitian Kimia ---
+Penulis: Anonim
+Halaman: 1
+--------------------</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >def cetak_laporan(judul, halaman=1, penulis="Anonim"):</code
+          >, <code class="code-piece">halaman</code> memiliki nilai default
+          <code class="code-piece">1</code> dan
+          <code class="code-piece">penulis</code> memiliki nilai default
+          <code class="code-piece">"Anonim"</code>.
+        </p>
+        <ul>
+          <li>
+            Pada panggilan pertama, semua argumen diberikan, sehingga nilai
+            default diabaikan.
+          </li>
+          <li>
+            Pada panggilan kedua, <code class="code-piece">halaman</code> tidak
+            diberikan, jadi Python menggunakan
+            <code class="code-piece">1</code>.
+            <code class="code-piece">penulis</code> diberikan sebagai
+            <code class="code-piece">Prof. Einstein</code>.
+          </li>
+          <li>
+            Pada panggilan ketiga, hanya
+            <code class="code-piece">judul</code> yang diberikan, sehingga
+            <code class="code-piece">halaman</code> dan
+            <code class="code-piece">penulis</code> menggunakan nilai
+            defaultnya.
+          </li>
+        </ul>
+        <p>
+          Ini membuat fungsi lebih fleksibel, karena Anda tidak perlu selalu
+          memberikan semua informasi jika sebagian sudah ada nilai umumnya.
+        </p>
+        <h2>Parameter Kata Kunci (Keyword Arguments): Memanggil dengan Nama</h2>
+        <p>
+          Saat memanggil fungsi, Anda bisa menyebutkan nama parameter yang ingin
+          Anda berikan nilainya, bukan hanya urutannya. Ini disebut
+          <strong>parameter kata kunci</strong> (keyword arguments).
+        </p>
+        <pre><code class="language-python"># Fungsi untuk mencetak biodata
+def cetak_biodata(nama, usia, kota_asal):
+    print(f"Nama: {nama}")
+    print(f"Usia: {usia} tahun")
+    print(f"Kota Asal: {kota_asal}")
+
+# Memanggil fungsi dengan urutan argumen biasa (positional arguments)
+print("--- Panggilan Positional ---")
+cetak_biodata("Andi", 16, "Surabaya")
+
+print("\n--- Panggilan Keyword ---")
+# Memanggil fungsi dengan parameter kata kunci (urutan bisa acak!)
+cetak_biodata(kota_asal="Bandung", usia=17, nama="Siti") # Urutan tidak masalah!
+
+print("\n--- Kombinasi Positional dan Keyword ---")
+# Positional arguments harus di depan keyword arguments
+cetak_biodata("Rudi", kota_asal="Jakarta", usia=18)
+# cetak_biodata(nama="Dewi", 15, "Medan") # Ini akan error! Positional setelah keyword</code></pre>
+        <p>
+          <em
+            >(Catatan: Baris
+            <code class="code-piece"
+              >cetak_biodata(nama="Dewi", 15, "Medan")</code
+            >
+            sengaja dikomentari (<code class="code-piece">#</code>) karena akan
+            menyebabkan error. Anda tidak bisa meletakkan argumen berdasarkan
+            posisi setelah Anda mulai menggunakan argumen berdasarkan kata
+            kunci.)</em
+          >
+        </p>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Panggilan Positional ---
+Nama: Andi
+Usia: 16 tahun
+Kota Asal: Surabaya
+
+--- Panggilan Keyword ---
+Nama: Siti
+Usia: 17 tahun
+Kota Asal: Bandung
+
+--- Kombinasi Positional dan Keyword ---
+Nama: Rudi
+Usia: 18 tahun
+Kota Asal: Jakarta</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada panggilan
+          <code class="code-piece"
+            >cetak_biodata(kota_asal="Bandung", usia=17, nama="Siti")</code
+          >, kita secara eksplisit menyebutkan parameter mana yang diisi.
+          Keuntungannya:
+        </p>
+        <ul>
+          <li>
+            <strong>Keterbacaan:</strong> Kode lebih mudah dibaca karena jelas
+            parameter mana yang diberi nilai.
+          </li>
+          <li>
+            <strong>Fleksibilitas:</strong> Urutan argumen kata kunci tidak
+            penting.
+          </li>
+        </ul>
+        <p>
+          Namun, jika Anda mencampur argumen posisi (yang tidak menyebutkan nama
+          parameter) dengan argumen kata kunci, argumen posisi
+          <strong>harus selalu diletakkan di depan</strong> argumen kata kunci.
+        </p>
+        <h2>Mengembalikan Beberapa Nilai Sekaligus</h2>
+        <p>
+          Python memiliki kemampuan yang sangat keren untuk mengembalikan
+          <strong>beberapa nilai</strong> dari sebuah fungsi sekaligus. Python
+          akan secara otomatis "mengemas" nilai-nilai ini menjadi sebuah
+          <strong>Tuple</strong>, dan Anda bisa "membongkar" Tuple tersebut
+          menjadi beberapa variabel saat menerima hasilnya.
+        </p>
+        <pre><code class="language-python"># Fungsi untuk menghitung keliling dan luas persegi panjang
+def hitung_persegi_panjang(panjang, lebar):
+    keliling = 2 * (panjang + lebar)
+    luas = panjang * lebar
+    return keliling, luas # Mengembalikan dua nilai (dikemas dalam Tuple)
+
+# Memanggil fungsi dan menerima beberapa nilai sekaligus
+p = 10
+l = 5
+k_persegi, l_persegi = hitung_persegi_panjang(p, l) # Membongkar tuple yang dikembalikan
+print(f"Persegi panjang dengan panjang {p} dan lebar {l}:")
+print(f"Kelilingnya: {k_persegi}")
+print(f"Luasnya: {l_persegi}")
+
+print("\n")
+
+# Contoh lain: Mendapatkan detail data siswa
+def get_data_siswa(nama_lengkap):
+    # Logika untuk mencari data siswa dari database (bayangkan saja)
+    usia = 17
+    alamat = "Jl. Merpati No. 5"
+    return nama_lengkap, usia, alamat
+
+siswa_nama, siswa_usia, siswa_alamat = get_data_siswa("Luna Maya")
+print(f"Nama: {siswa_nama}, Usia: {siswa_usia}, Alamat: {siswa_alamat}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Persegi panjang dengan panjang 10 dan lebar 5:
+Kelilingnya: 30
+Luasnya: 50
+
+Nama: Luna Maya, Usia: 17, Alamat: Jl. Merpati No. 5</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">return keliling, luas</code>, Python
+          secara internal mengemas <code class="code-piece">keliling</code> dan
+          <code class="code-piece">luas</code> menjadi sebuah Tuple
+          <code class="code-piece">(keliling, luas)</code>. Ketika kita menulis
+          <code class="code-piece"
+            >k_persegi, l_persegi = hitung_persegi_panjang(p, l)</code
+          >, Python secara otomatis "membongkar" Tuple yang dikembalikan: nilai
+          pertama (<code class="code-piece">keliling</code>) masuk ke
+          <code class="code-piece">k_persegi</code>, dan nilai kedua (<code
+            class="code-piece"
+            >luas</code
+          >) masuk ke <code class="code-piece">l_persegi</code>. Ini adalah cara
+          yang sangat rapi untuk mengembalikan beberapa hasil dari sebuah
+          fungsi.
+        </p>
+        <h2>Variabel Lokal vs. Global: Wilayah Kekuasaan Variabel</h2>
+        <p>
+          Kita sudah belajar tentang variabel. Sekarang penting untuk memahami
+          di mana variabel-variabel itu "hidup" atau "berkuasa". Konsep ini
+          disebut <strong>ruang lingkup</strong> (scope).
+        </p>
+        <ul>
+          <li>
+            <strong>Variabel Lokal:</strong> Variabel yang dibuat
+            <strong>di dalam sebuah fungsi</strong> hanya bisa diakses dan
+            digunakan di dalam fungsi tersebut. Setelah fungsi selesai
+            dijalankan, variabel lokal itu "mati" dan memorinya dibersihkan.
+            Ibaratnya, itu adalah barang milik rumah (fungsi) itu sendiri.
+          </li>
+          <li>
+            <strong>Variabel Global:</strong> Variabel yang dibuat
+            <strong>di luar fungsi</strong> (di tingkat utama program) bisa
+            diakses dari mana saja, termasuk dari dalam fungsi. Ibaratnya, itu
+            adalah barang umum di lingkungan tempat tinggal Anda.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Ini adalah variabel global
+pesan_global = "Halo dari luar fungsi!"
+
+def tampilkan_pesan():
+    # Ini adalah variabel lokal
+    pesan_lokal = "Halo dari dalam fungsi!"
+    print(pesan_lokal)      # Bisa mengakses variabel lokal
+    print(pesan_global)     # Bisa mengakses variabel global
+
+def ubah_global_ini_tidak_disarankan():
+    # Jika kita mencoba mengubah variabel global di dalam fungsi
+    # Python akan membuat variabel lokal baru dengan nama yang sama
+    # Kecuali jika kita menggunakan kata kunci 'global'
+    pesan_global = "Pesan baru dari dalam fungsi (ini lokal!)"
+    print(f"Di dalam fungsi, pesan_global (lokal) adalah: {pesan_global}")
+
+def ubah_global_dengan_global_keyword():
+    global pesan_global # Memberi tahu Python bahwa kita mau mengubah variabel global
+    pesan_global = "Pesan baru diubah oleh fungsi dengan keyword global!"
+    print(f"Di dalam fungsi, pesan_global (global) adalah: {pesan_global}")
+
+
+# Panggil fungsi-fungsi
+print("--- Scope Variabel ---")
+print(f"Awal, pesan_global: {pesan_global}") # Akses global
+
+tampilkan_pesan() # Fungsi mengakses lokal dan global
+
+print(f"Setelah tampilkan_pesan, pesan_global: {pesan_global}") # Global masih sama
+
+ubah_global_ini_tidak_disarankan() # Fungsi mencoba mengubah global (tapi membuat lokal baru)
+print(f"Setelah ubah_global_ini_tidak_disarankan, pesan_global: {pesan_global}") # Global TIDAK berubah!
+
+ubah_global_dengan_global_keyword() # Fungsi mengubah global dengan keyword 'global'
+print(f"Setelah ubah_global_dengan_global_keyword, pesan_global: {pesan_global}") # Global BERUBAH!</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Scope Variabel ---
+Awal, pesan_global: Halo dari luar fungsi!
+Halo dari dalam fungsi!
+Halo dari luar fungsi!
+Setelah tampilkan_pesan, pesan_global: Halo dari luar fungsi!
+Di dalam fungsi, pesan_global (lokal) adalah: Pesan baru dari dalam fungsi (ini lokal!)
+Setelah ubah_global_ini_tidak_disarankan, pesan_global: Halo dari luar fungsi!
+Di dalam fungsi, pesan_global (global) adalah: Pesan baru diubah oleh fungsi dengan keyword global!
+Setelah ubah_global_dengan_global_keyword, pesan_global: Pesan baru diubah oleh fungsi dengan keyword global!</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            <code class="code-piece">pesan_global</code> adalah variabel global.
+            <code class="code-piece">tampilkan_pesan()</code> bisa membacanya.
+          </li>
+          <li>
+            <code class="code-piece">pesan_lokal</code> hanya ada di dalam
+            <code class="code-piece">tampilkan_pesan()</code>. Anda tidak bisa
+            mencetak <code class="code-piece">pesan_lokal</code> di luar fungsi
+            itu.
+          </li>
+          <li>
+            Yang sering tidak disadari: di
+            <code class="code-piece">ubah_global_ini_tidak_disarankan()</code>,
+            saat kita menulis
+            <code class="code-piece">pesan_global = "Pesan baru..."</code>,
+            Python tidak mengubah variabel global yang sudah ada. Sebaliknya, ia
+            membuat <strong>variabel lokal baru</strong> bernama
+            <code class="code-piece">pesan_global</code> khusus untuk fungsi
+            itu! Jadi, variabel global di luar tetap tidak berubah.
+          </li>
+          <li>
+            Untuk benar-benar mengubah variabel global dari dalam fungsi, Anda
+            harus menggunakan kata kunci
+            <code class="code-piece">global</code> di depan nama variabel
+            tersebut, seperti pada
+            <code class="code-piece">ubah_global_dengan_global_keyword()</code>.
+            Namun,
+            <strong
+              >menggunakan <code class="code-piece">global</code> keyword untuk
+              mengubah variabel global dari dalam fungsi sangat tidak
+              disarankan</strong
+            >
+            untuk pemula karena dapat membuat program sulit dipahami dan rawan
+            kesalahan. Lebih baik kembalikan nilai yang diubah dari fungsi
+            menggunakan <code class="code-piece">return</code>.
+          </li>
+        </ul>
+        <h2>
+          Docstrings: Mendokumentasikan Fungsi (Mirip Komentar, Tapi Lebih
+          Canggih)
+        </h2>
+        <p>
+          Sama seperti komentar, <strong>Docstrings</strong> digunakan untuk
+          menjelaskan kode Anda. Docstrings adalah string multi-baris (diapit
+          tiga kutip <code class="code-piece">"""</code> atau
+          <code class="code-piece">'''</code>) yang diletakkan di baris pertama
+          setelah <code class="code-piece">def</code> fungsi. Mereka digunakan
+          untuk menjelaskan apa yang fungsi lakukan, parameter apa yang
+          diterimanya, dan nilai apa yang dikembalikannya.
+        </p>
+        <p>
+          Bedanya dengan komentar (<code class="code-piece">#</code>):
+          Docstrings bisa diakses oleh Python dan tools lain (misalnya, saat
+          Anda mengetik <code class="code-piece">help(nama_fungsi)</code> di
+          Python Console).
+        </p>
+        <pre><code class="language-python">def hitung_luas_segitiga(alas, tinggi):
+    """
+    Fungsi ini menghitung luas segitiga.
+
+    Args:
+        alas (float/int): Panjang alas segitiga.
+        tinggi (float/int): Tinggi segitiga.
+
+    Returns:
+        float: Luas segitiga.
+    """
+    luas = 0.5 * alas * tinggi
+    return luas
+
+# Memanggil fungsi
+luas_s = hitung_luas_segitiga(10, 5)
+print(f"Luas segitiga: {luas_s}")
+
+# Melihat docstring (di Python console, ketik: help(hitung_luas_segitiga))
+print("\n--- Docstring Fungsi ---")
+print(hitung_luas_segitiga.__doc__) # Cara mengakses docstring secara langsung</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Luas segitiga: 25.0
+
+--- Docstring Fungsi ---
+
+    Fungsi ini menghitung luas segitiga.
+
+    Args:
+        alas (float/int): Panjang alas segitiga.
+        tinggi (float/int): Tinggi segitiga.
+
+    Returns:
+        float: Luas segitiga.
+
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Docstring di dalam
+          <code class="code-piece">hitung_luas_segitiga</code> menjelaskan
+          fungsi tersebut secara detail. Ini sangat membantu orang lain (dan
+          diri Anda sendiri di masa depan) memahami cara kerja fungsi tanpa
+          harus membaca seluruh kode di dalamnya. Ini adalah praktik yang sangat
+          baik dan wajib untuk kode yang profesional.
+        </p>
+        <h2>
+          Apa yang Mungkin Tidak Disadari: Fungsi adalah "Warga Negara Kelas
+          Satu"
+        </h2>
+        <p>
+          Ini adalah konsep yang lebih canggih, tapi Python sangat fleksibel. Di
+          Python, fungsi dianggap sebagai "warga negara kelas satu" (first-class
+          citizens). Artinya, Anda bisa memperlakukan fungsi sama seperti Anda
+          memperlakukan angka atau teks:
+        </p>
+        <ul>
+          <li>Anda bisa menyimpan fungsi di dalam variabel.</li>
+          <li>Anda bisa melewatkan fungsi sebagai argumen ke fungsi lain.</li>
+          <li>Anda bisa mengembalikan fungsi dari fungsi lain.</li>
+        </ul>
+        <p>
+          Ini akan membuka pintu ke konsep-konsep yang lebih maju seperti
+          "fungsi tingkat tinggi" (Higher-Order Functions) yang akan Anda
+          pelajari nanti. Untuk saat ini, cukup ketahui bahwa ini adalah salah
+          satu alasan mengapa Python sangat fleksibel dan kuat.
+        </p>
+        <pre><code class="language-python"># Modifikasi sapa_pagi untuk mengembalikan nilai
+def sapa_pagi_return():
+    return "Selamat pagi, dunia Python! (dari fungsi return)"
+
+def sapa_sore():
+    return "Selamat sore!"
+
+# Menyimpan fungsi ke variabel lain
+pesan_salam = sapa_sore
+print("Memanggil fungsi yang disimpan di variabel:", pesan_salam())
+
+# Mengembalikan fungsi dari fungsi lain (contoh sederhana)
+def pilih_sapaan(waktu):
+    if waktu == "pagi":
+        return sapa_pagi_return # Mengembalikan fungsi sapa_pagi_return (tanpa tanda kurung!)
+    else:
+        return sapa_sore # Mengembalikan fungsi sapa_sore
+
+panggil_sapaan = pilih_sapaan("pagi")
+print("Memanggil fungsi yang dikembalikan:", panggil_sapaan())</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Memanggil fungsi yang disimpan di variabel: Selamat sore!
+Memanggil fungsi yang dikembalikan: Selamat pagi, dunia Python! (dari fungsi return)</code></pre>
+        <p>
+          <strong
+            >Penjelasan Kode (setelah koreksi
+            <code class="code-piece">sapa_pagi</code>):</strong
+          >
+        </p>
+        <p>
+          Pada <code class="code-piece">pesan_salam = sapa_sore</code>, kita
+          tidak memanggil <code class="code-piece">sapa_sore()</code>, melainkan
+          hanya menyimpan "alamat" atau referensi ke fungsi itu sendiri ke dalam
+          variabel <code class="code-piece">pesan_salam</code>. Jadi, ketika
+          kita memanggil <code class="code-piece">pesan_salam()</code>, yang
+          sebenarnya dipanggil adalah fungsi
+          <code class="code-piece">sapa_sore</code>.
+        </p>
+        <p>
+          Demikian pula,
+          <code class="code-piece">pilih_sapaan("pagi")</code> mengembalikan
+          fungsi <code class="code-piece">sapa_pagi_return</code> itu sendiri,
+          bukan hasil eksekusinya. Variabel
+          <code class="code-piece">panggil_sapaan</code> sekarang "berisi"
+          fungsi <code class="code-piece">sapa_pagi_return</code>. Ketika kita
+          memanggil <code class="code-piece">panggil_sapaan()</code>, barulah
+          fungsi <code class="code-piece">sapa_pagi_return</code> dijalankan dan
+          mengembalikan
+          <code class="code-piece"
+            >"Selamat pagi, dunia Python! (dari fungsi return)"</code
+          >.
+        </p>
+        <p>
+          Ini adalah konsep yang mungkin terasa sedikit abstrak sekarang, tetapi
+          ini adalah dasar mengapa Python sangat fleksibel untuk pemrograman
+          yang lebih maju.
+        </p>
+        <p>
+          Dengan modul "Fungsi" ini, Anda sekarang memiliki salah satu alat
+          paling esensial dalam pemrograman. Anda bisa mengorganisir kode Anda,
+          membuatnya lebih rapi, dan menggunakan kembali logika yang sama di
+          berbagai bagian program. Ini adalah langkah besar menuju penulisan
+          program yang lebih kompleks dan efisien!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./lambda_function.html"
+            >Fungsi Lambda & Fungsi Tingkat Tinggi – Membuat Kode Lebih Ringkas
+            dan Fleksibel</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./list_comprehension.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./lambda_function.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

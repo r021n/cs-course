@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Struktur Data (Set) – Kumpulan Item Unik Tanpa Urutan</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html" class="active">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>Struktur Data (Set) – Kumpulan Item Unik Tanpa Urutan</h1>
+        <p>
+          Kita sudah belajar tentang <strong>List</strong> (kumpulan item berurutan yang bisa diubah) dan <strong>Tuple</strong> (kumpulan item berurutan yang tidak bisa diubah). Sekarang, mari kita kenali <strong>Set</strong> (atau "himpunan" dalam matematika). Set adalah sebuah <strong>kumpulan item yang tidak berurutan dan tidak boleh ada item yang kembar (unik)</strong>.
+        </p>
+        <p>
+          Bayangkan Anda memiliki sekumpulan kartu remi di tangan, tanpa urutan tertentu, dan Anda tidak akan pernah memiliki dua kartu yang persis sama (misalnya, dua kartu As Hati). Set di Python mirip dengan konsep himpunan dalam matematika: fokusnya adalah pada <strong>keberadaan item</strong> dan <strong>keunikannya</strong>, bukan pada urutan atau posisi item tersebut.
+        </p>
+        <h2>Membuat Set: Menggunakan Tanda Kurung Kurawal <code class="code-piece">{}</code></h2>
+        <p>
+          Untuk membuat sebuah Set di Python, kita menggunakan tanda kurung kurawal (<code class="code-piece">{}</code>) dan meletakkan item-item di dalamnya, dipisahkan dengan tanda koma (<code class="code-piece">,</code>). Jika Anda mencoba memasukkan item yang sama lebih dari satu kali, Set secara otomatis akan menghapus duplikatnya dan hanya menyimpan satu salinan.
+        </p>
+        <p>
+          <strong>Penting:</strong> Untuk membuat Set yang kosong, Anda harus menggunakan <code class="code-piece">set()</code>, bukan <code class="code-piece">{}</code>. Karena <code class="code-piece">{}</code> tanpa isi akan dianggap sebagai tipe data lain yang akan kita pelajari nanti (Dictionary).
+        </p>
+        <pre><code class="language-python"># Set berisi angka (dengan duplikat yang akan dihapus)
+angka_acak = {1, 5, 2, 5, 8, 2, 10}
+print("Set angka acak:", angka_acak) # Perhatikan duplikat 5 dan 2 hilang, urutan bisa berubah
+
+# Set berisi teks (nama buah unik)
+buah_unik = {"Apel", "Mangga", "Apel", "Pisang", "Jeruk"}
+print("Set buah unik:", buah_unik) # Perhatikan 'Apel' hanya muncul sekali
+
+# Set bisa berisi berbagai jenis tipe data (tapi itemnya harus immutable!)
+informasi_unik = {"Budi", 17, 1.70, True, 17} # 17 duplikat
+print("Informasi unik:", informasi_unik)
+
+# Cara membuat set kosong
+set_kosong = set()
+print("Set yang kosong:", set_kosong, ", Tipe:", type(set_kosong))
+
+# Jika pakai {}, itu bukan set kosong!
+bukan_set_kosong = {}
+print("Ini bukan set kosong:", bukan_set_kosong, ", Tipe:", type(bukan_set_kosong))
+
+# Kita bisa memeriksa tipe data dari set
+print("Tipe data dari angka_acak adalah:", type(angka_acak))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Set angka acak: {1, 2, 5, 8, 10}
+Set buah unik: {'Mangga', 'Pisang', 'Apel', 'Jeruk'}
+Informasi unik: {True, 'Budi', 17, 1.7}
+Set yang kosong: set() , Tipe: &lt;class 'set'&gt;
+Ini bukan set kosong: {} , Tipe: &lt;class 'dict'&gt;
+Tipe data dari angka_acak adalah: &lt;class 'set'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">angka_acak = {1, 5, 2, 5, 8, 2, 10}</code>, meskipun <code class="code-piece">5</code> dan <code class="code-piece">2</code> ditulis dua kali, Python secara otomatis hanya menyimpan satu salinannya. Hasilnya <code class="code-piece">{1, 2, 5, 8, 10}</code>. Perhatikan juga bahwa urutan item dalam Set yang dicetak bisa berbeda dari urutan Anda memasukkannya, karena Set memang <strong>tidak memiliki urutan yang dijamin</strong>.
+        </p>
+        <p>
+          Penting untuk diingat bahwa <code class="code-piece">{}</code> tanpa item di dalamnya adalah untuk <code class="code-piece">dict</code> (Dictionary), bukan <code class="code-piece">set</code> kosong. Untuk membuat set kosong, gunakan <code class="code-piece">set()</code>.
+        </p>
+        <h2>Sifat Utama Set: Unik dan Tidak Berurutan</h2>
+        <p>
+          Dua poin ini adalah kunci untuk memahami Set:
+        </p>
+        <ol>
+          <li><strong>Item Unik (Tidak Ada Duplikat):</strong> Set secara otomatis memastikan setiap item di dalamnya unik. Ini sangat berguna untuk membersihkan daftar dari item yang berulang.</li>
+          <li><strong>Tidak Berurutan (Unordered):</strong> Item dalam Set tidak memiliki posisi atau indeks tetap. Anda tidak bisa mengakses item dengan <code class="code-piece">nama_set[0]</code> seperti pada List atau Tuple. Ini juga berarti Anda tidak bisa melakukan slicing pada Set.</li>
+        </ol>
+        <pre><code class="language-python"># Contoh 1: Menghilangkan duplikat dari list
+nilai_mentah = [70, 80, 70, 90, 80, 100, 70]
+print("List nilai mentah:", nilai_mentah)
+
+# Ubah list menjadi set untuk menghilangkan duplikat
+nilai_unik = set(nilai_mentah)
+print("Set nilai unik:", nilai_unik)
+
+# Ubah kembali ke list jika urutan diperlukan
+nilai_unik_list = list(nilai_unik)
+print("List nilai unik (urutan bisa berubah):", nilai_unik_list)
+
+print("\n")
+
+# Contoh 2: Tidak bisa mengakses item berdasarkan indeks
+siswa_hadir = {"Andi", "Budi", "Cici"}
+# print(siswa_hadir[0]) # Ini akan error! TypeError: 'set' object is not subscriptable</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">List nilai mentah: [70, 80, 70, 90, 80, 100, 70]
+Set nilai unik: {70, 80, 90, 100}
+List nilai unik (urutan bisa berubah): [70, 80, 90, 100]
+
+
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+TypeError: 'set' object is not subscriptable</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada Contoh 1, ketika <code class="code-piece">nilai_mentah</code> (sebuah List) diubah menjadi <code class="code-piece">set(nilai_mentah)</code>, semua angka yang berulang (70 dan 80) dihapus, hanya menyisakan satu salinan dari setiap nilai unik. Jika Anda perlu list tanpa duplikat, ini adalah trik yang sangat cepat! Setelah itu, Anda bisa mengubahnya kembali ke list jika Anda butuh struktur yang berurutan, meskipun urutannya mungkin tidak sama dengan list aslinya.
+        </p>
+        <p>
+          Contoh 2 menunjukkan bahwa Anda tidak bisa menggunakan indeks (<code class="code-piece">[0]</code>) pada Set. Python akan protes dengan pesan <code class="code-piece">TypeError: 'set' object is not subscriptable</code>, yang berarti "objek set tidak bisa diakses dengan indeks".
+        </p>
+        <h2>Menambah dan Menghapus Item dari Set: <code class="code-piece">add()</code> dan <code class="code-piece">remove()/discard()</code></h2>
+        <p>
+          Meskipun Set tidak berurutan, Anda tetap bisa menambah dan menghapus item dari dalamnya (Set bersifat <strong>mutable</strong>, seperti List).
+        </p>
+        <ul>
+          <li><strong><code class="code-piece">add(item)</code>:</strong> Menambahkan item baru ke Set. Jika item sudah ada, tidak akan terjadi apa-apa (karena Set tidak menerima duplikat).</li>
+          <li><strong><code class="code-piece">remove(item)</code>:</strong> Menghapus item dari Set. Jika item yang ingin dihapus tidak ada dalam Set, akan terjadi error (<code class="code-piece">KeyError</code>).</li>
+          <li><strong><code class="code-piece">discard(item)</code>:</strong> Menghapus item dari Set. Mirip dengan <code class="code-piece">remove()</code>, tetapi jika item yang ingin dihapus tidak ada, tidak akan terjadi error. Ini lebih "aman".</li>
+          <li><strong><code class="code-piece">pop()</code>:</strong> Menghapus dan mengembalikan item acak dari Set. Karena Set tidak berurutan, Anda tidak tahu item mana yang akan dihapus.</li>
+          <li><strong><code class="code-piece">clear()</code>:</strong> Menghapus semua item dari Set, membuat Set kosong.</li>
+        </ul>
+        <pre><code class="language-python">daftar_mapel = {"Matematika", "Fisika"}
+print("Daftar mapel awal:", daftar_mapel)
+
+# Menambah item
+daftar_mapel.add("Kimia")
+print("Setelah add 'Kimia':", daftar_mapel)
+
+daftar_mapel.add("Fisika") # Menambah item yang sudah ada, tidak ada perubahan
+print("Setelah add 'Fisika' lagi:", daftar_mapel)
+
+# Menghapus item dengan remove()
+daftar_mapel.remove("Fisika")
+print("Setelah remove 'Fisika':", daftar_mapel)
+
+# daftar_mapel.remove("Biologi") # Ini akan error! KeyError: 'Biologi'
+
+# Menghapus item dengan discard() (lebih aman)
+daftar_mapel.discard("Kimia")
+print("Setelah discard 'Kimia':", daftar_mapel)
+
+daftar_mapel.discard("Biologi") # Tidak error jika item tidak ada
+print("Setelah discard 'Biologi' (yang tidak ada):", daftar_mapel)
+
+# Menghapus item acak dengan pop()
+item_dihapus_pop = daftar_mapel.pop()
+print("Setelah pop:", daftar_mapel)
+print("Item yang dihapus oleh pop:", item_dihapus_pop)
+
+# Mengosongkan Set
+daftar_mapel.clear()
+print("Setelah clear():", daftar_mapel)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar mapel awal: {'Matematika', 'Fisika'}
+Setelah add 'Kimia': {'Matematika', 'Kimia', 'Fisika'}
+Setelah add 'Fisika' lagi: {'Matematika', 'Kimia', 'Fisika'}
+Setelah remove 'Fisika': {'Matematika', 'Kimia'}
+Setelah discard 'Kimia': {'Matematika'}
+Setelah discard 'Biologi' (yang tidak ada): {'Matematika'}
+Setelah pop: set()
+Item yang dihapus oleh pop: Matematika
+After clear(): set()</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">add()</code> akan menambahkan item baru jika belum ada. <code class="code-piece">remove()</code> dan <code class="code-piece">discard()</code> berfungsi untuk menghapus, dengan <code class="code-piece">discard()</code> menjadi pilihan yang lebih baik jika Anda tidak yakin apakah item tersebut ada di Set atau tidak (untuk menghindari error). <code class="code-piece">pop()</code> berguna untuk mengambil dan menghapus item secara acak dari Set.
+        </p>
+        <h2>Operasi Himpunan Matematika: Kekuatan Sejati Set!</h2>
+        <p>
+          Kekuatan sebenarnya dari Set muncul saat Anda melakukan operasi himpunan (seperti yang mungkin Anda pelajari di pelajaran matematika). Ini sangat efisien untuk membandingkan dua atau lebih kumpulan item.
+        </p>
+        <ul>
+          <li><strong><code class="code-piece">union()</code> (Gabungan):</strong> Menggabungkan semua item unik dari kedua Set. Operatornya adalah <code class="code-piece">|</code>.</li>
+          <li><strong><code class="code-piece">intersection()</code> (Irisan):</strong> Mengambil item yang ada di kedua Set. Operatornya adalah <code class="code-piece">&</code>.</li>
+          <li><strong><code class="code-piece">difference()</code> (Selisih):</strong> Mengambil item yang ada di Set pertama tetapi TIDAK ada di Set kedua. Operatornya adalah <code class="code-piece">-</code>.</li>
+          <li><strong><code class="code-piece">symmetric_difference()</code> (Selisih Simetris):</strong> Mengambil item yang unik di setiap Set (ada di Set pertama atau kedua, tetapi TIDAK di keduanya). Operatornya adalah <code class="code-piece">^</code>.</li>
+          <li><strong><code class="code-piece">issubset()</code> (Bagian dari):</strong> Memeriksa apakah semua item di satu Set ada di Set lain.</li>
+          <li><strong><code class="code-piece">issuperset()</code> (Mengandung):</strong> Memeriksa apakah satu Set mengandung semua item dari Set lain.</li>
+        </ul>
+        <pre><code class="language-python">siswa_kls_a = {"Andi", "Budi", "Cici", "Dina"}
+siswa_kls_b = {"Cici", "Dina", "Eko", "Fina"}
+
+print("Siswa Kelas A:", siswa_kls_a)
+print("Siswa Kelas B:", siswa_kls_b)
+
+# Gabungan (Union) - Semua siswa yang ada di A atau B (tanpa duplikat)
+semua_siswa = siswa_kls_a.union(siswa_kls_b)
+# Atau pakai operator: semua_siswa = siswa_kls_a | siswa_kls_b
+print("Semua siswa (gabungan):", semua_siswa)
+
+# Irisan (Intersection) - Siswa yang ada di A DAN B
+siswa_bersama = siswa_kls_a.intersection(siswa_kls_b)
+# Atau pakai operator: siswa_bersama = siswa_kls_a & siswa_kls_b
+print("Siswa yang ada di kedua kelas (irisan):", siswa_bersama)
+
+# Selisih (Difference) - Siswa di A TAPI TIDAK di B
+siswa_hanya_di_a = siswa_kls_a.difference(siswa_kls_b)
+# Atau pakai operator: siswa_hanya_di_a = siswa_kls_a - siswa_kls_b
+print("Siswa hanya di Kelas A:", siswa_hanya_di_a)
+
+# Selisih Simetris (Symmetric Difference) - Siswa yang unik di A ATAU B
+siswa_unik_di_tiap_kelas = siswa_kls_a.symmetric_difference(siswa_kls_b)
+# Atau pakai operator: siswa_unik_di_tiap_kelas = siswa_kls_a ^ siswa_kls_b
+print("Siswa yang unik di masing-masing kelas:", siswa_unik_di_tiap_kelas)
+
+# Subset dan Superset
+set_kecil = {"Andi", "Budi"}
+apakah_set_kecil_subset = set_kecil.issubset(siswa_kls_a)
+print(f"Apakah {set_kecil} adalah subset dari {siswa_kls_a}?", apakah_set_kecil_subset)
+
+apakah_kls_a_superset = siswa_kls_a.issuperset(set_kecil)
+print(f"Apakah {siswa_kls_a} adalah superset dari {set_kecil}?", apakah_kls_a_superset)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Siswa Kelas A: {'Andi', 'Budi', 'Cici', 'Dina'}
+Siswa Kelas B: {'Cici', 'Dina', 'Eko', 'Fina'}
+Semua siswa (gabungan): {'Andi', 'Dina', 'Cici', 'Fina', 'Eko', 'Budi'}
+Siswa yang ada di kedua kelas (irisan): {'Cici', 'Dina'}
+Siswa hanya di Kelas A: {'Andi', 'Budi'}
+Siswa yang unik di masing-masing kelas: {'Andi', 'Eko', 'Fina', 'Budi'}
+Apakah {'Andi', 'Budi'} adalah subset dari {'Andi', 'Budi', 'Cici', 'Dina'}? True
+Apakah {'Andi', 'Budi', 'Cici', 'Dina'} adalah superset dari {'Andi', 'Budi'}? True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh-contoh ini menunjukkan bagaimana Set sangat efisien untuk melakukan operasi perbandingan himpunan. Ini sangat berguna dalam skenario di mana Anda perlu menemukan elemen umum antara dua daftar, menghapus duplikat, atau mengidentifikasi elemen yang hanya ada di satu kumpulan saja.
+        </p>
+        <h2>Kapan Menggunakan Set?</h2>
+        <p>
+          Anda akan memilih Set ketika:
+        </p>
+        <ol>
+          <li><strong>Anda hanya peduli dengan keberadaan item, bukan urutannya.</strong></li>
+          <li><strong>Anda ingin memastikan tidak ada item duplikat.</strong> Set secara otomatis menangani ini.</li>
+          <li><strong>Anda sering melakukan operasi himpunan</strong> seperti gabungan, irisan, atau selisih. Operasi ini jauh lebih cepat pada Set dibandingkan jika Anda melakukannya secara manual pada List.</li>
+          <li><strong>Anda perlu memeriksa apakah suatu item ada dalam kumpulan data dengan sangat cepat.</strong> Pemeriksaan <code class="code-piece">item in set_saya</code> sangat efisien di Set.</li>
+        </ol>
+        <h2>Apa yang Mungkin Tidak Disadari: Elemen Set Harus Tidak Dapat Diubah (Immutable)</h2>
+        <p>
+          Ini adalah batasan penting pada Set: <strong>Set hanya bisa berisi item yang tidak dapat diubah (immutable)</strong>. Artinya, Anda tidak bisa memasukkan List atau Set lain langsung ke dalam sebuah Set. Anda juga tidak bisa memasukkan Dictionary (yang akan kita pelajari selanjutnya).
+        </p>
+        <p>
+          Mengapa? Karena Set menggunakan sesuatu yang disebut "hashing" untuk menyimpan dan menemukan item dengan cepat, dan hanya objek yang tidak dapat diubah yang memiliki hash yang stabil.
+        </p>
+        <pre><code class="language-python"># Contoh item yang BISA dimasukkan ke Set
+set_berisi_immutable = {10, "Halo", 3.14, True, (1, 2, 3)} # Tuple bisa karena immutable
+print(set_berisi_immutable)
+
+# Contoh item yang TIDAK BISA dimasukkan ke Set (akan error!)
+list_didalam_set = [1, 2]
+# set_dengan_list = {1, 2, list_didalam_set} # Ini akan error! TypeError: unhashable type: 'list'
+# print(set_dengan_list)
+
+set_didalam_set = {1, 2}
+# set_dengan_set_lain = {10, set_didalam_set} # Ini akan error! TypeError: unhashable type: 'set'
+# print(set_dengan_set_lain)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">{True, (1, 2, 3), 10, 3.14, 'Halo'}</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Anda bisa memasukkan angka, string, Boolean, dan bahkan Tuple ke dalam Set karena semuanya adalah tipe data yang tidak dapat diubah (immutable). Namun, jika Anda mencoba memasukkan List atau Set lain, Python akan mengeluarkan <code class="code-piece">TypeError</code> karena mereka adalah tipe data yang dapat diubah (mutable).
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./dictionaries.html">Struktur Data (Dictionary) – Menyimpan Informasi dengan "Kunci" dan
+      "Nilai"</a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./tuples.html" class="nav-button"><i class="fas fa-arrow-left"></i></a>
+      <span class="nav-title"></span>
+      <a href="./dictionaries.html" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

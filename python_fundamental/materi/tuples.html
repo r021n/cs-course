@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Struktur Data (Tuple) – Kumpulan Informasi yang Tetap (Tidak Berubah)
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html" class="active">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Struktur Data (Tuple) – Kumpulan Informasi yang Tetap (Tidak Berubah)
+        </h1>
+        <p>
+          Di modul sebelumnya, kita sudah belajar tentang <strong>List</strong>,
+          yaitu kumpulan item yang berurutan dan isinya bisa kita ubah kapan
+          saja. Sekarang, bayangkan sebuah kumpulan informasi yang setelah Anda
+          catat, isinya <strong>tidak bisa diubah lagi</strong>. Seperti sebuah
+          fakta yang sudah diukir di batu, bukan di papan tulis yang bisa
+          dihapus.
+        </p>
+        <p>
+          Dalam Python, ada struktur data bernama <strong>Tuple</strong>. Tuple
+          adalah kumpulan item yang berurutan, sama seperti List, tetapi sifat
+          utamanya adalah <strong>immutable</strong> (tidak dapat diubah).
+          Setelah Anda membuat sebuah Tuple, Anda tidak bisa menambah,
+          mengurangi, atau mengubah item di dalamnya. Item-item dalam Tuple juga
+          bisa berupa berbagai jenis data, seperti angka atau teks.
+        </p>
+        <h2>
+          Membuat dan Melihat Tuple: Menggunakan Tanda Kurung Biasa
+          <code class="code-piece">()</code>
+        </h2>
+        <p>
+          Untuk membuat sebuah Tuple di Python, kita menggunakan tanda kurung
+          biasa (<code class="code-piece">()</code>) dan meletakkan item-item di
+          dalamnya, dipisahkan dengan tanda koma (<code class="code-piece"
+            >,</code
+          >).
+        </p>
+        <pre><code class="language-python"># Tuple berisi angka (koordinat titik)
+koordinat_titik = (10, 25)
+print("Koordinat titik:", koordinat_titik)
+
+# Tuple berisi nama-nama hari (tidak berubah)
+nama_hari = ("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")
+print("Nama-nama hari:", nama_hari)
+
+# Tuple bisa berisi berbagai jenis tipe data
+data_siswa = ("Budi", 17, 1.70, "Jakarta")
+print("Data siswa:", data_siswa)
+
+# Sebuah Tuple juga bisa kosong
+tuple_kosong = ()
+print("Tuple yang kosong:", tuple_kosong)
+
+# Kita bisa memeriksa tipe data dari tuple
+print("Tipe data dari nama_hari adalah:", type(nama_hari))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Koordinat titik: (10, 25)
+Nama-nama hari: ('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')
+Data siswa: ('Budi', 17, 1.7, 'Jakarta')
+Tuple yang kosong: ()
+Tipe data dari nama_hari adalah: &lt;class 'tuple'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap baris yang diawali dengan
+          <code class="code-piece">nama_tuple = (...)</code> adalah cara kita
+          membuat sebuah Tuple. Item-item di dalamnya dipisahkan dengan koma dan
+          diapit oleh tanda kurung biasa. Ketika Anda mencetak sebuah Tuple,
+          Python akan menampilkannya dengan tanda kurung biasa di sekelilingnya,
+          menunjukkan bahwa itu adalah Tuple. Fungsi
+          <code class="code-piece">type()</code> mengkonfirmasi bahwa
+          <code class="code-piece">nama_hari</code> adalah objek dari
+          <code class="code-piece">&lt;class 'tuple'&gt;</code>.
+        </p>
+        <h2>Membuat Tuple dengan Satu Item: Pentingnya Koma!</h2>
+        <p>
+          Jika Anda mencoba membuat Tuple dengan hanya satu item, ada trik kecil
+          yang perlu Anda ketahui. Jika Anda hanya menulis
+          <code class="code-piece">(item)</code>, Python akan menganggapnya
+          sebagai ekspresi biasa dalam tanda kurung, bukan sebagai Tuple. Untuk
+          membuat Tuple dengan satu item, Anda
+          <strong>harus</strong> menambahkan koma (<code class="code-piece"
+            >,</code
+          >) setelah item tersebut.
+        </p>
+        <pre><code class="language-python"># Ini BUKAN Tuple, ini hanya angka 5 dalam tanda kurung
+bukan_tuple = (5)
+print("Nilai bukan_tuple:", bukan_tuple, ", Tipe:", type(bukan_tuple))
+
+# Ini adalah Tuple dengan satu item
+ini_tuple_angka = (5,)
+print("Nilai ini_tuple_angka:", ini_tuple_angka, ", Tipe:", type(ini_tuple_angka))
+
+# Ini adalah Tuple dengan satu item string
+ini_tuple_string = ("SingleItem",)
+print("Nilai ini_tuple_string:", ini_tuple_string, ", Tipe:", type(ini_tuple_string))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai bukan_tuple: 5 , Tipe: &lt;class 'int'&gt;
+Nilai ini_tuple_angka: (5,) , Tipe: &lt;class 'tuple'&gt;
+Nilai ini_tuple_string: ('SingleItem',) , Tipe: &lt;class 'tuple'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada baris <code class="code-piece">bukan_tuple = (5)</code>, Python
+          hanya melihat angka 5 dan tanda kurung. Ia menganggap tanda kurung itu
+          hanya untuk mengelompokkan ekspresi, seperti dalam matematika
+          <code class="code-piece">(2 + 3)</code>. Jadi,
+          <code class="code-piece">bukan_tuple</code> tetap bertipe
+          <code class="code-piece">int</code>.
+        </p>
+        <p>
+          Namun, dengan menambahkan koma di
+          <code class="code-piece">ini_tuple_angka = (5,)</code>, Anda secara
+          eksplisit memberitahu Python bahwa Anda ingin membuat sebuah Tuple.
+          Inilah detail kecil yang sering terlewat tapi sangat penting.
+        </p>
+        <h2>Mengakses Item dalam Tuple: Mirip dengan List (Indeks!)</h2>
+        <p>
+          Sama seperti List, setiap item dalam Tuple juga memiliki "posisi" atau
+          "nomor urut" yang disebut <strong>Indeks</strong>, dimulai dari
+          <strong>nol (0)</strong> untuk item pertama.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama_tuple[0]</code> adalah item pertama.
+          </li>
+          <li>
+            <code class="code-piece">nama_tuple[1]</code> adalah item kedua.
+          </li>
+          <li>Dan seterusnya.</li>
+        </ul>
+        <p>
+          Anda juga bisa mengakses item dari belakang menggunakan indeks
+          negatif:
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama_tuple[-1]</code> adalah item terakhir.
+          </li>
+          <li>
+            <code class="code-piece">nama_tuple[-2]</code> adalah item kedua
+            terakhir.
+          </li>
+        </ul>
+        <pre><code class="language-python">data_provinsi = ("Jawa Barat", "Bandung", 46.5) # (Nama Provinsi, Ibu Kota, Luas dalam km^2)
+
+# Mengakses item berdasarkan indeks positif
+print("Nama Provinsi:", data_provinsi[0])
+print("Ibu Kota Provinsi:", data_provinsi[1])
+
+# Mengakses item berdasarkan indeks negatif
+print("Luas Provinsi:", data_provinsi[-1], "juta km^2")
+
+# Kita bisa menggunakan item yang diambil seperti variabel biasa
+nama_ibu_kota = data_provinsi[1]
+print(f"Ibu kota {data_provinsi[0]} adalah {nama_ibu_kota}.")
+
+# print(data_provinsi[3]) # Ini akan error! Indeks di luar batas</code></pre>
+        <p>
+          <em
+            >(Catatan: Baris
+            <code class="code-piece">print(data_provinsi[3])</code> sengaja
+            dikomentari (<code class="code-piece">#</code>) karena akan
+            menyebabkan error (<code class="code-piece">IndexError</code>). Sama
+            seperti list, Anda tidak bisa mengakses indeks yang di luar batas
+            Tuple.)</em
+          >
+        </p>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama Provinsi: Jawa Barat
+Ibu Kota Provinsi: Bandung
+Luas Provinsi: 46.5 juta km^2
+Ibu kota Jawa Barat adalah Bandung.</code></pre>
+
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Mengakses item dalam Tuple persis sama dengan mengakses item dalam
+          List atau karakter dalam String. Anda menggunakan tanda kurung siku
+          <code class="code-piece">[]</code> dengan indeks di dalamnya.
+        </p>
+        <h2>Memotong Tuple: Mengambil Sebagian Tuple (Slicing)</h2>
+        <p>
+          Sama seperti List dan String, Anda juga bisa mengambil "potongan" atau
+          sub-bagian dari sebuah Tuple menggunakan teknik
+          <strong>Slicing</strong>. Sintaksnya sama persis:
+          <code class="code-piece">tuple_saya[mulai:akhir:langkah]</code>.
+          Slicing ini akan menghasilkan <strong>Tuple baru</strong>, karena
+          Tuple asli tidak bisa diubah.
+        </p>
+        <pre><code class="language-python">abjad_vokal_lengkap = ('A', 'E', 'I', 'O', 'U', 'Y')
+
+# Mengambil dari indeks 0 sampai sebelum indeks 5
+vokal_utama = abjad_vokal_lengkap[0:5]
+print("Vokal Utama:", vokal_utama)
+
+# Mengambil dari indeks 2 sampai akhir
+sisa_vokal = abjad_vokal_lengkap[2:]
+print("Sisa Vokal:", sisa_vokal)
+
+# Mengambil dari awal sampai sebelum indeks 3
+awal_vokal = abjad_vokal_lengkap[:3]
+print("Tiga Vokal Pertama:", awal_vokal)
+
+# Mengambil 2 karakter terakhir
+dua_terakhir = abjad_vokal_lengkap[-2:]
+print("Dua Vokal Terakhir:", dua_terakhir)
+
+# Membuat salinan seluruh Tuple (slicing penuh)
+salinan_tuple = abjad_vokal_lengkap[:]
+print("Salinan seluruh tuple:", salinan_tuple)
+print("Tipe salinan:", type(salinan_tuple))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Vokal Utama: ('A', 'E', 'I', 'O', 'U')
+Sisa Vokal: ('I', 'O', 'U', 'Y')
+Tiga Vokal Pertama: ('A', 'E', 'I')
+Dua Vokal Terakhir: ('U', 'Y')
+Salinan seluruh tuple: ('A', 'E', 'I', 'O', 'U', 'Y')
+Tipe salinan: &lt;class 'tuple'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Slicing pada Tuple menghasilkan Tuple baru yang berisi elemen-elemen
+          dari potongan yang dipilih. Tuple asli tidak berubah. Perhatikan bahwa
+          hasil slicing juga selalu berupa Tuple, meskipun hanya ada satu item
+          (<code class="code-piece">('U',)</code> jika Anda slicing
+          <code class="code-piece">abjad_vokal_lengkap[4:5]</code>).
+        </p>
+        <h2>
+          Sifat "Tidak Dapat Diubah" (Immutable) dari Tuple: Inilah Bedanya!
+        </h2>
+        <p>
+          Ini adalah perbedaan paling mendasar antara List dan Tuple. Setelah
+          Tuple dibuat, Anda <strong>TIDAK BISA</strong> menambah, mengurangi,
+          atau mengubah item di dalamnya. Jika Anda mencobanya, Python akan
+          mengeluarkan error.
+        </p>
+        <pre><code class="language-python"># Tuple data siswa
+siswa = ("Andi", 17, "Jakarta")
+print("Data siswa awal:", siswa)
+
+# Kita tidak bisa mengubah item di dalam tuple
+# siswa[0] = "Budi" # Ini akan error! TypeError: 'tuple' object does not support item assignment
+# print(siswa)
+
+# Kita juga tidak bisa menambahkan item baru
+# siswa.append("Kelas X") # Ini akan error! AttributeError: 'tuple' object has no attribute 'append'
+# print(siswa)
+
+# Kita juga tidak bisa menghapus item
+# siswa.remove(17) # Ini akan error! AttributeError: 'tuple' object has no attribute 'remove'
+# del siswa[0] # Ini juga akan error! TypeError: 'tuple' object doesn't support item deletion</code></pre>
+        <p>
+          <em
+            >(Catatan: Semua baris yang mencoba mengubah Tuple sengaja
+            dikomentari (<code class="code-piece">#</code>) karena akan
+            menyebabkan error. Jika Anda menghapus tanda pagar (<code
+              class="code-piece"
+              >#</code
+            >) dan mencoba menjalankannya, Anda akan melihat pesan kesalahan
+            yang jelas dari Python bahwa "tuple" tidak mendukung perubahan.)</em
+          >
+        </p>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Data siswa awal: ('Andi', 17, 'Jakarta')</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh ini dengan jelas menunjukkan bahwa Tuple tidak dapat diubah.
+          Ini adalah sifat utamanya. Anda tidak dapat menggunakan metode seperti
+          <code class="code-piece">append()</code>,
+          <code class="code-piece">insert()</code>,
+          <code class="code-piece">remove()</code>, atau operasi penugasan
+          indeks <code class="code-piece">siswa[0] = ...</code> pada Tuple.
+          Inilah sebabnya Tuple sering digunakan untuk data yang sifatnya tetap
+          atau konfigurasi yang tidak boleh diubah secara tidak sengaja.
+        </p>
+        <h2>
+          Operasi yang Masih Bisa Dilakukan pada Tuple (Karena Mereka Membuat
+          Tuple Baru)
+        </h2>
+        <p>
+          Meskipun Tuple tidak dapat diubah, Anda masih bisa melakukan beberapa
+          operasi yang akan <strong>menghasilkan Tuple baru</strong>, bukan
+          mengubah Tuple yang sudah ada.
+        </p>
+        <ul>
+          <li>
+            <strong>Penggabungan (<code class="code-piece">+</code>):</strong>
+            Menggabungkan dua Tuple menjadi Tuple baru.
+          </li>
+          <li>
+            <strong>Pengulangan (<code class="code-piece">*</code>):</strong>
+            Mengulang item-item dalam Tuple menjadi Tuple baru.
+          </li>
+          <li>
+            <strong>Mencari (<code class="code-piece">index()</code>):</strong>
+            Menemukan indeks dari item pertama yang cocok.
+          </li>
+          <li>
+            <strong
+              >Menghitung (<code class="code-piece">count()</code>):</strong
+            >
+            Menghitung berapa kali suatu item muncul.
+          </li>
+          <li>
+            <strong>Panjang (<code class="code-piece">len()</code>):</strong>
+            Mengetahui jumlah item.
+          </li>
+          <li>
+            <strong
+              >Memeriksa Keberadaan (<code class="code-piece">in</code>,
+              <code class="code-piece">not in</code>):</strong
+            >
+            Memeriksa apakah suatu item ada di dalam Tuple.
+          </li>
+          <li>
+            <strong>Perulangan <code class="code-piece">for</code>:</strong>
+            Sama seperti List, bisa mengulang setiap item.
+          </li>
+        </ul>
+        <pre><code class="language-python">tuple_1 = (1, 2, 3)
+tuple_2 = (4, 5)
+gabungan_tuple = tuple_1 + tuple_2 # Membuat tuple baru
+print("Gabungan Tuple:", gabungan_tuple)
+
+ulang_tuple = tuple_1 * 2 # Membuat tuple baru
+print("Tuple diulang:", ulang_tuple)
+
+nilai_siswa = (80, 95, 70, 95, 88)
+# Mencari indeks item (pertama kali muncul)
+indeks_95 = nilai_siswa.index(95)
+print("Angka 95 pertama kali muncul di indeks:", indeks_95)
+
+# Menghitung berapa kali item muncul
+jumlah_95 = nilai_siswa.count(95)
+print("Angka 95 muncul sebanyak:", jumlah_95, "kali.")
+
+# Panjang Tuple
+jumlah_nilai = len(nilai_siswa)
+print("Jumlah nilai dalam tuple:", jumlah_nilai)
+
+# Memeriksa keberadaan item
+apakah_ada_70 = 70 in nilai_siswa
+print("Apakah ada nilai 70?", apakah_ada_70)
+
+# Mengulang item dalam Tuple menggunakan for
+print("--- Iterasi Tuple ---")
+for nilai in nilai_siswa:
+    print(f"Nilai: {nilai}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Gabungan Tuple: (1, 2, 3, 4, 5)
+Tuple diulang: (1, 2, 3, 1, 2, 3)
+Angka 95 pertama kali muncul di indeks: 1
+Angka 95 muncul sebanyak: 2 kali.
+Jumlah nilai dalam tuple: 5
+Apakah ada nilai 70? True
+--- Iterasi Tuple ---
+Nilai: 80
+Nilai: 95
+Nilai: 70
+Nilai: 95
+Nilai: 88</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bahwa operasi <code class="code-piece">+</code> dan
+          <code class="code-piece">*</code> pada Tuple selalu menghasilkan
+          <strong>Tuple baru</strong>. Tuple asli (<code class="code-piece"
+            >tuple_1</code
+          >, <code class="code-piece">tuple_2</code>) tidak pernah berubah.
+          Metode <code class="code-piece">index()</code> dan
+          <code class="code-piece">count()</code> sangat membantu untuk mencari
+          informasi spesifik dalam Tuple. Fungsi
+          <code class="code-piece">len()</code> dan operator
+          <code class="code-piece">in</code>/<code class="code-piece"
+            >not in</code
+          >
+          bekerja sama persis seperti pada List. Dan seperti List, perulangan
+          <code class="code-piece">for</code> adalah cara yang efisien untuk
+          memproses setiap item dalam Tuple.
+        </p>
+        <h2>Mengapa Memilih Tuple Dibanding List? Kapan Menggunakannya?</h2>
+        <p>
+          Mungkin Anda bertanya, "Kalau Tuple tidak bisa diubah, apa gunanya?
+          Bukankah List lebih fleksibel?" Itu pertanyaan bagus! Tuple memiliki
+          kegunaan spesifik:
+        </p>
+        <ol>
+          <li>
+            <strong
+              >Untuk Data yang Seharusnya Tidak Berubah (Data
+              Integrity):</strong
+            >
+            <ul>
+              <li>
+                Jika Anda memiliki kumpulan data yang sifatnya konstan dan tidak
+                boleh diubah (misalnya, koordinat geografis, warna RGB, data
+                kalender seperti nama hari atau bulan), menggunakan Tuple adalah
+                pilihan yang baik. Ini mencegah perubahan yang tidak disengaja.
+              </li>
+              <li>
+                Contoh:
+                <code class="code-piece">koordinat = (34.05, -118.25)</code>
+                atau <code class="code-piece">warna_merah = (255, 0, 0)</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Kinerja (Sedikit Lebih Cepat/Efisien):</strong>
+            <ul>
+              <li>
+                Karena Python tahu bahwa Tuple tidak akan berubah, ia bisa
+                sedikit lebih mengoptimalkan cara menyimpan dan memprosesnya.
+                Untuk program yang sangat besar dan sangat membutuhkan
+                efisiensi, ini bisa menjadi pertimbangan. Namun, untuk
+                kebanyakan program sehari-hari, perbedaannya tidak signifikan.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Digunakan untuk "Mengemas" Data (Tuple Unpacking):</strong>
+            <ul>
+              <li>
+                Ini adalah fitur yang sangat keren! Anda bisa dengan mudah
+                "membongkar" item-item dalam Tuple ke dalam variabel-variabel
+                terpisah.
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <pre><code class="language-python"># Contoh Tuple Unpacking
+data_nilai_ujian = ("Budi", 85, 92, 78) # Tuple nama, nilai MTK, IPA, B.Indo
+
+# Membongkar tuple ke variabel terpisah
+nama, nilai_mtk, nilai_ipa, nilai_bindo = data_nilai_ujian
+print(f"Nama Siswa: {nama}")
+print(f"Nilai MTK: {nilai_mtk}")
+print(f"Nilai IPA: {nilai_ipa}")
+print(f"Nilai B.Indo: {nilai_bindo}")
+
+# Contoh keren: Menukar nilai dua variabel tanpa variabel bantuan
+a = 10
+b = 20
+print(f"Sebelum tukar: a={a}, b={b}")
+a, b = b, a # Ini sebenarnya membuat tuple sementara (b,a) lalu membongkarnya ke a,b
+print(f"Setelah tukar: a={a}, b={b}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama Siswa: Budi
+Nilai MTK: 85
+Nilai IPA: 92
+Nilai B.Indo: 78
+Sebelum tukar: a=10, b=20
+Setelah tukar: a=20, b=10</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dengan
+          <code class="code-piece"
+            >nama, nilai_mtk, nilai_ipa, nilai_bindo = data_nilai_ujian</code
+          >, Python secara otomatis mencocokkan item pertama dari Tuple ke
+          variabel pertama, item kedua ke variabel kedua, dan seterusnya. Ini
+          sangat memudahkan dalam mengambil beberapa nilai dari Tuple sekaligus.
+          Teknik pertukaran nilai
+          <code class="code-piece">a, b = b, a</code> adalah contoh klasik Tuple
+          unpacking yang sering tidak disadari. Python secara internal membuat
+          sebuah Tuple <code class="code-piece">(b, a)</code> lalu membuka
+          isinya kembali ke variabel <code class="code-piece">a</code> dan
+          <code class="code-piece">b</code>.
+        </p>
+        <h2>
+          Apa yang Mungkin Tidak Disadari: Tuple Berisi List (Mutable Item dalam
+          Immutable Tuple)
+        </h2>
+        <p>
+          Ini adalah konsep yang sedikit lebih canggih, tapi penting untuk
+          pemahaman komprehensif tentang sifat immutable. Sebuah Tuple memang
+          tidak bisa diubah. Artinya, Anda tidak bisa mengganti elemen Tuple
+          dengan elemen lain. Namun, jika sebuah Tuple berisi item yang
+          merupakan objek mutable (seperti List), maka
+          <strong>Anda bisa mengubah isi dari List tersebut</strong>, meskipun
+          List itu berada di dalam Tuple. Tuple itu sendiri (yaitu, referensi ke
+          List tersebut) tidak berubah, tetapi <em>konten</em> dari List
+          tersebut bisa berubah.
+        </p>
+        <p>
+          Bayangkan Anda punya kotak kaca (Tuple) yang isinya adalah sebuah
+          wadah plastik (List) dan beberapa batu (angka). Anda tidak bisa
+          mengganti wadah plastik itu dengan wadah lain, dan Anda tidak bisa
+          mengganti batu-batu itu. Tapi, Anda bisa menambah atau mengurangi isi
+          <strong>di dalam</strong> wadah plastik tersebut.
+        </p>
+        <pre><code class="language-python"># Tuple berisi angka dan sebuah List
+siswa_dengan_hobi = ("Andi", 17, ["Membaca", "Bersepeda"])
+print("Tuple awal:", siswa_dengan_hobi)
+print("Tipe elemen hobi:", type(siswa_dengan_hobi[2]))
+
+# Mengakses List di dalam Tuple
+hobi_andi = siswa_dengan_hobi[2]
+print("Hobi Andi (sebagai List):", hobi_andi)
+
+# Kita BISA mengubah isi List yang ada di dalam Tuple
+hobi_andi.append("Renang") # Menambah item ke List hobi_andi
+print("Hobi Andi setelah ditambah:", hobi_andi)
+print("Tuple setelah List di dalamnya diubah:", siswa_dengan_hobi) # Tuple ikut "terlihat" berubah
+
+# Tapi, kita TETAP TIDAK BISA mengubah item di Tuple secara langsung
+# siswa_dengan_hobi[0] = "Budi" # Ini akan error! TypeError</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Tuple awal: ('Andi', 17, ['Membaca', 'Bersepeda'])
+Tipe elemen hobi: &lt;class 'list'&gt;
+Hobi Andi (sebagai List): ['Membaca', 'Bersepeda']
+Hobi Andi setelah ditambah: ['Membaca', 'Bersepeda', 'Renang']
+Tuple setelah List di dalamnya diubah: ('Andi', 17, ['Membaca', 'Bersepeda', 'Renang'])</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bahwa
+          <code class="code-piece">siswa_dengan_hobi[2]</code> adalah sebuah
+          List <code class="code-piece">["Membaca", "Bersepeda"]</code>. Karena
+          List bersifat mutable, kita bisa menggunakan metode List seperti
+          <code class="code-piece">append()</code> pada
+          <code class="code-piece">siswa_dengan_hobi[2]</code>. Meskipun
+          <code class="code-piece">siswa_dengan_hobi</code> adalah Tuple,
+          perubahan pada List di dalamnya <strong>tetap terlihat</strong> karena
+          Tuple masih "menunjuk" pada objek List yang sama di memori. Yang tidak
+          bisa Anda lakukan adalah mengganti
+          <code class="code-piece">siswa_dengan_hobi[2]</code> dengan objek lain
+          (misalnya dengan angka, atau List yang berbeda).
+        </p>
+        <p>
+          Ini adalah perbedaan penting antara "Tuple itu sendiri immutable" dan
+          "item-item di dalam Tuple bisa jadi mutable (jika item itu sendiri
+          adalah objek mutable)".
+        </p>
+        <p>
+          Dengan modul "Tuple" ini, Anda sekarang memahami struktur data lain
+          yang kuat di Python, yang sangat cocok untuk menyimpan data yang
+          sifatnya tetap. Memahami perbedaan antara List dan Tuple adalah kunci
+          untuk memilih alat yang tepat untuk kebutuhan penyimpanan data Anda!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./sets.html"
+            >Struktur Data (Set) – Kumpulan Item Unik Tanpa Urutan</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./lists.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./sets.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

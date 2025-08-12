@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Struktur Data (Dictionary) – Menyimpan Informasi dengan "Kunci" dan
+      "Nilai"
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html" class="active">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Struktur Data (Dictionary) – Menyimpan Informasi dengan "Kunci" dan
+          "Nilai"
+        </h1>
+        <p>
+          Kita sudah mengenal <strong>List</strong> (kumpulan item berurutan)
+          dan <strong>Tuple</strong> (kumpulan item berurutan yang tidak bisa
+          diubah). Sekarang, bayangkan sebuah kamus (dictionary) di mana Anda
+          mencari arti sebuah kata. Anda tidak mencari berdasarkan nomor
+          halaman, tetapi berdasarkan "kata" itu sendiri. Atau, bayangkan buku
+          telepon, di mana Anda mencari nomor telepon seseorang berdasarkan
+          "nama" orang tersebut.
+        </p>
+        <p>
+          Dalam Python, <strong>Dictionary</strong> (sering disingkat
+          <code class="code-piece">dict</code>) adalah struktur data yang
+          bekerja mirip dengan kamus atau buku telepon. Dictionary menyimpan
+          data dalam bentuk
+          <strong>pasangan "kunci" dan "nilai" (key-value pairs)</strong>.
+          Setiap "kunci" itu unik dan berfungsi sebagai "nama" atau "identitas"
+          untuk mengakses "nilai" yang bersesuaian. Anda tidak perlu mengingat
+          posisi (indeks) seperti pada List, cukup ingat kuncinya.
+        </p>
+        <p>
+          Dictionary bersifat <strong>mutable</strong> (dapat diubah), artinya
+          Anda bisa menambah, menghapus, atau mengubah pasangan kunci-nilai di
+          dalamnya setelah dibuat.
+        </p>
+        <h2>
+          Membuat Dictionary: Menggunakan Kurung Kurawal
+          <code class="code-piece">{}</code> dengan Pasangan Kunci:Nilai
+        </h2>
+        <p>
+          Untuk membuat sebuah Dictionary, kita menggunakan tanda kurung kurawal
+          (<code class="code-piece">{}</code>) dan meletakkan pasangan
+          <code class="code-piece">kunci: nilai</code> di dalamnya, dipisahkan
+          dengan tanda koma (<code class="code-piece">,</code>). Kunci dan nilai
+          dipisahkan oleh tanda titik dua (<code class="code-piece">:</code>).
+        </p>
+        <pre><code class="language-python"># Dictionary data diri siswa
+data_siswa = {
+    "nama": "Budi Santoso",
+    "umur": 17,
+    "kelas": "XII IPA 1",
+    "sudah_lulus": False
+}
+print("Data siswa:", data_siswa)
+
+# Dictionary daftar harga barang
+daftar_harga = {
+    "pensil": 2000,
+    "pulpen": 3500,
+    "buku": 8000
+}
+print("Daftar harga:", daftar_harga)
+
+# Dictionary bisa punya nilai dengan tipe data apapun, bahkan List atau Dictionary lain!
+biodata_lengkap = {
+    "nama": "Siti Rahmawati",
+    "usia": 16,
+    "hobi": ["Membaca", "Melukis", "Menulis"],
+    "nilai_rapor": {
+        "Matematika": 90,
+        "Fisika": 85
+    }
+}
+print("Biodata lengkap:", biodata_lengkap)
+
+# Membuat dictionary kosong
+dict_kosong = {}
+print("Dictionary yang kosong:", dict_kosong, ", Tipe:", type(dict_kosong))
+
+# Memeriksa tipe data dari dictionary
+print("Tipe data dari data_siswa adalah:", type(data_siswa))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Data siswa: {'nama': 'Budi Santoso', 'umur': 17, 'kelas': 'XII IPA 1', 'sudah_lulus': False}
+Daftar harga: {'pensil': 2000, 'pulpen': 3500, 'buku': 8000}
+Biodata lengkap: {'nama': 'Siti Rahmawati', 'usia': 16, 'hobi': ['Membaca', 'Melukis', 'Menulis'], 'nilai_rapor': {'Matematika': 90, 'Fisika': 85}}
+Dictionary yang kosong: {} , Tipe: &lt;class 'dict'&gt;
+Tipe data dari data_siswa adalah: &lt;class 'dict'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap pasangan <code class="code-piece">kunci: nilai</code> di dalam
+          kurung kurawal <code class="code-piece">{}</code> membentuk sebuah
+          item dalam Dictionary. Misalnya,
+          <code class="code-piece">"nama": "Budi Santoso"</code> berarti kunci
+          adalah <code class="code-piece">"nama"</code> dan nilainya adalah
+          <code class="code-piece">"Budi Santoso"</code>. Kunci biasanya berupa
+          teks (string), tapi bisa juga angka atau Tuple. Nilai bisa berupa tipe
+          data apa saja, bahkan List atau Dictionary lain seperti yang terlihat
+          pada <code class="code-piece">biodata_lengkap</code>. Saat mencetak
+          Dictionary, Python menampilkannya dalam format
+          <code class="code-piece">key: value</code>.
+        </p>
+        <h2>Mengakses Nilai dalam Dictionary: Menggunakan Kunci!</h2>
+        <p>
+          Untuk mendapatkan nilai dari sebuah Dictionary, Anda tidak menggunakan
+          indeks angka seperti pada List. Sebaliknya, Anda menggunakan
+          <strong>kuncinya</strong> di dalam tanda kurung siku (<code
+            class="code-piece"
+            >[]</code
+          >). Ini seperti mencari kata di kamus.
+        </p>
+        <pre><code class="language-python">data_pelanggan = {
+    "id": "PL001",
+    "nama_lengkap": "Ani Nurmala",
+    "alamat": "Jl. Merdeka No. 10",
+    "telepon": "08123456789"
+}
+
+# Mengakses nilai menggunakan kunci
+nama_ani = data_pelanggan["nama_lengkap"]
+telepon_ani = data_pelanggan["telepon"]
+
+print("Nama Pelanggan:", nama_ani)
+print("Nomor Telepon:", telepon_ani)
+
+# Mengakses nilai dari dictionary di dalam dictionary
+nilai_mtk_siti = biodata_lengkap["nilai_rapor"]["Matematika"]
+print(f"Nilai Matematika Siti: {nilai_mtk_siti}")
+
+# Apa yang terjadi jika kunci tidak ada? ERROR!
+# email_ani = data_pelanggan["email"] # Ini akan error! KeyError: 'email'
+# print(email_ani)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama Pelanggan: Ani Nurmala
+Nomor Telepon: 08123456789
+Nilai Matematika Siti: 90</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >nama_ani = data_pelanggan["nama_lengkap"]</code
+          >, Python mencari kunci
+          <code class="code-piece">"nama_lengkap"</code> di dalam
+          <code class="code-piece">data_pelanggan</code> dan mengembalikan nilai
+          yang bersesuaian, yaitu <code class="code-piece">"Ani Nurmala"</code>.
+          Anda bisa melihat betapa mudahnya mengakses nilai secara langsung
+          dengan namanya.
+        </p>
+        <p>
+          Sama seperti List, Anda harus berhati-hati saat mengakses kunci yang
+          tidak ada. Jika Anda mencoba mengakses kunci yang tidak ada, Python
+          akan mengeluarkan <code class="code-piece">KeyError</code>,
+          memberitahu Anda bahwa kunci tersebut tidak ditemukan.
+        </p>
+        <h2>
+          Cara Aman Mengakses Nilai: Metode
+          <code class="code-piece">get()</code>
+        </h2>
+        <p>
+          Untuk menghindari <code class="code-piece">KeyError</code> ketika Anda
+          tidak yakin apakah sebuah kunci ada, Anda bisa menggunakan metode
+          <code class="code-piece">.get()</code> pada Dictionary. Jika kunci
+          ditemukan, <code class="code-piece">.get()</code> akan mengembalikan
+          nilainya. Jika tidak ditemukan, ia akan mengembalikan
+          <code class="code-piece">None</code> (yang berarti "tidak ada nilai"),
+          atau nilai <code class="code-piece">default</code> yang bisa Anda
+          tentukan sendiri.
+        </p>
+        <pre><code class="language-python">profil_siswa = {
+    "nama": "Rio Fernando",
+    "kelas": "XI IPS 2"
+}
+
+# Menggunakan get() tanpa nilai default
+hobi_rio = profil_siswa.get("hobi") # Kunci 'hobi' tidak ada
+print("Hobi Rio:", hobi_rio) # Output: None
+
+# Menggunakan get() dengan nilai default
+jurusan_rio = profil_siswa.get("jurusan", "Belum ada informasi jurusan")
+print("Jurusan Rio:", jurusan_rio)
+
+nama_rio = profil_siswa.get("nama", "Nama tidak ditemukan")
+print("Nama Rio:", nama_rio) # Kunci 'nama' ada, jadi nilainya dikembalikan</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hobi Rio: None
+Jurusan Rio: Belum ada informasi jurusan
+Nama Rio: Rio Fernando</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika
+          <code class="code-piece">profil_siswa.get("hobi")</code> dipanggil,
+          karena kunci <code class="code-piece">"hobi"</code> tidak ada,
+          <code class="code-piece">get()</code> mengembalikan
+          <code class="code-piece">None</code>. Ini jauh lebih baik daripada
+          program berhenti karena error. Anda bisa menggunakan hasil
+          <code class="code-piece">None</code> ini dalam kondisi
+          <code class="code-piece">if</code> untuk menangani kasus ketika
+          informasi tidak ada.
+        </p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >profil_siswa.get("jurusan", "Belum ada informasi jurusan")</code
+          >, jika kunci <code class="code-piece">"jurusan"</code> tidak ada, ia
+          akan mengembalikan string
+          <code class="code-piece">"Belum ada informasi jurusan"</code> sebagai
+          nilai default. Ini sangat berguna untuk memberikan pesan yang lebih
+          ramah kepada pengguna.
+        </p>
+        <h2>Menambah dan Mengubah Pasangan Kunci-Nilai</h2>
+        <p>
+          Dictionary bersifat mutable, yang berarti Anda bisa mengubahnya
+          setelah dibuat.
+        </p>
+        <ul>
+          <li>
+            <strong>Mengubah nilai:</strong> Jika Anda memberikan nilai baru ke
+            kunci yang sudah ada, nilai lama akan diganti.
+          </li>
+          <li>
+            <strong>Menambah pasangan baru:</strong> Jika Anda memberikan nilai
+            ke kunci yang belum ada, pasangan kunci-nilai baru akan ditambahkan.
+          </li>
+        </ul>
+        <pre><code class="language-python">daftar_nilai_mapel = {
+    "Matematika": 85,
+    "Bahasa Indonesia": 90
+}
+print("Nilai awal:", daftar_nilai_mapel)
+
+# Mengubah nilai mata pelajaran yang sudah ada
+daftar_nilai_mapel["Matematika"] = 92 # Nilai Matematika diubah dari 85 menjadi 92
+print("Setelah ubah nilai Matematika:", daftar_nilai_mapel)
+
+# Menambah mata pelajaran baru
+daftar_nilai_mapel["Fisika"] = 88 # Kunci "Fisika" belum ada, jadi ditambahkan
+print("Setelah tambah nilai Fisika:", daftar_nilai_mapel)
+
+daftar_nilai_mapel["Kimia"] = 75
+print("Setelah tambah nilai Kimia:", daftar_nilai_mapel)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai awal: {'Matematika': 85, 'Bahasa Indonesia': 90}
+Setelah ubah nilai Matematika: {'Matematika': 92, 'Bahasa Indonesia': 90}
+Setelah tambah nilai Fisika: {'Matematika': 92, 'Bahasa Indonesia': 90, 'Fisika': 88}
+Setelah tambah nilai Kimia: {'Matematika': 92, 'Bahasa Indonesia': 90, 'Fisika': 88, 'Kimia': 75}</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bagaimana baris
+          <code class="code-piece">daftar_nilai_mapel["Matematika"] = 92</code>
+          langsung mengubah nilai untuk kunci "Matematika". Sementara itu,
+          <code class="code-piece">daftar_nilai_mapel["Fisika"] = 88</code>
+          menambahkan pasangan baru karena kunci "Fisika" belum ada sebelumnya.
+          Ini menunjukkan fleksibilitas Dictionary dalam mengelola data.
+        </p>
+        <h2>
+          Menghapus Pasangan Kunci-Nilai:
+          <code class="code-piece">del</code> dan
+          <code class="code-piece">pop()</code>
+        </h2>
+        <p>
+          Ada beberapa cara untuk menghapus item (pasangan kunci-nilai) dari
+          Dictionary:
+        </p>
+        <ul>
+          <li>
+            <strong
+              ><code class="code-piece">del dictionary[kunci]</code>:</strong
+            >
+            Menghapus pasangan kunci-nilai berdasarkan kunci yang Anda tentukan.
+            Jika kunci tidak ada, akan terjadi
+            <code class="code-piece">KeyError</code>.
+          </li>
+          <li>
+            <strong><code class="code-piece">pop(kunci)</code>:</strong>
+            Menghapus pasangan kunci-nilai berdasarkan kunci yang Anda tentukan,
+            dan yang menarik, <code class="code-piece">pop()</code> juga
+            <strong>mengembalikan nilai yang dihapus</strong>, sehingga Anda
+            bisa menyimpannya ke variabel lain jika diperlukan. Jika kunci tidak
+            ada, akan terjadi <code class="code-piece">KeyError</code> kecuali
+            Anda memberikan nilai default.
+          </li>
+          <li>
+            <strong><code class="code-piece">clear()</code>:</strong> Menghapus
+            <strong>semua</strong> pasangan kunci-nilai dari Dictionary, membuat
+            Dictionary menjadi kosong.
+          </li>
+        </ul>
+        <pre><code class="language-python">data_kontak = {
+    "Andi": "08123",
+    "Budi": "08567",
+    "Cici": "08901"
+}
+print("Kontak awal:", data_kontak)
+
+# Menghapus kontak dengan del
+del data_kontak["Budi"]
+print("Setelah hapus 'Budi' dengan del:", data_kontak)
+
+# Menghapus kontak dengan pop() dan mengambil nilainya
+nomor_cici = data_kontak.pop("Cici")
+print("Setelah hapus 'Cici' dengan pop:", data_kontak)
+print("Nomor Cici yang dihapus:", nomor_cici)
+
+# Menghapus kunci yang mungkin tidak ada dengan pop() dan default value
+nomor_dina = data_kontak.pop("Dina", "Tidak ada di kontak") # Kunci 'Dina' tidak ada
+print("Nomor Dina:", nomor_dina) # Output: Tidak ada di kontak
+print("Kontak setelah pop 'Dina':", data_kontak)
+
+# Mengosongkan dictionary
+data_kontak.clear()
+print("Setelah clear():", data_kontak)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Kontak awal: {'Andi': '08123', 'Budi': '08567', 'Cici': '08901'}
+Setelah hapus 'Budi' dengan del: {'Andi': '08123', 'Cici': '08901'}
+Setelah hapus 'Cici' dengan pop: {'Andi': '08123'}
+Nomor Cici yang dihapus: 08901
+Nomor Dina: Tidak ada di kontak
+Kontak setelah pop 'Dina': {'Andi': '08123'}
+Setelah clear(): {}</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">del data_kontak["Budi"]</code> langsung
+          menghapus pasangan <code class="code-piece">"Budi": "08567"</code>.
+          <code class="code-piece">pop("Cici")</code> tidak hanya menghapus,
+          tetapi juga mengembalikan nilai
+          <code class="code-piece">"08901"</code>, yang bisa kita simpan ke
+          variabel <code class="code-piece">nomor_cici</code>. Menggunakan
+          <code class="code-piece">pop()</code> dengan nilai default (misalnya,
+          <code class="code-piece">"Tidak ada di kontak"</code>) adalah cara
+          aman untuk mencoba menghapus kunci yang mungkin tidak ada, tanpa
+          menyebabkan error.
+        </p>
+        <h2>Melihat Semua Kunci, Nilai, atau Keduanya</h2>
+        <p>
+          Dictionary menyediakan metode yang berguna untuk mendapatkan
+          "pandangan" dari kunci, nilai, atau kedua-duanya:
+        </p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">keys()</code>:</strong>
+            Mengembalikan pandangan (view) dari semua kunci yang ada di
+            Dictionary.
+          </li>
+          <li>
+            <strong><code class="code-piece">values()</code>:</strong>
+            Mengembalikan pandangan (view) dari semua nilai yang ada di
+            Dictionary.
+          </li>
+          <li>
+            <strong><code class="code-piece">items()</code>:</strong>
+            Mengembalikan pandangan (view) dari semua pasangan kunci-nilai, di
+            mana setiap pasangan direpresentasikan sebagai Tuple.
+          </li>
+        </ul>
+        <pre><code class="language-python">daftar_inventaris = {
+    "laptop": 5,
+    "mouse": 10,
+    "keyboard": 7,
+    "monitor": 3
+}
+
+# Mendapatkan semua kunci
+semua_kunci = daftar_inventaris.keys()
+print("Daftar Kunci (Barang):", semua_kunci)
+
+# Mendapatkan semua nilai
+semua_nilai = daftar_inventaris.values()
+print("Daftar Nilai (Stok):", semua_nilai)
+
+# Mendapatkan semua pasangan kunci-nilai
+semua_item = daftar_inventaris.items()
+print("Daftar Item (Kunci-Nilai):", semua_item)
+
+# Anda bisa mengubah view ini menjadi List jika perlu
+list_kunci = list(semua_kunci)
+list_nilai = list(semua_nilai)
+list_item = list(semua_item)
+
+print("List Kunci:", list_kunci)
+print("List Nilai:", list_nilai)
+print("List Item:", list_item)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar Kunci (Barang): dict_keys(['laptop', 'mouse', 'keyboard', 'monitor'])
+Daftar Nilai (Stok): dict_values([5, 10, 7, 3])
+Daftar Item (Kunci-Nilai): dict_items([('laptop', 5), ('mouse', 10), ('keyboard', 7), ('monitor', 3)])
+List Kunci: ['laptop', 'mouse', 'keyboard', 'monitor']
+List Nilai: [5, 10, 7, 3]
+List Item: [('laptop', 5), ('mouse', 10), ('keyboard', 7), ('monitor', 3)]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">keys()</code>,
+          <code class="code-piece">values()</code>, dan
+          <code class="code-piece">items()</code> mengembalikan objek "view".
+          Ini berarti mereka tidak membuat salinan List baru, tetapi mereka
+          "melihat" langsung ke Dictionary. Jika Dictionary berubah, view ini
+          juga akan ikut berubah secara otomatis. Anda bisa mengubah view ini
+          menjadi List dengan <code class="code-piece">list(...)</code> jika
+          Anda ingin salinan yang terpisah atau ingin menggunakannya dengan
+          fungsi List lainnya.
+        </p>
+        <h2>
+          Memeriksa Keberadaan Kunci: Operator
+          <code class="code-piece">in</code>
+        </h2>
+        <p>
+          Anda bisa menggunakan operator
+          <code class="code-piece">in</code> untuk memeriksa apakah sebuah kunci
+          ada di dalam Dictionary. Hasilnya adalah Boolean (<code
+            class="code-piece"
+            >True</code
+          >
+          atau <code class="code-piece">False</code>).
+        </p>
+        <pre><code class="language-python">menu_restoran = {
+    "Nasi Goreng": 25000,
+    "Mie Ayam": 20000,
+    "Es Teh": 8000
+}
+
+apakah_ada_nasi_goreng = "Nasi Goreng" in menu_restoran
+print("Apakah ada 'Nasi Goreng' di menu?", apakah_ada_nasi_goreng)
+
+apakah_ada_pizza = "Pizza" in menu_restoran
+print("Apakah ada 'Pizza' di menu?", apakah_ada_pizza)
+
+apakah_tidak_ada_juice = "Juice" not in menu_restoran
+print("Apakah tidak ada 'Juice' di menu?", apakah_tidak_ada_juice)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Apakah ada 'Nasi Goreng' di menu? True
+Apakah ada 'Pizza' di menu? False
+Apakah tidak ada 'Juice' di menu? True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Operator <code class="code-piece">in</code> di Dictionary secara
+          default memeriksa keberadaan <strong>kunci</strong>, bukan nilai. Ini
+          sangat berguna untuk membuat program yang memeriksa ketersediaan data
+          sebelum mencoba mengaksesnya, yang bisa mencegah
+          <code class="code-piece">KeyError</code>.
+        </p>
+        <h2>
+          Mengulang Item dalam Dictionary: Perulangan
+          <code class="code-piece">for</code>
+        </h2>
+        <p>
+          Sama seperti List dan Tuple, perulangan
+          <code class="code-piece">for</code> juga sangat cocok untuk
+          Dictionary. Anda bisa mengulang kuncinya, nilainya, atau keduanya
+          sekaligus.
+        </p>
+        <h2>Mengulang Kunci (Cara Default)</h2>
+        <p>
+          Jika Anda hanya mengulang Dictionary langsung,
+          <code class="code-piece">for</code> akan mengulang setiap kuncinya.
+        </p>
+        <pre><code class="language-python">profil_guru = {
+    "nama_lengkap": "Pak Budi",
+    "bidang": "Matematika",
+    "usia": 40
+}
+
+print("--- Data Profil Guru ---")
+for kunci in profil_guru: # Secara default, 'for' mengulang kuncinya
+    nilai = profil_guru[kunci] # Ambil nilai menggunakan kunci
+    print(f"{kunci.replace('_', ' ').title()}: {nilai}") # Manipulasi string untuk tampilan rapi</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Data Profil Guru ---
+Nama Lengkap: Pak Budi
+Bidang: Matematika
+Usia: 40</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">for kunci in profil_guru:</code>,
+          variabel <code class="code-piece">kunci</code> akan berisi "nama",
+          lalu "bidang", lalu "usia" secara berurutan. Di dalam perulangan, kita
+          menggunakan <code class="code-piece">profil_guru[kunci]</code> untuk
+          mendapatkan nilai yang bersesuaian. Disini terdapat tambahan
+          manipulasi string (<code class="code-piece"
+            >.replace('_', ' ').title()</code
+          >) agar kunci "nama_lengkap" misalnya, bisa tampil rapi menjadi "Nama
+          Lengkap".
+        </p>
+        <h2>Mengulang Nilai</h2>
+        <p>
+          Jika Anda hanya tertarik pada nilai-nilainya, Anda bisa mengulang
+          <code class="code-piece">dictionary.values()</code>.
+        </p>
+        <pre><code class="language-python">skor_siswa = {
+    "Andi": 85,
+    "Budi": 90,
+    "Cici": 78,
+    "Dina": 92
+}
+total_skor = 0
+
+print("--- Daftar Skor Siswa ---")
+for skor in skor_siswa.values(): # 'skor' akan berisi 85, lalu 90, dst.
+    print(f"Skor: {skor}")
+    total_skor += skor
+
+rata_rata_skor = total_skor / len(skor_siswa)
+print(f"Total Skor: {total_skor}")
+print(f"Rata-rata Skor: {rata_rata_skor}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Daftar Skor Siswa ---
+Skor: 85
+Skor: 90
+Skor: 78
+Skor: 92
+Total Skor: 345
+Rata-rata Skor: 86.25</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dengan
+          <code class="code-piece">for skor in skor_siswa.values():</code>,
+          variabel <code class="code-piece">skor</code> akan langsung berisi
+          nilai-nilai (85, 90, 78, 92) tanpa perlu mengakses kunci terlebih
+          dahulu.
+        </p>
+        <h2>Mengulang Kunci dan Nilai Sekaligus</h2>
+        <p>
+          Ini adalah cara paling umum dan efisien untuk mengulang Dictionary
+          ketika Anda membutuhkan kedua-duanya, menggunakan
+          <code class="code-piece">dictionary.items()</code>.
+        </p>
+        <pre><code class="language-python">ketersediaan_produk = {
+    "Meja": 15,
+    "Kursi": 20,
+    "Lampu": 10,
+    "Lemari": 5
+}
+
+print("--- Laporan Stok Produk ---")
+for nama_produk, jumlah_stok in ketersediaan_produk.items():
+    print(f"{nama_produk} : {jumlah_stok} unit")
+
+print("\n")
+
+print("--- Produk Hampir Habis ---")
+for produk, stok in ketersediaan_produk.items():
+    if stok < 10: # Kondisional di dalam perulangan
+        print(f"Peringatan! {produk} tersisa {stok} unit.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Laporan Stok Produk ---
+Meja : 15 unit
+Kursi : 20 unit
+Lampu : 10 unit
+Lemari : 5 unit
+
+--- Produk Hampir Habis ---
+Peringatan! Lampu tersisa 10 unit.
+Peringatan! Lemari tersisa 5 unit.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada
+          <code class="code-piece"
+            >for nama_produk, jumlah_stok in ketersediaan_produk.items():</code
+          >, setiap pasangan kunci-nilai dari
+          <code class="code-piece">items()</code> akan "dibongkar" (unpacking)
+          secara otomatis ke dua variabel:
+          <code class="code-piece">nama_produk</code> akan mendapatkan kunci,
+          dan <code class="code-piece">jumlah_stok</code> akan mendapatkan
+          nilainya. Ini adalah cara yang sangat rapi dan mudah dibaca untuk
+          memproses setiap item di Dictionary.
+        </p>
+        <h2>Batasan pada Kunci (Keys) Dictionary</h2>
+        <p>
+          Kita sudah tahu bahwa kunci di Dictionary harus unik. Tapi ada batasan
+          lain yang penting:
+          <strong
+            >Kunci Dictionary harus berupa tipe data yang tidak dapat diubah
+            (immutable)</strong
+          >.
+        </p>
+        <ul>
+          <li>
+            <strong>Bisa jadi kunci:</strong> Angka (int, float), string, dan
+            Tuple.
+          </li>
+          <li>
+            <strong>Tidak bisa jadi kunci:</strong> List, Set, dan Dictionary
+            lain.
+          </li>
+        </ul>
+        <p>
+          Mengapa? Karena Dictionary menggunakan teknik khusus bernama "hashing"
+          untuk menyimpan dan menemukan kunci dengan sangat cepat. Hanya tipe
+          data yang tidak dapat diubah yang memiliki "hash" yang stabil. Jika
+          kunci bisa berubah, hash-nya juga bisa berubah, dan Dictionary tidak
+          akan bisa menemukan kunci tersebut lagi!
+        </p>
+        <pre><code class="language-python"># Contoh kunci yang BENAR:
+dict_kunci_ok = {
+    1: "Angka",
+    "nama": "Teks",
+    (1, 2): "Tuple" # Tuple bisa jadi kunci karena immutable
+}
+print("Dictionary dengan kunci yang valid:", dict_kunci_ok)
+
+# Contoh kunci yang SALAH (akan error!)
+list_sebagai_kunci = [1, 2]
+# dict_kunci_error = {list_sebagai_kunci: "Ini error"} # Ini akan error! TypeError: unhashable type: 'list'
+# print(dict_kunci_error)
+
+set_sebagai_kunci = {10}
+# dict_kunci_error_2 = {set_sebagai_kunci: "Ini juga error"} # Ini akan error! TypeError: unhashable type: 'set'
+# print(dict_kunci_error_2)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Dictionary dengan kunci yang valid: {1: 'Angka', 'nama': 'Teks', (1, 2): 'Tuple'}</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh ini dengan jelas menunjukkan bahwa Anda bisa menggunakan angka,
+          string, atau Tuple sebagai kunci. Namun, jika Anda mencoba menggunakan
+          List atau Set (atau Dictionary lain) sebagai kunci, Python akan
+          mengeluarkan <code class="code-piece">TypeError</code>, karena mereka
+          adalah tipe data yang mutable (dapat diubah).
+        </p>
+        <h2>Kapan Menggunakan Dictionary?</h2>
+        <p>Anda akan memilih Dictionary ketika:</p>
+        <ol>
+          <li>
+            <strong
+              >Anda ingin menyimpan data yang memiliki "nama" atau "label"
+              unik.</strong
+            >
+            Contoh: data siswa (nama, umur, kelas), informasi produk (nama,
+            harga, stok), pengaturan aplikasi.
+          </li>
+          <li>
+            <strong
+              >Anda perlu mengakses informasi dengan cepat berdasarkan
+              nama/identitasnya</strong
+            >, bukan berdasarkan urutan (indeks). Mencari nilai di Dictionary
+            berdasarkan kunci sangat cepat, bahkan untuk Dictionary yang sangat
+            besar.
+          </li>
+          <li>
+            <strong
+              >Jumlah item dalam kumpulan data Anda mungkin tidak tetap</strong
+            >
+            (akan sering ditambah, dihapus, atau diubah).
+          </li>
+          <li>
+            <strong>Anda ingin merepresentasikan objek atau entitas</strong>
+            dengan beberapa atribut. Misalnya, satu Dictionary bisa mewakili
+            satu orang dengan kunci seperti "nama", "usia", "alamat".
+          </li>
+        </ol>
+        <p>
+          Dictionary adalah alat yang sangat fundamental dan serbaguna dalam
+          pemrograman Python. Anda akan sering menggunakannya untuk mengatur dan
+          mengelola data yang terstruktur.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./list_comprehension.html"
+            >"List Comprehension" – Cara Cepat Membuat List</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./sets.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./list_comprehension.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

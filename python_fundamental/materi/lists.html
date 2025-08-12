@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Struktur Data (List) – Menyimpan Kumpulan Informasi dalam Urutan
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html" class="active">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Struktur Data (List) – Menyimpan Kumpulan Informasi dalam Urutan
+        </h1>
+        <p>
+          Bayangkan Anda ingin mencatat nama-nama teman di kelas, daftar
+          belanjaan, atau urutan langkah-langkah dalam sebuah resep. Jika Anda
+          menggunakan variabel biasa, Anda harus membuat variabel terpisah untuk
+          setiap item: <code class="code-piece">teman1 = "Andi"</code>,
+          <code class="code-piece">teman2 = "Budi"</code>, dan seterusnya. Ini
+          tidak praktis jika ada banyak item!
+        </p>
+        <p>
+          Di sinilah <strong>List</strong> (atau "daftar" dalam bahasa
+          Indonesia) menjadi sangat berguna. List adalah sebuah
+          <strong>kumpulan item yang berurutan</strong> dan bisa Anda ubah
+          isinya kapan saja. Item-item dalam list bisa berupa apa saja: angka,
+          teks, bahkan campuran dari semuanya. List di Python mirip seperti
+          daftar belanjaan Anda, di mana setiap item punya posisinya sendiri dan
+          Anda bisa menambah, mengurangi, atau mengubah item di dalamnya.
+        </p>
+        <h2>Membuat dan Melihat List: Lemari Berisi Banyak Barang</h2>
+        <p>
+          Untuk membuat sebuah list di Python, kita menggunakan tanda kurung
+          siku (<code class="code-piece">[]</code>) dan meletakkan item-item di
+          dalamnya, dipisahkan dengan tanda koma (<code class="code-piece"
+            >,</code
+          >).
+        </p>
+        <pre><code class="language-python"># List berisi angka (integer)
+nilai_siswa = [85, 90, 78, 92, 88]
+print("Daftar nilai siswa:", nilai_siswa)
+
+# List berisi teks (string)
+daftar_buah = ["Apel", "Mangga", "Pisang", "Jeruk"]
+print("Daftar buah-buahan:", daftar_buah)
+
+# List bisa berisi berbagai jenis tipe data (angka, teks, boolean)
+informasi_saya = ["Budi", 17, 1.70, True]
+print("Informasi saya:", informasi_saya)
+
+# Sebuah list juga bisa kosong
+list_kosong = []
+print("List yang kosong:", list_kosong)
+
+# Kita bisa memeriksa tipe data dari list
+print("Tipe data dari daftar_buah adalah:", type(daftar_buah))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar nilai siswa: [85, 90, 78, 92, 88]
+Daftar buah-buahan: ['Apel', 'Mangga', 'Pisang', 'Jeruk']
+Informasi saya: ['Budi', 17, 1.7, True]
+List yang kosong: []
+Tipe data dari daftar_buah adalah: &lt;class 'list'&gt;</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap baris yang diawali dengan
+          <code class="code-piece">nama_list = [...]</code> adalah cara kita
+          membuat sebuah list. Item-item di dalam list bisa berupa angka (<code
+            class="code-piece"
+            >nilai_siswa</code
+          >), teks (<code class="code-piece">daftar_buah</code>), atau bahkan
+          campuran dari keduanya (<code class="code-piece">informasi_saya</code
+          >). Ketika Anda mencetak sebuah list, Python akan menampilkannya
+          dengan tanda kurung siku di sekelilingnya, menunjukkan bahwa itu
+          adalah list. Fungsi
+          <code class="code-piece">type()</code> mengkonfirmasi bahwa
+          <code class="code-piece">daftar_buah</code> adalah objek dari
+          <code class="code-piece">&lt;class 'list'&gt;</code>.
+        </p>
+        <h2>Mengakses Item dalam List</h2>
+        <p>
+          Setiap item dalam list memiliki "posisi" atau "nomor urut" yang
+          disebut <strong>Indeks</strong>. Yang paling penting untuk diingat
+          adalah: di Python (dan kebanyakan bahasa pemrograman), indeks selalu
+          dimulai dari <strong>nol (0)</strong> untuk item pertama.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama_list[0]</code> adalah item pertama.
+          </li>
+          <li>
+            <code class="code-piece">nama_list[1]</code> adalah item kedua.
+          </li>
+          <li>Dan seterusnya.</li>
+        </ul>
+        <p>
+          Anda juga bisa mengakses item dari belakang menggunakan indeks
+          negatif:
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">nama_list[-1]</code> adalah item terakhir.
+          </li>
+          <li>
+            <code class="code-piece">nama_list[-2]</code> adalah item kedua
+            terakhir.
+          </li>
+        </ul>
+        <pre><code class="language-python">siswa_populer = ["Ani", "Budi", "Cici", "Dina", "Eko"]
+
+# Mengakses item berdasarkan indeks positif
+print("Siswa di posisi pertama (indeks 0):", siswa_populer[0])
+print("Siswa di posisi ketiga (indeks 2):", siswa_populer[2])
+
+# Mengakses item berdasarkan indeks negatif
+print("Siswa di posisi terakhir (indeks -1):", siswa_populer[-1])
+print("Siswa di posisi kedua dari belakang (indeks -2):", siswa_populer[-2])
+
+# Kita bisa menggunakan item yang diambil seperti variabel biasa
+nama_terpilih = siswa_populer[1]
+print(f"Nama terpilih: {nama_terpilih}. Usianya mungkin 16 tahun.")
+
+# print(siswa_populer[5]) # Ini akan error! Indeks di luar batas</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Siswa di posisi pertama (indeks 0): Ani
+Siswa di posisi ketiga (indeks 2): Cici
+Siswa di posisi terakhir (indeks -1): Eko
+Siswa di posisi kedua dari belakang (indeks -2): Dina
+Nama terpilih: Budi. Usianya mungkin 16 tahun.</code></pre>
+        <p>
+          <em
+            >(Catatan: Baris
+            <code class="code-piece">print(siswa_populer[5])</code> sengaja
+            dikomentari (<code class="code-piece">#</code>) karena akan
+            menyebabkan error (<code class="code-piece">IndexError</code>). Ini
+            terjadi jika Anda mencoba mengakses indeks yang tidak ada dalam
+            list.)</em
+          >
+        </p>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Contoh ini menunjukkan bagaimana kita bisa mengambil item spesifik
+          dari list.
+          <code class="code-piece">siswa_populer[0]</code> menghasilkan "Ani",
+          bukan "Budi", karena Python memulai hitungan dari nol. Indeks negatif
+          sangat berguna ketika Anda ingin mengambil item dari akhir list tanpa
+          perlu tahu berapa panjang listnya. Sama seperti string, jika Anda
+          mencoba mengakses indeks yang di luar rentang, Python akan memberikan
+          error.
+        </p>
+        <h2>Memotong List: Mengambil Sebagian List (Slicing)</h2>
+        <p>
+          Sama seperti string, kita juga bisa mengambil "potongan" atau
+          sub-bagian dari sebuah list menggunakan teknik
+          <strong>Slicing</strong>. Sintaksnya sama persis:
+          <code class="code-piece">list_saya[mulai:akhir:langkah]</code>.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">mulai</code>: Indeks di mana potongan
+            dimulai (termasuk item di indeks ini). Jika dikosongkan, mulai dari
+            awal list.
+          </li>
+          <li>
+            <code class="code-piece">akhir</code>: Indeks di mana potongan
+            berakhir (item di indeks ini TIDAK termasuk). Jika dikosongkan,
+            sampai akhir list.
+          </li>
+          <li>
+            <code class="code-piece">langkah</code>: Seberapa jauh kita
+            melangkah (misalnya, ambil setiap 2 item). Jika dikosongkan,
+            defaultnya 1.
+          </li>
+        </ul>
+        <pre><code class="language-python">urutan_angka = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+# Mengambil dari indeks 2 sampai sebelum indeks 6
+bagian_list = urutan_angka[2:6]
+print("Angka dari indeks 2 sampai 5:", bagian_list) # Output: [20, 30, 40, 50]
+
+# Mengambil dari awal sampai sebelum indeks 4
+awal_list = urutan_angka[:4]
+print("Empat angka pertama:", awal_list) # Output: [0, 10, 20, 30]
+
+# Mengambil dari indeks 5 sampai akhir
+akhir_list = urutan_angka[5:]
+print("Angka dari indeks 5 sampai akhir:", akhir_list) # Output: [50, 60, 70, 80, 90]
+
+# Mengambil 3 angka terakhir
+tiga_terakhir = urutan_angka[-3:]
+print("Tiga angka terakhir:", tiga_terakhir) # Output: [70, 80, 90]
+
+# Menyalin seluruh list (trik slicing khusus!)
+salinan_list = urutan_angka[:]
+print("Salinan seluruh list:", salinan_list)
+
+# Mengambil setiap 2 angka
+angka_ganjil_posisi = urutan_angka[::2]
+print("Angka di posisi genap (0, 2, 4,...):", angka_ganjil_posisi) # Output: [0, 20, 40, 60, 80]</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka dari indeks 2 sampai 5: [20, 30, 40, 50]
+Empat angka pertama: [0, 10, 20, 30]
+Angka dari indeks 5 sampai akhir: [50, 60, 70, 80, 90]
+Tiga angka terakhir: [70, 80, 90]
+Salinan seluruh list: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+Angka di posisi genap (0, 2, 4,...): [0, 20, 40, 60, 80]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Slicing pada list bekerja sangat mirip dengan slicing pada string,
+          menghasilkan list baru yang berisi bagian yang dipilih.
+          <code class="code-piece">urutan_angka[2:6]</code> berarti ambil item
+          dari indeks 2 (yaitu 20) sampai sebelum indeks 6 (yaitu 50).
+          Menggunakan <code class="code-piece">[:]</code> adalah cara cepat
+          untuk membuat salinan lengkap dari sebuah list.
+        </p>
+        <h2>Mengubah Isi List: List Bersifat "Dapat Diubah" (Mutable)</h2>
+        <p>
+          Salah satu karakteristik paling penting dari list adalah sifatnya yang
+          <strong>mutable</strong>, artinya
+          <strong>isinya bisa diubah</strong> setelah list dibuat. Anda bisa
+          mengubah item di posisi tertentu, atau bahkan mengubah sebagian besar
+          item menggunakan slicing.
+        </p>
+        <pre><code class="language-python">daftar_warna = ["Merah", "Hijau", "Biru", "Kuning"]
+print("Daftar warna awal:", daftar_warna)
+
+# Mengubah item di indeks tertentu
+daftar_warna[1] = "Ungu" # Mengubah "Hijau" menjadi "Ungu"
+print("Setelah mengubah indeks 1:", daftar_warna)
+
+# Mengubah beberapa item sekaligus dengan slicing
+daftar_warna[0:2] = ["Coklat", "Abu-abu", "Hitam"] # Mengganti "Merah" dan "Ungu" dengan 3 warna baru
+print("Setelah mengubah indeks 0 sampai 1:", daftar_warna)
+
+# Menghilangkan item dengan slicing (mengganti dengan list kosong)
+daftar_warna[1:3] = [] # Menghilangkan "Abu-abu" dan "Hitam"
+print("Setelah menghilangkan item dengan slicing:", daftar_warna)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar warna awal: ['Merah', 'Hijau', 'Biru', 'Kuning']
+Setelah mengubah indeks 1: ['Merah', 'Ungu', 'Biru', 'Kuning']
+Setelah mengubah indeks 0 sampai 1: ['Coklat', 'Abu-abu', 'Hitam', 'Biru', 'Kuning']
+Setelah menghilangkan item dengan slicing: ['Coklat', 'Biru', 'Kuning']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Baris
+          <code class="code-piece">daftar_warna[1] = "Ungu"</code> langsung
+          mengganti item di indeks 1 (yang tadinya "Hijau") menjadi "Ungu". Ini
+          menunjukkan betapa mudahnya mengubah item individu.
+        </p>
+        <p>
+          Ketika kita menggunakan
+          <code class="code-piece"
+            >daftar_warna[0:2] = ["Coklat", "Abu-abu", "Hitam"]</code
+          >, Python mengganti item dari indeks 0 hingga sebelum indeks 2 (<code
+            class="code-piece"
+            >"Merah"</code
+          >
+          dan <code class="code-piece">"Ungu"</code>) dengan tiga item baru. Ini
+          menunjukkan bahwa Anda tidak harus mengganti dengan jumlah item yang
+          sama. List akan menyesuaikan ukurannya.
+        </p>
+        <p>
+          Jika Anda mengganti bagian list dengan list kosong (<code
+            class="code-piece"
+            >[]</code
+          >), itu sama saja dengan menghapus item-item di bagian tersebut.
+        </p>
+        <h2>
+          Menambah Item ke List: <code class="code-piece">append()</code> dan
+          <code class="code-piece">insert()</code>
+        </h2>
+        <p>Ada dua cara utama untuk menambahkan item ke list:</p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">append(item)</code>:</strong>
+            Menambahkan item ke <strong>akhir</strong> list. Ini adalah cara
+            paling umum.
+          </li>
+          <li>
+            <strong
+              ><code class="code-piece">insert(indeks, item)</code>:</strong
+            >
+            Menambahkan item pada <strong>posisi tertentu</strong> (indeks), dan
+            item-item lain akan bergeser ke kanan.
+          </li>
+        </ul>
+        <pre><code class="language-python">daftar_tugas = ["Belajar Python", "Olahraga"]
+print("Daftar tugas awal:", daftar_tugas)
+
+# Menambah tugas baru ke akhir list
+daftar_tugas.append("Membaca Buku")
+print("Setelah append 'Membaca Buku':", daftar_tugas)
+
+# Menambah tugas di posisi tertentu (misal di awal)
+daftar_tugas.insert(0, "Sarapan Pagi")
+print("Setelah insert 'Sarapan Pagi' di indeks 0:", daftar_tugas)
+
+# Menambah tugas di tengah list
+daftar_tugas.insert(2, "Menyelesaikan PR Matematika")
+print("Setelah insert 'PR Matematika' di indeks 2:", daftar_tugas)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar tugas awal: ['Belajar Python', 'Olahraga']
+Setelah append 'Membaca Buku': ['Belajar Python', 'Olahraga', 'Membaca Buku']
+Setelah insert 'Sarapan Pagi' di indeks 0: ['Sarapan Pagi', 'Belajar Python', 'Olahraga', 'Membaca Buku']
+Setelah insert 'PR Matematika' di indeks 2: ['Sarapan Pagi', 'Belajar Python', 'Menyelesaikan PR Matematika', 'Olahraga', 'Membaca Buku']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">append()</code> selalu menambahkan item di
+          ujung list. Sementara itu,
+          <code class="code-piece">insert()</code> memberi Anda kendali penuh di
+          mana item baru akan diletakkan. Ketika Anda
+          <code class="code-piece">insert()</code> item, Python akan menggeser
+          item yang ada ke kanan untuk memberi ruang bagi item baru tersebut.
+        </p>
+        <h2>
+          Menghapus Item dari List: <code class="code-piece">remove()</code>,
+          <code class="code-piece">pop()</code>,
+          <code class="code-piece">del</code>,
+          <code class="code-piece">clear()</code>
+        </h2>
+        <p>
+          Ada beberapa cara untuk menghapus item dari list, tergantung pada apa
+          yang ingin Anda hapus:
+        </p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">remove(nilai_item)</code>:</strong>
+            Menghapus <strong>item pertama</strong> yang memiliki nilai yang
+            Anda sebutkan. Jika ada lebih dari satu item dengan nilai yang sama,
+            hanya yang pertama yang dihapus.
+          </li>
+          <li>
+            <strong><code class="code-piece">pop(indeks)</code>:</strong>
+            Menghapus item pada <strong>indeks tertentu</strong>. Jika Anda
+            tidak menentukan indeks, <code class="code-piece">pop()</code> akan
+            menghapus item terakhir. Yang menarik,
+            <code class="code-piece">pop()</code> juga
+            <strong>mengembalikan nilai item yang dihapus</strong>, sehingga
+            Anda bisa menyimpannya ke variabel lain jika diperlukan.
+          </li>
+          <li>
+            <strong
+              ><code class="code-piece">del nama_list[indeks]</code>:</strong
+            >
+            Menghapus item pada <strong>indeks tertentu</strong>. Mirip dengan
+            <code class="code-piece">pop()</code>, tetapi tidak mengembalikan
+            nilai. Anda juga bisa menggunakan
+            <code class="code-piece">del nama_list[mulai:akhir]</code> untuk
+            menghapus potongan list. Bahkan,
+            <code class="code-piece">del nama_list</code> bisa menghapus seluruh
+            list dari memori program.
+          </li>
+          <li>
+            <strong><code class="code-piece">clear()</code>:</strong> Menghapus
+            <strong>semua item</strong> dari list, membuat list menjadi kosong,
+            tetapi listnya sendiri masih ada.
+          </li>
+        </ul>
+        <pre><code class="language-python">daftar_barang = ["Buku", "Pulpen", "Pensil", "Buku", "Penghapus"]
+print("Daftar barang awal:", daftar_barang)
+
+# Menghapus item berdasarkan nilai
+daftar_barang.remove("Buku") # Menghapus 'Buku' yang pertama
+print("Setelah remove 'Buku':", daftar_barang)
+
+# Menghapus item terakhir (tanpa indeks) dan menyimpannya
+item_terhapus_pop = daftar_barang.pop()
+print("Setelah pop (tanpa indeks):", daftar_barang)
+print("Item yang dihapus oleh pop:", item_terhapus_pop)
+
+# Menghapus item pada indeks tertentu (dengan indeks)
+item_terhapus_pop_index = daftar_barang.pop(1) # Hapus item di indeks 1 ('Pensil')
+print("Setelah pop indeks 1:", daftar_barang)
+print("Item yang dihapus oleh pop(1):", item_terhapus_pop_index)
+
+# Menghapus item dengan 'del' berdasarkan indeks
+del daftar_barang[0] # Hapus item di indeks 0 ('Pulpen')
+print("Setelah del indeks 0:", daftar_barang)
+
+# Menghapus seluruh isi list tapi listnya tetap ada
+daftar_barang.clear()
+print("Setelah clear():", daftar_barang)
+
+# Ini akan menghapus variabel listnya sendiri dari memori program
+# del daftar_barang
+# print(daftar_barang) # Ini akan error karena variabelnya sudah tidak ada</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Daftar barang awal: ['Buku', 'Pulpen', 'Pensil', 'Buku', 'Penghapus']
+Setelah remove 'Buku': ['Pulpen', 'Pensil', 'Buku', 'Penghapus']
+Setelah pop (tanpa indeks): ['Pulpen', 'Pensil', 'Buku']
+Item yang dihapus oleh pop: Penghapus
+Setelah pop indeks 1: ['Pulpen', 'Buku']
+Item yang dihapus oleh pop(1): Pensil
+Setelah del indeks 0: ['Buku']
+Setelah clear(): []</code></pre>
+        <p>
+          <em
+            >(Catatan: Baris
+            <code class="code-piece">del daftar_barang</code> dan
+            <code class="code-piece">print(daftar_barang)</code> setelahnya
+            sengaja dikomentari (<code class="code-piece">#</code>) karena akan
+            menyebabkan error (<code class="code-piece">NameError</code>). Ini
+            menunjukkan bahwa <code class="code-piece">del</code> tidak hanya
+            mengosongkan list, tetapi menghapus referensi variabelnya.)</em
+          >
+        </p>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap metode penghapusan punya tujuan berbeda.
+          <code class="code-piece">remove()</code> praktis jika Anda tahu nilai
+          yang ingin dihapus. <code class="code-piece">pop()</code> sangat
+          berguna jika Anda ingin menghapus item berdasarkan posisinya DAN ingin
+          menggunakan kembali item yang dihapus tersebut.
+          <code class="code-piece">del</code> mirip dengan
+          <code class="code-piece">pop()</code> jika Anda hanya ingin menghapus
+          berdasarkan indeks, dan juga bisa menghapus potongan list atau bahkan
+          seluruh variabel listnya.
+          <code class="code-piece">clear()</code> menjaga list tetap ada, hanya
+          saja kosong.
+        </p>
+        <h2>
+          Mengetahui Panjang List: Fungsi <code class="code-piece">len()</code>
+        </h2>
+        <p>
+          Sama seperti string, Anda bisa menggunakan fungsi
+          <code class="code-piece">len()</code> untuk mengetahui berapa banyak
+          item yang ada dalam sebuah list.
+        </p>
+        <pre><code class="language-python">daftar_siswa = ["Ani", "Budi", "Cici", "Dina"]
+jumlah_siswa = len(daftar_siswa)
+print("Jumlah siswa di daftar:", jumlah_siswa)
+
+list_kosong = []
+print("Jumlah item di list kosong:", len(list_kosong))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Jumlah siswa di daftar: 4
+Jumlah item di list kosong: 0</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">len(daftar_siswa)</code> menghitung semua
+          item dalam list dan mengembalikan jumlahnya, yaitu
+          <code class="code-piece">4</code>.
+        </p>
+        <h2>
+          Memeriksa Keberadaan Item: Operator
+          <code class="code-piece">in</code> dan
+          <code class="code-piece">not in</code>
+        </h2>
+        <p>
+          Anda bisa dengan mudah memeriksa apakah sebuah item tertentu ada di
+          dalam list atau tidak, menggunakan operator
+          <code class="code-piece">in</code> dan
+          <code class="code-piece">not in</code>. Hasilnya selalu Boolean (<code
+            class="code-piece"
+            >True</code
+          >
+          atau <code class="code-piece">False</code>).
+        </p>
+        <pre><code class="language-python">mata_pelajaran = ["Matematika", "Fisika", "Kimia", "Biologi"]
+
+apakah_ada_matematika = "Matematika" in mata_pelajaran
+print("Apakah ada 'Matematika'?", apakah_ada_matematika)
+
+apakah_ada_seni = "Seni" in mata_pelajaran
+print("Apakah ada 'Seni'?", apakah_ada_seni)
+
+apakah_tidak_ada_geografi = "Geografi" not in mata_pelajaran
+print("Apakah tidak ada 'Geografi'?", apakah_tidak_ada_geografi)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Apakah ada 'Matematika'? True
+Apakah ada 'Seni'? False
+Apakah tidak ada 'Geografi'? True</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">"Matematika" in mata_pelajaran</code> akan
+          <code class="code-piece">True</code> karena string "Matematika" memang
+          ada di list. Sebaliknya,
+          <code class="code-piece">"Seni" in mata_pelajaran</code> akan
+          <code class="code-piece">False</code>. Operator
+          <code class="code-piece">not in</code> adalah kebalikannya. Ini sangat
+          berguna untuk validasi input atau untuk menghindari penambahan item
+          yang sudah ada.
+        </p>
+        <h2>
+          Mengulang Item dalam List: Perulangan
+          <code class="code-piece">for</code>
+        </h2>
+        <h3>Mengulang Setiap Item Secara Langsung</h3>
+        <p>
+          Ini adalah cara paling umum dan paling mudah untuk mengulang list.
+        </p>
+        <pre><code class="language-python">daftar_peserta = ["Dino", "Luna", "Rafa", "Sinta"]
+
+print("--- Daftar Peserta ---")
+for nama in daftar_peserta: # 'nama' akan berisi setiap item di daftar_peserta secara bergantian
+    print(f"Peserta: {nama}")
+
+print("\n")
+
+# Contoh lain: Menghitung total nilai
+daftar_nilai = [85, 90, 78, 92, 88]
+total_nilai = 0
+
+for nilai in daftar_nilai:
+    total_nilai += nilai # Sama dengan: total_nilai = total_nilai + nilai
+
+rata_rata_nilai = total_nilai / len(daftar_nilai)
+print(f"Total nilai: {total_nilai}")
+print(f"Rata-rata nilai: {rata_rata_nilai}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Daftar Peserta ---
+Peserta: Dino
+Peserta: Luna
+Peserta: Rafa
+Peserta: Sinta
+
+Total nilai: 433
+Rata-rata nilai: 86.6</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">for nama in daftar_peserta:</code>,
+          variabel <code class="code-piece">nama</code> akan secara otomatis
+          diisi dengan "Dino" pada putaran pertama, lalu "Luna" pada putaran
+          kedua, dan seterusnya, sampai semua nama di list selesai. Ini sangat
+          efisien untuk memproses setiap item.
+        </p>
+        <p>
+          Pada contoh total nilai, kita menggunakan
+          <code class="code-piece">for nilai in daftar_nilai:</code> untuk
+          menjumlahkan setiap nilai ke
+          <code class="code-piece">total_nilai</code>.
+        </p>
+        <h3>Mengulang Menggunakan Indeks (Jika Perlu Posisi Item)</h3>
+        <p>
+          Kadang, Anda tidak hanya butuh itemnya, tetapi juga posisi (indeks)
+          dari item tersebut. Anda bisa menggabungkan
+          <code class="code-piece">for</code> dengan
+          <code class="code-piece">range()</code> dan
+          <code class="code-piece">len()</code>.
+        </p>
+        <pre><code class="language-python">daftar_produk = ["Baju", "Celana", "Sepatu"]
+
+print("--- Produk dan Indeksnya ---")
+for indeks in range(len(daftar_produk)): # range(len(daftar_produk)) -> range(3) -> 0, 1, 2
+    nama_produk = daftar_produk[indeks] # Ambil item berdasarkan indeks
+    print(f"Produk di indeks {indeks}: {nama_produk}")
+
+print("\n")
+
+# Contoh: Memberi nomor urut pada daftar
+peserta_lomba = ["Andi", "Citra", "Doni"]
+print("--- Daftar Peserta Lomba ---")
+for i in range(len(peserta_lomba)):
+    nomor_urut = i + 1 # Kita ingin nomor urut dimulai dari 1
+    print(f"{nomor_urut}. {peserta_lomba[i]}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Produk dan Indeksnya ---
+Produk di indeks 0: Baju
+Produk di indeks 1: Celana
+Produk di indeks 2: Sepatu
+
+--- Daftar Peserta Lomba ---
+1. Andi
+2. Citra
+3. Doni</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece"
+            >for indeks in range(len(daftar_produk))</code
+          >
+          akan membuat variabel <code class="code-piece">indeks</code> berjalan
+          dari 0 hingga 2 (karena panjang listnya 3). Di setiap putaran, kita
+          kemudian menggunakan
+          <code class="code-piece">daftar_produk[indeks]</code> untuk mengambil
+          item di posisi tersebut. Ini berguna jika Anda perlu tahu posisi item
+          saat memprosesnya (misalnya, untuk membuat nomor urut).
+        </p>
+        <h2>List di Dalam List: List Bersarang (Nested Lists)</h2>
+        <p>
+          List bisa menyimpan item apa saja, termasuk list lain! Ini disebut
+          <strong>list bersarang</strong> (nested lists) dan sangat berguna
+          untuk merepresentasikan data yang terstruktur seperti tabel atau
+          matriks.
+        </p>
+        <pre><code class="language-python"># List nilai rapor per mata pelajaran untuk 2 siswa
+rapor_siswa = [
+    ["Matematika", 90, 85],  # [Nama Mapel, Nilai Siswa A, Nilai Siswa B]
+    ["Fisika", 75, 80],
+    ["Kimia", 88, 91]
+]
+
+print("Contoh list bersarang:", rapor_siswa)
+
+# Mengakses item dari list bersarang
+# rapor_siswa[0] -> ["Matematika", 90, 85]
+# rapor_siswa[0][1] -> 90 (Nilai Matematika Siswa A)
+print("Nilai Fisika Siswa B:", rapor_siswa[1][2]) # Indeks 1 (Fisika), lalu indeks 2 (nilai Siswa B)
+
+print("\n--- Menampilkan Rapor ---")
+# Mengulang menggunakan perulangan bersarang
+for mapel_data in rapor_siswa: # mapel_data akan menjadi setiap list kecil di dalam rapor_siswa
+    nama_mapel = mapel_data[0]
+    nilai_a = mapel_data[1]
+    nilai_b = mapel_data[2]
+    print(f"Mata Pelajaran: {nama_mapel}")
+    print(f"  Nilai Siswa A: {nilai_a}")
+    print(f"  Nilai Siswa B: {nilai_b}")
+    print("-" * 20)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Contoh list bersarang: [['Matematika', 90, 85], ['Fisika', 75, 80], ['Kimia', 88, 91]]
+Nilai Fisika Siswa B: 80
+
+--- Menampilkan Rapor ---
+Mata Pelajaran: Matematika
+  Nilai Siswa A: 90
+  Nilai Siswa B: 85
+--------------------
+Mata Pelajaran: Fisika
+  Nilai Siswa A: 75
+  Nilai Siswa B: 80
+--------------------
+Mata Pelajaran: Kimia
+  Nilai Siswa A: 88
+  Nilai Siswa B: 91
+--------------------</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">rapor_siswa</code> adalah sebuah list yang
+          berisi 3 item, di mana setiap item itu sendiri adalah sebuah list
+          kecil. Untuk mengakses nilai <code class="code-piece">80</code> (nilai
+          Fisika Siswa B), kita harus mengakses item di indeks 1 (<code
+            class="code-piece"
+            >["Fisika", 75, 80]</code
+          >) terlebih dahulu, lalu dari list kecil itu, kita akses item di
+          indeks 2 (<code class="code-piece">80</code>). Jadi,
+          <code class="code-piece">rapor_siswa[1][2]</code>.
+        </p>
+        <p>
+          Perulangan bersarang juga sangat cocok untuk list bersarang.
+          Perulangan luar mengambil setiap list kecil (<code class="code-piece"
+            >mapel_data</code
+          >), lalu di dalamnya kita bisa mengakses item-item di dalam
+          <code class="code-piece">mapel_data</code> tersebut.
+        </p>
+        <h2>
+          Apa yang Mungkin Tidak Disadari: Perbedaan Antara Mengopi List dengan
+          <code class="code-piece">=</code> dan Mengopi Sejati
+        </h2>
+        <p>
+          Ini adalah salah satu kesalahan umum yang sering dilakukan pemula dan
+          bisa menyebabkan masalah besar. Ketika Anda "mengopi" sebuah list
+          menggunakan tanda sama dengan (<code class="code-piece">=</code>),
+          Anda sebenarnya tidak membuat dua list yang terpisah. Anda hanya
+          membuat <strong>dua nama yang menunjuk ke list yang sama</strong> di
+          memori komputer.
+        </p>
+        <p>
+          Bayangkan Anda punya sebuah kotak (list) dengan label "Kotak A". Jika
+          Anda membuat label baru "Kotak B" dan menempelkannya di kotak yang
+          sama, maka label "Kotak A" dan label "Kotak B" sebenarnya merujuk ke
+          isi kotak yang persis sama. Jika Anda mengubah isi kotak melalui label
+          "Kotak B", perubahan itu juga akan terlihat jika Anda melihatnya
+          melalui label "Kotak A", karena mereka adalah kotak yang sama!
+        </p>
+        <pre><code class="language-python">list_original = ["Apel", "Jeruk", "Pisang"]
+list_referensi = list_original # Hanya menyalin "referensi" atau "alamat" list
+print("Original:", list_original)
+print("Referensi:", list_referensi)
+
+# Mengubah list melalui 'list_referensi'
+list_referensi.append("Mangga") # Menambah 'Mangga' ke list yang SAMA
+list_referensi[0] = "Durian" # Mengubah item di list yang SAMA
+
+print("\n--- Setelah Perubahan ---")
+print("Original setelah diubah oleh Referensi:", list_original) # list_original ikut berubah!
+print("Referensi setelah diubah:", list_referensi)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Original: ['Apel', 'Jeruk', 'Pisang']
+Referensi: ['Apel', 'Jeruk', 'Pisang']
+
+--- Setelah Perubahan ---
+Original setelah diubah oleh Referensi: ['Durian', 'Jeruk', 'Pisang', 'Mangga']
+Referensi setelah diubah: ['Durian', 'Jeruk', 'Pisang', 'Mangga']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada contoh ini,
+          <code class="code-piece">list_referensi = list_original</code> tidak
+          membuat salinan baru dari list. Keduanya sekarang "menunjuk" ke area
+          memori yang sama. Oleh karena itu, ketika
+          <code class="code-piece">list_referensi.append("Mangga")</code>
+          dijalankan, item <code class="code-piece">"Mangga"</code> ditambahkan
+          ke list yang sama, sehingga
+          <code class="code-piece">list_original</code> juga ikut memiliki
+          "Mangga". Demikian pula dengan perubahan
+          <code class="code-piece">"Durian"</code>. Ini adalah hal yang sangat
+          penting untuk dipahami.
+        </p>
+        <h3>Cara Mengopi List dengan Benar (Membuat Salinan Sejati)</h3>
+        <p>
+          Jika Anda benar-benar ingin membuat salinan terpisah dari sebuah list
+          (dua kotak yang isinya sama tapi terpisah, jadi perubahan di satu
+          kotak tidak memengaruhi kotak lain), Anda bisa menggunakan dua cara
+          utama:
+        </p>
+        <ol>
+          <li>
+            <strong>Metode <code class="code-piece">copy()</code>:</strong>
+            Paling sederhana dan jelas.
+          </li>
+          <li>
+            <strong>Slicing Penuh <code class="code-piece">[:]</code>:</strong>
+            Cara cepat yang juga membuat salinan sejati.
+          </li>
+        </ol>
+        <pre><code class="language-python">list_asli = ["Mobil", "Motor", "Sepeda"]
+print("Asli:", list_asli)
+
+# Mengopi dengan metode .copy()
+list_salinan_1 = list_asli.copy()
+print("Salinan 1 (copy()):", list_salinan_1)
+
+# Mengopi dengan slicing penuh [:]
+list_salinan_2 = list_asli[:]
+print("Salinan 2 ([:] ):", list_salinan_2)
+
+# Sekarang kita ubah salinannya
+list_salinan_1.append("Truk")
+list_salinan_2[0] = "Kapal"
+
+print("\n--- Setelah Mengubah Salinan ---")
+print("Asli (harusnya tidak berubah):", list_asli)
+print("Salinan 1 setelah diubah:", list_salinan_1)
+print("Salinan 2 setelah diubah:", list_salinan_2)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Asli: ['Mobil', 'Motor', 'Sepeda']
+Salinan 1 (copy()): ['Mobil', 'Motor', 'Sepeda']
+Salinan 2 ([:] ): ['Mobil', 'Motor', 'Sepeda']
+
+--- Setelah Mengubah Salinan ---
+Asli (harusnya tidak berubah): ['Mobil', 'Motor', 'Sepeda']
+Salinan 1 setelah diubah: ['Mobil', 'Motor', 'Sepeda', 'Truk']
+Salinan 2 setelah diubah: ['Kapal', 'Motor', 'Sepeda']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bahwa setelah
+          <code class="code-piece">list_salinan_1</code> dan
+          <code class="code-piece">list_salinan_2</code> diubah,
+          <code class="code-piece">list_asli</code> tetap utuh tidak berubah.
+          Ini karena <code class="code-piece">copy()</code> dan
+          <code class="code-piece">[:]</code> benar-benar membuat list baru di
+          memori, sehingga perubahan pada salinan tidak memengaruhi list
+          aslinya. Penting untuk selalu mempertimbangkan apakah Anda ingin
+          referensi ke list yang sama atau salinan yang terpisah!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./tuples.html"
+            >Struktur Data (Tuple) – Kumpulan Informasi yang Tetap (Tidak
+            Berubah)</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./loops.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./tuples.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

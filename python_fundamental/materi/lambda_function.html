@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Fungsi Lambda & Fungsi Tingkat Tinggi – Membuat Kode Lebih Ringkas dan
+      Fleksibel
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li>
+          <a href="./lambda_function.html" class="active">Lambda Functions</a>
+        </li>
+        <li><a href="#">Error Types</a></li>
+        <li><a href="#">Exception Handling</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Fungsi Lambda & Fungsi Tingkat Tinggi – Membuat Kode Lebih Ringkas dan
+          Fleksibel
+        </h1>
+        <p>
+          Kita sudah belajar tentang <strong>Fungsi</strong>, yaitu blok kode
+          bernama yang membantu kita mengorganisir dan menggunakan kembali kode
+          yang sudah dibuat sebelumnya. Sekarang, kita akan melihat dua konsep
+          yang membuat fungsi menjadi lebih dinamis dan kuat:
+          <strong>Fungsi Lambda</strong> dan
+          <strong>Fungsi Tingkat Tinggi (Higher-Order Functions)</strong>.
+        </p>
+        <h2>Fungsi Lambda: Fungsi "Anonim" Sekali Pakai</h2>
+        <p>
+          Bayangkan Anda perlu melakukan sebuah tugas kecil yang sangat
+          sederhana, seperti menjumlahkan dua angka atau memeriksa apakah sebuah
+          angka genap. Anda bisa saja membuat fungsi lengkap dengan
+          <code class="code-piece">def</code>, tapi rasanya terlalu berlebihan
+          untuk tugas sekecil itu, apalagi jika tugas itu hanya akan Anda
+          gunakan sekali.
+        </p>
+        <p>
+          Di sinilah <strong>Fungsi Lambda</strong> berperan. Fungsi Lambda
+          adalah sebuah fungsi kecil yang:
+        </p>
+        <ol>
+          <li>
+            <strong>Anonim:</strong> Tidak memiliki nama (mirip dengan siswa
+            anonim di sekolah).
+          </li>
+          <li>
+            <strong>Satu Baris:</strong> Hanya bisa berisi satu ekspresi
+            (perhitungan atau logika yang menghasilkan nilai).
+          </li>
+          <li>
+            <strong>Cepat Dibuat:</strong> Ditujukan untuk tugas-tugas sederhana
+            yang hanya perlu dijalankan sekali atau dilewatkan sebagai argumen.
+          </li>
+        </ol>
+        <p>
+          Sintaksnya sangat ringkas:
+          <code class="code-piece">lambda parameter: ekspresi</code>
+        </p>
+        <h2>
+          Perbandingan Fungsi <code class="code-piece">def</code> dan Fungsi
+          Lambda
+        </h2>
+        <p>Mari kita lihat perbedaannya dengan sebuah contoh sederhana:</p>
+        <pre><code class="language-python"># Fungsi penjumlahan biasa menggunakan 'def'
+def tambah_dua_angka_def(a, b):
+    return a + b
+
+# Fungsi penjumlahan menggunakan 'lambda'
+# Sintaks: lambda parameter: ekspresi_yang_dikembalikan
+tambah_dua_angka_lambda = lambda a, b: a + b
+
+print("Hasil tambah (def):", tambah_dua_angka_def(5, 3))
+print("Hasil tambah (lambda):", tambah_dua_angka_lambda(5, 3))
+
+print("\n")
+
+# Contoh lain: Mengkuadratkan angka
+def kuadrat_def(x):
+    return x ** 2
+
+kuadrat_lambda = lambda x: x ** 2
+
+print("Hasil kuadrat (def):", kuadrat_def(4))
+print("Hasil kuadrat (lambda):", kuadrat_lambda(4))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hasil tambah (def): 8
+Hasil tambah (lambda): 8
+
+Hasil kuadrat (def): 16
+Hasil kuadrat (lambda): 16</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Anda bisa melihat bahwa
+          <code class="code-piece">tambah_dua_angka_def</code> dan
+          <code class="code-piece">tambah_dua_angka_lambda</code> melakukan
+          tugas yang persis sama. Namun, versi
+          <code class="code-piece">lambda</code> jauh lebih ringkas.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">lambda a, b:</code>: Bagian ini
+            mendefinisikan parameter fungsi, yaitu
+            <code class="code-piece">a</code> dan
+            <code class="code-piece">b</code>.
+          </li>
+          <li>
+            <code class="code-piece">: a + b</code>: Bagian ini adalah ekspresi
+            yang akan dievaluasi dan hasilnya akan langsung dikembalikan. Tidak
+            perlu kata kunci <code class="code-piece">return</code>.
+          </li>
+        </ul>
+        <p>
+          Anda bisa menyimpan fungsi lambda ke dalam variabel, seperti
+          <code class="code-piece">tambah_dua_angka_lambda</code>. Setelah itu,
+          Anda bisa memanggilnya seperti fungsi biasa.
+        </p>
+        <h2>Batasan Fungsi Lambda: Hanya Satu Ekspresi</h2>
+        <p>
+          Penting untuk diingat bahwa fungsi lambda sangat terbatas: mereka
+          hanya bisa berisi satu ekspresi. Ini berarti Anda tidak bisa menulis
+          banyak baris kode, atau menggunakan pernyataan seperti
+          <code class="code-piece">for</code> loop <em>di dalam</em> ekspresi
+          lambda.
+        </p>
+        <pre><code class="language-python"># Lambda hanya bisa satu ekspresi
+genap_ganjil_lambda = lambda x: "Genap" if x % 2 == 0 else "Ganjil"
+print(f"Angka 7 adalah: {genap_ganjil_lambda(7)}")
+print(f"Angka 4 adalah: {genap_ganjil_lambda(4)}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Angka 7 adalah: Ganjil
+Angka 4 adalah: Genap</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Meskipun <code class="code-piece">if-else</code> ada di dalam
+          <code class="code-piece">genap_ganjil_lambda</code>, ini adalah sebuah
+          <em>ekspresi kondisional</em> (yang menghasilkan satu nilai), bukan
+          <em>pernyataan</em> <code class="code-piece">if-else</code> terpisah.
+          Ini perbedaan halus tapi penting. Fungsi lambda ditujukan untuk
+          perhitungan atau logika sederhana yang menghasilkan satu nilai.
+        </p>
+        <h2>
+          Fungsi Tingkat Tinggi (Higher-Order Functions): Fungsi yang Menerima
+          Fungsi Lain
+        </h2>
+        <p>
+          Ini adalah konsep yang sangat kuat di Python.
+          <strong>Fungsi Tingkat Tinggi</strong> (Higher-Order Functions - HOF)
+          adalah fungsi yang melakukan salah satu dari dua hal ini:
+        </p>
+        <ol>
+          <li>Menerima satu atau lebih fungsi sebagai argumen (parameter).</li>
+          <li>Mengembalikan sebuah fungsi sebagai hasil.</li>
+        </ol>
+        <p>
+          Ingat kembali di modul Fungsi, kita membahas bagaimana fungsi adalah
+          "warga negara kelas satu". Ini berarti Anda bisa memperlakukan fungsi
+          sama seperti Anda memperlakukan angka atau teks, termasuk
+          melewatkannya sebagai argumen ke fungsi lain.
+        </p>
+        <p>
+          HOF memungkinkan Anda untuk menulis kode yang sangat fleksibel dan
+          dapat digunakan kembali. Mereka seperti "manajer" yang bisa
+          "mendelegasikan" tugas-tugas spesifik kepada "pekerja" (fungsi lain)
+          yang berbeda.
+        </p>
+        <h2>
+          Contoh HOF Bawaan Python:
+          <code class="code-piece">map()</code> (Menerapkan Fungsi ke Setiap
+          Item)
+        </h2>
+        <p>
+          Fungsi <code class="code-piece">map()</code> adalah contoh HOF yang
+          sangat umum. Ia akan <strong>menerapkan sebuah fungsi</strong> ke
+          <strong>setiap item</strong> dalam sebuah kumpulan (seperti List atau
+          Tuple) dan mengembalikan hasil dari setiap aplikasi fungsi tersebut.
+        </p>
+        <p>
+          Sintaksnya:
+          <code class="code-piece"
+            >map(fungsi_yang_akan_diterapkan, kumpulan_data)</code
+          >
+        </p>
+        <pre><code class="language-python"># Kita punya list angka
+angka_asli = [1, 2, 3, 4, 5]
+
+# Contoh 1: Menggunakan fungsi 'def' dengan map()
+def kuadratkan(x):
+    return x ** 2
+
+hasil_kuadrat_map = map(kuadratkan, angka_asli)
+# map() mengembalikan objek 'map', perlu diubah ke list untuk dilihat
+print("Hasil kuadrat (dengan def dan map):", list(hasil_kuadrat_map))
+
+print("\n")
+
+# Contoh 2: Menggunakan fungsi 'lambda' dengan map() (Lebih umum!)
+angka_asli_2 = [10, 20, 30, 40, 50]
+hasil_kali_tiga_map = map(lambda x: x * 3, angka_asli_2)
+print("Hasil kali tiga (dengan lambda dan map):", list(hasil_kali_tiga_map))
+
+print("\n")
+
+# Contoh 3: Mengubah List string menjadi huruf kapital
+daftar_kata = ["apel", "jeruk", "pisang"]
+kata_kapital = map(lambda kata: kata.upper(), daftar_kata)
+print("Kata kapital:", list(kata_kapital))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hasil kuadrat (dengan def dan map): [1, 4, 9, 16, 25]
+
+Hasil kali tiga (dengan lambda dan map): [30, 60, 90, 120, 150]
+
+Kata kapital: ['APEL', 'JERUK', 'PISANG']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Pada <code class="code-piece">map(kuadratkan, angka_asli)</code>,
+            <code class="code-piece">map</code> menerima fungsi
+            <code class="code-piece">kuadratkan</code> (tanpa tanda kurung!) dan
+            list <code class="code-piece">angka_asli</code>. Ia akan memanggil
+            <code class="code-piece">kuadratkan</code> untuk setiap angka di
+            <code class="code-piece">angka_asli</code> (<code class="code-piece"
+              >kuadratkan(1)</code
+            >, <code class="code-piece">kuadratkan(2)</code>, dst.) dan
+            mengumpulkan hasilnya.
+          </li>
+          <li>
+            Perhatikan bahwa <code class="code-piece">map()</code> mengembalikan
+            sebuah "objek map", yang efisien karena tidak langsung membuat
+            seluruh list. Untuk melihat isinya, kita perlu mengubahnya menjadi
+            <code class="code-piece">list()</code> seperti
+            <code class="code-piece">list(hasil_kuadrat_map)</code>.
+          </li>
+          <li>
+            Contoh kedua menunjukkan betapa seringnya
+            <code class="code-piece">lambda</code> digunakan bersama
+            <code class="code-piece">map()</code>. Ini sangat ringkas untuk
+            tugas sederhana seperti mengalikan setiap item dengan 3.
+          </li>
+        </ul>
+        <h2>
+          Contoh HOF Bawaan Python:
+          <code class="code-piece">filter()</code> (Memilih Item Berdasarkan
+          Kondisi)
+        </h2>
+        <p>
+          Fungsi <code class="code-piece">filter()</code> juga adalah HOF. Ia
+          akan <strong>memilih item-item</strong> dari sebuah kumpulan data yang
+          membuat sebuah fungsi (fungsi "pengujian") mengembalikan
+          <code class="code-piece">True</code>.
+        </p>
+        <p>
+          Sintaksnya:
+          <code class="code-piece"
+            >filter(fungsi_pengujian, kumpulan_data)</code
+          >
+        </p>
+        <pre><code class="language-python"># Kita punya list nilai ujian
+nilai_ujian = [75, 88, 62, 95, 70, 58, 80]
+
+# Contoh 1: Menggunakan fungsi 'def' dengan filter() untuk mencari nilai lulus
+def is_lulus(nilai):
+    return nilai >= 70 # Mengembalikan True jika nilai 70 atau lebih, False jika tidak
+
+nilai_lulus_filter = filter(is_lulus, nilai_ujian)
+print("Nilai yang lulus (dengan def dan filter):", list(nilai_lulus_filter))
+
+print("\n")
+
+# Contoh 2: Menggunakan fungsi 'lambda' dengan filter() (Lebih umum!)
+angka_genap_filter = filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+print("Angka genap (dengan lambda dan filter):", list(angka_genap_filter))
+
+print("\n")
+
+# Contoh 3: Memilih kata yang panjangnya lebih dari 5 huruf
+daftar_kata = ["mobil", "kereta", "bus", "pesawat", "sepeda"]
+kata_panjang = filter(lambda kata: len(kata) > 5, daftar_kata)
+print("Kata yang panjangnya > 5 huruf:", list(kata_panjang))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai yang lulus (dengan def dan filter): [75, 88, 95, 70, 80]
+
+Angka genap (dengan lambda dan filter): [2, 4, 6, 8, 10]
+
+Kata yang panjangnya > 5 huruf: ['kereta', 'pesawat', 'sepeda']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Pada <code class="code-piece">filter(is_lulus, nilai_ujian)</code>,
+            <code class="code-piece">filter</code> menerima fungsi
+            <code class="code-piece">is_lulus</code> dan list
+            <code class="code-piece">nilai_ujian</code>. Ia akan memanggil
+            <code class="code-piece">is_lulus</code> untuk setiap nilai. Hanya
+            nilai yang membuat
+            <code class="code-piece">is_lulus</code> mengembalikan
+            <code class="code-piece">True</code> yang akan dimasukkan ke dalam
+            hasil akhir.
+          </li>
+          <li>
+            Sama seperti <code class="code-piece">map()</code>,
+            <code class="code-piece">filter()</code> juga mengembalikan "objek
+            filter", yang perlu diubah ke
+            <code class="code-piece">list()</code> untuk melihat hasilnya.
+          </li>
+          <li>
+            Penggunaan <code class="code-piece">lambda</code> dengan
+            <code class="code-piece">filter()</code> sangat umum untuk kondisi
+            pemfilteran yang sederhana.
+          </li>
+        </ul>
+        <h2>
+          Contoh HOF Bawaan Python:
+          <code class="code-piece">sorted()</code> (Mengurutkan dengan Aturan
+          Kustom)
+        </h2>
+        <p>
+          Anda mungkin sudah menggunakan
+          <code class="code-piece">sorted()</code> untuk mengurutkan List angka
+          atau huruf. Tapi <code class="code-piece">sorted()</code> adalah HOF
+          karena memiliki parameter <code class="code-piece">key</code> yang
+          bisa menerima sebuah fungsi. Fungsi ini akan menentukan "nilai kunci"
+          yang digunakan untuk membandingkan item saat pengurutan.
+        </p>
+        <p>
+          Sintaksnya:
+          <code class="code-piece"
+            >sorted(kumpulan_data, key=fungsi_kunci, reverse=True/False)</code
+          >
+        </p>
+        <pre><code class="language-python"># List nama siswa
+daftar_nama = ["Budi", "Andi", "Siti", "Dina", "Eko"]
+
+# Contoh 1: Mengurutkan nama berdasarkan panjangnya (dari terpendek)
+# def panjang_nama(nama):
+#     return len(nama)
+# nama_terurut_panjang = sorted(daftar_nama, key=panjang_nama)
+
+# Lebih ringkas dengan lambda
+nama_terurut_panjang_lc = sorted(daftar_nama, key=lambda nama: len(nama))
+print("Nama terurut berdasarkan panjang (terpendek):", nama_terurut_panjang_lc)
+
+print("\n")
+
+# Contoh 2: Mengurutkan list Tuple (misal: (nama, nilai)) berdasarkan nilai
+data_siswa_nilai = [("Andi", 85), ("Budi", 92), ("Cici", 78), ("Dina", 92), ("Eko", 85)]
+
+# Mengurutkan berdasarkan nilai (elemen kedua dari setiap tuple)
+# Jika nilai sama, urutan asli dipertahankan
+nilai_terurut = sorted(data_siswa_nilai, key=lambda siswa: siswa[1], reverse=True)
+print("Siswa terurut berdasarkan nilai (tertinggi):", nilai_terurut)
+
+print("\n")
+
+# Contoh 3: Mengurutkan berdasarkan nilai, jika nilai sama, urutkan berdasarkan nama
+# Ini akan mengurutkan berdasarkan elemen ke-1 (nilai), lalu elemen ke-0 (nama)
+nilai_dan_nama_terurut = sorted(data_siswa_nilai, key=lambda siswa: (siswa[1], siswa[0]), reverse=True)
+print("Siswa terurut nilai (tinggi) lalu nama (A-Z):", nilai_dan_nama_terurut)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama terurut berdasarkan panjang (terpendek): ['Eko', 'Budi', 'Andi', 'Siti', 'Dina']
+
+Siswa terurut berdasarkan nilai (tertinggi): [('Budi', 92), ('Dina', 92), ('Andi', 85), ('Eko', 85), ('Cici', 78)]
+
+Siswa terurut nilai (tinggi) lalu nama (A-Z): [('Dina', 92), ('Budi', 92), ('Eko', 85), ('Andi', 85), ('Cici', 78)]</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Pada
+            <code class="code-piece"
+              >sorted(daftar_nama, key=lambda nama: len(nama))</code
+            >, <code class="code-piece">sorted</code> akan mengambil setiap
+            <code class="code-piece">nama</code> dari
+            <code class="code-piece">daftar_nama</code>. Sebelum membandingkan
+            <code class="code-piece">nama</code> itu sendiri, ia akan memanggil
+            <code class="code-piece">lambda nama: len(nama)</code> untuk
+            mendapatkan "kunci" yang akan digunakan dalam perbandingan. Jadi, ia
+            membandingkan panjang nama, bukan nama itu sendiri.
+          </li>
+          <li>
+            Pada Contoh 2,
+            <code class="code-piece">lambda siswa: siswa[1]</code> berarti untuk
+            setiap <code class="code-piece">siswa</code> (yang merupakan Tuple
+            seperti <code class="code-piece">("Andi", 85)</code>), ambil elemen
+            kedua (<code class="code-piece">siswa[1]</code>, yaitu nilainya)
+            sebagai kunci pengurutan.
+            <code class="code-piece">reverse=True</code> berarti dari terbesar
+            ke terkecil.
+          </li>
+          <li>
+            Contoh 3 menunjukkan trik yang lebih canggih:
+            <code class="code-piece"
+              >key=lambda siswa: (siswa[1], siswa[0])</code
+            >. Ketika Anda mengembalikan sebuah Tuple dari
+            <code class="code-piece">key</code> fungsi,
+            <code class="code-piece">sorted</code> akan menggunakan elemen
+            pertama dari Tuple tersebut untuk pengurutan, dan jika elemen
+            pertama sama, ia akan menggunakan elemen kedua untuk ketentuan
+            pengurutan selanjutnya, dan seterusnya. Ini memungkinkan pengurutan
+            berlapis.
+          </li>
+        </ul>
+        <h2>Mengapa Lambda dan HOF Sangat Berguna?</h2>
+        <ol>
+          <li>
+            <strong>Kode Lebih Ringkas:</strong> Mengurangi jumlah baris kode
+            yang perlu Anda tulis, terutama untuk operasi sederhana.
+          </li>
+          <li>
+            <strong>Kode Lebih Fleksibel dan Modular:</strong> Anda bisa membuat
+            fungsi umum (HOF) yang bisa menerima berbagai "aturan" atau "logika"
+            (fungsi lambda atau fungsi
+            <code class="code-piece">def</code> lainnya) sebagai parameter. Ini
+            membuat fungsi Anda lebih serbaguna.
+          </li>
+          <li>
+            <strong>Meningkatkan Keterbacaan (bagi yang terbiasa):</strong>
+            Untuk tugas-tugas umum seperti transformasi atau filter List, List
+            Comprehension, <code class="code-piece">map()</code>, dan
+            <code class="code-piece">filter()</code> dengan
+            <code class="code-piece">lambda</code> seringkali lebih mudah dibaca
+            dan dipahami setelah Anda menguasainya, karena mereka mengungkapkan
+            "apa" yang dilakukan, bukan "bagaimana" detailnya.
+          </li>
+          <li>
+            <strong>Efisiensi:</strong> Implementasi
+            <code class="code-piece">map</code> dan
+            <code class="code-piece">filter</code> bawaan Python sangat
+            dioptimalkan, seringkali lebih cepat daripada menulis perulangan
+            <code class="code-piece">for</code> manual untuk tugas yang sama,
+            terutama pada kumpulan data yang sangat besar.
+          </li>
+        </ol>
+        <h2>
+          Penting: Lambda Tidak Menggantikan
+          <code class="code-piece">def</code>
+        </h2>
+        <p>
+          Meskipun lambda sangat ringkas, mereka tidak dimaksudkan untuk
+          menggantikan fungsi <code class="code-piece">def</code> sepenuhnya.
+        </p>
+        <ul>
+          <li>
+            Gunakan <code class="code-piece">def</code> untuk:
+            <ul>
+              <li>
+                Fungsi yang kompleks (memiliki banyak baris kode, beberapa
+                pernyataan <code class="code-piece">if</code>/<code
+                  class="code-piece"
+                  >for</code
+                >).
+              </li>
+              <li>
+                Fungsi yang sering digunakan kembali di banyak tempat dalam
+                program Anda.
+              </li>
+              <li>
+                Fungsi yang memerlukan dokumentasi (docstrings) untuk
+                menjelaskan cara kerjanya.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Gunakan <code class="code-piece">lambda</code> untuk:
+            <ul>
+              <li>
+                Fungsi yang sangat sederhana dan bisa ditulis dalam satu
+                ekspresi.
+              </li>
+              <li>
+                Fungsi yang hanya akan digunakan "sekali pakai" sebagai argumen
+                untuk HOF (seperti <code class="code-piece">map</code>,
+                <code class="code-piece">filter</code>,
+                <code class="code-piece">sorted</code>).
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Memilih antara <code class="code-piece">def</code> dan
+          <code class="code-piece">lambda</code> adalah tentang keseimbangan
+          antara kode yang ringkas dan terbaca serta kompleksitas tugas.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="#"></a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./function.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="#" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>
