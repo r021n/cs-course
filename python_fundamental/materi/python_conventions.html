@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Konvensi Python & PEP 8 – Seni Menulis Kode yang Rapi dan Mudah Dibaca
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li>
+          <a href="./python_conventions.html" class="active"
+            >Python Conventions</a
+          >
+        </li>
+        <li><a href="./class.html">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          "Konvensi Python & PEP 8" – Seni Menulis Kode yang Rapi dan Mudah
+          Dibaca
+        </h1>
+        <p>
+          Anda mungkin pernah melihat tulisan tangan yang sangat rapi dan mudah
+          dibaca, dan ada juga yang agak berantakan sehingga sulit dimengerti.
+          Sama seperti itu, dalam pemrograman, ada cara "rapi" dan "berantakan"
+          dalam menulis kode. Meskipun Python akan tetap menjalankan kode yang
+          berantakan (asalkan tidak ada
+          <code class="code-piece">SyntaxError</code>), kode yang rapi jauh
+          lebih mudah untuk dipahami, diperbaiki, dan dikembangkan oleh orang
+          lain atau oleh diri Anda sendiri di kemudian hari.
+        </p>
+        <p>
+          <strong>Konvensi Python</strong> adalah sekumpulan "kebiasaan baik"
+          atau "aturan tidak tertulis" tentang bagaimana seharusnya kode Python
+          ditulis. Tujuannya adalah untuk menciptakan konsistensi di antara
+          semua kode Python, sehingga setiap programmer Python bisa membaca kode
+          orang lain dengan lebih mudah, seolah-olah ditulis oleh orang yang
+          sama.
+        </p>
+        <p>
+          Sumber utama dari konvensi ini adalah sebuah dokumen bernama
+          <strong>PEP 8</strong>. "PEP" adalah singkatan dari "Python
+          Enhancement Proposal" (Proposal Peningkatan Python), dan angka "8"
+          adalah nomor proposal untuk panduan gaya (style guide). PEP 8 adalah
+          panduan resmi tentang cara memformat kode Python agar lebih konsisten,
+          rapi, dan mudah dibaca.
+        </p>
+        <h2>Mengapa PEP 8 Itu Penting?</h2>
+        <ol>
+          <li>
+            <strong>Keterbacaan:</strong> Kode yang mudah dibaca berarti lebih
+            mudah dipahami. Ini mengurangi waktu yang dibutuhkan untuk memahami
+            apa yang dilakukan program, baik oleh Anda sendiri maupun orang
+            lain.
+          </li>
+          <li>
+            <strong>Konsistensi:</strong> Ketika semua orang menulis kode dengan
+            gaya yang sama, proyek kolaborasi menjadi lebih mulus. Tidak ada
+            lagi perdebatan tentang "gaya mana yang benar".
+          </li>
+          <li>
+            <strong>Memudahkan Debugging:</strong> Kode yang rapi membantu Anda
+            menemukan dan memperbaiki kesalahan (bug) dengan lebih cepat.
+          </li>
+          <li>
+            <strong>Profesionalisme:</strong> Mengikuti PEP 8 menunjukkan bahwa
+            Anda adalah programmer yang peduli dengan kualitas kode Anda.
+          </li>
+        </ol>
+        <p>
+          Mari kita lihat beberapa aturan kunci dari PEP 8 yang paling sering
+          Anda gunakan.
+        </p>
+        <h2>1. Indentasi: Wajib 4 Spasi (Konsisten!)</h2>
+        <p>
+          Kita sudah membahas ini di modul "Kondisional" dan "Perulangan",
+          tetapi ini adalah aturan PEP 8 yang paling fundamental dan wajib
+          dipatuhi. Python menggunakan indentasi untuk menandai blok kode. PEP 8
+          menyarankan untuk selalu menggunakan <strong>4 spasi</strong> untuk
+          setiap tingkat indentasi, dan selalu konsisten.
+          <strong>Jangan campur spasi dan Tab!</strong>
+        </p>
+        <pre><code class="language-python"># Contoh Indentasi yang Baik (sesuai PEP 8)
+def hitung_luas_persegi(sisi):
+    # Indentasi 4 spasi untuk kode di dalam fungsi
+    luas = sisi * sisi
+    return luas
+
+if hitung_luas_persegi(5) > 20:
+    # Indentasi 4 spasi untuk kode di dalam if
+    print("Persegi itu besar!")
+    # Jika ada blok bersarang, tetap 4 spasi lagi
+    if sisi % 2 == 0:
+        print("Sisi genap.")
+
+# Contoh Indentasi yang Buruk (tidak sesuai PEP 8, tapi mungkin tidak error)
+# def hitung_volume_kubus(sisi):
+#   volume = sisi ** 3 # Hanya 2 spasi, tidak standar
+#       return volume # Hanya 7 spasi, tidak konsisten
+
+print("Luas:", hitung_luas_persegi(6))</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Persegi itu besar!
+Sisi genap.
+Luas: 36</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Perhatikan bagaimana semua baris kode di dalam fungsi
+          <code class="code-piece">hitung_luas_persegi</code> atau di dalam blok
+          <code class="code-piece">if</code> menjorok dengan tepat 4 spasi. Ini
+          adalah aturan emas di Python. Sebagian besar editor kode modern
+          (seperti VS Code, PyCharm, Sublime Text) akan secara otomatis mengatur
+          Tab Anda menjadi 4 spasi, jadi Anda tidak perlu menghitungnya secara
+          manual.
+        </p>
+        <h2>2. Penamaan: Nama yang Jelas dan Konstan</h2>
+        <p>
+          PEP 8 punya aturan ketat tentang bagaimana Anda memberi nama variabel,
+          fungsi, konstanta, dan lainnya. Tujuan utamanya adalah konsistensi dan
+          keterbacaan.
+        </p>
+        <ul>
+          <li>
+            <strong>Variabel dan Fungsi:</strong> Gunakan huruf kecil, pisahkan
+            kata dengan garis bawah (<code class="code-piece">_</code>) atau
+            disebut <code class="code-piece">snake_case</code>. Nama harus
+            deskriptif.
+            <ul>
+              <li>
+                <strong>Baik:</strong>
+                <code class="code-piece">nama_pengguna</code>,
+                <code class="code-piece">hitung_rata_rata</code>,
+                <code class="code-piece">total_harga</code>
+              </li>
+              <li>
+                <strong>Buruk:</strong>
+                <code class="code-piece">NamaPengguna</code>,
+                <code class="code-piece">hitungRataRata</code>,
+                <code class="code-piece">totalharga</code>,
+                <code class="code-piece">x</code> (jika tidak jelas apa itu x)
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Konstanta (nilai yang tidak berubah):</strong> Gunakan huruf
+            kapital semua, pisahkan kata dengan garis bawah (<code
+              class="code-piece"
+              >_</code
+            >).
+            <ul>
+              <li>
+                <strong>Baik:</strong>
+                <code class="code-piece">MAKS_UKURAN_FILE</code>,
+                <code class="code-piece">PI_VALUE</code>,
+                <code class="code-piece">GRAVITASI</code>
+              </li>
+              <li>
+                <strong>Buruk:</strong>
+                <code class="code-piece">maxUkuranFile</code>,
+                <code class="code-piece">PIValue</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong
+              >Hindari Huruf <code class="code-piece">l</code> (kecil),
+              <code class="code-piece">O</code> (besar),
+              <code class="code-piece">I</code> (besar):</strong
+            >
+            Huruf-huruf ini bisa terlihat seperti angka
+            <code class="code-piece">1</code> atau
+            <code class="code-piece">0</code> sehingga membingungkan.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh Penamaan yang Baik (sesuai PEP 8)
+
+# Variabel
+nama_lengkap_siswa = "Ali Wijaya"
+usia_siswa = 16
+nilai_ujian_akhir = 88.5
+
+# Fungsi
+def hitung_nilai_rata_rata(daftar_nilai):
+    return sum(daftar_nilai) / len(daftar_nilai)
+
+def tampilkan_informasi_siswa(nama, usia):
+    print(f"Nama: {nama}, Usia: {usia}")
+
+# Konstanta (biasanya ditulis di bagian atas file)
+BATAS_NILAI_MAKSIMAL = 100
+JENIS_KELAMIN_LAKI = "L"
+
+print(f"Nama: {nama_lengkap_siswa}, Usia: {usia_siswa}")
+print(f"Rata-rata: {hitung_nilai_rata_rata([70, 80, 90])}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nama: Ali Wijaya, Usia: 16
+Rata-rata: 80.0</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Setiap nama variabel dan fungsi mengikuti gaya
+          <code class="code-piece">snake_case</code> (huruf kecil dengan garis
+          bawah sebagai pemisah). Penulisan konstanta menggunakan gaya penulisan
+          <code class="code-piece">ALL_CAPS_WITH_UNDERSCORES</code>. Penamaan
+          yang deskriptif membuat kode langsung memberitahu apa fungsinya tanpa
+          perlu banyak komentar.
+        </p>
+        <h2>3. Whitespace (Spasi Kosong): Agar Kode Bernapas</h2>
+        <p>
+          Penggunaan spasi kosong (whitespace) yang tepat di sekitar operator,
+          setelah koma, atau baris kosong antar bagian kode dapat sangat
+          meningkatkan keterbacaan. PEP 8 mengatur hal-hal ini.
+        </p>
+        <ul>
+          <li>
+            <strong>Spasi di sekitar operator:</strong> Selalu beri spasi di
+            sekitar operator (seperti <code class="code-piece">+</code>,
+            <code class="code-piece">-</code>,
+            <code class="code-piece">=</code>,
+            <code class="code-piece">==</code>,
+            <code class="code-piece"><</code>,
+            <code class="code-piece">and</code>,
+            <code class="code-piece">or</code>).
+          </li>
+          <li>
+            <strong>Setelah koma:</strong> Selalu beri spasi setelah koma (<code
+              class="code-piece"
+              >,</code
+            >).
+          </li>
+          <li>
+            <strong>Tidak ada spasi berlebihan:</strong> Hindari spasi
+            berlebihan di dalam tanda kurung, atau sebelum koma/titik dua.
+          </li>
+          <li>
+            <strong>Baris Kosong:</strong> Gunakan dua baris kosong untuk
+            memisahkan definisi fungsi tingkat atas atau kelas. Gunakan satu
+            baris kosong untuk memisahkan blok logika yang berbeda di dalam
+            fungsi.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh Whitespace yang Baik (sesuai PEP 8)
+
+# Spasi di sekitar operator dan setelah koma
+hasil_penjumlahan = 10 + 5
+apakah_benar = (hasil_penjumlahan == 15) and (3 < 5)
+
+# Tidak ada spasi berlebihan
+my_list = [1, 2, 3] # Tidak ada spasi sebelum dan sesudah kurung siku
+my_dict = {"nama": "Budi", "umur": 17} # Tidak ada spasi sebelum dan sesudah kurung kurawal
+print(f"Hasil: {hasil_penjumlahan}, Benar: {apakah_benar}")
+
+# Dua baris kosong memisahkan definisi fungsi
+def fungsi_satu():
+    pass # 'pass' artinya tidak melakukan apa-apa
+
+
+def fungsi_dua():
+    pass
+
+# Satu baris kosong memisahkan blok logika di dalam fungsi
+def proses_data_siswa(data_siswa):
+    # Blok 1: Validasi
+    if not data_siswa:
+        print("Data kosong.")
+        return
+
+    # Blok 2: Pemrosesan
+    nama = data_siswa.get("nama", "Tidak diketahui")
+    usia = data_siswa.get("usia", 0)
+
+    # Blok 3: Output
+    print(f"Memproses {nama}, usia {usia}")
+
+proses_data_siswa({"nama": "Cici", "usia": 16})</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hasil: 15, Benar: True
+Memproses Cici, usia 16</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Lihat bagaimana ada spasi di sekitar
+          <code class="code-piece">+</code>, <code class="code-piece">==</code>,
+          <code class="code-piece">and</code>,
+          <code class="code-piece"><</code>, dan
+          <code class="code-piece">=</code> dalam variabel
+          <code class="code-piece">hasil_penjumlahan</code> dan
+          <code class="code-piece">apakah_benar</code>. Ada spasi setelah koma
+          di <code class="code-piece">my_dict</code> dan juga saat mencetak
+          f-string. Ada dua baris kosong antara
+          <code class="code-piece">fungsi_satu</code> dan
+          <code class="code-piece">fungsi_dua</code>, dan satu baris kosong di
+          dalam <code class="code-piece">proses_data_siswa</code> untuk
+          memisahkan validasi, pemrosesan, dan output. Hal-hal kecil ini membuat
+          kode jauh lebih mudah dibaca.
+        </p>
+        <h2>4. Panjang Baris: Batas 79 Karakter</h2>
+        <p>
+          PEP 8 menyarankan agar setiap baris kode tidak lebih dari
+          <strong>79 karakter</strong>. Mengapa? Agar kode mudah dibaca di layar
+          kecil, saat melihat kode berdampingan (side-by-side), atau di
+          terminal.
+        </p>
+        <p>
+          Jika baris kode Anda terlalu panjang, Anda bisa memecahnya. Python
+          memungkinkan Anda memecah baris dengan:
+        </p>
+        <ul>
+          <li>
+            Menggunakan tanda kurung <code class="code-piece">()</code>, kurung
+            siku <code class="code-piece">[]</code>, atau kurung kurawal
+            <code class="code-piece">{}</code> secara alami.
+          </li>
+          <li>
+            Menggunakan tanda backslash <code class="code-piece">\</code> di
+            akhir baris (ini kurang direkomendasikan).
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh Panjang Baris yang Baik (sesuai PEP 8)
+
+# Baris ini panjang, pecah dengan kurung
+pesan_selamat_datang_panjang = (
+    "Selamat datang di modul pembelajaran Python ini. "
+    "Kami harap Anda menikmati setiap pelajaran dan sukses!"
+)
+print(pesan_selamat_datang_panjang)
+
+# Contoh memecah ekspresi panjang dengan kurung
+total_harga_produk_kompleks = (
+    (harga_item_a * jumlah_a) +
+    (harga_item_b * jumlah_b) -
+    diskon_total
+)
+# print(total_harga_produk_kompleks) # Variabelnya tidak didefinisikan, hanya contoh
+
+# Contoh panjang baris yang buruk (akan lewat batas 79 karakter)
+# daftar_nama_anggota_komunitas_kami_yang_sangat_panjang = ["Andi", "Budi", "Cici", "Dina", "Eko", "Fina", "Gaga", "Hani", "Irma", "Joko", "Kiki", "Lala"]
+# print(daftar_nama_anggota_komunitas_kami_yang_sangat_panjang)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Selamat datang di modul pembelajaran Python ini. Kami harap Anda menikmati setiap pelajaran dan sukses!</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">pesan_selamat_datang_panjang</code>,
+          string yang panjang dipecah menjadi beberapa baris yang diapit oleh
+          tanda kurung <code class="code-piece">()</code>. Python secara
+          otomatis menggabungkan string-string yang berdekatan ini menjadi satu.
+          Ini membuat kode tidak melebar ke samping dan lebih mudah dibaca tanpa
+          perlu scroll horizontal.
+        </p>
+        <h2>5. Komentar dan Docstrings: Penjelasan yang Efektif</h2>
+        <p>
+          Kita sudah bahas komentar (<code class="code-piece">#</code>) dan
+          Docstrings (<code class="code-piece">"""Docstring"""</code>). PEP 8
+          memberikan panduan kapan dan bagaimana menggunakannya.
+        </p>
+        <ul>
+          <li>
+            <strong>Komentar (<code class="code-piece">#</code>):</strong> Untuk
+            menjelaskan bagian kode yang rumit atau alasan di balik sebuah
+            keputusan. Komentar yang ditulis harus singkat dan jelas.
+          </li>
+          <li>
+            <strong
+              >Docstrings (<code class="code-piece">"""Docstring"""</code
+              >):</strong
+            >
+            Untuk menjelaskan apa yang dilakukan sebuah modul, fungsi, atau
+            kelas. Docstrings adalah bagian dari dokumentasi resmi dan bisa
+            diakses oleh alat bantu.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh Penggunaan Komentar dan Docstrings yang Baik (sesuai PEP 8)
+
+# Ini adalah komentar satu baris untuk menjelaskan fungsi di bawah
+# Fungsi ini akan menghitung rata-rata dari list angka yang diberikan.
+def hitung_rata_rata_nilai(daftar_nilai):
+    """
+    Menghitung rata-rata dari daftar nilai yang diberikan.
+
+    Args:
+        daftar_nilai (list): List berisi angka-angka (int atau float).
+
+    Returns:
+        float: Nilai rata-rata. Mengembalikan 0 jika daftar kosong untuk menghindari ZeroDivisionError.
+    """
+    if not daftar_nilai: # Komentar inline: periksa jika list kosong
+        return 0
+    total = sum(daftar_nilai) # Jumlahkan semua nilai
+    rata_rata = total / len(daftar_nilai) # Bagi dengan jumlah item
+    return rata_rata
+
+# Memanggil fungsi
+nilai_siswa_terakhir = [85, 90, 78, 92]
+rerata = hitung_rata_rata_nilai(nilai_siswa_terakhir)
+print(f"Rata-rata nilai: {rerata:.2f}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Rata-rata nilai: 86.25</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Komentar di awal fungsi menjelaskan tujuan umum fungsi tersebut.
+          </li>
+          <li>
+            Docstring di dalam fungsi (<code class="code-piece">"""..."""</code
+            >) memberikan penjelasan yang lebih detail tentang fungsi, parameter
+            yang diterimanya (<code class="code-piece">Args:</code>), dan apa
+            yang dikembalikannya (<code class="code-piece">Returns:</code>). Ini
+            sangat berguna untuk dokumentasi otomatis.
+          </li>
+          <li>
+            Komentar inline seperti
+            <code class="code-piece"
+              ># Komentar inline: periksa jika list kosong</code
+            >
+            menjelaskan satu baris kode yang spesifik.
+          </li>
+        </ul>
+        <h2>6. Impor: Tata Letak yang Teratur</h2>
+        <p>
+          Saat Anda mengimpor modul, PEP 8 merekomendasikan urutan tertentu:
+        </p>
+        <ol>
+          <li>
+            Impor modul standar Python (misalnya
+            <code class="code-piece">math</code>,
+            <code class="code-piece">random</code>,
+            <code class="code-piece">sys</code>).
+          </li>
+          <li>
+            Impor modul pihak ketiga (library yang Anda instal dengan
+            <code class="code-piece">pip</code>).
+          </li>
+          <li>Impor modul buatan Anda sendiri.</li>
+        </ol>
+        <p>Setiap kategori dipisahkan oleh satu baris kosong.</p>
+        <pre><code class="language-python"># Contoh Tata Letak Impor yang Baik (sesuai PEP 8)
+
+# 1. Modul standar Python
+import os
+import sys
+import math
+
+# 2. Modul pihak ketiga (library yang diinstal dengan pip)
+# import pandas
+# import numpy
+
+# 3. Modul lokal (buatan sendiri)
+import alat_bantu # Modul kita dari pembahasan sebelumnya
+
+# Kode program dimulai dari sini
+print("--- Impor Terstruktur ---")
+print(f"PHI dari math: {math.pi}")
+print(f"Pesan dari alat_bantu: {alat_bantu.salam('Dunia')}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Impor Terstruktur ---
+PHI dari math: 3.141592653589793
+Pesan dari alat_bantu: Halo, Dunia! Selamat belajar.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pengaturan impor seperti ini memudahkan orang lain (dan Anda sendiri)
+          dengan cepat melihat dependensi program Anda dan dari mana asalnya.
+        </p>
+        <h2>PEP 8 Bukan Aturan Mati! (Tapi Sangat Disarankan)</h2>
+        <p>
+          Ini adalah poin penting: PEP 8 adalah <strong>panduan</strong>, bukan
+          peraturan yang kaku dan tidak bisa dilanggar sama sekali. Ada kalanya,
+          sangat jarang, Anda mungkin perlu menyimpang dari PEP 8 karena alasan
+          tertentu (misalnya, mengikuti gaya kode yang sudah ada di proyek lama,
+          atau ada batasan tertentu).
+        </p>
+        <p>
+          Namun, untuk sebagian besar waktu, terutama sebagai pemula,
+          <strong>sangat disarankan untuk selalu mengikuti PEP 8</strong>. Ini
+          akan membangun kebiasaan coding yang baik dan membuat kode Anda lebih
+          mudah dibaca dan diterima di komunitas Python.
+        </p>
+        <p>
+          Ada alat bantu otomatis yang disebut <strong>linters</strong> (seperti
+          <code class="code-piece">flake8</code> atau
+          <code class="code-piece">Pylint</code>) dan
+          <strong>code formatters</strong> (seperti
+          <code class="code-piece">Black</code> atau
+          <code class="code-piece">autopep8</code>) yang bisa memeriksa kode
+          Anda secara otomatis dan bahkan memperbaikinya agar sesuai dengan PEP
+          8. Ini sangat membantu untuk menjaga konsistensi tanpa harus mengingat
+          setiap aturan.
+        </p>
+        <p>
+          Meskipun ini mungkin terasa seperti banyak aturan, tujuannya hanya
+          satu: membuat kode Python menjadi bahasa yang bersih, jelas, dan indah
+          bagi semua orang yang membacanya.
+        </p>
+        <p>
+          Dengan modul "Konvensi Python & PEP 8" ini, Anda sekarang memahami
+          bahwa menulis kode yang berfungsi hanyalah sebagian dari cerita.
+          Menulis kode yang bersih, rapi, dan mudah dibaca adalah sama
+          pentingnya. Mengikuti panduan ini akan membuat Anda menjadi programmer
+          yang lebih baik!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./class.html"
+            >Class – Cetak Biru untuk Membuat Objek di Python</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./file_handling.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./class.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

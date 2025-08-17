@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Exception Handling – Membuat Program Lebih Mampu Mengantisipasi Kesalahan
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li>
+          <a href="./exception_handling.html" class="active"
+            >Exception Handling</a
+          >
+        </li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Exception Handling – Membuat Program Lebih Mampu Mengantisipasi
+          Kesalahan
+        </h1>
+        <p>
+          Kita sudah belajar tentang berbagai jenis <strong>error</strong> di
+          Python, seperti <code class="code-piece">TypeError</code>,
+          <code class="code-piece">ValueError</code>, atau
+          <code class="code-piece">ZeroDivisionError</code>. Ketika error
+          semacam ini terjadi, biasanya program kita akan langsung berhenti dan
+          menampilkan pesan kesalahan yang panjang (yang disebut "stack trace").
+          Ini mungkin baik untuk programmer yang sedang mencari masalah, tetapi
+          bagi pengguna biasa, ini bisa sangat membingungkan dan membuat program
+          terasa tidak profesional.
+        </p>
+        <p>
+          Bayangkan Anda sedang menggunakan aplikasi kalkulator dan tiba-tiba
+          aplikasi itu macet total hanya karena Anda salah memasukkan angka atau
+          mencoba membagi dengan nol. Tentu tidak nyaman, bukan?
+        </p>
+        <p>
+          <strong>Exception Handling</strong> adalah mekanisme di Python (dan
+          bahasa pemrograman lainnya) yang memungkinkan kita untuk
+          <strong>mengantisipasi dan mengelola error</strong> yang mungkin
+          terjadi saat program berjalan. Ini seperti memiliki "jaring pengaman"
+          atau "asuransi" untuk bagian kode yang berpotensi menyebabkan masalah.
+          Dengan begitu, alih-alih program berhenti tiba-tiba, kita bisa
+          memberikan pesan yang lebih ramah, mencoba memperbaiki masalah, atau
+          melanjutkan eksekusi program dengan cara yang terkontrol.
+        </p>
+        <p>
+          Blok utama yang digunakan untuk penanganan pengecualian adalah
+          <code class="code-piece">try</code> dan
+          <code class="code-piece">except</code>.
+        </p>
+
+        <h2>
+          1. <code class="code-piece">try</code> dan
+          <code class="code-piece">except</code>: Jaring Pengaman Kode Anda
+        </h2>
+        <p>Ide dasarnya sederhana:</p>
+        <ul>
+          <li>
+            Kita meletakkan kode yang
+            <strong>berpotensi menyebabkan error</strong> di dalam blok
+            <code class="code-piece">try</code>.
+          </li>
+          <li>
+            Jika terjadi error di dalam blok
+            <code class="code-piece">try</code>, Python tidak akan langsung
+            menghentikan program. Sebaliknya, ia akan "melompat" ke blok
+            <code class="code-piece">except</code>.
+          </li>
+          <li>
+            Di dalam blok <code class="code-piece">except</code>, kita menulis
+            kode yang akan <strong>menangani error tersebut</strong> (misalnya,
+            menampilkan pesan kesalahan yang ramah kepada pengguna).
+          </li>
+        </ul>
+        <pre><code class="language-python"># Contoh 1: Menghitung pembagian dengan angka dari pengguna
+print("--- Contoh Pembagian Angka ---")
+try:
+    # Kode yang berpotensi error (jika penyebut 0 atau input bukan angka)
+    bilangan_str = input("Masukkan bilangan yang akan dibagi: ")
+    pembagi_str = input("Masukkan pembagi: ")
+
+    bilangan = float(bilangan_str) # Bisa ValueError jika bukan angka
+    pembagi = float(pembagi_str)   # Bisa ValueError jika bukan angka
+
+    hasil = bilangan / pembagi    # Bisa ZeroDivisionError jika pembagi 0
+    print(f"Hasil pembagian: {hasil}")
+except ZeroDivisionError:
+    # Kode ini dijalankan jika terjadi ZeroDivisionError
+    print("Maaf, tidak bisa membagi dengan nol!")
+except ValueError:
+    # Kode ini dijalankan jika terjadi ValueError
+    print("Input yang Anda masukkan harus berupa angka.")
+except:
+    # Ini adalah 'catch-all' untuk error lain yang tidak spesifik
+    print("Terjadi kesalahan yang tidak terduga.")
+
+print("Program selesai berjalan (walaupun ada error di atas!).")</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 1: Pembagi nol):</strong></p>
+        <pre><code class="language-plain">--- Contoh Pembagian Angka ---
+Masukkan bilangan yang akan dibagi: 10
+Masukkan pembagi: 0
+Maaf, tidak bisa membagi dengan nol!
+Program selesai berjalan (walaupun ada error di atas!).</code></pre>
+        <p>
+          <strong>Outputnya (Contoh Interaksi 2: Input bukan angka):</strong>
+        </p>
+        <pre><code class="language-plain">--- Contoh Pembagian Angka ---
+Masukkan bilangan yang akan dibagi: sepuluh
+Masukkan pembagi: 2
+Input yang Anda masukkan harus berupa angka.
+Program selesai berjalan (walaupun ada error di atas!).</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 3: Tidak ada error):</strong></p>
+        <pre><code class="language-plain">--- Contoh Pembagian Angka ---
+Masukkan bilangan yang akan dibagi: 100
+Masukkan pembagi: 5
+Hasil pembagian: 20.0
+Program selesai berjalan (walaupun ada error di atas!).</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <strong><code class="code-piece">try:</code></strong
+            >: Python akan mencoba menjalankan semua kode di bawahnya.
+          </li>
+          <li>
+            Jika, misalnya, pengguna memasukkan
+            <code class="code-piece">0</code> sebagai pembagi, maka
+            <code class="code-piece">bilangan / pembagi</code> akan menyebabkan
+            <code class="code-piece">ZeroDivisionError</code>. Python akan
+            segera "melompat" ke blok
+            <code class="code-piece">except ZeroDivisionError:</code>.
+          </li>
+          <li>
+            Pesan "Maaf, tidak bisa membagi dengan nol!" akan dicetak.
+            <strong>Program tidak berhenti total</strong>. Ia akan melanjutkan
+            eksekusi ke baris setelah blok
+            <code class="code-piece">try-except</code>, yaitu
+            <code class="code-piece"
+              >print("Program selesai berjalan...").</code
+            >
+          </li>
+          <li>
+            Jika pengguna memasukkan <code class="code-piece">"sepuluh"</code>,
+            <code class="code-piece">float(bilangan_str)</code> akan menyebabkan
+            <code class="code-piece">ValueError</code>. Python melompat ke
+            <code class="code-piece">except ValueError:</code> dan mencetak
+            pesan yang sesuai.
+          </li>
+          <li>
+            Blok <code class="code-piece">except:</code> tanpa nama error (yang
+            paling bawah) adalah "jaring pengaman" terakhir. Ia akan menangkap
+            <em>semua</em> jenis error lain yang tidak ditangani oleh
+            <code class="code-piece">except</code> sebelumnya. Sebaiknya gunakan
+            ini sebagai pilihan terakhir dan usahakan selalu menangkap error
+            yang lebih spesifik.
+          </li>
+          <li>
+            Jika tidak ada error sama sekali (misal:
+            <code class="code-piece">100</code> dibagi
+            <code class="code-piece">5</code>), maka seluruh blok
+            <code class="code-piece">try</code> akan dieksekusi, dan semua blok
+            <code class="code-piece">except</code> akan dilewati.
+          </li>
+        </ol>
+
+        <h2>
+          2. Mendapatkan Informasi Detail Error (<code class="code-piece"
+            >as e</code
+          >)
+        </h2>
+        <p>
+          Seringkali, kita ingin tahu lebih detail tentang error yang terjadi.
+          Anda bisa menangkap objek error itu sendiri dan menyimpannya dalam
+          sebuah variabel (biasanya dinamakan
+          <code class="code-piece">e</code> atau
+          <code class="code-piece">err</code>). Objek ini berisi pesan error
+          yang sebenarnya dan detail errornya.
+        </p>
+        <pre><code class="language-python"># Contoh: Mendapatkan pesan error dari sistem
+print("--- Mendapatkan Pesan Error ---")
+try:
+    # Coba mengakses kunci dictionary yang tidak ada
+    data = {"nama": "Budi"}
+    umur = data["usia"] # Ini akan memicu KeyError
+
+    # Coba membagi dengan nol
+    # hasil_bagi = 10 / 0
+
+except KeyError as e:
+    # 'e' akan menyimpan objek KeyError
+    print(f"Ups! Terjadi kesalahan terkait kunci. Kunci yang tidak ditemukan: {e}")
+except ZeroDivisionError as e:
+    # 'e' akan menyimpan objek ZeroDivisionError
+    print(f"Error matematika: {e}")
+except Exception as e: # 'Exception' adalah kelas induk dari semua error
+    # Ini akan menangkap semua jenis error lain
+    print(f"Terjadi error tidak terduga: {e}")
+
+print("Lanjutkan setelah penanganan error.")</code></pre>
+        <p><strong>Outputnya (jika KeyError terjadi):</strong></p>
+        <pre><code class="language-plain">--- Mendapatkan Pesan Error ---
+Ups! Terjadi kesalahan terkait kunci. Kunci yang tidak ditemukan: 'usia'
+Lanjutkan setelah penanganan error.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Ketika <code class="code-piece">KeyError</code> terjadi,
+          <code class="code-piece">except KeyError as e:</code> akan
+          menangkapnya. Variabel <code class="code-piece">e</code> sekarang
+          berisi objek <code class="code-piece">KeyError</code>. Ketika kita
+          mencetak <code class="code-piece">e</code>, Python secara otomatis
+          menampilkannya sebagai pesan
+          <code class="code-piece">KeyError</code> itu sendiri, yaitu
+          <code class="code-piece">'usia'</code> (kunci yang tidak ditemukan).
+        </p>
+        <p>
+          <code class="code-piece">except Exception as e:</code> adalah cara
+          umum untuk menangkap <em>semua</em> jenis error yang diwarisi dari
+          kelas <code class="code-piece">Exception</code>. Ini seperti "jaring
+          pengaman universal". Meskipun praktis, sebaiknya tetap gunakan
+          <code class="code-piece">except</code> spesifik terlebih dahulu untuk
+          error yang paling Anda antisipasi.
+        </p>
+
+        <h2>
+          3. Blok <code class="code-piece">else</code>: Kode yang Jalan Jika
+          Tidak Ada Error
+        </h2>
+        <p>
+          Blok <code class="code-piece">else</code> yang diletakkan setelah
+          <code class="code-piece">try</code> dan
+          <code class="code-piece">except</code> akan dieksekusi
+          <strong>hanya jika</strong> tidak ada error yang terjadi di dalam blok
+          <code class="code-piece">try</code>. Ini berguna untuk menempatkan
+          kode yang hanya boleh dijalankan setelah operasi utama berhasil.
+        </p>
+        <pre><code class="language-python"># Contoh: Proses login sederhana
+print("--- Contoh Login Sederhana ---")
+username = input("Masukkan username: ")
+password = input("Masukkan password: ")
+
+try:
+    if username == "admin" and password == "rahasia":
+        print("Login berhasil!")
+        data_user = {"level": "administrator", "status": "aktif"}
+        # Misal di sini ada proses lain yang penting setelah login
+        print("Memuat data pengguna...")
+    elif username == "user" and password == "guest":
+        print("Login berhasil sebagai user!")
+        data_user = {"level": "user", "status": "aktif"}
+    else:
+        # Jika username/password salah, kita bisa memicu error buatan
+        raise ValueError("Username atau password salah!") # Kita "membuat" error sendiri
+
+except ValueError as e:
+    print(f"Kesalahan login: {e}")
+except Exception as e:
+    print(f"Terjadi kesalahan tak terduga: {e}")
+else:
+    # Kode di sini hanya akan dijalankan jika TIDAK ADA error di blok try
+    print(f"Selamat datang, {username}! Level Anda: {data_user['level']}")
+    print("Dashboard sedang dimuat...")
+
+print("Proses autentikasi selesai.")</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh Interaksi 1: Login berhasil sebagai
+            admin):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Contoh Login Sederhana ---
+Masukkan username: admin
+Masukkan password: rahasia
+Login berhasil!
+Memuat data pengguna...
+Selamat datang, admin! Level Anda: administrator
+Dashboard sedang dimuat...
+Proses autentikasi selesai.</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 2: Login gagal):</strong></p>
+        <pre><code class="language-plain">--- Contoh Login Sederhana ---
+Masukkan username: admin
+Masukkan password: salah
+Kesalahan login: Username atau password salah!
+Proses autentikasi selesai.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            Jika <code class="code-piece">username</code> dan
+            <code class="code-piece">password</code> benar (<code
+              class="code-piece"
+              >"admin"</code
+            >/<code class="code-piece">"rahasia"</code> atau
+            <code class="code-piece">"user"</code>/<code class="code-piece"
+              >"guest"</code
+            >), maka <code class="code-piece">try</code> akan berhasil
+            diselesaikan tanpa error.
+          </li>
+          <li>
+            Setelah itu, Python akan langsung melanjutkan ke blok
+            <code class="code-piece">else</code>. Di sana, kita bisa mencetak
+            pesan selamat datang dan memuat data tambahan yang hanya relevan
+            jika login sukses.
+          </li>
+          <li>
+            Jika <code class="code-piece">username</code> atau
+            <code class="code-piece">password</code> salah, kita sengaja memicu
+            <code class="code-piece">ValueError</code> dengan
+            <code class="code-piece">raise ValueError(...)</code>. Ini akan
+            membuat Python melompat ke blok
+            <code class="code-piece">except ValueError as e:</code>, dan blok
+            <code class="code-piece">else</code> akan dilewati.
+          </li>
+        </ol>
+        <p>
+          Menggunakan <code class="code-piece">else</code> ini membantu
+          memisahkan kode yang "mencoba" dan kode yang "berhasil tanpa masalah",
+          membuat struktur program lebih jelas.
+        </p>
+
+        <h2>
+          4. Blok <code class="code-piece">finally</code>: Kode yang Selalu
+          Dijalankan
+        </h2>
+        <p>
+          Blok <code class="code-piece">finally</code> adalah bagian kode yang
+          akan dieksekusi <strong>SETIAP SAAT</strong>, tidak peduli apakah
+          error terjadi di blok <code class="code-piece">try</code> atau tidak,
+          dan tidak peduli apakah error itu ditangani oleh
+          <code class="code-piece">except</code> atau tidak. Ini sangat berguna
+          untuk membersihkan sumber daya, seperti menutup file atau koneksi
+          database, yang harus selalu dilakukan terlepas dari apa pun yang
+          terjadi selama eksekusi program.
+        </p>
+        <pre><code class="language-python"># Contoh: Simulasi pemrosesan data (dengan 'finally' untuk cleanup)
+print("--- Contoh Proses Data dengan Cleanup ---")
+try:
+    nilai1_str = input("Masukkan angka pertama: ")
+    nilai2_str = input("Masukkan angka kedua: ")
+
+    nilai1 = float(nilai1_str)
+    nilai2 = float(nilai2_str)
+
+    hasil = nilai1 / nilai2
+    print(f"Perhitungan berhasil: {hasil}")
+
+except ValueError:
+    print("Error: Pastikan input adalah angka yang valid.")
+except ZeroDivisionError:
+    print("Error: Tidak bisa membagi dengan nol.")
+finally:
+    # Kode di sini akan SELALU dieksekusi,
+    # baik jika try berhasil, gagal, atau error tidak ditangani
+    print("--- Proses pembersihan (cleanup) selesai. ---")
+    print("Aplikasi siap untuk operasi berikutnya atau ditutup.")
+
+print("Selesai blok try-except-finally.")</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 1: Sukses):</strong></p>
+        <pre><code class="language-plain">--- Contoh Proses Data dengan Cleanup ---
+Masukkan angka pertama: 20
+Masukkan angka kedua: 4
+Perhitungan berhasil: 5.0
+--- Proses pembersihan (cleanup) selesai. ---
+Aplikasi siap untuk operasi berikutnya atau ditutup.
+Selesai blok try-except-finally.</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 2: Error ditangani):</strong></p>
+        <pre><code class="language-plain">--- Contoh Proses Data dengan Cleanup ---
+Masukkan angka pertama: lima
+Masukkan angka kedua: 2
+Error: Pastikan input adalah angka yang valid.
+--- Proses pembersihan (cleanup) selesai. ---
+Aplikasi siap untuk operasi berikutnya atau ditutup.
+Selesai blok try-except-finally.</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh Interaksi 3: Error tidak ditangani (misal:
+            TypeError lainnya)):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Contoh Proses Data dengan Cleanup ---
+Masukkan angka pertama: 10
+Masukkan angka kedua: []
+Error: Pastikan input adalah angka yang valid.
+--- Proses pembersihan (cleanup) selesai. ---
+Aplikasi siap untuk operasi berikutnya atau ditutup.
+Selesai blok try-except-finally.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Jika perhitungan berhasil,
+            <code class="code-piece">print("Perhitungan berhasil...")</code>
+            akan dijalankan, lalu blok
+            <code class="code-piece">finally</code> akan dijalankan.
+          </li>
+          <li>
+            Jika terjadi <code class="code-piece">ValueError</code> atau
+            <code class="code-piece">ZeroDivisionError</code>, blok
+            <code class="code-piece">except</code> yang sesuai akan dijalankan,
+            lalu blok <code class="code-piece">finally</code> akan dijalankan.
+          </li>
+          <li>
+            Bahkan jika terjadi error yang <em>tidak ditangani</em> oleh
+            <code class="code-piece">except</code> manapun (seperti jika kita
+            memasukkan <code class="code-piece">[]</code> sebagai
+            <code class="code-piece">nilai2_str</code> yang akan menyebabkan
+            <code class="code-piece">TypeError</code>), blok
+            <code class="code-piece">finally</code>
+            <strong>tetap akan dijalankan</strong> sebelum Python menghentikan
+            program dan menampilkan stack trace untuk error yang tidak ditangani
+            tersebut.
+          </li>
+        </ul>
+        <p>
+          Inilah kekuatan <code class="code-piece">finally</code>: menjamin
+          bahwa kode pembersihan selalu berjalan.
+        </p>
+
+        <h2>
+          5. Membuat Error Anda Sendiri (<code class="code-piece">raise</code>)
+        </h2>
+        <p>
+          Seperti yang kita lihat di contoh
+          <code class="code-piece">else</code> tadi, kadang-kadang Anda sebagai
+          programmer ingin secara sengaja "membuat" atau "memicu" sebuah error
+          jika suatu kondisi tidak terpenuhi. Ini disebut
+          <strong>melempar (raising) sebuah pengecualian</strong>. Anda
+          menggunakan kata kunci <code class="code-piece">raise</code> diikuti
+          dengan tipe error yang ingin Anda picu, dan pesan opsional.
+        </p>
+        <p>
+          Ini sangat berguna untuk validasi data atau ketika Anda menemukan
+          situasi yang seharusnya tidak terjadi dalam program Anda.
+        </p>
+        <pre><code class="language-python">def hitung_nilai_akhir(tugas, uts, uas):
+    if not (0 <= tugas <= 100 and 0 <= uts <= 100 and 0 <= uas <= 100):
+        # Memicu ValueError jika ada nilai yang di luar rentang 0-100
+        raise ValueError("Semua nilai (tugas, UTS, UAS) harus antara 0 dan 100.")
+    
+    if tugas < 0 or uts < 0 or uas < 0: # Ini juga akan ditangkap oleh ValueError di atas
+        # Contoh lain, jika ingin lebih spesifik untuk negatif
+        # raise ValueError("Nilai tidak boleh negatif.")
+        pass # Lewati saja karena sudah ditangkap ValueError di atas
+
+    rata_rata = (tugas * 0.3) + (uts * 0.3) + (uas * 0.4)
+    return rata_rata
+
+print("--- Menghitung Nilai Akhir ---")
+try:
+    nilai_tugas = int(input("Masukkan nilai tugas: "))
+    nilai_uts = int(input("Masukkan nilai UTS: "))
+    nilai_uas = int(input("Masukkan nilai UAS: "))
+
+    nilai_akhir = hitung_nilai_akhir(nilai_tugas, nilai_uts, nilai_uas)
+    print(f"Nilai akhir Anda: {nilai_akhir:.2f}")
+
+except ValueError as e:
+    # Menangkap ValueError yang mungkin berasal dari input() atau dari raise kita sendiri
+    print(f"Input Error: {e}")
+except Exception as e:
+    print(f"Terjadi error tak terduga: {e}")</code></pre>
+        <p><strong>Outputnya (Contoh Interaksi 1: Input valid):</strong></p>
+        <pre><code class="language-plain">--- Menghitung Nilai Akhir ---
+Masukkan nilai tugas: 80
+Masukkan nilai UTS: 75
+Masukkan nilai UAS: 90
+Nilai akhir Anda: 82.50</code></pre>
+        <p>
+          <strong
+            >Outputnya (Contoh Interaksi 2: Input tidak valid, memicu
+            <code class="code-piece">raise ValueError</code>):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Menghitung Nilai Akhir ---
+Masukkan nilai tugas: 105
+Masukkan nilai UTS: 70
+Masukkan nilai UAS: 80
+Input Error: Semua nilai (tugas, UTS, UAS) harus antara 0 dan 100.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Dalam fungsi <code class="code-piece">hitung_nilai_akhir</code>, kita
+          menggunakan <code class="code-piece">if not (...)</code> untuk
+          memeriksa apakah semua nilai berada dalam rentang yang diharapkan
+          (0-100). Jika ada nilai yang di luar rentang itu, kita secara manual
+          memicu <code class="code-piece">ValueError</code> dengan
+          <code class="code-piece">raise ValueError(...)</code>. Pesan yang kita
+          berikan akan menjadi pesan error tersebut.
+        </p>
+        <p>
+          Di luar fungsi, kita menggunakan
+          <code class="code-piece">try-except</code> untuk menangkap
+          <code class="code-piece">ValueError</code> ini (atau
+          <code class="code-piece">ValueError</code> lainnya dari fungsi
+          <code class="code-piece">int(input())</code>). Ini menunjukkan
+          bagaimana Anda bisa mengontrol alur program dan memberikan umpan balik
+          yang spesifik kepada pengguna saat ada masalah yang Anda deteksi.
+        </p>
+
+        <h2>
+          Apa yang Perlu Diperhatikan: Jangan "Menelan" Error Begitu Saja!
+        </h2>
+        <p>
+          Kesalahan umum bagi pemula (dan bahkan beberapa programmer
+          berpengalaman) adalah menggunakan
+          <code class="code-piece">except</code> yang terlalu umum atau bahkan
+          <code class="code-piece">except:</code> kosong tanpa melakukan
+          apa-apa.
+        </p>
+        <pre><code class="language-python"># SANGAT TIDAK DISARANKAN!
+try:
+    hasil = 10 / 0 # Ini akan menyebabkan ZeroDivisionError
+except: # Ini akan menangkap SEMUA error tanpa mempedulikan tipenya
+    pass # 'pass' berarti 'jangan lakukan apa-apa'
+
+print("Program tetap berjalan, tapi kita tidak tahu apa yang salah!")</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Jika Anda menjalankan kode di atas,
+          <code class="code-piece">ZeroDivisionError</code> akan terjadi, tetapi
+          blok <code class="code-piece">except</code> kosong akan "menelan"nya.
+          Program akan terus berjalan tanpa memberi tahu Anda bahwa ada masalah
+          serius. Ini disebut "menelan error" (swallowing errors) dan sangat
+          berbahaya karena menyembunyikan masalah yang mungkin menyebabkan
+          perilaku aneh di kemudian hari.
+        </p>
+        <p>
+          <strong>Selalu usahakan untuk:</strong>
+        </p>
+        <ol>
+          <li>
+            <strong>Menangkap error yang spesifik</strong> (misal:
+            <code class="code-piece">except ValueError:</code>).
+          </li>
+          <li>
+            <strong>Menampilkan pesan yang informatif</strong> kepada pengguna
+            (dan mungkin kepada programmer untuk debugging).
+          </li>
+          <li>
+            <strong>Melakukan tindakan korektif</strong> jika memungkinkan.
+          </li>
+        </ol>
+        <p>
+          Gunakan <code class="code-piece">except Exception as e:</code> sebagai
+          "jaring pengaman terakhir", tetapi pastikan Anda setidaknya mencetak
+          <code class="code-piece">e</code> agar tahu error apa yang terjadi.
+        </p>
+
+        <h2>Hirarki Pengecualian: Error itu "Bersaudara"</h2>
+        <p>
+          Di Python, semua error (pengecualian) diatur dalam sebuah struktur
+          hirarki, seperti pohon keluarga. Semua pengecualian adalah "anak" dari
+          kelas dasar <code class="code-piece">BaseException</code>, dan
+          kebanyakan yang Anda temui adalah "anak" dari
+          <code class="code-piece">Exception</code>.
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">Exception</code>
+            <ul>
+              <li><code class="code-piece">ValueError</code></li>
+              <li><code class="code-piece">TypeError</code></li>
+              <li><code class="code-piece">ZeroDivisionError</code></li>
+              <li><code class="code-piece">KeyError</code></li>
+              <li><code class="code-piece">IndexError</code></li>
+              <li>Dll.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Ini berarti jika Anda menangkap
+          <code class="code-piece">except Exception:</code>, Anda secara
+          otomatis akan menangkap semua pengecualian "anaknya" juga, seperti
+          <code class="code-piece">ValueError</code>,
+          <code class="code-piece">TypeError</code>, dll. Itu sebabnya
+          disarankan untuk menangkap yang paling spesifik terlebih dahulu, lalu
+          yang lebih umum.
+        </p>
+        <pre><code class="language-python">try:
+    # Beberapa kode yang bisa menyebabkan berbagai error
+    # int("abc") # ValueError
+    # 10 / 0 # ZeroDivisionError
+    my_list = [1, 2]
+    print(my_list[3]) # IndexError
+
+except ValueError:
+    print("Ditangkap: Kesalahan nilai!")
+except IndexError:
+    print("Ditangkap: Kesalahan indeks!")
+except Exception as e: # Ini adalah catch-all untuk sisanya
+    print(f"Ditangkap: Error tak terduga: {type(e).__name__}: {e}")</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Urutan <code class="code-piece">except</code> sangat penting. Python
+          akan mencoba mencocokkan error yang terjadi dengan blok
+          <code class="code-piece">except</code> secara berurutan. Begitu
+          menemukan kecocokan pertama, ia akan menjalankan blok tersebut dan
+          melewati blok <code class="code-piece">except</code> lainnya. Jadi,
+          jika <code class="code-piece">IndexError</code> terjadi,
+          <code class="code-piece">except IndexError</code> akan menangkapnya.
+          Jika <code class="code-piece">ZeroDivisionError</code> terjadi dan
+          tidak ada <code class="code-piece">except ZeroDivisionError</code>,
+          maka <code class="code-piece">except Exception</code> akan
+          menangkapnya.
+        </p>
+
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./modul_library.html"
+            >Modul & Library – Menggunakan Kode yang Sudah Dibuat Orang Lain!</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./error_types.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./modul_library.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Modul & Library – Menggunakan Kode yang Sudah Dibuat Orang Lain!
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li>
+          <a href="./modul_library.html" class="active">Module & Library</a>
+        </li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          "Modul & Library" – Menggunakan Kode yang Sudah Dibuat Orang Lain!
+        </h1>
+        <p>
+          Bayangkan Anda ingin membangun sebuah rumah. Anda tidak perlu membuat
+          setiap bata, setiap jendela, atau setiap pintu dari nol. Anda tinggal
+          membeli bata dari pabrik, jendela dari toko, dan pintu dari pengrajin.
+          Dengan begitu, Anda bisa fokus pada merancang dan merakit rumahnya.
+        </p>
+        <p>
+          Dalam pemrograman Python, konsep <strong>Modul</strong> dan
+          <strong>Library</strong> (atau <strong>Paket</strong>) mirip dengan
+          itu. Mereka adalah kumpulan kode yang sudah ditulis dan diorganisir
+          oleh orang lain (atau Anda sendiri) untuk melakukan tugas-tugas
+          tertentu. Dengan menggunakan modul dan library, kita tidak perlu
+          "menciptakan roda dua kali". Kita bisa menggunakan fungsi, variabel,
+          atau bahkan struktur data canggih yang sudah tersedia, sehingga kita
+          bisa fokus pada logika unik program kita.
+        </p>
+        <h2>1. Apa itu "Modul"?</h2>
+        <p>
+          Sebuah <strong>Modul</strong> di Python adalah sebuah file (<code
+            class="code-piece"
+            >.py</code
+          >) yang berisi kode Python. Di dalamnya bisa ada variabel, fungsi,
+          atau bahkan definisi struktur data yang sudah kita pelajari. Modul ini
+          bisa kita "impor" ke dalam program kita dan menggunakan isi di
+          dalamnya. Ini adalah cara Python untuk mengorganisir kode ke dalam
+          file-file terpisah agar lebih rapi dan bisa digunakan kembali.
+        </p>
+        <h3>
+          Menggunakan Modul Bawaan Python:
+          <code class="code-piece">math</code> dan
+          <code class="code-piece">random</code>
+        </h3>
+        <p>
+          Python dilengkapi dengan banyak modul bawaan yang sangat berguna. Mari
+          kita coba dua di antaranya:
+        </p>
+        <h4>
+          Modul <code class="code-piece">math</code>: Untuk Operasi Matematika
+          Canggih
+        </h4>
+        <p>
+          Modul <code class="code-piece">math</code> menyediakan fungsi-fungsi
+          matematika yang lebih kompleks daripada operator dasar (<code
+            class="code-piece"
+            >+</code
+          >, <code class="code-piece">-</code>,
+          <code class="code-piece">*</code>, <code class="code-piece">/</code>).
+        </p>
+        <pre><code class="language-python"># Cara 1: Mengimpor seluruh modul
+import math
+
+print("--- Menggunakan Modul math ---")
+jari_jari = 7
+luas_lingkaran = math.pi * (jari_jari ** 2) # math.pi adalah nilai PI (3.14...)
+print(f"Luas lingkaran dengan jari-jari {jari_jari}: {luas_lingkaran:.2f}")
+
+akar_kuadrat = math.sqrt(25) # math.sqrt() untuk akar kuadrat
+print(f"Akar kuadrat dari 25: {akar_kuadrat}")
+
+derajat = 45
+radian = math.radians(derajat) # Mengubah derajat ke radian
+print(f"{derajat} derajat = {radian:.4f} radian")
+print(f"Sinus {derajat} derajat:", math.sin(radian)) # math.sin() untuk sinus
+
+# Cara 2: Mengimpor hanya bagian tertentu dari modul
+from math import pi, sqrt, cos
+
+print("\n--- Menggunakan Bagian Tertentu dari Modul math ---")
+# Sekarang kita bisa langsung pakai pi dan sqrt tanpa 'math.'
+luas_lingkaran_2 = pi * (8 ** 2)
+print(f"Luas lingkaran dengan jari-jari 8: {luas_lingkaran_2:.2f}")
+
+akar_kuadrat_lain = sqrt(100)
+print(f"Akar kuadrat dari 100: {akar_kuadrat_lain}")
+
+# Menggunakan cosinus
+sudut_radian = math.radians(60) # math.radians tetap perlu karena tidak diimpor langsung
+cosinus_60 = cos(sudut_radian)
+print(f"Cosinus 60 derajat: {cosinus_60:.2f}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Menggunakan Modul math ---
+Luas lingkaran dengan jari-jari 7: 153.94
+Akar kuadrat dari 25: 5.0
+45 derajat = 0.7854 radian
+Sinus 45 derajat: 0.71
+
+--- Menggunakan Bagian Tertentu dari Modul math ---
+Luas lingkaran dengan jari-jari 8: 201.06
+Akar kuadrat dari 100: 10.0
+Cosinus 60 derajat: 0.50</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            <code class="code-piece">import math</code>: Baris ini memberitahu
+            Python untuk memuat seluruh modul
+            <code class="code-piece">math</code>. Setelah itu, untuk menggunakan
+            apapun dari modul <code class="code-piece">math</code> (misalnya
+            <code class="code-piece">pi</code> atau
+            <code class="code-piece">sqrt</code>), kita harus menuliskannya
+            dengan
+            <code class="code-piece">math.nama_yang_diinginkan</code> (contoh:
+            <code class="code-piece">math.pi</code>,
+            <code class="code-piece">math.sqrt</code>).
+          </li>
+          <li>
+            <code class="code-piece">from math import pi, sqrt, cos</code>:
+            Baris ini lebih spesifik. Ia hanya mengimpor
+            <code class="code-piece">pi</code>,
+            <code class="code-piece">sqrt</code>, dan
+            <code class="code-piece">cos</code> dari modul
+            <code class="code-piece">math</code>. Setelah itu, kita bisa
+            langsung menggunakan <code class="code-piece">pi</code>,
+            <code class="code-piece">sqrt</code>, dan
+            <code class="code-piece">cos</code> tanpa perlu menulis
+            <code class="code-piece">math.</code>. Cara ini membuat kode lebih
+            ringkas jika Anda hanya butuh beberapa hal dari sebuah modul.
+          </li>
+        </ul>
+        <h4>
+          Modul <code class="code-piece">random</code>: Membuat Angka Acak
+        </h4>
+        <p>
+          Modul <code class="code-piece">random</code> menyediakan fungsi untuk
+          menghasilkan angka acak, sangat berguna untuk permainan, simulasi,
+          atau bahkan mengacak daftar.
+        </p>
+        <pre><code class="language-python">import random
+
+print("--- Menggunakan Modul random ---")
+# Mengacak angka bulat antara 1 dan 10 (inklusif)
+dadu = random.randint(1, 6) # Angka acak dari 1 sampai 6 (seperti dadu)
+print(f"Hasil lemparan dadu: {dadu}")
+
+# Mengacak angka desimal antara 0.0 dan 1.0
+probabilitas = random.random()
+print(f"Angka acak antara 0.0 dan 1.0: {probabilitas:.4f}")
+
+# Memilih item acak dari sebuah list
+daftar_pemenang = ["Ani", "Budi", "Cici", "Dina", "Eko"]
+pemenang_undian = random.choice(daftar_pemenang)
+print(f"Pemenang undian adalah: {pemenang_undian}")
+
+# Mengacak urutan list (shuffle)
+urutan_tim = ["Tim A", "Tim B", "Tim C", "Tim D"]
+print("Urutan tim awal:", urutan_tim)
+random.shuffle(urutan_tim) # Mengubah urutan list secara langsung
+print("Urutan tim setelah diacak:", urutan_tim)</code></pre>
+        <p>
+          <strong
+            >Outputnya (output acak, bisa berbeda setiap dijalankan):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Menggunakan Modul random ---
+Hasil lemparan dadu: 3
+Angka acak antara 0.0 dan 1.0: 0.7821
+Pemenang undian adalah: Dina
+Urutan tim awal: ['Tim A', 'Tim B', 'Tim C', 'Tim D']
+Urutan tim setelah diacak: ['Tim C', 'Tim A', 'Tim D', 'Tim B']</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            <code class="code-piece">random.randint(1, 6)</code> menghasilkan
+            integer acak antara 1 dan 6 (termasuk 1 dan 6).
+          </li>
+          <li>
+            <code class="code-piece">random.random()</code> menghasilkan float
+            acak antara 0.0 (termasuk) dan 1.0 (tidak termasuk).
+          </li>
+          <li>
+            <code class="code-piece">random.choice()</code> memilih satu item
+            acak dari list yang diberikan.
+          </li>
+          <li>
+            <code class="code-piece">random.shuffle()</code>
+            <strong>mengubah urutan item dalam list secara langsung</strong>
+            (in-place shuffle). Ini tidak mengembalikan list baru.
+          </li>
+        </ul>
+        <h3>
+          Mengganti Nama Modul Saat Mengimpor (<code class="code-piece">as</code
+          >)
+        </h3>
+        <p>
+          Jika nama modul terlalu panjang atau ingin disingkat, Anda bisa
+          menggunakan <code class="code-piece">as</code> saat mengimpornya.
+        </p>
+        <pre><code class="language-python">import math as mt # Sekarang kita bisa pakai 'mt' sebagai pengganti 'math'
+import random as rnd # Sekarang kita bisa pakai 'rnd' sebagai pengganti 'random'
+
+print(f"Nilai PI (dari mt): {mt.pi:.3f}")
+print(f"Angka acak (dari rnd): {rnd.random():.3f}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Nilai PI (dari mt): 3.142
+Angka acak (dari rnd): 0.123 (bisa berbeda)</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">import math as mt</code> membuat Anda bisa
+          menggunakan <code class="code-piece">mt</code> daripada
+          <code class="code-piece">math</code> di seluruh kode Anda, yang kadang
+          lebih cepat diketik atau lebih sesuai dengan gaya Anda.
+        </p>
+        <h3>
+          Mengimpor Semua dari Modul (<code class="code-piece">*</code>) (Tidak
+          Disarankan!)
+        </h3>
+        <p>
+          Anda bisa mengimpor semua yang ada di modul langsung ke program Anda
+          dengan <code class="code-piece">from modul import *</code>. Namun, ini
+          <strong>sangat tidak disarankan</strong> karena bisa menyebabkan
+          "tabrakan nama" (name collisions) jika ada nama fungsi atau variabel
+          yang sama di modul yang berbeda atau di kode Anda sendiri.
+        </p>
+        <pre><code class="language-python"># SANGAT TIDAK DISARANKAN dalam kode yang besar!
+from math import * # Mengimpor semua fungsi/variabel dari math
+
+print("--- Mengimpor Semua (*) ---")
+print(f"Nilai PI (langsung): {pi:.3f}") # Tidak perlu 'math.'
+print(f"Sinus 90 derajat: {sin(radians(90)):.3f}") # Tidak perlu 'math.'</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Mengimpor Semua (*) ---
+Nilai PI (langsung): 3.142
+Sinus 90 derajat: 1.000</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Meskipun ini membuat kode terlihat lebih ringkas, bayangkan jika Anda
+          mengimpor dua modul yang keduanya punya fungsi bernama
+          <code class="code-piece">hitung()</code>. Python tidak akan tahu
+          <code class="code-piece">hitung()</code> mana yang Anda maksud! Jadi,
+          hindari <code class="code-piece">import *</code> kecuali Anda
+          benar-benar yakin dan tahu apa yang Anda lakukan (misalnya, untuk
+          eksperimen cepat di konsol Python).
+        </p>
+        <h3>Membuat Modul Anda Sendiri</h3>
+        <p>
+          Kekuatan modul bukan hanya pada modul bawaan, tapi juga pada kemampuan
+          Anda untuk membuat modul sendiri! Jika Anda menulis fungsi-fungsi yang
+          Anda rasa akan sering Anda gunakan di berbagai program, Anda bisa
+          menyimpannya dalam sebuah file
+          <code class="code-piece">.py</code> terpisah, lalu mengimpornya ke
+          program utama Anda.
+        </p>
+        <p><strong>Langkah-langkah:</strong></p>
+        <ol>
+          <li>
+            <strong>Buat file Python baru</strong> (misalnya,
+            <code class="code-piece">alat_bantu.py</code>).
+          </li>
+          <li>
+            <strong>Isi file tersebut dengan fungsi</strong> atau variabel yang
+            ingin Anda jadikan modul.
+          </li>
+          <li>
+            <strong>Simpan file tersebut</strong> di direktori yang sama dengan
+            program utama Anda, atau di lokasi yang bisa ditemukan Python.
+          </li>
+          <li><strong>Impor modul tersebut</strong> di program utama Anda.</li>
+        </ol>
+        <p><strong>Contoh:</strong></p>
+        <p>
+          <strong>File: <code class="code-piece">alat_bantu.py</code></strong>
+        </p>
+        <pre><code class="language-python"># alat_bantu.py
+
+def salam(nama):
+    """Mengucapkan salam kepada seseorang."""
+    return f"Halo, {nama}! Selamat belajar."
+
+def hitung_rata_rata(daftar_angka):
+    """Menghitung rata-rata dari daftar angka."""
+    if not daftar_angka: # Kondisional: jika list kosong
+        return 0
+    total = sum(daftar_angka) # sum() adalah fungsi bawaan Python untuk menjumlahkan isi list
+    return total / len(daftar_angka)
+
+PHI_LOKAL = 3.14 # Variabel di dalam modul
+
+# Bagian ini akan dijalankan HANYA jika file ini dijalankan langsung, BUKAN saat diimpor
+if __name__ == "__main__":
+    print("Saya sedang dijalankan langsung sebagai alat_bantu.py")
+    print(salam("Pengguna Langsung"))
+    print("Rata-rata dari [1,2,3]:", hitung_rata_rata([1,2,3]))</code></pre>
+        <p>
+          <strong
+            >File: <code class="code-piece">program_utama.py</code></strong
+          >
+          (simpan di direktori yang sama dengan
+          <code class="code-piece">alat_bantu.py</code>)
+        </p>
+        <pre><code class="language-python"># program_utama.py
+
+import alat_bantu
+
+print("--- Menggunakan Modul Buatan Sendiri ---")
+pesan_salam = alat_bantu.salam("Siswa SMA")
+print(pesan_salam)
+
+nilai_saya = [80, 90, 75, 88, 92]
+rata_saya = alat_bantu.hitung_rata_rata(nilai_saya)
+print(f"Rata-rata nilai saya: {rata_saya:.2f}")
+
+print(f"Nilai PHI dari modul: {alat_bantu.PHI_LOKAL}")
+
+# Kita juga bisa mengimpor spesifik
+from alat_bantu import salam, PHI_LOKAL
+print(salam("Budi"))
+print(PHI_LOKAL * 2)</code></pre>
+        <p>
+          <strong
+            >Outputnya (jika Anda menjalankan
+            <code class="code-piece">python program_utama.py</code>):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Menggunakan Modul Buatan Sendiri ---
+Halo, Siswa SMA! Selamat belajar.
+Rata-rata nilai saya: 85.00
+Nilai PHI dari modul: 3.14
+Halo, Budi! Selamat belajar.
+6.28</code></pre>
+        <p>
+          <em
+            >(Jika Anda menjalankan
+            <code class="code-piece">python alat_bantu.py</code> langsung, Anda
+            akan melihat output dari blok
+            <code class="code-piece">if __name__ == "__main__":</code>)</em
+          >
+        </p>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            Di <code class="code-piece">alat_bantu.py</code>, kita
+            mendefinisikan dua fungsi (<code class="code-piece">salam</code>,
+            <code class="code-piece">hitung_rata_rata</code>) dan satu variabel
+            (<code class="code-piece">PHI_LOKAL</code>).
+          </li>
+          <li>
+            Baris
+            <code class="code-piece">if __name__ == "__main__":</code> adalah
+            trik standar di Python. Kode di dalam blok ini
+            <strong
+              >hanya akan dijalankan jika file
+              <code class="code-piece">alat_bantu.py</code> dijalankan
+              langsung</strong
+            >
+            (misalnya, dari Command Prompt/Terminal). Jika file ini diimpor oleh
+            file lain (seperti
+            <code class="code-piece">program_utama.py</code>), maka kode di
+            dalam blok
+            <code class="code-piece">if __name__ == "__main__":</code> ini
+            <strong>tidak akan dijalankan</strong>. Ini sangat berguna untuk
+            menaruh kode pengujian atau demo di dalam modul tanpa menjalankannya
+            setiap kali modul diimpor.
+          </li>
+          <li>
+            Di <code class="code-piece">program_utama.py</code>,
+            <code class="code-piece">import alat_bantu</code> membuat semua yang
+            ada di <code class="code-piece">alat_bantu.py</code> bisa diakses
+            dengan awalan <code class="code-piece">alat_bantu.</code>.
+          </li>
+          <li>
+            <code class="code-piece"
+              >from alat_bantu import salam, PHI_LOKAL</code
+            >
+            memungkinkan kita menggunakan
+            <code class="code-piece">salam</code> dan
+            <code class="code-piece">PHI_LOKAL</code> secara langsung tanpa
+            awalan <code class="code-piece">alat_bantu.</code>.
+          </li>
+        </ol>
+        <h2>2. Apa itu "Library" (atau "Paket")?</h2>
+        <p>
+          Sebuah <strong>Library</strong> (sering juga disebut
+          <strong>Paket</strong>) adalah kumpulan dari beberapa modul yang
+          saling terkait, diorganisir dalam sebuah folder. Misalnya, ada library
+          untuk membuat grafik, untuk memproses gambar, atau untuk terhubung ke
+          internet. Python memiliki ekosistem library yang sangat besar (disebut
+          <strong>PyPI - Python Package Index</strong>) yang berisi ribuan
+          library yang bisa Anda instal dan gunakan.
+        </p>
+        <p><strong>Contoh library:</strong></p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">numpy</code></strong
+            >: Untuk perhitungan matematika dengan angka-angka besar (array).
+          </li>
+          <li>
+            <strong><code class="code-piece">pandas</code></strong
+            >: Untuk mengolah data berbentuk tabel (seperti di Excel).
+          </li>
+          <li>
+            <strong><code class="code-piece">matplotlib</code></strong
+            >: Untuk membuat grafik dan visualisasi data.
+          </li>
+          <li>
+            <strong><code class="code-piece">requests</code></strong
+            >: Untuk mengambil data dari internet.
+          </li>
+        </ul>
+        <p>
+          Anda biasanya menginstal library ini menggunakan alat yang disebut
+          <code class="code-piece">pip</code> (akan dibahas lebih lanjut di
+          modul <em>Virtual Environment & Package Management</em>). Setelah
+          terinstal, Anda bisa mengimpor modul di dalamnya seperti biasa.
+        </p>
+        <h2>Kapan Menggunakan Modul/Library?</h2>
+        <ul>
+          <li>
+            <strong>Untuk tugas berulang:</strong> Jika Anda melakukan hal yang
+            sama berkali-kali di program Anda sendiri, jadikan fungsi dan taruh
+            di modul.
+          </li>
+          <li>
+            <strong>Untuk tugas yang kompleks:</strong> Jika ada tugas yang
+            sudah ada solusinya (misalnya, menghitung akar kuadrat, mengirim
+            email, membuat grafik), cari apakah ada modul atau library yang
+            sudah ada yang bisa melakukannya.
+          </li>
+          <li>
+            <strong>Untuk mengorganisir kode:</strong> Pisahkan bagian-bagian
+            program Anda ke dalam file <code class="code-piece">.py</code> yang
+            berbeda sebagai modul untuk menjaga kerapian.
+          </li>
+        </ul>
+        <h2>Apa yang Harus Diperhatikan: Pencarian Modul oleh Python</h2>
+        <p>
+          Ketika Anda menulis <code class="code-piece">import nama_modul</code>,
+          Python akan mencari file
+          <code class="code-piece">nama_modul.py</code> di beberapa tempat,
+          secara berurutan:
+        </p>
+        <ol>
+          <li>
+            <strong>Direktori tempat program utama Anda berjalan:</strong> Ini
+            sebabnya <code class="code-piece">program_utama.py</code> bisa
+            menemukan <code class="code-piece">alat_bantu.py</code> jika
+            keduanya di folder yang sama.
+          </li>
+          <li>
+            <strong
+              >Direktori yang tercantum dalam variabel lingkungan
+              <code class="code-piece">PYTHONPATH</code>:</strong
+            >
+            Ini adalah pengaturan tingkat sistem operasi yang bisa ditambahkan
+            untuk memberitahu Python di mana lagi harus mencari modul.
+          </li>
+          <li>
+            <strong>Direktori instalasi standar Python:</strong> Di sinilah
+            modul-modul bawaan seperti <code class="code-piece">math</code>,
+            <code class="code-piece">random</code>, dll., disimpan.
+          </li>
+        </ol>
+        <p>
+          Anda bisa melihat daftar semua direktori tempat Python mencari modul
+          dengan mencetak <code class="code-piece">sys.path</code> (Anda harus
+          <code class="code-piece">import sys</code> terlebih dahulu).
+        </p>
+        <pre><code class="language-python">import sys
+
+print("--- Direktori Pencarian Modul Python (sys.path) ---")
+for path in sys.path:
+    print(path)</code></pre>
+        <p>
+          <strong
+            >Outputnya (bisa berbeda tergantung sistem operasi dan instalasi
+            Python Anda):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Direktori Pencarian Modul Python (sys.path) ---
+/path/ke/folder/program_utama_anda
+/path/ke/instalasi/python/lib/python3.x
+/path/ke/instalasi/python/lib/python3.x/site-packages
+...</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">sys.path</code> adalah sebuah list yang
+          berisi semua folder tempat Python akan mencari file
+          <code class="code-piece">.py</code> ketika Anda menggunakan
+          <code class="code-piece">import</code>. Jika modul yang ingin Anda
+          impor tidak ditemukan di salah satu jalur ini, Python akan memberikan
+          <code class="code-piece">ModuleNotFoundError</code>. Memahami ini
+          berguna untuk memecahkan masalah jika Python tidak bisa menemukan
+          modul yang Anda buat atau instal.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya: </strong>
+          <a href="./file_handling.html"
+            >"File Handling" – Menyimpan dan Membaca Data dari File</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./exception_handling.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./file_handling.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

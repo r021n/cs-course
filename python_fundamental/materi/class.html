@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Class – Cetak Biru untuk Membuat Objek di Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html" class="active">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Class" – Cetak Biru untuk Membuat Objek di Python</h1>
+        <p>
+          Sejauh ini, kita telah belajar bagaimana menyimpan data dalam
+          variabel, melakukan perhitungan, membuat keputusan dengan kondisional,
+          mengulang tugas dengan perulangan, dan mengelompokkan kode dengan
+          fungsi. Semua ini adalah dasar yang sangat kuat. Namun, ketika program
+          menjadi lebih besar dan kompleks, kita sering berurusan dengan
+          "benda-benda" yang memiliki ciri-ciri (data) dan kemampuan (fungsi)
+          tertentu.
+        </p>
+        <p>
+          Bayangkan Anda ingin membuat program untuk mengelola data siswa di
+          sekolah. Setiap siswa memiliki nama, usia, kelas, dan mungkin nilai.
+          Setiap siswa juga bisa "melakukan" sesuatu, seperti "belajar", atau
+          "mengikuti ujian". Jika Anda menyimpan semua informasi ini di variabel
+          terpisah (<code class="code-piece">nama_siswa1</code>,
+          <code class="code-piece">usia_siswa1</code>,
+          <code class="code-piece">nama_siswa2</code>,
+          <code class="code-piece">usia_siswa2</code>), ini akan sangat
+          berantakan.
+        </p>
+        <p>
+          Di sinilah <strong>Class</strong> (dibaca "klas") muncul. Class adalah
+          sebuah <strong>cetak biru</strong>, <strong>template</strong>, atau
+          <strong>definisi</strong> untuk membuat "benda-benda" (yang kita sebut
+          <strong>objek</strong>) yang memiliki sifat dan perilaku serupa. Class
+          mendefinisikan:
+        </p>
+        <ol>
+          <li>
+            <strong>Atribut:</strong> Ini adalah <strong>data</strong> atau
+            <strong>ciri-ciri</strong> yang akan dimiliki oleh setiap objek yang
+            dibuat dari Class ini. Contoh: nama, usia, kelas.
+          </li>
+          <li>
+            <strong>Metode:</strong> Ini adalah <strong>fungsi</strong> atau
+            <strong>kemampuan</strong> yang bisa dilakukan oleh setiap objek
+            yang dibuat dari Class ini. Contoh:
+            <code class="code-piece">belajar()</code>,
+            <code class="code-piece">mengikuti_ujian()</code>.
+          </li>
+        </ol>
+        <p>
+          Jadi, daripada membuat variabel terpisah untuk setiap siswa, Anda bisa
+          membuat satu <code class="code-piece">Class Siswa</code>. Dari
+          <code class="code-piece">Class Siswa</code> ini, Anda bisa membuat
+          banyak <strong>objek</strong> siswa (misalnya,
+          <code class="code-piece">objek_budi</code>,
+          <code class="code-piece">objek_siti</code>), dan setiap objek akan
+          memiliki atribut dan metode sendiri sesuai cetak birunya.
+        </p>
+        <h2>
+          1. Membuat Class Sederhana: Class
+          <code class="code-piece">Siswa</code>
+        </h2>
+        <p>
+          Kita membuat Class menggunakan kata kunci
+          <code class="code-piece">class</code>, diikuti nama Class, dan
+          diakhiri dengan titik dua (<code class="code-piece">:</code>).
+          Biasanya, nama Class diawali dengan huruf kapital (ini adalah konvensi
+          PEP 8).
+        </p>
+        <pre><code class="language-python"># Ini adalah definisi (cetak biru) dari Class Siswa
+class Siswa:
+    # Ini adalah metode (fungsi) yang dimiliki oleh setiap objek Siswa
+    def belajar(self, mata_pelajaran):
+        print(f"Siswa ini sedang belajar {mata_pelajaran}.")
+
+    def sapa(self):
+        print("Halo! Saya adalah seorang siswa.")
+
+# Membuat objek (instansi) dari Class Siswa
+# Ini seperti membuat sebuah 'siswa' nyata dari cetak biru 'Class Siswa'
+siswa_budi = Siswa()
+siswa_siti = Siswa()
+
+print("--- Interaksi dengan Objek Siswa ---")
+siswa_budi.sapa()        # Memanggil metode sapa() pada objek siswa_budi
+siswa_budi.belajar("Matematika") # Memanggil metode belajar()
+
+siswa_siti.sapa()
+siswa_siti.belajar("Bahasa Inggris")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Interaksi dengan Objek Siswa ---
+Halo! Saya adalah seorang siswa.
+Siswa ini sedang belajar Matematika.
+Halo! Saya adalah seorang siswa.
+Siswa ini sedang belajar Bahasa Inggris.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">class Siswa:</code>: Baris ini
+            mendefinisikan sebuah Class bernama
+            <code class="code-piece">Siswa</code>.
+          </li>
+          <li>
+            <code class="code-piece">def belajar(self, mata_pelajaran):</code>
+            dan <code class="code-piece">def sapa(self):</code>: Ini adalah
+            <strong>metode</strong> dari Class
+            <code class="code-piece">Siswa</code>. Perhatikan parameter
+            <code class="code-piece">self</code> yang ada di setiap metode.
+            <code class="code-piece">self</code> ini adalah referensi ke
+            <strong>objek itu sendiri</strong> yang sedang memanggil metode
+            tersebut. Python secara otomatis memberikan objek yang sedang aktif
+            sebagai argumen pertama ke <code class="code-piece">self</code>.
+          </li>
+          <li>
+            <code class="code-piece">siswa_budi = Siswa()</code> dan
+            <code class="code-piece">siswa_siti = Siswa()</code>: Ini adalah
+            proses <strong>instansiasi</strong>, yaitu membuat
+            <strong>objek</strong> nyata dari Class
+            <code class="code-piece">Siswa</code>.
+            <code class="code-piece">siswa_budi</code> dan
+            <code class="code-piece">siswa_siti</code> adalah dua objek yang
+            berbeda, meskipun mereka dibuat dari cetak biru yang sama.
+          </li>
+          <li>
+            <code class="code-piece">siswa_budi.sapa()</code>: Ini adalah cara
+            memanggil metode <code class="code-piece">sapa()</code> yang
+            "dimiliki" oleh objek <code class="code-piece">siswa_budi</code>.
+          </li>
+          <li>
+            Saat
+            <code class="code-piece">siswa_budi.belajar("Matematika")</code>
+            dipanggil, di dalam metode <code class="code-piece">belajar</code>,
+            <code class="code-piece">self</code> akan merujuk ke
+            <code class="code-piece">siswa_budi</code>, dan
+            <code class="code-piece">mata_pelajaran</code> akan berisi
+            <code class="code-piece">"Matematika"</code>.
+          </li>
+        </ol>
+        <h2>
+          2. Atribut: Data Unik Setiap Objek dengan Metode Khusus
+          <code class="code-piece">__init__</code>
+        </h2>
+        <p>
+          Objek-objek biasanya memiliki data yang unik untuk dirinya sendiri.
+          Misalnya, <code class="code-piece">siswa_budi</code> punya nama "Budi"
+          dan <code class="code-piece">siswa_siti</code> punya nama "Siti". Kita
+          menyimpan data unik ini di <strong>atribut instansi</strong> (instance
+          attributes).
+        </p>
+        <p>
+          Untuk mengatur atribut instansi ini saat objek pertama kali dibuat,
+          kita menggunakan metode khusus bernama
+          <code class="code-piece">__init__</code> (dibaca "dunder init").
+          Metode ini secara otomatis dipanggil oleh Python setiap kali Anda
+          membuat objek baru dari sebuah Class. Ini seperti "fungsi persiapan"
+          objek.
+        </p>
+        <pre><code class="language-python">class SiswaBaru:
+    def __init__(self, nama, umur, kelas):
+        # self.nama, self.umur, self.kelas adalah atribut instansi
+        # Mereka menyimpan data unik untuk SETIAP objek SiswaBaru
+        self.nama = nama
+        self.umur = umur
+        self.kelas = kelas
+        print(f"Objek SiswaBaru '{self.nama}' berhasil dibuat!")
+
+    def tampilkan_biodata(self):
+        # Metode ini mengakses atribut instansi dari objek itu sendiri
+        print(f"Nama: {self.nama}")
+        print(f"Umur: {self.umur} tahun")
+        print(f"Kelas: {self.kelas}")
+
+    def ulang_tahun(self):
+        self.umur += 1 # Mengubah atribut umur dari objek itu sendiri
+        print(f"Selamat ulang tahun, {self.nama}! Anda sekarang berusia {self.umur} tahun.")
+
+# Membuat objek SiswaBaru (otomatis memanggil __init__)
+siswa_adi = SiswaBaru("Adi", 15, "X MIPA 2") # Memberikan nilai untuk nama, umur, kelas
+siswa_luna = SiswaBaru("Luna", 16, "XI IPS 1")
+
+print("\n--- Biodata Siswa ---")
+siswa_adi.tampilkan_biodata()
+print("-" * 20)
+siswa_luna.tampilkan_biodata()
+
+print("\n--- Ulang Tahun Adi ---")
+siswa_adi.ulang_tahun() # Adi merayakan ulang tahun!
+print("-" * 20)
+siswa_adi.tampilkan_biodata() # Umur Adi sudah berubah
+siswa_luna.tampilkan_biodata() # Umur Luna tidak berubah</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Objek SiswaBaru 'Adi' berhasil dibuat!
+Objek SiswaBaru 'Luna' berhasil dibuat!
+
+--- Biodata Siswa ---
+Nama: Adi
+Umur: 15 tahun
+Kelas: X MIPA 2
+--------------------
+Nama: Luna
+Umur: 16 tahun
+Kelas: XI IPS 1
+
+--- Ulang Tahun Adi ---
+Selamat ulang tahun, Adi! Anda sekarang berusia 16 tahun.
+--------------------
+Nama: Adi
+Umur: 16 tahun
+Kelas: X MIPA 2
+Nama: Luna
+Umur: 16 tahun
+Kelas: XI IPS 1</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece"
+              >def __init__(self, nama, umur, kelas):</code
+            >: Ini adalah metode khusus yang dipanggil saat objek dibuat.
+            <ul>
+              <li>
+                <code class="code-piece">self</code>: Selalu parameter pertama,
+                merujuk pada objek yang sedang dibuat.
+              </li>
+              <li>
+                <code class="code-piece">nama</code>,
+                <code class="code-piece">umur</code>,
+                <code class="code-piece">kelas</code>: Ini adalah parameter yang
+                harus Anda berikan saat membuat objek (<code class="code-piece"
+                  >SiswaBaru("Adi", 15, "X MIPA 2")</code
+                >).
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code class="code-piece">self.nama = nama</code>,
+            <code class="code-piece">self.umur = umur</code>,
+            <code class="code-piece">self.kelas = kelas</code>: Ini adalah
+            baris-baris yang <strong>membuat atribut instansi</strong>.
+            <code class="code-piece">self.nama</code> artinya "atribut
+            <code class="code-piece">nama</code> untuk objek ini". Nilai dari
+            parameter <code class="code-piece">nama</code> akan disimpan di
+            atribut <code class="code-piece">self.nama</code> pada objek yang
+            sedang dibuat.
+          </li>
+          <li>
+            <code class="code-piece">siswa_adi.tampilkan_biodata()</code>:
+            Metode ini menggunakan <code class="code-piece">self.nama</code>,
+            <code class="code-piece">self.umur</code>, dan
+            <code class="code-piece">self.kelas</code> yang sudah disimpan di
+            objek <code class="code-piece">siswa_adi</code>.
+          </li>
+          <li>
+            <code class="code-piece">siswa_adi.ulang_tahun()</code>: Metode ini
+            mengubah atribut <code class="code-piece">self.umur</code> dari
+            objek <code class="code-piece">siswa_adi</code>. Perhatikan bahwa
+            <code class="code-piece">siswa_luna</code> tidak terpengaruh, karena
+            atribut <code class="code-piece">umur</code> mereka adalah unik
+            untuk setiap objek.
+          </li>
+        </ol>
+        <h2>3. Atribut Kelas: Informasi yang Dibagi Bersama</h2>
+        <p>
+          Selain atribut instansi yang unik untuk setiap objek, Class juga bisa
+          memiliki <strong>atribut kelas</strong>. Ini adalah data yang
+          <strong>dibagi oleh semua objek</strong> yang dibuat dari Class
+          tersebut. Mereka adalah bagian dari Class itu sendiri, bukan bagian
+          dari objek individu.
+        </p>
+        <pre><code class="language-python">class Sekolah:
+    # Ini adalah atribut kelas (shared by all objects of this class)
+    # Ini adalah variabel yang dimiliki oleh Class 'Sekolah' itu sendiri, bukan objeknya
+    NAMA_SEKOLAH = "SMA Bintang Harapan"
+    JUMLAH_MAKSIMAL_SISWA = 1000
+
+    def __init__(self, nama_kepsek, alamat):
+        self.nama_kepsek = nama_kepsek
+        self.alamat = alamat
+        print(f"Objek Sekolah '{self.NAMA_SEKOLAH}' dibentuk dengan Kepsek {self.nama_kepsek}.")
+
+    def info_sekolah(self):
+        print(f"Sekolah: {self.NAMA_SEKOLAH}") # Akses atribut kelas melalui self
+        print(f"Alamat: {self.alamat}")
+        print(f"Kepala Sekolah: {self.nama_kepsek}")
+        print(f"Kapasitas Maksimal: {self.JUMLAH_MAKSIMAL_SISWA} siswa.")
+
+# Membuat objek dari Class Sekolah
+sekolah_pusat = Sekolah("Bpk. Ahmad", "Jl. Utama No. 1")
+sekolah_cabang = Sekolah("Ibu Dewi", "Jl. Cabang No. 5")
+
+print("\n--- Informasi Sekolah ---")
+sekolah_pusat.info_sekolah()
+print("-" * 30)
+sekolah_cabang.info_sekolah()
+
+print("\n--- Mengakses Atribut Kelas Secara Langsung ---")
+# Anda bisa mengakses atribut kelas langsung dari Class-nya
+print(f"Nama Sekolah dari Class: {Sekolah.NAMA_SEKOLAH}")
+print(f"Kapasitas Maksimal dari Class: {Sekolah.JUMLAH_MAKSIMAL_SISWA}")
+
+# Jika Anda mengubah atribut kelas, semua objek akan melihat perubahan itu
+Sekolah.NAMA_SEKOLAH = "SMA Bintang Jaya"
+print("\n--- Nama Sekolah Berubah ---")
+sekolah_pusat.info_sekolah() # Objek pusat melihat nama yang baru
+sekolah_cabang.info_sekolah() # Objek cabang juga melihat nama yang baru</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Objek Sekolah 'SMA Bintang Harapan' dibentuk dengan Kepsek Bpk. Ahmad.
+Objek Sekolah 'SMA Bintang Harapan' dibentuk dengan Kepsek Ibu Dewi.
+
+--- Informasi Sekolah ---
+Sekolah: SMA Bintang Harapan
+Alamat: Jl. Utama No. 1
+Kepala Sekolah: Bpk. Ahmad
+Kapasitas Maksimal: 1000 siswa.
+------------------------------
+Sekolah: SMA Bintang Harapan
+Alamat: Jl. Cabang No. 5
+Kepala Sekolah: Ibu Dewi
+Kapasitas Maksimal: 1000 siswa.
+
+--- Mengakses Atribut Kelas Secara Langsung ---
+Nama Sekolah dari Class: SMA Bintang Harapan
+Kapasitas Maksimal dari Class: 1000
+
+--- Nama Sekolah Berubah ---
+Sekolah: SMA Bintang Jaya
+Alamat: Jl. Utama No. 1
+Kepala Sekolah: Bpk. Ahmad
+Kapasitas Maksimal: 1000 siswa.
+------------------------------
+Sekolah: SMA Bintang Jaya
+Alamat: Jl. Cabang No. 5
+Kepala Sekolah: Ibu Dewi
+Kapasitas Maksimal: 1000 siswa.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">NAMA_SEKOLAH = "SMA Bintang Harapan"</code>
+            dan <code class="code-piece">JUMLAH_MAKSIMAL_SISWA = 1000</code>:
+            Ini adalah <strong>atribut kelas</strong>, didefinisikan langsung di
+            bawah <code class="code-piece">class Sekolah:</code>, di luar metode
+            manapun.
+          </li>
+          <li>
+            Kita bisa mengakses atribut kelas ini baik melalui objek (<code
+              class="code-piece"
+              >self.NAMA_SEKOLAH</code
+            >) maupun langsung melalui nama Class (<code class="code-piece"
+              >Sekolah.NAMA_SEKOLAH</code
+            >).
+          </li>
+          <li>
+            Yang penting: ketika
+            <code class="code-piece"
+              >Sekolah.NAMA_SEKOLAH = "SMA Bintang Jaya"</code
+            >
+            dijalankan, perubahan ini akan terlihat oleh
+            <strong>semua objek</strong> dari Class
+            <code class="code-piece">Sekolah</code>, karena mereka semua berbagi
+            atribut kelas yang sama. Ini berbeda dengan atribut instansi yang
+            unik untuk setiap objek.
+          </li>
+        </ol>
+        <h2>4. Hal yang Perlu Diperhatikan: Class Itu Sendiri Adalah Objek</h2>
+        <p>
+          Di Python, Class itu sendiri adalah sebuah "benda" (objek) yang bisa
+          memiliki atribut dan perilaku. Ketika Anda mendefinisikan sebuah
+          Class, Anda sebenarnya sedang membuat sebuah objek Class di memori
+          Python.
+        </p>
+        <pre><code class="language-python">class ContohObjekClass:
+    # Atribut kelas
+    jumlah_dibuat = 0
+
+    def __init__(self, nama):
+        self.nama = nama
+        ContohObjekClass.jumlah_dibuat += 1 # Menambah hitungan atribut kelas
+
+    def tampilkan_nama(self):
+        print(f"Nama objek ini: {self.nama}")
+
+# Sebelum membuat objek, Class ContohObjekClass sudah ada
+print(f"Tipe dari ContohObjekClass: {type(ContohObjekClass)}")
+print(f"Jumlah objek yang dibuat (sebelum ada): {ContohObjekClass.jumlah_dibuat}")
+
+obj1 = ContohObjekClass("Objek Pertama")
+obj2 = ContohObjekClass("Objek Kedua")
+
+print(f"Jumlah objek yang dibuat (setelah 2 objek): {ContohObjekClass.jumlah_dibuat}")
+
+# Class juga bisa memiliki atribut yang ditambahkan secara dinamis (tidak disarankan)
+ContohObjekClass.versi = "1.0"
+print(f"Versi Class: {ContohObjekClass.versi}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Tipe dari ContohObjekClass: &lt;class 'type'&gt;
+Jumlah objek yang dibuat (sebelum ada): 0
+Jumlah objek yang dibuat (setelah 2 objek): 2
+Versi Class: 1.0</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">type(ContohObjekClass)</code> menunjukkan
+            bahwa <code class="code-piece">ContohObjekClass</code> itu sendiri
+            adalah objek dari tipe <code class="code-piece">type</code>. Ini
+            konsep yang lebih dalam tapi intinya, Class adalah entitas nyata di
+            Python.
+          </li>
+          <li>
+            <code class="code-piece">ContohObjekClass.jumlah_dibuat</code>
+            adalah atribut kelas yang bisa diakses dan dimodifikasi langsung
+            melalui nama Class. Setiap kali objek baru dibuat,
+            <code class="code-piece">__init__</code> menambah nilai
+            <code class="code-piece">jumlah_dibuat</code> ini dengan 1, dan
+            semua objek "melihat" nilai yang sama.
+          </li>
+          <li>
+            <code class="code-piece">ContohObjekClass.versi = "1.0"</code>
+            menunjukkan bahwa Anda bahkan bisa menambahkan atribut ke Class itu
+            sendiri setelah definisinya. Ini mirip dengan menambahkan atribut ke
+            objek biasa. Namun, praktik ini jarang dilakukan dan biasanya
+            atribut kelas didefinisikan di dalam blok
+            <code class="code-piece">class</code>.
+          </li>
+        </ol>
+        <h2>
+          5. Hal yang Perlu Diperhatikan: Atribut Bisa Ditambah di Luar
+          <code class="code-piece">__init__</code> (Tapi Sebaiknya Tidak)
+        </h2>
+        <p>
+          Python adalah bahasa yang sangat fleksibel. Anda bisa menambahkan
+          atribut baru ke sebuah objek <em>setelah</em> objek itu dibuat, bahkan
+          jika atribut tersebut tidak didefinisikan di
+          <code class="code-piece">__init__</code>.
+        </p>
+        <pre><code class="language-python">class Karyawan:
+    def __init__(self, nama):
+        self.nama = nama # Atribut 'nama' dibuat di __init__
+
+    def info(self):
+        print(f"Nama Karyawan: {self.nama}")
+        # Mencoba mengakses atribut yang mungkin tidak ada
+        if hasattr(self, 'divisi'): # Fungsi bawaan untuk cek apakah objek punya atribut
+            print(f"Divisi: {self.divisi}")
+        else:
+            print("Divisi: Belum ditetapkan")
+
+# Membuat objek
+karyawan1 = Karyawan("Budi")
+karyawan2 = Karyawan("Siti")
+
+print("--- Sebelum Tambah Atribut ---")
+karyawan1.info()
+karyawan2.info()
+
+# Menambahkan atribut 'divisi' ke karyawan1 SAJA (setelah objek dibuat)
+karyawan1.divisi = "Pemasaran"
+
+print("\n--- Setelah Tambah Atribut ke Karyawan1 ---")
+karyawan1.info()
+karyawan2.info() # Karyawan2 tidak punya atribut 'divisi' ini
+
+# print(karyawan2.divisi) # Ini akan error! AttributeError karena karyawan2 tidak punya 'divisi'</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Sebelum Tambah Atribut ---
+Nama Karyawan: Budi
+Divisi: Belum ditetapkan
+Nama Karyawan: Siti
+Divisi: Belum ditetapkan
+
+--- Setelah Tambah Atribut ke Karyawan1 ---
+Nama Karyawan: Budi
+Divisi: Pemasaran
+Nama Karyawan: Siti
+Divisi: Belum ditetapkan</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pada <code class="code-piece">karyawan1.divisi = "Pemasaran"</code>,
+          kita menambahkan atribut baru bernama
+          <code class="code-piece">divisi</code> langsung ke objek
+          <code class="code-piece">karyawan1</code>. Atribut ini hanya ada di
+          <code class="code-piece">karyawan1</code> dan tidak di
+          <code class="code-piece">karyawan2</code>.
+        </p>
+        <p>
+          Meskipun Python mengizinkan ini,
+          <strong>ini umumnya bukan praktik yang disarankan</strong> dalam Class
+          yang dirancang dengan baik. Atribut sebaiknya didefinisikan di
+          <code class="code-piece">__init__</code> agar semua objek dari Class
+          yang sama memiliki set atribut yang konsisten. Menambahkan atribut
+          secara dinamis bisa membuat kode Anda sulit diprediksi dan rawan
+          kesalahan. Gunakan <code class="code-piece">hasattr()</code> untuk
+          memeriksa keberadaan atribut jika Anda memang perlu menangani kasus
+          atribut yang mungkin tidak ada.
+        </p>
+        <h2>Kapan Menggunakan Class?</h2>
+        <p>Anda akan menggunakan Class ketika:</p>
+        <ol>
+          <li>
+            <strong
+              >Anda ingin merepresentasikan "benda" atau "entitas" nyata</strong
+            >
+            yang memiliki data (atribut) dan perilaku (metode). Contoh: Siswa,
+            Buku, Mobil, Akun Bank, Produk.
+          </li>
+          <li>
+            <strong
+              >Anda ingin mengelompokkan data dan fungsi yang relevan secara
+              bersamaan.</strong
+            >
+            Class membantu menjaga kode tetap terorganisir.
+          </li>
+          <li>
+            <strong
+              >Anda perlu membuat banyak objek yang memiliki struktur dan
+              perilaku yang sama</strong
+            >, tetapi dengan data yang berbeda (misalnya, banyak objek
+            <code class="code-piece">Siswa</code> yang masing-masing punya nama,
+            umur, dan kelas yang berbeda).
+          </li>
+          <li>
+            <strong
+              >Anda ingin membuat kode yang lebih modular dan mudah digunakan
+              kembali.</strong
+            >
+          </li>
+        </ol>
+        <p>
+          Class adalah fondasi dari paradigma pemrograman yang disebut
+          <strong>Object-Oriented Programming (OOP)</strong>, yang akan kita
+          bahas lebih lanjut di modul berikutnya. Memahami Class adalah langkah
+          pertama untuk menulis program yang lebih besar, terstruktur, dan
+          efisien.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./oop.html"
+            >Pemrograman Berorientasi Objek (OOP) – Membangun Program Seperti
+            Menyusun Lego</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./python_conventions.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./oop.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

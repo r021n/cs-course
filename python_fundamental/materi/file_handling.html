@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>"File Handling" – Menyimpan dan Membaca Data dari File</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html" class="active">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>"File Handling" – Menyimpan dan Membaca Data dari File</h1>
+        <p>
+          Sejauh ini, semua data yang kita olah di program Python hanya bersifat
+          sementara. Ketika program selesai berjalan, semua variabel dan
+          informasinya akan hilang. Lalu, bagaimana jika kita ingin menyimpan
+          data agar bisa digunakan lagi nanti, bahkan setelah program ditutup
+          dan dibuka kembali? Di sinilah konsep
+          <strong>File Handling</strong> (Penanganan File) berperan.
+        </p>
+        <p>
+          File Handling adalah kemampuan program untuk berinterinteraksi dengan
+          file yang ada di komputer Anda. Anda bisa:
+        </p>
+        <ul>
+          <li>
+            <strong>Membaca</strong> isi file (misalnya, membaca catatan harian
+            atau data dari sensor).
+          </li>
+          <li>
+            <strong>Menulis</strong> data baru ke dalam file (misalnya,
+            menyimpan hasil perhitungan atau catatan pengguna).
+          </li>
+          <li>
+            <strong>Menambah</strong> data ke file yang sudah ada (misalnya,
+            menambahkan entri baru ke log).
+          </li>
+        </ul>
+        <p>
+          Python menyediakan fungsi bawaan bernama
+          <code class="code-piece">open()</code> untuk membuka file, dan
+          metode-metode lain untuk membaca atau menulisnya.
+        </p>
+        <h2>1. Membuka File: Fungsi <code class="code-piece">open()</code></h2>
+        <p>
+          Sebelum Anda bisa membaca atau menulis ke sebuah file, Anda harus
+          "membuka" file tersebut. Fungsi
+          <code class="code-piece">open()</code> digunakan untuk tugas ini. Ia
+          mengembalikan sebuah "objek file" yang akan kita gunakan untuk
+          berinteraksi dengan file.
+        </p>
+        <p>
+          Sintaks dasar:
+          <code class="code-piece"
+            >file_object = open("nama_file.txt", "mode")</code
+          >
+        </p>
+        <ul>
+          <li>
+            <code class="code-piece">"nama_file.txt"</code>: Nama file (termasuk
+            lokasi folder jika file tidak di folder yang sama dengan program
+            Anda).
+          </li>
+          <li>
+            <code class="code-piece">"mode"</code>: Mode untuk membuka file.
+            Mode yang paling umum:
+            <ul>
+              <li>
+                <strong><code class="code-piece">"r"</code> (read):</strong>
+                Mode hanya-baca. Anda hanya bisa membaca isi file. Jika file
+                tidak ada, akan menyebabkan error.
+              </li>
+              <li>
+                <strong><code class="code-piece">"w"</code> (write):</strong>
+                Mode tulis. Ini akan <strong>membuat file baru</strong> jika
+                file belum ada. Jika file sudah ada, isinya akan
+                <strong>dihapus sepenuhnya</strong> dan diganti dengan data baru
+                yang Anda tulis. Hati-hati dengan mode ini!
+              </li>
+              <li>
+                <strong><code class="code-piece">"a"</code> (append):</strong>
+                Mode tambah. Ini akan <strong>menambahkan data</strong> ke akhir
+                file. Jika file belum ada, ia akan membuat file baru.
+              </li>
+              <li>
+                <strong><code class="code-piece">"x"</code> (create):</strong>
+                Mode buat baru. Ini akan <strong>membuat file baru</strong>.
+                Jika file sudah ada, akan menyebabkan error.
+              </li>
+              <li>
+                <code class="code-piece">"t"</code> (text): Mode teks (default).
+                Membuka file sebagai teks.
+              </li>
+              <li>
+                <code class="code-piece">"b"</code> (binary): Mode biner.
+                Membuka file sebagai data biner (misalnya gambar, video).
+              </li>
+            </ul>
+            (Anda bisa menggabungkan mode, misal
+            <code class="code-piece">"rt"</code> untuk "read text",
+            <code class="code-piece">"wb"</code> untuk "write binary")
+          </li>
+        </ul>
+        <pre><code class="language-python"># Membuat file baru dan menulis ke dalamnya (mode 'w')
+# Pastikan tidak ada file 'catatan.txt' di folder yang sama, atau isinya akan terhapus!
+file_tulis = open("catatan.txt", "w")
+file_tulis.write("Ini adalah baris pertama dari catatan saya.\n")
+file_tulis.write("Ini baris kedua.\n")
+file_tulis.close() # Sangat penting untuk menutup file!
+print("File 'catatan.txt' telah dibuat dan diisi.")
+
+# Membaca isi file (mode 'r')
+file_baca = open("catatan.txt", "r")
+isi_file = file_baca.read() # Membaca seluruh isi file
+print("\n--- Isi dari catatan.txt ---")
+print(isi_file)
+file_baca.close() # Menutup file setelah selesai membaca
+
+# Menambahkan ke file yang sudah ada (mode 'a')
+file_tambah = open("catatan.txt", "a")
+file_tambah.write("Ini adalah baris tambahan di akhir.\n")
+file_tambah.close()
+print("\nFile 'catatan.txt' telah ditambahkan.")
+
+# Baca lagi untuk melihat perubahannya
+file_baca_lagi = open("catatan.txt", "r")
+print("\n--- Isi catatan.txt setelah ditambahkan ---")
+print(file_baca_lagi.read())
+file_baca_lagi.close()</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">File 'catatan.txt' telah dibuat dan diisi.
+
+--- Isi dari catatan.txt ---
+Ini adalah baris pertama dari catatan saya.
+Ini baris kedua.
+
+File 'catatan.txt' telah ditambahkan.
+
+--- Isi catatan.txt setelah ditambahkan ---
+Ini adalah baris pertama dari catatan saya.
+Ini baris kedua.
+Ini adalah baris tambahan di akhir.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">file_tulis = open("catatan.txt", "w")</code
+            >: Baris ini mencoba membuka
+            <code class="code-piece">catatan.txt</code> dalam mode tulis (<code
+              class="code-piece"
+              >"w"</code
+            >). Jika file tidak ada, ia akan dibuat. Jika ada, isinya akan
+            dihapus.
+          </li>
+          <li>
+            <code class="code-piece">file_tulis.write("...")</code>: Metode
+            <code class="code-piece">.write()</code> digunakan untuk menulis
+            teks ke file. <code class="code-piece">\n</code> digunakan untuk
+            membuat baris baru.
+          </li>
+          <li>
+            <code class="code-piece">file_tulis.close()</code>:
+            <strong>Ini adalah langkah yang sangat krusial!</strong> Anda
+            <strong>harus selalu menutup file</strong> setelah selesai membaca
+            atau menulis. Jika tidak, data mungkin tidak tersimpan dengan benar,
+            atau file mungkin tetap "terkunci" oleh program Anda sehingga
+            program lain tidak bisa mengaksesnya.
+          </li>
+          <li>
+            Langkah-langkah berikutnya menunjukkan membaca (<code
+              class="code-piece"
+              >"r"</code
+            >) dan menambahkan (<code class="code-piece">"a"</code>) ke file
+            yang sama.
+          </li>
+        </ol>
+        <h2>
+          2. Menutup File Secara Otomatis: Pernyataan
+          <code class="code-piece">with open()</code> (Sangat Disarankan!)
+        </h2>
+        <p>
+          Meskipun <code class="code-piece">file.close()</code> itu penting,
+          terkadang kita lupa melakukannya, atau program mungkin mengalami error
+          di tengah jalan sehingga <code class="code-piece">close()</code> tidak
+          sempat dipanggil. Ini bisa menyebabkan masalah.
+        </p>
+        <p>
+          Python memiliki cara yang lebih aman dan direkomendasikan untuk
+          bekerja dengan file, yaitu menggunakan pernyataan
+          <code class="code-piece">with open(...) as ...:</code> (disebut
+          "context manager"). Keuntungan utamanya adalah:
+          <strong>file akan secara otomatis ditutup</strong> begitu program
+          keluar dari blok <code class="code-piece">with</code>, bahkan jika
+          terjadi error!
+        </p>
+        <pre><code class="language-python"># Menulis ke file dengan 'with open()'
+print("--- Menulis dengan with open() ---")
+with open("daftar_siswa.txt", "w") as file_siswa:
+    file_siswa.write("Nama: Andi\n")
+    file_siswa.write("Kelas: X IPA 1\n")
+    # Jika ada error di sini, file tetap akan ditutup
+
+print("File 'daftar_siswa.txt' telah ditulis dengan aman.")
+
+# Membaca dari file dengan 'with open()'
+print("\n--- Membaca dengan with open() ---")
+with open("daftar_siswa.txt", "r") as file_siswa:
+    isi_lengkap = file_siswa.read()
+    print(isi_lengkap)
+
+print("File 'daftar_siswa.txt' telah dibaca dengan aman.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Menulis dengan with open() ---
+File 'daftar_siswa.txt' telah ditulis dengan aman.
+
+--- Membaca dengan with open() ---
+Nama: Andi
+Kelas: X IPA 1
+
+File 'daftar_siswa.txt' telah dibaca dengan aman.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          Pola
+          <code class="code-piece"
+            >with open("nama_file.txt", "mode") as nama_variabel_file:</code
+          >
+          sangat direkomendasikan. Python menjamin bahwa
+          <code class="code-piece">file_siswa.close()</code> akan dipanggil
+          secara otomatis begitu kode keluar dari blok yang menjorok di bawah
+          <code class="code-piece">with</code>, tidak peduli apa yang terjadi di
+          dalamnya. Ini adalah cara yang lebih "tahan banting" dalam bekerja
+          dengan file.
+        </p>
+        <h2>3. Membaca File: Berbagai Cara</h2>
+        <p>
+          Selain <code class="code-piece">read()</code> yang membaca seluruh isi
+          file, ada cara lain untuk membaca file:
+        </p>
+        <ul>
+          <li>
+            <strong><code class="code-piece">readline()</code>:</strong> Membaca
+            satu baris teks saja. Setiap kali dipanggil, ia akan membaca baris
+            berikutnya.
+          </li>
+          <li>
+            <strong><code class="code-piece">readlines()</code>:</strong>
+            Membaca semua baris dan mengembalikannya sebagai sebuah
+            <strong>List</strong>, di mana setiap elemen List adalah satu baris
+            dari file (termasuk karakter <code class="code-piece">\n</code> di
+            akhir baris).
+          </li>
+          <li>
+            <strong
+              >Melakukan perulangan (<code class="code-piece">for</code> loop)
+              pada objek file:</strong
+            >
+            Ini adalah cara paling umum dan efisien untuk membaca file baris
+            demi baris.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Siapkan file untuk contoh pembacaan
+with open("pesan_rahasia.txt", "w") as f:
+    f.write("Baris 1: Ini adalah pesan rahasia.\n")
+    f.write("Baris 2: Jangan sampai bocor.\n")
+    f.write("Baris 3: Rahasia antara kita saja.\n")
+
+print("File 'pesan_rahasia.txt' telah dibuat.")
+
+# Membaca satu per satu baris dengan readline()
+print("\n--- Membaca dengan readline() ---")
+with open("pesan_rahasia.txt", "r") as f:
+    baris_pertama = f.readline()
+    baris_kedua = f.readline()
+    print(f"Baris 1: {baris_pertama.strip()}") # strip() untuk menghilangkan \n
+    print(f"Baris 2: {baris_kedua.strip()}")
+
+# Membaca semua baris ke dalam List dengan readlines()
+print("\n--- Membaca dengan readlines() ---")
+with open("pesan_rahasia.txt", "r") as f:
+    semua_baris_list = f.readlines()
+    print("Isi file dalam bentuk list:")
+    for baris in semua_baris_list:
+        print(baris.strip()) # strip() setiap baris saat mencetak
+
+# Membaca baris demi baris dengan perulangan 'for' (paling umum dan efisien)
+print("\n--- Membaca dengan perulangan for ---")
+with open("pesan_rahasia.txt", "r") as f:
+    for nomor_baris, baris in enumerate(f): # enumerate() memberi nomor indeks
+        print(f"Baris {nomor_baris + 1}: {baris.strip()}")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">File 'pesan_rahasia.txt' telah dibuat.
+
+--- Membaca dengan readline() ---
+Baris 1: Baris 1: Ini adalah pesan rahasia.
+Baris 2: Baris 2: Jangan sampai bocor.
+
+--- Membaca dengan readlines() ---
+Isi file dalam bentuk list:
+Baris 1: Ini adalah pesan rahasia.
+Baris 2: Jangan sampai bocor.
+Baris 3: Rahasia antara kita saja.
+
+--- Membaca dengan perulangan for ---
+Baris 1: Baris 1: Ini adalah pesan rahasia.
+Baris 2: Baris 2: Jangan sampai bocor.
+Baris 3: Rahasia antara kita saja.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            <code class="code-piece">readline()</code>: Membaca satu baris.
+            Kursor file akan bergeser ke baris berikutnya.
+          </li>
+          <li>
+            <code class="code-piece">readlines()</code>: Mengembalikan list.
+            Setiap elemen list adalah satu baris lengkap dari file, termasuk
+            karakter <code class="code-piece">\n</code> (newline) di akhir. Anda
+            seringkali perlu menggunakan
+            <code class="code-piece">.strip()</code> pada setiap baris untuk
+            menghilangkan karakter <code class="code-piece">\n</code> dan spasi
+            kosong di awal/akhir.
+          </li>
+          <li>
+            <strong
+              >Perulangan <code class="code-piece">for</code> (pada objek file
+              langsung):</strong
+            >
+            Ini adalah cara yang paling direkomendasikan untuk membaca file
+            besar baris demi baris. Python secara otomatis mengulang setiap
+            baris dalam file, dan ini sangat efisien karena tidak memuat seluruh
+            file ke memori sekaligus (seperti
+            <code class="code-piece">readlines()</code> bisa lakukan pada file
+            yang sangat besar).
+            <code class="code-piece">enumerate()</code> adalah fungsi bawaan
+            yang berguna untuk mendapatkan indeks (nomor urut) saat mengulang.
+          </li>
+        </ul>
+        <h2>
+          4. Menulis ke File: <code class="code-piece">write()</code> dan
+          <code class="code-piece">writelines()</code>
+        </h2>
+        <ul>
+          <li>
+            <strong><code class="code-piece">write(string)</code>:</strong>
+            Menulis satu string ke file. Ingat, Anda harus menambahkan
+            <code class="code-piece">\n</code> secara manual jika ingin membuat
+            baris baru.
+          </li>
+          <li>
+            <strong
+              ><code class="code-piece">writelines(list_of_strings)</code
+              >:</strong
+            >
+            Menulis semua string dari sebuah list ke file. Setiap string di list
+            ditulis secara berurutan. Anda tetap harus memastikan setiap string
+            di list diakhiri dengan <code class="code-piece">\n</code> jika Anda
+            ingin setiap item menjadi baris terpisah di file.
+          </li>
+        </ul>
+        <pre><code class="language-python"># Menulis data ke file siswa_baru.txt
+nama_siswa_baru = ["Adi Purnomo\n", "Bela Cantika\n", "Citra Dewi\n"] # Perhatikan \n di setiap nama!
+
+print("--- Menulis dengan writelines() ---")
+with open("siswa_baru.txt", "w") as f_siswa:
+    f_siswa.writelines(nama_siswa_baru)
+print("Data siswa baru telah ditulis.")
+
+# Membaca kembali untuk verifikasi
+with open("siswa_baru.txt", "r") as f_siswa:
+    print("\nIsi siswa_baru.txt:")
+    print(f_siswa.read())
+
+# Contoh: Menulis list angka ke file (perlu konversi ke string)
+nilai_data = [95, 88, 72, 91, 65]
+with open("nilai_output.txt", "w") as f_nilai:
+    for nilai in nilai_data:
+        f_nilai.write(str(nilai) + "\n") # Konversi angka ke string dan tambahkan baris baru
+print("\nNilai telah ditulis ke nilai_output.txt")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">--- Menulis dengan writelines() ---
+Data siswa baru telah ditulis.
+
+Isi siswa_baru.txt:
+Adi Purnomo
+Bela Cantika
+Citra Dewi
+
+Nilai telah ditulis ke nilai_output.txt</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <p>
+          <code class="code-piece">writelines()</code> berguna jika Anda sudah
+          punya list string yang siap ditulis. Namun, penting untuk diingat
+          bahwa <code class="code-piece">writelines()</code>
+          <strong
+            >tidak secara otomatis menambahkan
+            <code class="code-piece">\n</code></strong
+          >. Jadi, jika Anda ingin setiap item list menjadi baris terpisah di
+          file, Anda harus menambahkan <code class="code-piece">\n</code> di
+          akhir setiap string di dalam list tersebut.
+        </p>
+        <p>
+          Ketika menulis angka, Anda harus selalu mengonversinya menjadi string
+          terlebih dahulu menggunakan
+          <code class="code-piece">str()</code> sebelum menuliskannya ke file
+          teks, seperti
+          <code class="code-piece">f_nilai.write(str(nilai) + "\n")</code>.
+        </p>
+        <h2>5. Penanganan Error Saat File Handling (Penting!)</h2>
+        <p>
+          Membaca dan menulis file adalah operasi yang rentan error. Misalnya,
+          file mungkin tidak ditemukan, atau Anda mungkin tidak memiliki izin
+          untuk menulis ke suatu lokasi. Inilah saatnya konsep
+          <code class="code-piece">try-except</code> yang sudah kita pelajari
+          menjadi sangat penting!
+        </p>
+        <pre><code class="language-python"># Contoh: Menangani error saat membuka file
+print("--- Penanganan Error File Handling ---")
+try:
+    # Coba membuka file yang tidak ada (mode 'r')
+    with open("file_yang_tidak_ada.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("Error: File tidak ditemukan. Pastikan nama file dan lokasi sudah benar.")
+except PermissionError:
+    print("Error: Anda tidak memiliki izin untuk mengakses file ini.")
+except Exception as e:
+    print(f"Terjadi error lain saat membaca file: {type(e).__name__}: {e}")
+
+print("\n")
+
+# Contoh: Menangani error saat menulis file
+try:
+    # Coba menulis ke lokasi yang mungkin tidak ada izin (misal: C:/ tanpa admin di Windows)
+    # Ini mungkin tidak selalu error tergantung OS dan izin Anda
+    with open("/lokasi/yang/invalid/file_baru.txt", "w") as f: # Contoh lokasi invalid
+        f.write("Mencoba menulis ke lokasi terlarang.")
+except FileNotFoundError: # Juga bisa FileExistsError jika folder tidak ada
+    print("Error: Lokasi folder tidak ditemukan atau tidak valid.")
+except PermissionError:
+    print("Error: Anda tidak memiliki izin menulis di lokasi ini. Coba jalankan sebagai Administrator.")
+except Exception as e:
+    print(f"Terjadi error tak terduga saat menulis: {type(e).__name__}: {e}")</code></pre>
+        <p>
+          <strong
+            >Outputnya (jika
+            <code class="code-piece">file_yang_tidak_ada.txt</code> memang tidak
+            ada):</strong
+          >
+        </p>
+        <pre><code class="language-plain">--- Penanganan Error File Handling ---
+Error: File tidak ditemukan. Pastikan nama file dan lokasi sudah benar.</code></pre>
+        <p>
+          <strong
+            >Outputnya (jika
+            <code class="code-piece">'/lokasi/yang/invalid/file_baru.txt'</code>
+            tidak ada izin):</strong
+          >
+        </p>
+        <p>
+          <em
+            >(Output ini akan sangat bervariasi tergantung sistem operasi dan
+            izin pengguna. Bisa jadi
+            <code class="code-piece">FileNotFoundError</code>,
+            <code class="code-piece">PermissionError</code>, atau bahkan
+            <code class="code-piece">OSError</code>.)</em
+          >
+        </p>
+        <pre><code class="language-plain">Error: Lokasi folder tidak ditemukan atau tidak valid.</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ul>
+          <li>
+            Ketika kita mencoba
+            <code class="code-piece">open("file_yang_tidak_ada.txt", "r")</code
+            >, jika file itu memang tidak ada, Python akan memicu
+            <code class="code-piece">FileNotFoundError</code>. Blok
+            <code class="code-piece">except FileNotFoundError</code> akan
+            menangkapnya, dan kita bisa mencetak pesan yang lebih informatif
+            daripada stack trace yang membingungkan.
+          </li>
+          <li>
+            Error seperti <code class="code-piece">PermissionError</code> (jika
+            program tidak punya izin membaca/menulis) atau
+            <code class="code-piece">OSError</code> (kesalahan sistem operasi
+            umum) juga bisa terjadi. Selalu bagus untuk mengantisipasi error
+            yang paling umum terjadi saat berinteraksi dengan sistem luar
+            seperti file.
+          </li>
+        </ul>
+        <h2>Hal yang Harus Diperhatikan: Path Relatif vs. Absolut</h2>
+        <p>
+          Ketika Anda memberikan nama file seperti
+          <code class="code-piece">"catatan.txt"</code>, itu adalah
+          <strong>jalur relatif</strong> (relative path). Python akan mencari
+          file itu di <strong>direktori yang sama</strong> dengan tempat Anda
+          menjalankan program Python.
+        </p>
+        <ul>
+          <li>
+            Jika program Anda ada di
+            <code class="code-piece">C:\Users\Saya\ProyekPython\main.py</code>
+          </li>
+          <li>
+            Dan Anda menjalankan
+            <code class="code-piece">python main.py</code> dari
+            <code class="code-piece">C:\Users\Saya\ProyekPython\</code>
+          </li>
+          <li>
+            Maka <code class="code-piece">open("catatan.txt", "w")</code> akan
+            membuat file di lokasi
+            <code class="code-piece"
+              >C:\Users\Saya\ProyekPython\catatan.txt</code
+            >.
+          </li>
+        </ul>
+        <p>
+          Namun, jika Anda ingin mengakses file di lokasi yang spesifik di
+          komputer Anda, Anda perlu menggunakan
+          <strong>jalur absolut</strong> (absolute path).
+        </p>
+        <ul>
+          <li>
+            <strong>Windows:</strong>
+            <code class="code-piece"
+              >C:\\Users\\NamaAnda\\Dokumen\\data.txt</code
+            >
+            (perhatikan dua backslash <code class="code-piece">\\</code> atau
+            gunakan forward slash <code class="code-piece">/</code> seperti di
+            Linux/macOS:
+            <code class="code-piece">C:/Users/NamaAnda/Dokumen/data.txt</code>).
+          </li>
+          <li>
+            <strong>Linux/macOS:</strong>
+            <code class="code-piece">/home/namaanda/dokumen/data.txt</code>
+          </li>
+        </ul>
+        <p>
+          Menggunakan jalur yang benar sangat penting. Untuk keamanan dan
+          kemudahan, biasanya disarankan untuk menyimpan file data di sub-folder
+          yang sama dengan program atau folder yang sudah ditentukan untuk data
+          aplikasi.
+        </p>
+        <hr />
+        <p>
+          Dengan modul "File Handling" ini, Anda sekarang memiliki kemampuan
+          untuk membuat program Anda berinteraksi dengan sistem file komputer.
+          Anda bisa menyimpan data secara permanen, membaca konfigurasi, atau
+          mencatat aktivitas program. Ini adalah langkah maju yang signifikan
+          dalam membangun aplikasi yang lebih fungsional!
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya: </strong>
+          <a href="./python_conventions.html"
+            >Konvensi Python & PEP 8 – Seni Menulis Kode yang Rapi dan Mudah
+            Dibaca</a
+          >
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./modul_library.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./python_conventions.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

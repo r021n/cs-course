@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>
+      Pemrograman Berorientasi Objek (OOP) – Membangun Program Seperti Menyusun
+      Lego
+    </title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html">Class</a></li>
+        <li>
+          <a href="./oop.html" class="active">Object Oriented Programming</a>
+        </li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>
+          Pemrograman Berorientasi Objek (OOP) – Membangun Program Seperti
+          Menyusun Lego
+        </h1>
+        <p>
+          Kita sudah belajar tentang <strong>Class</strong>, yang berfungsi
+          sebagai "cetak biru" atau "template" untuk membuat objek. Nah,
+          <strong>Pemrograman Berorientasi Objek (OOP)</strong> adalah sebuah
+          gaya atau pendekatan dalam membuat program yang memanfaatkan konsep
+          Class dan Objek ini secara maksimal.
+        </p>
+        <p>
+          Bayangkan Anda sedang membangun sebuah kota dengan mainan Lego. Anda
+          punya cetak biru untuk "Rumah", "Mobil", "Pohon", dan sebagainya (ini
+          adalah <strong>Class</strong>). Dari cetak biru "Rumah", Anda bisa
+          membuat banyak "rumah" yang berbeda warna atau ukuran (ini adalah
+          <strong>Objek</strong>). Setiap rumah punya ciri-ciri (jumlah jendela,
+          warna cat) dan bisa melakukan sesuatu (menyalakan lampu, membuka
+          pintu).
+        </p>
+        <p>
+          OOP berfokus pada "objek" dan bagaimana mereka berinteraksi. Empat
+          pilar utama yang membentuk OOP adalah:
+        </p>
+        <ol>
+          <li>
+            <strong>Enkapsulasi (Encapsulation):</strong> Membungkus data dan
+            fungsi ke dalam satu unit.
+          </li>
+          <li>
+            <strong>Abstraksi (Abstraction):</strong> Menyembunyikan kerumitan
+            dan hanya menampilkan yang penting.
+          </li>
+          <li>
+            <strong>Pewarisan (Inheritance):</strong> Mewarisi sifat dan
+            perilaku dari "induk".
+          </li>
+          <li>
+            <strong>Polimorfisme (Polymorphism):</strong> Satu "aksi" yang bisa
+            punya banyak bentuk.
+          </li>
+        </ol>
+        <p>Mari kita bahas satu per satu.</p>
+        <hr />
+        <h2>1. Enkapsulasi (Encapsulation): Melindungi Rahasia Objek</h2>
+        <p>
+          Bayangkan sebuah <em>smartphone</em>. Anda bisa menyentuh layarnya,
+          menekan tombol volume, atau mengisi daya (ini seperti
+          <strong>metode</strong> yang bisa Anda panggil). Anda tidak perlu
+          membuka casingnya, menyentuh sirkuit internal, atau mengubah komponen
+          di dalamnya secara langsung (itu adalah
+          <strong>data</strong> internalnya). Data internal ini "disembunyikan"
+          atau "dilindungi" dari sentuhan langsung dari luar.
+        </p>
+        <p>
+          <strong>Enkapsulasi</strong> dalam OOP adalah konsep "membungkus" data
+          (atribut) dan metode (fungsi) yang mengoperasikan data tersebut ke
+          dalam satu unit, yaitu <strong>Class</strong>. Ini seperti memasukkan
+          komponen-komponen smartphone ke dalam casing-nya.
+        </p>
+        <p>Tujuan utama enkapsulasi adalah:</p>
+        <ul>
+          <li>
+            <strong>Melindungi Data:</strong> Mencegah data di dalam objek
+            diubah secara tidak sengaja atau tidak benar dari luar.
+          </li>
+          <li>
+            <strong>Mengontrol Akses:</strong> Menentukan bagaimana data di
+            dalam objek bisa diakses atau diubah, biasanya melalui metode khusus
+            yang disebut "getter" (untuk mengambil nilai) dan "setter" (untuk
+            mengubah nilai).
+          </li>
+        </ul>
+        <p>
+          Dalam Python, tidak ada cara untuk membuat atribut benar-benar
+          "pribadi" (private) seperti di beberapa bahasa lain. Namun, ada
+          <strong>konvensi</strong> yang disarankan PEP 8: gunakan satu garis
+          bawah (<code class="code-piece">_</code>) di awal nama atribut
+          (contoh: <code class="code-piece">_nilai</code>) untuk menandakan
+          bahwa atribut tersebut bersifat "internal" atau "dilindungi" dan
+          sebaiknya tidak diakses atau diubah langsung dari luar Class.
+        </p>
+        <pre><code class="language-python"># Contoh Enkapsulasi: Class Siswa dengan nilai yang dilindungi
+
+class Siswa:
+    def __init__(self, nama, nilai_awal_matematika):
+        self.nama = nama
+        # Atribut _nilai_matematika adalah "dilindungi" secara konvensi
+        self._nilai_matematika = nilai_awal_matematika
+        print(f"Siswa '{self.nama}' dibuat dengan nilai Matematika {self._nilai_matematika}.")
+
+    # Metode "Getter" untuk mengambil nilai (cara yang diizinkan)
+    def dapatkan_nilai_matematika(self):
+        return self._nilai_matematika
+
+    # Metode "Setter" untuk mengubah nilai (cara yang diizinkan, dengan validasi)
+    def set_nilai_matematika(self, nilai_baru):
+        if 0 <= nilai_baru <= 100: # Validasi: nilai harus antara 0 dan 100
+            self._nilai_matematika = nilai_baru
+            print(f"Nilai Matematika {self.nama} diperbarui menjadi {nilai_baru}.")
+        else:
+            print("Error: Nilai harus antara 0 dan 100.")
+
+# Membuat objek siswa
+siswa_andi = Siswa("Andi", 85)
+
+print("\n--- Mengakses Nilai (Enkapsulasi) ---")
+# Cara yang disarankan: Menggunakan metode getter
+print(f"Nilai Matematika Andi: {siswa_andi.dapatkan_nilai_matematika()}")
+
+# Cara yang TIDAK disarankan (tapi bisa di Python): Mengakses langsung atribut _dilindungi
+# print(f"Nilai Andi secara langsung (tidak disarankan): {siswa_andi._nilai_matematika}")
+
+print("\n--- Mengubah Nilai (Enkapsulasi) ---")
+# Cara yang disarankan: Menggunakan metode setter (dengan validasi)
+siswa_andi.set_nilai_matematika(90) # Berhasil
+siswa_andi.set_nilai_matematika(105) # Gagal karena nilai di luar batas
+siswa_andi.set_nilai_matematika(-5) # Gagal
+
+# Cara yang TIDAK disarankan (melewati validasi!)
+siswa_andi._nilai_matematika = 200 # Nilai diubah langsung, tanpa validasi!
+print(f"Nilai Matematika Andi setelah diubah langsung (buruk): {siswa_andi.dapatkan_nilai_matematika()}")
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Siswa 'Andi' dibuat dengan nilai Matematika 85.
+
+--- Mengakses Nilai (Enkapsulasi) ---
+Nilai Matematika Andi: 85
+
+--- Mengubah Nilai (Enkapsulasi) ---
+Nilai Matematika Andi diperbarui menjadi 90.
+Error: Nilai harus antara 0 dan 100.
+Error: Nilai harus antara 0 dan 100.
+Nilai Matematika Andi setelah diubah langsung (buruk): 200
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">self._nilai_matematika</code>: Atribut ini
+            diberi awalan <code class="code-piece">_</code> untuk menandakan
+            bahwa ia sebaiknya hanya diakses atau diubah dari dalam Class itu
+            sendiri.
+          </li>
+          <li>
+            <code class="code-piece">dapatkan_nilai_matematika()</code>: Ini
+            adalah "getter" yang memungkinkan kita membaca nilai
+            <code class="code-piece">_nilai_matematika</code>.
+          </li>
+          <li>
+            <code class="code-piece">set_nilai_matematika(nilai_baru)</code>:
+            Ini adalah "setter" yang memungkinkan kita mengubah nilai
+            <code class="code-piece">_nilai_matematika</code>. Yang terpenting,
+            di dalamnya ada <strong>validasi</strong> (<code class="code-piece"
+              >if 0 <= nilai_baru <= 100:</code
+            >). Ini memastikan bahwa nilai Matematika tidak bisa diatur
+            sembarangan (misalnya, lebih dari 100 atau kurang dari 0).
+          </li>
+          <li>
+            Ketika kita mengubah
+            <code class="code-piece">siswa_andi.set_nilai_matematika(105)</code
+            >, fungsi setter menolak karena validasi. Namun, saat kita mengubah
+            <code class="code-piece">siswa_andi._nilai_matematika = 200</code>
+            secara langsung, Python mengizinkannya, melewati semua validasi.
+            Inilah mengapa enkapsulasi penting: kita ingin memaksakan aturan
+            melalui metode, bukan membiarkan data diubah sembarangan.
+          </li>
+        </ol>
+        <p>
+          Enkapsulasi adalah tentang mengontrol interaksi dengan objek,
+          memastikan objek tetap dalam keadaan yang valid dan data internalnya
+          aman.
+        </p>
+        <hr />
+        <h2>2. Abstraksi (Abstraction): Menyederhanakan Kompleksitas</h2>
+        <p>
+          Bayangkan Anda mengendarai mobil. Anda menggunakan setir, pedal gas,
+          dan rem (ini adalah <strong>antarmuka</strong> yang Anda gunakan).
+          Anda tidak perlu tahu bagaimana mesin pembakaran internal bekerja,
+          bagaimana transmisi mengubah gigi, atau bagaimana sistem pengereman
+          menghentikan mobil (itu adalah
+          <strong>detail implementasi</strong> yang rumit). Anda hanya perlu
+          tahu <em>apa</em> yang dilakukan setiap kontrol, bukan
+          <em>bagaimana</em> cara kerjanya secara internal.
+        </p>
+        <p>
+          <strong>Abstraksi</strong> dalam OOP adalah konsep menyembunyikan
+          detail implementasi yang rumit dan hanya menampilkan fungsionalitas
+          yang esensial atau relevan kepada pengguna objek. Ini adalah tentang
+          menyediakan antarmuka yang sederhana untuk berinteraksi dengan objek,
+          tanpa perlu memahami semua kerumitan di baliknya.
+        </p>
+        <p>
+          Enkapsulasi seringkali menjadi langkah awal untuk mencapai abstraksi,
+          karena dengan melindungi data internal, kita memaksa pengguna untuk
+          berinterinteraksi melalui metode yang sudah dirancang untuk
+          menyederhanakan proses.
+        </p>
+        <pre><code class="language-python"># Contoh Abstraksi: Class RemoteTV
+
+class RemoteTV:
+    def __init__(self, merek_tv):
+        self._merek_tv_terhubung = merek_tv # Detail internal
+        self._volume_saat_ini = 0          # Detail internal
+        self._channel_saat_ini = 1         # Detail internal
+        print(f"Remote TV siap untuk TV {self._merek_tv_terhubung}.")
+
+    # Ini adalah antarmuka yang disederhanakan untuk pengguna
+    def tekan_tombol_power(self):
+        # Di sini ada logika kompleks internal (misal: mengirim sinyal IR, cek status TV)
+        print(f"Mengirim sinyal power ke TV {self._merek_tv_terhubung}.")
+        print("TV menyala/mati.")
+
+    def ubah_channel(self, nomor_channel):
+        # Logika internal untuk mengubah channel (misal: validasi nomor, ganti frekuensi)
+        if 1 <= nomor_channel <= 99:
+            self._channel_saat_ini = nomor_channel
+            print(f"Mengubah channel ke {self._channel_saat_ini}.")
+        else:
+            print("Channel tidak valid.")
+
+    def tambah_volume(self):
+        # Logika internal: pastikan volume tidak melebihi batas
+        if self._volume_saat_ini < 100:
+            self._volume_saat_ini += 1
+            print(f"Volume: {self._volume_saat_ini}")
+        else:
+            print("Volume maksimal.")
+
+# Membuat objek remote TV
+remote_ruang_tamu = RemoteTV("Samsung")
+
+print("\n--- Menggunakan Remote TV (Abstraksi) ---")
+# Pengguna hanya perlu tahu cara memanggil metode ini,
+# tidak perlu tahu detail bagaimana sinyal dikirim atau channel diubah.
+remote_ruang_tamu.tekan_tombol_power()
+remote_ruang_tamu.ubah_channel(5)
+remote_ruang_tamu.tambah_volume()
+remote_ruang_tamu.tambah_volume()
+remote_ruang_tamu.ubah_channel(150) # Akan ditolak oleh validasi internal
+
+# Pengguna tidak perlu (dan sebaiknya tidak) mengakses detail internal ini
+# print(remote_ruang_tamu._volume_saat_ini) # Ini adalah detail implementasi yang tersembunyi
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Remote TV siap untuk TV Samsung.
+
+--- Menggunakan Remote TV (Abstraksi) ---
+Mengirim sinyal power ke TV Samsung.
+TV menyala/mati.
+Mengubah channel ke 5.
+Volume: 1
+Volume: 2
+Channel tidak valid.
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            Metode seperti
+            <code class="code-piece">tekan_tombol_power()</code> atau
+            <code class="code-piece">ubah_channel()</code> adalah
+            <strong>antarmuka</strong> yang disajikan kepada pengguna
+            <code class="code-piece">RemoteTV</code>.
+          </li>
+          <li>
+            Detail seperti
+            <code class="code-piece">self._volume_saat_ini</code> atau bagaimana
+            sinyal remote dikirim adalah
+            <strong>detail implementasi internal</strong> yang disembunyikan.
+            Pengguna hanya perlu memanggil
+            <code class="code-piece">tekan_tombol_power()</code>, mereka tidak
+            perlu tahu rangkaian elektroniknya.
+          </li>
+          <li>
+            Enkapsulasi membantu abstraksi karena dengan melindungi atribut
+            internal, kita mendorong pengguna untuk berinteraksi melalui metode
+            yang sudah dirancang untuk menyederhanakan kerumitan.
+          </li>
+        </ol>
+        <p>
+          Abstraksi adalah tentang menyajikan pandangan yang disederhanakan dari
+          sebuah objek, sehingga mudah digunakan tanpa membebani pengguna dengan
+          detail yang tidak relevan.
+        </p>
+        <hr />
+        <h2>3. Pewarisan (Inheritance): Mengambil Sifat dari "Orang Tua"</h2>
+        <p>
+          Bayangkan sebuah pohon keluarga. Anak mewarisi gen dari orang tuanya,
+          seperti warna rambut atau mata. Tapi, anak juga bisa memiliki ciri
+          uniknya sendiri yang tidak dimiliki orang tuanya. Atau, ia bisa
+          mengubah ciri warisan tersebut (misal: mengecat rambut).
+        </p>
+        <p>
+          <strong>Pewarisan (Inheritance)</strong> dalam OOP adalah mekanisme di
+          mana sebuah Class baru (disebut <strong>Class Anak</strong> atau
+          <strong>Subclass</strong>) dapat mengambil atau mewarisi atribut dan
+          metode dari Class yang sudah ada (disebut
+          <strong>Class Induk</strong> atau <strong>Superclass</strong>).
+        </p>
+        <p>Ini sangat berguna untuk:</p>
+        <ul>
+          <li>
+            <strong>Menggunakan Kembali Kode:</strong> Anda tidak perlu menulis
+            ulang kode yang sama berkali-kali jika ada beberapa Class yang
+            memiliki fitur serupa.
+          </li>
+          <li>
+            <strong>Membangun Hirarki:</strong> Menciptakan hubungan
+            "adalah-sebuah" (is-a relationship). Contoh:
+            <code class="code-piece">Kucing</code> <em>adalah sebuah</em>
+            <code class="code-piece">Hewan</code>,
+            <code class="code-piece">Guru</code> <em>adalah sebuah</em>
+            <code class="code-piece">Pegawai</code>.
+          </li>
+          <li>
+            <strong>Memperluas Fungsionalitas:</strong> Menambahkan fitur baru
+            atau mengubah fitur yang sudah ada di Class Anak.
+          </li>
+        </ul>
+        <p>
+          Untuk membuat Class Anak, Anda cukup menulis nama Class Induk di dalam
+          tanda kurung saat mendefinisikan Class Anak.
+        </p>
+        <pre><code class="language-python"># Class Induk (Superclass)
+class Hewan:
+    def __init__(self, nama, jenis_makanan):
+        self.nama = nama
+        self.jenis_makanan = jenis_makanan
+        print(f"Hewan '{self.nama}' ({self.jenis_makanan}) telah lahir.")
+
+    def bersuara(self):
+        print(f"{self.nama} bersuara...")
+
+    def makan(self):
+        print(f"{self.nama} sedang makan {self.jenis_makanan}.")
+
+# Class Anak (Subclass) yang mewarisi dari Hewan
+class Kucing(Hewan): # Kucing mewarisi dari Hewan
+    def __init__(self, nama, warna_bulu):
+        # Memanggil __init__ dari Class Induk (Hewan)
+        # super() merujuk ke Class Induk
+        super().__init__(nama, "Daging") # Memberi nilai default jenis_makanan untuk Kucing
+        self.warna_bulu = warna_bulu
+        print(f"Kucing '{self.nama}' dengan bulu {self.warna_bulu} siap bermain.")
+
+    # Mengubah (override) metode bersuara dari Class Induk
+    def bersuara(self):
+        print(f"{self.nama} mengeong: Meow! Meow!")
+
+    # Metode unik yang hanya dimiliki Kucing
+    def berburu_tikus(self):
+        print(f"{self.nama} sedang berburu tikus.")
+
+# Class Anak lain yang mewarisi dari Hewan
+class Anjing(Hewan): # Anjing mewarisi dari Hewan
+    def __init__(self, nama, ras):
+        super().__init__(nama, "Daging/Kibble") # Memberi nilai default jenis_makanan untuk Anjing
+        self.ras = ras
+        print(f"Anjing '{self.nama}' ras {self.ras} telah tiba.")
+
+    # Mengubah (override) metode bersuara dari Class Induk
+    def bersuara(self):
+        print(f"{self.nama} menggonggong: Guk! Guk!")
+
+# Membuat objek dari Class Induk dan Class Anak
+hewan_umum = Hewan("Burung", "Biji-bijian")
+kucing_oren = Kucing("Oyen", "Oranye")
+anjing_pudle = Anjing("Buddy", "Pudle")
+
+print("\n--- Interaksi dengan Objek yang Mewarisi Sifat ---")
+hewan_umum.bersuara()
+hewan_umum.makan()
+
+kucing_oren.bersuara() # Memanggil metode bersuara() yang sudah diubah oleh Kucing
+kucing_oren.makan()    # Memanggil metode makan() yang diwarisi dari Hewan
+kucing_oren.berburu_tikus() # Memanggil metode unik Kucing
+
+anjing_pudle.bersuara() # Memanggil metode bersuara() yang sudah diubah oleh Anjing
+anjing_pudle.makan()    # Memanggil metode makan() yang diwarisi dari Hewan
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hewan 'Burung' (Biji-bijian) telah lahir.
+Hewan 'Oyen' (Daging) telah lahir.
+Kucing 'Oyen' dengan bulu Oranye siap bermain.
+Hewan 'Buddy' (Daging/Kibble) telah lahir.
+Anjing 'Buddy' ras Pudle telah tiba.
+
+--- Interaksi dengan Objek yang Mewarisi Sifat ---
+Burung bersuara...
+Burung sedang makan Biji-bijian.
+Oyen mengeong: Meow! Meow!
+Oyen sedang makan Daging.
+Oyen sedang berburu tikus.
+Buddy menggonggong: Guk! Guk!
+Buddy sedang makan Daging/Kibble.
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            <code class="code-piece">class Kucing(Hewan):</code> dan
+            <code class="code-piece">class Anjing(Hewan):</code>: Ini berarti
+            <code class="code-piece">Kucing</code> dan
+            <code class="code-piece">Anjing</code> adalah Class Anak dari
+            <code class="code-piece">Hewan</code>. Mereka secara otomatis
+            mewarisi semua atribut dan metode dari
+            <code class="code-piece">Hewan</code>.
+          </li>
+          <li>
+            <code class="code-piece">super().__init__(nama, "Daging")</code>:
+            Ini adalah cara untuk memanggil metode
+            <code class="code-piece">__init__</code> dari Class Induk (<code
+              class="code-piece"
+              >Hewan</code
+            >). Ini penting agar atribut yang didefinisikan di Class Induk
+            (seperti <code class="code-piece">self.nama</code> dan
+            <code class="code-piece">self.jenis_makanan</code>) juga
+            terinisialisasi.
+          </li>
+          <li>
+            <strong>Metode yang Diwarisi:</strong> Metode
+            <code class="code-piece">makan()</code> yang ada di
+            <code class="code-piece">Hewan</code> secara otomatis tersedia untuk
+            objek <code class="code-piece">Kucing</code> dan
+            <code class="code-piece">Anjing</code>.
+          </li>
+          <li>
+            <strong>Metode yang Diubah (Overriding):</strong> Metode
+            <code class="code-piece">bersuara()</code> di
+            <code class="code-piece">Kucing</code> dan
+            <code class="code-piece">Anjing</code> memiliki nama yang sama
+            dengan di <code class="code-piece">Hewan</code>, tetapi isinya
+            berbeda. Ketika
+            <code class="code-piece">kucing_oren.bersuara()</code> dipanggil,
+            Python akan menggunakan versi
+            <code class="code-piece">bersuara()</code> yang ada di Class
+            <code class="code-piece">Kucing</code>, bukan di
+            <code class="code-piece">Hewan</code>. Ini seperti anak yang
+            mewarisi kebiasaan orang tua, tapi memodifikasinya.
+          </li>
+          <li>
+            <strong>Metode Unik:</strong>
+            <code class="code-piece">berburu_tikus()</code> adalah metode yang
+            hanya dimiliki oleh <code class="code-piece">Kucing</code> dan tidak
+            diwarisi oleh <code class="code-piece">Anjing</code> atau
+            <code class="code-piece">Hewan</code>.
+          </li>
+        </ol>
+        <p>
+          Pewarisan adalah alat yang sangat ampuh untuk membangun hierarki objek
+          yang logis dan menghindari pengulangan kode.
+        </p>
+        <hr />
+        <h2>4. Polimorfisme (Polymorphism): Banyak Bentuk dari Satu Aksi</h2>
+        <p>
+          "Polimorfisme" berasal dari kata Yunani "poly" (banyak) dan "morph"
+          (bentuk). Jadi, artinya "banyak bentuk".
+        </p>
+        <p>
+          <strong>Polimorfisme</strong> dalam OOP adalah kemampuan objek-objek
+          yang berbeda untuk merespons panggilan metode yang sama dengan cara
+          mereka sendiri yang unik. Ini seringkali dicapai melalui pewarisan dan
+          <strong>metode overriding</strong> (seperti
+          <code class="code-piece">bersuara()</code> pada contoh Hewan tadi).
+        </p>
+        <p>
+          Bayangkan sebuah tombol "Play". Tombol itu ada di pemutar musik,
+          pemutar video, dan konsol game. Ketika Anda menekan tombol "Play", ia
+          akan "bermain", tetapi <em>bagaimana</em> ia bermain (apakah
+          mengeluarkan suara, menampilkan gambar, atau memulai game) tergantung
+          pada perangkatnya. Aksi yang sama, tetapi perilaku yang berbeda
+          tergantung pada objeknya.
+        </p>
+        <pre><code class="language-python"># Melanjutkan contoh Hewan dari Pewarisan
+
+class Hewan:
+    def __init__(self, nama, jenis_makanan):
+        self.nama = nama
+        self.jenis_makanan = jenis_makanan
+
+    def bersuara(self):
+        print(f"{self.nama} membuat suara yang umum.")
+
+class Kucing(Hewan):
+    def __init__(self, nama, warna_bulu):
+        super().__init__(nama, "Ikan")
+        self.warna_bulu = warna_bulu
+
+    def bersuara(self): # Overriding metode bersuara
+        print(f"{self.nama} mengeong: Meow!")
+
+class Anjing(Hewan):
+    def __init__(self, nama, ras):
+        super().__init__(nama, "Kibble")
+        self.ras = ras
+
+    def bersuara(self): # Overriding metode bersuara
+        print(f"{self.nama} menggonggong: Guk Guk!")
+
+class Bebek(Hewan):
+    def __init__(self, nama):
+        super().__init__(nama, "Tumbuhan air")
+    
+    def bersuara(self): # Overriding metode bersuara
+        print(f"{self.nama} berbunyi: Kwek Kwek!")
+
+# Membuat list berisi berbagai jenis objek Hewan
+daftar_hewan = [
+    Kucing("Kitty", "Putih"),
+    Anjing("Leo", "Golden"),
+    Bebek("Duffy"),
+    Hewan("Ular", "Tikus") # Objek dari Class Induk juga
+]
+
+print("--- Suara dari Berbagai Hewan (Polimorfisme) ---")
+for hewan in daftar_hewan:
+    # Memanggil metode 'bersuara()'.
+    # Python akan secara otomatis memanggil versi 'bersuara()' yang tepat
+    # sesuai dengan TIPE objek yang sedang diulang!
+    hewan.bersuara() # Output akan berbeda untuk setiap objek
+    hewan.makan() # Metode makan() yang diwarisi, perilaku tetap sama
+</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Hewan 'Kitty' (Ikan) telah lahir.
+Hewan 'Leo' (Kibble) telah lahir.
+Hewan 'Duffy' (Tumbuhan air) telah lahir.
+Hewan 'Ular' (Tikus) telah lahir.
+
+--- Suara dari Berbagai Hewan (Polimorfisme) ---
+Kitty mengeong: Meow!
+Kitty sedang makan Ikan.
+Leo menggonggong: Guk Guk!
+Leo sedang makan Kibble.
+Duffy berbunyi: Kwek Kwek!
+Duffy sedang makan Tumbuhan air.
+Ular membuat suara yang umum.
+Ular sedang makan Tikus.
+</code></pre>
+        <p><strong>Penjelasan Kode:</strong></p>
+        <ol>
+          <li>
+            Kita memiliki beberapa Class (<code class="code-piece">Kucing</code
+            >, <code class="code-piece">Anjing</code>,
+            <code class="code-piece">Bebek</code>) yang semuanya adalah Class
+            Anak dari <code class="code-piece">Hewan</code>. Masing-masing
+            mengimplementasikan metode
+            <code class="code-piece">bersuara()</code> mereka sendiri.
+          </li>
+          <li>
+            Kita membuat sebuah
+            <code class="code-piece">daftar_hewan</code> yang berisi campuran
+            objek dari berbagai Class ini.
+          </li>
+          <li>
+            Dalam perulangan
+            <code class="code-piece">for hewan in daftar_hewan:</code>, kita
+            memanggil <code class="code-piece">hewan.bersuara()</code>. Pada
+            setiap putaran, meskipun variabel
+            <code class="code-piece">hewan</code> terlihat sama, Python sangat
+            cerdas. Ia tahu <em>tipe objek apa</em> yang sedang dipegang oleh
+            <code class="code-piece">hewan</code> pada saat itu (<code
+              class="code-piece"
+              >Kucing</code
+            >, <code class="code-piece">Anjing</code>,
+            <code class="code-piece">Bebek</code>, atau
+            <code class="code-piece">Hewan</code>) dan secara otomatis memanggil
+            versi metode <code class="code-piece">bersuara()</code> yang tepat
+            untuk objek tersebut.
+          </li>
+          <li>
+            Ini adalah inti dari polimorfisme: satu panggilan metode (<code
+              class="code-piece"
+              >.bersuara()</code
+            >) bisa menghasilkan berbagai perilaku yang berbeda, tergantung pada
+            "bentuk" objek yang memanggilnya.
+          </li>
+        </ol>
+        <p>
+          Polimorfisme memungkinkan kode yang lebih fleksibel dan mudah
+          diperluas, karena Anda bisa menulis kode yang berinteraksi dengan
+          objek secara umum (misalnya, "setiap hewan bersuara"), tanpa perlu
+          tahu secara spesifik tipe hewan apa itu.
+        </p>
+        <hr />
+        <h2>Kesimpulan Pilar-Pilar OOP: Saling Mendukung</h2>
+        <p>
+          Keempat pilar OOP ini tidak berdiri sendiri, mereka saling mendukung:
+        </p>
+        <ul>
+          <li>
+            <strong>Enkapsulasi</strong> melindungi data dan mengelompokkan
+            perilaku.
+          </li>
+          <li>
+            <strong>Abstraksi</strong> menyederhanakan kompleksitas dengan
+            menyajikan antarmuka yang bersih.
+          </li>
+          <li>
+            <strong>Pewarisan</strong> memungkinkan kita menggunakan kembali
+            kode dan membuat hirarki objek.
+          </li>
+          <li>
+            <strong>Polimorfisme</strong> memungkinkan objek yang berbeda untuk
+            merespons panggilan yang sama dengan cara unik, membuat kode lebih
+            fleksibel.
+          </li>
+        </ul>
+        <p>
+          Dengan memahami dan menerapkan konsep OOP, Anda dapat membangun
+          program yang lebih terstruktur, mudah dikelola, dan skalabel (mudah
+          diperbesar atau diperluas di masa depan). Ini adalah pendekatan yang
+          dominan dalam pengembangan perangkat lunak modern.
+        </p>
+
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./class.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="#" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

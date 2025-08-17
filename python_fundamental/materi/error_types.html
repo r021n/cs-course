@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/styles/python_blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Tipe-Tipe Error – Memahami Pesan Kesalahan Python</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li><a href="./output.html">Output (print)</a></li>
+        <li><a href="./comments.html">Comments</a></li>
+        <li><a href="./variable.html">Variables</a></li>
+        <li><a href="./data_types.html">Data Type</a></li>
+        <li><a href="./operators.html">Operators</a></li>
+        <li><a href="./type_conversion.html">Type Conversion</a></li>
+        <li><a href="./input.html">Input</a></li>
+        <li><a href="./string_manipulation.html">String Manipulation</a></li>
+        <li><a href="./conditionals.html">Conditionals</a></li>
+        <li><a href="./loops.html">Loops</a></li>
+        <li><a href="./lists.html">Lists</a></li>
+        <li><a href="./tuples.html">Tuples</a></li>
+        <li><a href="./sets.html">Sets</a></li>
+        <li><a href="./dictionaries.html">Dictionaries</a></li>
+        <li><a href="./list_comprehension.html">List Comprehension</a></li>
+        <li><a href="./function.html">Functions</a></li>
+        <li><a href="./lambda_function.html">Lambda Functions</a></li>
+        <li><a href="./error_types.html" class="active">Error Types</a></li>
+        <li><a href="./exception_handling.html">Exception Handling</a></li>
+        <li><a href="./modul_library.html">Module & Library</a></li>
+        <li><a href="./file_handling.html">File Handling</a></li>
+        <li><a href="./python_conventions.html">Python Conventions</a></li>
+        <li><a href="./class.html">Class</a></li>
+        <li><a href="./oop.html">Object Oriented Programming</a></li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../contents_table.html"
+            ><i class="fas fa-laptop-code"></i> Python Fundamental</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>"Tipe-Tipe Error" – Memahami Pesan Kesalahan Python</h1>
+        <p>
+          Dalam perjalanan belajar coding, Anda pasti akan sering bertemu dengan yang namanya <strong>error</strong> atau <strong>kesalahan</strong>. Jangan khawatir, ini adalah bagian normal dari proses belajar dan mengembangkan program! Error bukanlah pertanda bahwa Anda gagal, melainkan "pesan" dari Python yang memberitahu Anda bahwa ada sesuatu yang tidak sesuai dengan aturan atau harapan Python.
+        </p>
+        <p>
+          Memahami berbagai jenis error dan pesan yang menyertainya adalah keterampilan penting bagi seorang programmer. Itu seperti seorang detektif yang membaca petunjuk untuk menemukan masalahnya. Python akan memberikan pesan error yang cukup jelas, seringkali menunjukkan baris mana yang bermasalah.
+        </p>
+        <p>
+          Secara umum, ada dua kategori besar error:
+        </p>
+        <ol>
+          <li><strong>Syntax Errors (Kesalahan Sintaks):</strong> Terjadi ketika Anda melanggar aturan penulisan kode Python (mirip dengan kesalahan tata bahasa dalam bahasa Inggris). Program tidak bisa dijalankan karena Python tidak mengerti apa yang Anda tulis.</li>
+          <li><strong>Exceptions (Kesalahan Saat Berjalan / Runtime Errors):</strong> Terjadi ketika program sudah berjalan, tetapi ada sesuatu yang tidak terduga atau tidak mungkin dilakukan (misalnya, mencoba membagi dengan nol, atau mencoba mengakses data yang tidak ada).</li>
+        </ol>
+        <p>
+          Mari kita bahas beberapa tipe error yang paling umum Anda temui.
+        </p>
+
+        <h2>1. <code class="code-piece">SyntaxError</code>: Kesalahan Tata Bahasa Python</h2>
+        <p>
+          <code class="code-piece">SyntaxError</code> terjadi ketika kode Anda tidak mengikuti aturan penulisan (sintaks) Python. Ini seperti menulis kalimat yang tata bahasanya salah sehingga orang lain tidak bisa mengerti maksudnya. Python akan menolak menjalankan program Anda jika ada <code class="code-piece">SyntaxError</code>.
+        </p>
+        <pre><code class="language-python"># Contoh SyntaxError: Kurung kurawal yang tidak ditutup
+# print("Halo Dunia!"
+# print("Ini tidak akan jalan karena ada syntax error di atas.")
+
+# Contoh SyntaxError: Kata kunci yang salah
+# if_else = 10 # Seharusnya tidak pakai 'if' di awal nama variabel
+# print(if_else)
+
+# Contoh SyntaxError: Tanda kutip tidak ditutup
+# pesan = "Ini adalah string yang tidak ditutup.
+# print(pesan)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">  File "<stdin>", line 2
+    print("Halo Dunia!"
+                     ^
+SyntaxError: unmatched ')'</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">SyntaxError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">print("Halo Dunia!"</code>, tanda kurung tutup <code class="code-piece">)</code> tidak ada. Python melihat <code class="code-piece">print("Halo Dunia!"</code> dan berpikir "Ada yang kurang nih, kurungnya tidak sepasang!". Pesan <code class="code-piece">SyntaxError: unmatched ')'</code> sangat jelas, memberitahu kita bahwa ada kurung tutup yang belum ditambahkan. <code class="code-piece">^</code> di bawah baris kode juga menunjukkan perkiraan lokasi masalahnya.
+        </p>
+        <p>
+          <code class="code-piece">SyntaxError</code> adalah jenis error yang paling dasar. Python tidak bisa "menerjemahkan" kode Anda menjadi instruksi yang bisa dijalankan komputer karena ada "kesalahan tata bahasa".
+        </p>
+
+        <h2>2. <code class="code-piece">IndentationError</code>: Kesalahan Jarak Menjorok (Indentasi)</h2>
+        <p>
+          Ini adalah sub-tipe dari <code class="code-piece">SyntaxError</code> yang sangat spesifik untuk Python. Python menggunakan jarak menjorok (indentasi) untuk menentukan blok-blok kode (misalnya, setelah <code class="code-piece">if</code>, <code class="code-piece">for</code>, <code class="code-piece">def</code>). Jika indentasi tidak konsisten atau salah, Python akan mengeluarkan <code class="code-piece">IndentationError</code>.
+        </p>
+        <pre><code class="language-python"># Contoh IndentationError: Indentasi tidak konsisten atau salah
+# if True:
+# print("Ini salah indentasi.") # Seharusnya menjorok
+#    print("Ini juga salah.") # Jika baris di atasnya sudah menjorok, ini harus sama
+
+# def fungsi_salah():
+# print("Ini juga salah.")</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">  File "<stdin>", line 3
+    print("Ini salah indentasi.") # Seharusnya menjorok
+IndentationError: expected an indented block</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">IndentationError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">if True:</code>, baris <code class="code-piece">print("Ini salah indentasi.")</code> seharusnya menjorok ke dalam (misalnya 4 spasi atau 1 Tab). Karena tidak menjorok, Python mengharapkan "blok yang menjorok" (<code class="code-piece">expected an indented block</code>) tapi tidak menemukannya, sehingga muncul <code class="code-piece">IndentationError</code>.
+        </p>
+        <p>
+          <code class="code-piece">IndentationError</code> sangat umum bagi pemula Python karena ini adalah salah satu aturan sintaksis Python yang unik dan ketat. Selalu periksa spasi menjorok Anda!
+        </p>
+
+        <h2>3. <code class="code-piece">NameError</code>: Nama Tidak Dikenali</h2>
+        <p>
+          <code class="code-piece">NameError</code> terjadi ketika Anda mencoba menggunakan sebuah variabel, fungsi, atau objek lain yang namanya belum didefinisikan atau belum dikenali oleh Python. Ini seperti Anda memanggil nama seseorang yang tidak ada di ruangan.
+        </p>
+        <pre><code class="language-python"># Contoh NameError: Variabel belum didefinisikan
+# print(variabel_belum_ada)
+
+# Contoh NameError: Salah ketik nama variabel
+nama_asli = "Budi"
+# print(nam_asli) # Ada typo, seharusnya 'nama_asli'
+
+# Contoh NameError: Salah ketik nama fungsi
+# prit("Halo") # Seharusnya 'print'</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'variabel_belum_ada' is not defined</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">NameError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">print(variabel_belum_ada)</code>, kita mencoba mencetak isi dari <code class="code-piece">variabel_belum_ada</code>, tetapi variabel tersebut belum pernah diberi nilai atau didefinisikan sebelumnya. Python kemudian mengeluarkan <code class="code-piece">NameError: name 'variabel_belum_ada' is not defined</code>. Ini memberitahu Anda bahwa Python tidak tahu "variabel_belum_ada" itu apa.
+        </p>
+        <p>
+          <code class="code-piece">NameError</code> sering terjadi karena typo dalam penulisan nama variabel atau fungsi.
+        </p>
+
+        <h2>4. <code class="code-piece">TypeError</code>: Operasi Tidak Cocok untuk Tipe Data</h2>
+        <p>
+          <code class="code-piece">TypeError</code> terjadi ketika Anda mencoba melakukan operasi atau menggunakan fungsi pada objek yang tipenya tidak sesuai. Ini seperti mencoba menjumlahkan sebuah angka dengan sebuah kata.
+        </p>
+        <pre><code class="language-python"># Contoh TypeError: Menjumlahkan string dengan angka
+# hasil = "Umur saya " + 17 # Tidak bisa menggabungkan string dan int langsung dengan '+'
+# print(hasil)
+
+# Contoh TypeError: Menggunakan len() pada angka
+# jumlah_digit = len(12345) # len() hanya bisa untuk tipe data yang punya "panjang" (string, list, tuple, dll)
+# print(jumlah_digit)
+
+# Contoh TypeError: Memanggil objek yang bukan fungsi
+variabel_angka = 10
+# hasil = variabel_angka() # Mencoba memanggil angka seperti fungsi
+# print(hasil)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+TypeError: can only concatenate str (not "int") to str</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">TypeError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">hasil = "Umur saya " + 17</code>, Python mengeluarkan <code class="code-piece">TypeError: can only concatenate str (not "int") to str</code>. Pesan ini sangat jelas: Anda hanya bisa menggabungkan (<code class="code-piece">concatenate</code>) string dengan string lain. Anda tidak bisa langsung menggabungkan string dengan integer (<code class="code-piece">int</code>). Untuk memperbaikinya, Anda perlu mengonversi angka <code class="code-piece">17</code> menjadi string terlebih dahulu: <code class="code-piece">hasil = "Umur saya " + str(17)</code>.
+        </p>
+        <p>
+          <code class="code-piece">TypeError</code> seringkali berarti Anda perlu melakukan konversi tipe data atau menggunakan operator/metode yang berbeda.
+        </p>
+
+        <h2>5. <code class="code-piece">ValueError</code>: Nilai Tidak Cocok (Meskipun Tipe Data Benar)</h2>
+        <p>
+          <code class="code-piece">ValueError</code> terjadi ketika operasi menerima tipe data yang benar, tetapi nilai dari data tersebut tidak cocok atau tidak valid untuk operasi tersebut. Ini seperti Anda ingin mengubah teks menjadi angka, tetapi teksnya adalah "apel" (bukan angka).
+        </p>
+        <pre><code class="language-python"># Contoh ValueError: Mengonversi string yang bukan angka ke int
+# angka_dari_teks = int("ini bukan angka")
+# print(angka_dari_teks)
+
+# Contoh ValueError: Mengonversi string yang desimal ke int
+# nilai_float_text = "3.14"
+# nilai_int_dari_float = int(nilai_float_text) # '3.14' bukan integer murni
+# print(nilai_int_dari_float)
+
+# Contoh ValueError: Mencari item yang tidak ada dalam list dengan .index()
+daftar_buah = ["Apel", "Jeruk", "Pisang"]
+# posisi_anggur = daftar_buah.index("Anggur") # 'Anggur' tidak ada di list
+# print(posisi_anggur)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+ValueError: invalid literal for int() with base 10: 'ini bukan angka'</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">ValueError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">angka_dari_teks = int("ini bukan angka")</code>, kita mencoba mengubah string <code class="code-piece">"ini bukan angka"</code> menjadi integer. Secara tipe data, <code class="code-piece">int()</code> memang menerima string. Namun, nilai string <code class="code-piece">"ini bukan angka"</code> bukanlah representasi angka yang valid. Oleh karena itu, Python mengeluarkan <code class="code-piece">ValueError: invalid literal for int() with base 10: 'ini bukan angka'</code>. Ini memberitahu kita bahwa literal (nilai yang diberikan) tidak valid untuk fungsi <code class="code-piece">int()</code>.
+        </p>
+        <p>
+          <code class="code-piece">ValueError</code> sering terjadi saat memproses input pengguna, di mana Anda mengharapkan angka tapi pengguna memasukkan teks.
+        </p>
+
+        <h2>6. <code class="code-piece">IndexError</code>: Indeks di Luar Batas</h2>
+        <p>
+          <code class="code-piece">IndexError</code> terjadi ketika Anda mencoba mengakses item dalam List, Tuple, atau String menggunakan indeks yang di luar rentang yang valid (indeks terlalu kecil/negatif yang tidak valid, atau terlalu besar).
+        </p>
+        <pre><code class="language-python"># Contoh IndexError: Mengakses indeks yang tidak ada
+daftar_warna = ["Merah", "Hijau", "Biru"]
+# print(daftar_warna[3]) # Indeks 3 tidak ada, hanya ada 0, 1, 2
+# print(daftar_warna[-4]) # Indeks -4 tidak ada
+
+# Contoh IndexError: Slicing dengan indeks di luar batas (ini tidak error, hanya batas akhir diabaikan)
+print(daftar_warna[0:100]) # Ini tidak error, hanya mengambil sampai akhir
+
+teks_pendek = "Halo"
+# print(teks_pendek[4]) # Indeks 4 tidak ada, hanya ada 0, 1, 2, 3</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+IndexError: list index out of range</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">IndexError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">print(daftar_warna[3])</code>, list <code class="code-piece">daftar_warna</code> hanya memiliki indeks 0, 1, dan 2. Ketika kita mencoba mengakses indeks <code class="code-piece">3</code>, Python mengeluarkan <code class="code-piece">IndexError: list index out of range</code>. Ini berarti indeks yang Anda minta berada di luar jangkauan (range) yang dimiliki oleh list.
+        </p>
+        <p>
+          <code class="code-piece">IndexError</code> sering terjadi saat Anda bekerja dengan perulangan atau saat Anda berasumsi sebuah list/string memiliki panjang tertentu.
+        </p>
+
+        <h2>7. <code class="code-piece">KeyError</code>: Kunci Dictionary Tidak Ditemukan</h2>
+        <p>
+          <code class="code-piece">KeyError</code> terjadi ketika Anda mencoba mengakses nilai di dalam sebuah Dictionary menggunakan kunci yang tidak ada di dalam Dictionary tersebut.
+        </p>
+        <pre><code class="language-python"># Contoh KeyError: Mengakses kunci yang tidak ada
+data_buku = {
+    "judul": "Python untuk Pemula",
+    "penulis": "Anonim",
+    "tahun": 2023
+}
+# print(data_buku["penerbit"]) # Kunci 'penerbit' tidak ada
+# print(data_buku["ISBN"]) # Kunci 'ISBN' juga tidak ada</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+KeyError: 'penerbit'</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">KeyError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">print(data_buku["penerbit"])</code>, kita mencoba mendapatkan nilai yang terkait dengan kunci <code class="code-piece">"penerbit"</code>. Karena kunci ini tidak ada di <code class="code-piece">data_buku</code>, Python mengeluarkan <code class="code-piece">KeyError: 'penerbit'</code>.
+        </p>
+        <p>
+          Untuk menghindari <code class="code-piece">KeyError</code>, ingatlah untuk menggunakan metode <code class="code-piece">.get()</code> yang aman, atau periksa keberadaan kunci dengan operator <code class="code-piece">in</code> sebelum mencoba mengaksesnya.
+        </p>
+
+        <h2>8. <code class="code-piece">ZeroDivisionError</code>: Pembagian dengan Nol</h2>
+        <p>
+          <code class="code-piece">ZeroDivisionError</code> terjadi ketika Anda mencoba membagi sebuah angka dengan nol. Dalam matematika, pembagian dengan nol tidak terdefinisi, dan Python (serta komputer pada umumnya) tidak bisa melakukannya.
+        </p>
+        <pre><code class="language-python"># Contoh ZeroDivisionError
+# hasil_bagi = 10 / 0
+# print(hasil_bagi)
+
+# Contoh lain dengan variabel
+# pembilang = 50
+# penyebut = 0
+# rata_rata = pembilang / penyebut
+# print(rata_rata)</code></pre>
+        <p><strong>Outputnya:</strong></p>
+        <pre><code class="language-plain">Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+ZeroDivisionError: division by zero</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada salah satu contoh di atas dan menjalankannya, Anda akan melihat <code class="code-piece">ZeroDivisionError</code>.)</em></p>
+        <p><strong>Penjelasan Kode dan Error:</strong></p>
+        <p>
+          Pada contoh <code class="code-piece">hasil_bagi = 10 / 0</code>, Python secara langsung mengenali bahwa Anda mencoba melakukan operasi yang tidak mungkin. Ini akan mengeluarkan <code class="code-piece">ZeroDivisionError: division by zero</code>.
+        </p>
+        <p>
+          <code class="code-piece">ZeroDivisionError</code> sering terjadi ketika Anda melakukan perhitungan yang melibatkan input dari pengguna, dan pengguna mungkin saja memasukkan angka nol sebagai pembagi.
+        </p>
+
+        <h2>Pentingnya "Stack Trace"</h2>
+        <p>
+          Ketika sebuah error (<code class="code-piece">Exception</code>) terjadi, Python tidak hanya memberikan nama errornya, tetapi juga serangkaian informasi yang disebut <strong>"Stack Trace"</strong> (atau "jejak tumpukan"). Ini adalah daftar fungsi yang sedang aktif (yang saling memanggil) saat error terjadi, dari yang paling atas (tempat error terjadi) hingga yang paling bawah (tempat program dimulai).
+        </p>
+        <p>
+          Stack trace sangat membantu dalam melacak akar masalah, terutama pada program yang kompleks dengan banyak fungsi yang saling memanggil.
+        </p>
+        <pre><code class="language-python">def fungsi_c():
+    a = 10
+    b = 0
+    hasil = a / b # Error terjadi di sini
+    print(hasil)
+
+def fungsi_b():
+    print("Memanggil fungsi C...")
+    fungsi_c()
+    print("Fungsi C selesai.")
+
+def fungsi_a():
+    print("Memulai fungsi A...")
+    fungsi_b()
+    print("Fungsi A selesai.")
+
+# Mulai program
+# fungsi_a()</code></pre>
+        <p><strong>Outputnya (jika <code class="code-piece">fungsi_a()</code> dijalankan):</strong></p>
+        <pre><code class="language-plain">Memulai fungsi A...
+Memanggil fungsi C...
+Traceback (most recent call last):
+  File "<stdin>", line 16, in <module>
+    fungsi_a()
+  File "<stdin>", line 13, in fungsi_a
+    fungsi_b()
+  File "<stdin>", line 9, in fungsi_b
+    fungsi_c()
+  File "<stdin>", line 4, in fungsi_c
+    hasil = a / b # Error terjadi di sini
+ZeroDivisionError: division by zero</code></pre>
+        <p><em>(Catatan: Kode di atas sengaja dikomentari agar program bisa dijalankan. Jika Anda menghapus tanda <code class="code-piece">#</code> pada <code class="code-piece">fungsi_a()</code> dan menjalankannya, Anda akan melihat stack trace.)</em></p>
+        <p><strong>Penjelasan Kode dan Stack Trace:</strong></p>
+        <p>
+          Pada contoh ini:
+        </p>
+        <ol>
+          <li>Program dimulai dengan memanggil <code class="code-piece">fungsi_a()</code>.</li>
+          <li><code class="code-piece">fungsi_a()</code> memanggil <code class="code-piece">fungsi_b()</code>.</li>
+          <li><code class="code-piece">fungsi_b()</code> memanggil <code class="code-piece">fungsi_c()</code>.</li>
+          <li>Di dalam <code class="code-piece">fungsi_c()</code>, terjadi <code class="code-piece">ZeroDivisionError</code>.</li>
+        </ol>
+        <p>
+          Stack trace menunjukkan alur ini:
+        </p>
+        <ul>
+          <li><code class="code-piece">File "<stdin>", line 4, in fungsi_c</code>: Ini adalah baris dan fungsi tempat error <strong>sebenarnya terjadi</strong>.</li>
+          <li><code class="code-piece">File "<stdin>", line 9, in fungsi_b</code>: Ini adalah baris di <code class="code-piece">fungsi_b</code> yang memanggil <code class="code-piece">fungsi_c</code>.</li>
+          <li><code class="code-piece">File "<stdin>", line 13, in fungsi_a</code>: Ini adalah baris di <code class="code-piece">fungsi_a</code> yang memanggil <code class="code-piece">fungsi_b</code>.</li>
+          <li><code class="code-piece">File "<stdin>", line 16, in <module></code>: Ini adalah titik awal program Anda yang memanggil <code class="code-piece">fungsi_a</code>.</li>
+        </ul>
+        <p>
+          Dengan membaca stack trace dari bawah ke atas (atau mencari baris pertama yang bukan dari file Python internal), Anda bisa melacak dari mana panggilan fungsi berasal hingga mencapai titik masalah. Ini adalah alat diagnostik yang sangat ampuh.
+        </p>
+        <hr>
+        <p>
+          Memahami berbagai tipe error dan bagaimana membaca pesan kesalahan adalah keterampilan fundamental dalam pemrograman. Jangan takut dengan error; anggaplah mereka sebagai petunjuk dari Python untuk membantu Anda belajar dan meningkatkan kode Anda! Di modul selanjutnya, kita akan belajar bagaimana "menangkap" error ini agar program Anda tidak langsung berhenti.
+        </p>
+        <div class="next-page">
+          <strong>Materi Selanjutnya:</strong>
+          <a href="./exception_handling.html">Exception Handling – Membuat Program Lebih Mampu Mengantisipasi Kesalahan</a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./lambda_function.html" class="nav-button"><i class="fas fa-arrow-left"></i></a>
+      <span class="nav-title"></span>
+      <a href="./exception_handling.html" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>
