@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(22, 30, 41); /* Background sesuai permintaan */
+  background-color: rgb(22, 30, 41);
   font-family: Nata Sans, Helvetica, sans-serif;
   color: aliceblue;
   min-height: 100vh;
-  overflow-x: hidden; /* Mencegah scroll horizontal */
+  overflow-x: hidden;
 }
 /* --- Sidebar, Toggle, and Overlay Styles --- */
 #sidebar-toggle {
@@ -100,15 +100,14 @@ body.sidebar-open #sidebar-overlay {
   opacity: 1;
 }
 body.sidebar-open .main-content {
-  margin-left: 280px; /* Memberi ruang untuk sidebar saat terbuka */
+  margin-left: 280px;
 }
 /* --- End of Sidebar Styles --- */
-
 /* --- Main Content Styles --- */
 .main-content {
   padding: 20px;
-  max-width: 1000px; /* Lebar maksimum sesuai referensi */
-  margin: 0 auto; /* Tengah */
+  max-width: 1000px;
+  margin: 0 auto;
   width: 100%;
   transition: margin-left 0.3s ease-in-out;
 }
@@ -167,17 +166,17 @@ li {
 }
 /* Khusus untuk paragraf di dalam li */
 li > p {
-  margin: 10px 0 5px 0; /* Margin lebih kecil */
+  margin: 10px 0 5px 0;
 }
 ol {
   padding-left: 20px;
-  counter-reset: my-counter; /* Membuat counter khusus */
+  counter-reset: my-counter;
 }
 ol > li {
   list-style: none;
   counter-increment: my-counter;
   position: relative;
-  margin-bottom: 30px; /* Jarak antar langkah */
+  margin-bottom: 30px;
 }
 ol > li::before {
   content: counter(my-counter) ".";
@@ -185,7 +184,7 @@ ol > li::before {
   font-size: 20px;
   color: aliceblue;
   position: absolute;
-  left: -30px; /* Posisi angka ke kiri */
+  left: -30px;
   top: 0;
 }
 strong {
@@ -200,11 +199,11 @@ a {
 /* --- Image Styles --- */
 img {
   max-width: 100%;
-  height: auto; /* Menjaga rasio aspek */
-  display: block; /* Menghilangkan spasi bawah inline */
-  margin: 15px auto; /* Center image */
-  border-radius: 5px; /* Opsional: sudut membulat */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Opsional: bayangan */
+  height: auto;
+  display: block;
+  margin: 15px auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .img-container {
   margin-top: 30px;
@@ -253,9 +252,91 @@ img {
   text-overflow: ellipsis;
   margin: 0 20%;
 }
-
 footer {
   height: 10em;
+}
+/* --- Tutorial Choice Styles --- */
+.tutorial-choice {
+  margin: 30px 0;
+  text-align: center;
+  background-color: rgba(38, 177, 210, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(38, 177, 210, 0.3);
+}
+
+.tutorial-choice h2 {
+  margin-bottom: 20px;
+  color: #26b0d2;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  background-color: rgba(38, 177, 210, 0.2);
+  color: aliceblue;
+  border: 1px solid #26b0d2;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: Nata Sans, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.choice-btn:hover {
+  background-color: rgba(38, 177, 210, 0.4);
+  transform: translateY(-2px);
+}
+
+.choice-btn.active {
+  background-color: #26b0d2;
+  color: rgb(22, 30, 41);
+  font-weight: 700;
+}
+
+.tutorial-content {
+  margin-top: 30px;
+}
+
+.video-container {
+  margin: 25px 0;
+  text-align: center;
+}
+
+.video-container iframe {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.video-steps {
+  background-color: rgba(38, 177, 210, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 25px 0;
+}
+
+.video-steps h3 {
+  color: #26b0d2;
+  margin-bottom: 15px;
+}
+
+.video-steps ol {
+  padding-left: 20px;
+}
+
+.video-steps li {
+  margin-bottom: 10px;
 }
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -263,7 +344,7 @@ footer {
     padding: 20px 15px;
   }
   body.sidebar-open .main-content {
-    margin-left: 0; /* Sidebar covers content on mobile */
+    margin-left: 0;
   }
   h1 {
     font-size: 32px;
@@ -290,5 +371,14 @@ footer {
     top: 10px;
     padding: 8px;
     font-size: 20px;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .choice-btn {
+    padding: 10px 20px;
+    font-size: 16px;
   }
 }
