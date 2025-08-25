@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Modul 1: Mendeteksi Objek dalam Sebuah Gambar</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li>
+          <a href="../create_account/create_account.html"
+            >Membuat Akun Roboflow</a
+          >
+        </li>
+        <li>
+          <a href="../create_account/data_prep.html">Mempersiapkan Data</a>
+        </li>
+        <li>
+          <a href="#" class="active">Deteksi objek dalam gambar</a>
+        </li>
+        <li>
+          <a href="./module_2.html">Deteksi objek dalam video</a>
+        </li>
+        <li>
+          <a href="./module_3.html">Deteksi objek dengan kamera</a>
+        </li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../../index.html"
+            ><i class="fas fa-eye"></i> Computer Vision</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>Modul 1: Mendeteksi Objek dalam Sebuah Gambar</h1>
+        <p>
+          Selamat datang di petualangan pertama kita! Di modul ini, kita akan
+          belajar cara menyuruh "detektif AI" kita (model YOLOv8) untuk
+          menemukan objek-objek yang tersembunyi di dalam sebuah gambar. Anggap
+          saja kita memberinya sebuah foto TKP (Tempat Kejadian Perkara), dan
+          tugasnya adalah melaporkan semua benda penting yang ia lihat.
+        </p>
+        <h2>Prerequisite (Persiapan Sebelum Memulai)</h2>
+        <p>
+          Sebelum memanggil detektif kita, pastikan laptop atau komputermu sudah
+          siap dengan peralatan berikut:
+        </p>
+        <ol>
+          <li>
+            <strong>Python Sudah Terpasang:</strong> Ini adalah bahasa yang kita
+            gunakan untuk memberi perintah.
+          </li>
+          <li>
+            <strong>Install Library `ultralytics`:</strong> Ini adalah "kantor"
+            tempat detektif YOLOv8 kita bekerja. Untuk menginstallnya, buka
+            Terminal atau Command Prompt, lalu ketik:
+            <code class="code-piece">pip install ultralytics</code>
+          </li>
+          <li>
+            <strong>Satu File Model YOLOv8:</strong> Unduh satu "otak" detektif.
+            Kita akan pakai yang paling kecil dan cepat, yaitu
+            <code class="code-piece">yolov8n.pt</code>. Library
+            <code class="code-piece">ultralytics</code> biasanya akan mengunduh
+            ini secara otomatis saat pertama kali digunakan, jadi kita tidak
+            perlu memikirkannya.
+          </li>
+          <li>
+            <strong>Satu Gambar untuk Dideteksi:</strong> Siapkan sebuah file
+            gambar (misalnya
+            <code class="code-piece">motor_dan_mobil.jpg</code>) yang berisi
+            objek-objek seperti orang, mobil, motor, atau apa pun yang menarik.
+            Simpan di folder yang sama dengan kode Python-mu nanti.
+          </li>
+        </ol>
+        <hr />
+        <h2>Langkah 1: Memanggil Sang Detektif (Memuat Model)</h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Bayangkan file <code class="code-piece">yolov8n.pt</code> itu bukan
+          sekadar file biasa. Anggaplah itu adalah sebuah "otak" buatan yang
+          sudah dilatih dengan jutaan gambar. Otak ini sudah sangat ahli dalam
+          mengenali pola-pola objek. Tugas pertama kita adalah memuat "otak" ini
+          dari file ke dalam memori program kita, sehingga ia siap menerima
+          perintah. Proses ini seperti membangunkan seorang detektif dari
+          tidurnya dan berkata, "Hey, bangun! Ada tugas untukmu."
+        </p>
+        <h3>Kode</h3>
+        <pre><code class="language-python"># Impor kelas YOLO dari "kantor"-nya
+from ultralytics import YOLO
+
+# Kita panggil dan siapkan detektif kita.
+# Kita beri tahu dia untuk menggunakan "otak" bernama 'yolov8n.pt'
+model = YOLO('yolov8n.pt')</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece">from ultralytics import YOLO</code>: Di
+            baris ini, kita pergi ke "kantor" (<code class="code-piece"
+              >ultralytics</code
+            >) dan memanggil kelas utama bernama
+            <code class="code-piece">YOLO</code>. Kelas ini adalah cetak biru
+            untuk membuat objek detektif kita.
+          </li>
+          <li>
+            <code class="code-piece">model = YOLO('yolov8n.pt')</code>: Di sini
+            kita menciptakan "instansi" atau objek detektif kita. Kita beri nama
+            <code class="code-piece">model</code>. Argumen
+            <code class="code-piece">'yolov8n.pt'</code> adalah instruksi
+            spesifik: "Gunakan pengetahuan dari file
+            <code class="code-piece">yolov8n.pt</code>". Jika filenya belum ada
+            di komputermu, kode ini cukup pintar untuk mengunduhnya secara
+            otomatis. Sekarang, variabel
+            <code class="code-piece">model</code> berisi detektif AI kita yang
+            sudah siap beraksi.
+          </li>
+        </ul>
+        <hr />
+        <h2>Langkah 2: Memberi Tugas pada Detektif (Menjalankan Prediksi)</h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Setelah detektif kita siap, saatnya memberinya kasus pertama: sebuah
+          gambar. Saat kita memberikan gambar ke model, proses ini disebut
+          <strong>inferensi</strong> atau <strong>prediksi</strong>. Model akan
+          "melihat" gambar tersebut (yang bagi komputer hanyalah sekumpulan
+          angka-angka piksel) dan menggunakan semua pengetahuannya untuk
+          menemukan objek di dalamnya.
+        </p>
+        <p>
+          Hasilnya bukanlah gambar yang sudah ada kotak-kotaknya.
+          <strong>Ini bagian penting yang sering disalahpahami.</strong> Hasil
+          mentahnya adalah sebuah laporan detail dalam bentuk data. Laporan ini
+          berisi: "Aku menemukan objek A di koordinat ini, dengan tingkat
+          keyakinan sekian persen. Aku juga menemukan objek B di koordinat
+          itu..." dan seterusnya.
+        </p>
+        <h3>Kode</h3>
+        <pre><code class="language-python"># ... (kode dari bagian sebelumnya) ...
+
+# Detektif 'model' kita sekarang kita beri tugas untuk menganalisis gambar.
+# Ganti 'motor_dan_mobil.jpg' dengan nama file gambarmu.
+results = model('motor_dan_mobil.jpg')</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece"
+              >results = model('motor_dan_mobil.jpg')</code
+            >: Ini adalah baris perintah utamanya. Kita memanggil detektif kita
+            (<code class="code-piece">model</code>) dan memberinya satu kasus,
+            yaitu file gambar
+            <code class="code-piece">'motor_dan_mobil.jpg'</code>. Semua hasil
+            temuannya, dalam bentuk laporan data yang sangat terstruktur, akan
+            disimpan di dalam variabel bernama
+            <code class="code-piece">results</code>.
+          </li>
+        </ul>
+        <hr />
+        <h2>
+          Langkah 3: Membaca Laporan Hasil Investigasi (Mengurai Hasil Deteksi)
+        </h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Variabel <code class="code-piece">results</code> tadi bukanlah gambar,
+          melainkan sebuah "koper" berisi data. Kita harus membuka koper ini dan
+          membaca laporannya satu per satu. Laporan ini sangat detail, berisi
+          informasi tentang setiap objek yang ditemukan. Tiga informasi
+          terpenting dari setiap temuan adalah:
+        </p>
+        <ol>
+          <li>
+            <strong>Bounding Box (Kotak Pembatas):</strong> Ini adalah 4 angka
+            yang menentukan koordinat pojok kiri-atas dan pojok kanan-bawah dari
+            kotak yang mengelilingi objek. Inilah yang nantinya kita gunakan
+            untuk menggambar kotak.
+          </li>
+          <li>
+            <strong>Confidence Score (Skor Keyakinan):</strong> Ini adalah angka
+            antara 0 dan 1 yang menunjukkan seberapa yakin si detektif dengan
+            temuannya. Skor 0.95 artinya dia 95% yakin itu adalah objek yang
+            benar.
+          </li>
+          <li>
+            <strong>Class (Kelas Objek):</strong> Ini adalah nama dari objek
+            yang ditemukan, misalnya "person", "car", atau "dog".
+          </li>
+        </ol>
+        <h3>Kode Lanjutan</h3>
+        <pre><code class="language-python"># ... (kode dari bagian sebelumnya) ...
+
+# Karena 'results' bisa berisi hasil dari beberapa gambar, kita perlu loop.
+# Tapi karena kita hanya memproses satu gambar, loop ini hanya akan berjalan sekali.
+for r in results:
+    # Kita minta koper tadi untuk diubah menjadi gambar yang sudah digambari kotak
+    # Inilah cara paling mudah untuk visualisasi!
+    im_array = r.plot()</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece">for r in results:</code>: Variabel
+            <code class="code-piece">results</code> didesain untuk bisa
+            menampung hasil dari banyak gambar sekaligus. Walaupun kita hanya
+            punya satu, cara mengaksesnya tetap menggunakan perulangan (loop).
+            <code class="code-piece">r</code> di sini akan menjadi laporan
+            detail untuk satu gambar kita.
+          </li>
+          <li>
+            <code class="code-piece">im_array = r.plot()</code>: Ini adalah
+            sebuah fungsi ajaib yang disediakan oleh
+            <code class="code-piece">ultralytics</code>. Fungsi
+            <code class="code-piece">.plot()</code> ini membaca semua data
+            mentah di dalam <code class="code-piece">r</code> (koordinat kotak,
+            nama kelas, skor keyakinan), lalu secara otomatis menggambar semua
+            itu di atas gambar aslinya. Hasilnya adalah sebuah gambar baru
+            (dalam format data yang disebut NumPy array) yang sudah ada
+            coretan-coretan hasil deteksinya. Gambar baru ini kita simpan di
+            variabel <code class="code-piece">im_array</code>.
+          </li>
+        </ul>
+        <hr />
+        <h2>
+          Langkah 4: Menunjukkan Bukti ke Publik (Menampilkan Gambar Hasil)
+        </h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Kita sudah punya gambar baru di dalam variabel
+          <code class="code-piece">im_array</code>. Tapi saat ini, gambar itu
+          hanya ada di dalam memori komputer. Manusia tidak bisa melihatnya.
+          Tugas terakhir kita adalah mengambil data gambar tersebut dan
+          menampilkannya di sebuah jendela di layar monitor kita. Untuk
+          melakukan ini, kita butuh bantuan dari "asisten" lain, yaitu sebuah
+          library bernama OpenCV (<code class="code-piece">cv2</code>), yang
+          sangat ahli dalam urusan menampilkan gambar dan video.
+        </p>
+        <h3>Kode Lengkap</h3>
+        <pre><code class="language-python"># Impor kelas YOLO dari "kantor"-nya
+from ultralytics import YOLO
+# Impor asisten untuk menampilkan gambar
+import cv2
+
+# 1. Panggil dan siapkan detektif kita
+model = YOLO('yolov8n.pt')
+
+# 2. Beri tugas pada detektif untuk menganalisis gambar
+results = model('motor_dan_mobil.jpg') # Ganti dengan nama file gambarmu
+
+# 3. Baca laporan dan minta hasilnya digambar
+for r in results:
+    im_array = r.plot()  # Ini menghasilkan gambar dalam format NumPy array (BGR)
+
+    # 4. Tampilkan gambar bukti ke publik menggunakan OpenCV
+    cv2.imshow('Hasil Deteksi YOLOv8', im_array)
+
+    # Tunggu sampai ada tombol keyboard yang ditekan sebelum menutup jendela
+    cv2.waitKey(0)
+
+# Setelah selesai, tutup semua jendela yang dibuka oleh OpenCV
+cv2.destroyAllWindows()</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece">import cv2</code>: Memanggil asisten OpenCV
+            agar siap digunakan. Pastikan sudah terinstall (<code
+              class="code-piece"
+              >pip install opencv-python</code
+            >).
+          </li>
+          <li>
+            <code class="code-piece"
+              >cv2.imshow('Hasil Deteksi YOLOv8', im_array)</code
+            >: Perintah untuk si asisten. "Tolong, tampilkan sebuah jendela.
+            Beri judul jendela itu 'Hasil Deteksi YOLOv8', dan gambar yang mau
+            ditampilkan ada di dalam variabel
+            <code class="code-piece">im_array</code>."
+          </li>
+          <li>
+            <code class="code-piece">cv2.waitKey(0)</code>:
+            <strong
+              >Ini adalah baris yang sangat penting dan sering membuat bingung
+              pemula.</strong
+            >
+            Komputer bekerja super cepat. Tanpa baris ini, program akan
+            menampilkan jendela lalu langsung menutupnya dalam sepersekian
+            detik, kita bahkan tidak akan sempat melihatnya. Perintah ini
+            artinya: "Jeda programnya di sini. Jangan tutup jendelanya sampai
+            pengguna menekan tombol apa saja di keyboard." Angka
+            <code class="code-piece">0</code> berarti menunggu selamanya.
+          </li>
+          <li>
+            <code class="code-piece">cv2.destroyAllWindows()</code>: Setelah
+            pengguna menekan sebuah tombol,
+            <code class="code-piece">waitKey(0)</code> akan selesai. Perintah
+            ini adalah langkah yang baik untuk membereskan dan menutup semua
+            jendela yang tadi sudah kita buka.
+          </li>
+        </ul>
+        <h3>Output yang Diharapkan</h3>
+        <p>
+          Setelah menjalankan kode lengkap di atas, sebuah jendela akan muncul
+          di layarmu. Jendela tersebut akan menampilkan gambar
+          <code class="code-piece">motor_dan_mobil.jpg</code> milikmu, tetapi
+          sekarang sudah ada kotak-kotak berwarna yang mengelilingi setiap objek
+          yang berhasil dideteksi. Di atas setiap kotak, akan ada label nama
+          objek beserta skor keyakinannya (misalnya:
+          <code class="code-piece">car 0.89</code>). Jendela ini akan tetap
+          terbuka sampai kamu menekan tombol apa pun pada keyboardmu.
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="../create_account/data_prep.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./module_2.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

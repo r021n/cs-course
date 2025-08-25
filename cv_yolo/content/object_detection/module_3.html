@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Modul 3: Deteksi Objek Langsung dari Kamera</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li>
+          <a href="../create_account/create_account.html"
+            >Membuat Akun Roboflow</a
+          >
+        </li>
+        <li>
+          <a href="../create_account/data_prep.html">Mempersiapkan Data</a>
+        </li>
+        <li>
+          <a href="./module_1.html">Deteksi objek dalam gambar</a>
+        </li>
+        <li>
+          <a href="./module_2.html">Deteksi objek dalam video</a>
+        </li>
+        <li>
+          <a href="#" class="active">Deteksi objek dengan kamera</a>
+        </li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../../index.html"
+            ><i class="fas fa-eye"></i> Computer Vision</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>Modul 3: Deteksi Objek Langsung dari Kamera</h1>
+        <p>
+          Kita sudah berhasil menjadi analis video. Kini saatnya menjadi lebih
+          canggih lagi! Kita akan memberikan "mata" sungguhan kepada AI kita,
+          yaitu webcam di laptopmu. AI kita tidak lagi menganalisis rekaman,
+          tapi akan melihat dan bereaksi terhadap dunia di depannya secara
+          <em>live</em>. Ini adalah langkah besar menuju pembuatan aplikasi
+          interaktif!
+        </p>
+        <h2>Prerequisite (Persiapan Sebelum Memulai)</h2>
+        <ol>
+          <li>
+            <strong>Menguasai Modul 2:</strong> Pastikan kamu sudah 100% paham
+            alur kerja memproses video frame-demi-frame. Logika dasarnya akan
+            kita pakai lagi di sini.
+          </li>
+          <li>
+            <strong>Webcam yang Berfungsi:</strong> Pastikan laptop atau
+            komputermu memiliki webcam yang sudah terpasang dan berfungsi dengan
+            baik.
+          </li>
+        </ol>
+        <hr />
+        <h2>
+          Langkah 1: Mengubah Sumber dari File ke Aliran Data Langsung (Live
+          Stream)
+        </h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Di modul sebelumnya, kita memberitahu OpenCV untuk membuka "buku
+          cerita" yang sudah jadi, yaitu file video dengan alamat spesifik
+          seperti <code class="code-piece">'jalan_raya.mp4'</code>. Sekarang,
+          kita tidak punya file. Kita ingin OpenCV terhubung langsung ke "mata"
+          fisik, yaitu webcam.
+        </p>
+        <p>
+          Bagaimana caranya? Kita tidak bisa memberikan nama file. Sebaliknya,
+          kita memberinya sebuah <strong>nomor indeks</strong>. Komputermu
+          menomori semua kamera yang terhubung dengannya, dimulai dari angka
+          <code class="code-piece">0</code>.
+        </p>
+        <ul>
+          <li>
+            Kamera internal/bawaan laptopmu hampir selalu diberi nomor
+            <code class="code-piece">0</code>.
+          </li>
+          <li>
+            Jika kamu mencolokkan webcam eksternal via USB, kamera itu mungkin
+            akan menjadi nomor <code class="code-piece">1</code>.
+          </li>
+          <li>
+            Kamera berikutnya nomor <code class="code-piece">2</code>, dan
+            seterusnya.
+          </li>
+        </ul>
+        <p>
+          Jadi, untuk terhubung ke webcam utama, kita hanya perlu memberikan
+          angka <code class="code-piece">0</code> sebagai ganti dari nama file.
+        </p>
+        <h3>Kode</h3>
+        <pre><code class="language-python">import cv2
+
+# Di Modul 2: cap = cv2.VideoCapture('jalan_raya.mp4')
+# Sekarang di Modul 3:
+cap = cv2.VideoCapture(0)</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece">cap = cv2.VideoCapture(0)</code>: Perintah
+            ini terlihat hampir sama, tetapi perbedaannya sangat fundamental .
+            <ul>
+              <li>
+                Kita tidak lagi memberikan sebuah
+                <code class="code-piece">string</code> (teks) nama file,
+                melainkan sebuah
+                <code class="code-piece">integer</code> (angka).
+              </li>
+              <li>
+                Angka <code class="code-piece">0</code> ini adalah perintah
+                khusus bagi OpenCV: "Jangan cari file. Sebaliknya, coba aktifkan
+                dan hubungkan program ini ke perangkat video dengan indeks 0."
+              </li>
+              <li>
+                Variabel <code class="code-piece">cap</code> sekarang bukan lagi
+                pembaca file, melainkan sebuah portal yang menerima aliran data
+                gambar (<em>stream</em>) tanpa henti langsung dari perangkat
+                keras kameramu.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <hr />
+        <h2>Langkah 2: Logika Loop yang Sama, Konsep yang Berbeda</h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Ini adalah bagian yang sangat keren dalam membua kode deteksi melalui
+          kamera.
+          <strong
+            >Logika untuk memproses video dari file dan dari webcam ternyata 99%
+            sama!</strong
+          >
+        </p>
+        <p>
+          Kita masih akan menggunakan
+          <code class="code-piece">while True</code> loop untuk terus-menerus
+          melakukan:
+        </p>
+        <ol>
+          <li>Baca satu frame (<code class="code-piece">cap.read()</code>).</li>
+          <li>Proses frame itu dengan model YOLO.</li>
+          <li>Tampilkan hasilnya.</li>
+        </ol>
+        <p>Namun, ada satu perbedaan yang penting:</p>
+        <ul>
+          <li>
+            <strong>Video File:</strong>
+            <code class="code-piece">cap.read()</code> suatu saat akan gagal
+            (mengembalikan <code class="code-piece">success = False</code>)
+            karena videonya memang sudah habis. Loop kita punya akhir yang
+            alami.
+          </li>
+          <li>
+            <strong>Webcam Stream:</strong> Selama kameramu menyala dan tidak
+            rusak, <code class="code-piece">cap.read()</code> akan
+            <strong>selalu berhasil</strong>. Aliran datanya tidak akan pernah
+            "habis". Loop kita secara teori akan berjalan selamanya.
+          </li>
+        </ul>
+        <p>
+          Ini berarti, peran tombol <code class="code-piece">q</code> untuk
+          keluar dari program menjadi <strong>jauh lebih penting</strong>.
+          Itulah satu-satunya cara kita untuk menghentikan program secara
+          normal.
+        </p>
+        <h3>Kode Lengkap</h3>
+        <pre><code class="language-python">from ultralytics import YOLO
+import cv2
+
+# Siapkan detektif AI
+model = YOLO('yolov8n.pt')
+
+# Hubungkan ke "mata digital" kita (webcam default, indeks 0)
+cap = cv2.VideoCapture(0)
+
+# Mulai loop tanpa akhir untuk memproses aliran data live
+while True:
+    # Ambil satu "snapshot" dari apa yang dilihat kamera saat ini juga
+    success, frame = cap.read()
+
+    # Jika karena suatu alasan kamera gagal (misal: terputus), hentikan
+    if not success:
+        print("Gagal menangkap frame dari kamera.")
+        break
+
+    # Balik gambarnya secara horizontal (seperti cermin) agar lebih intuitif
+    frame = cv2.flip(frame, 1)
+
+    # Kirim snapshot ini ke detektif AI untuk dianalisis
+    results = model(frame)
+
+    # Gambar hasil temuannya langsung di atas snapshot tadi
+    annotated_frame = results[0].plot()
+
+    # Tampilkan hasilnya di sebuah jendela
+    cv2.imshow("Deteksi Live dari Webcam", annotated_frame)
+
+    # Tunggu 1ms, dan cek apakah pengguna menekan tombol 'q' untuk keluar
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Setelah loop berhenti, lepaskan koneksi ke kamera dan tutup semua jendela
+cap.release()
+cv2.destroyAllWindows()</code></pre>
+        <h3>Penjelasan Kode (Sangat Detail)</h3>
+        <ul>
+          <li>
+            <code class="code-piece">cap = cv2.VideoCapture(0)</code>: Titik
+            perubahan utama, seperti yang dibahas di Langkah 1.
+          </li>
+          <li>
+            <code class="code-piece"
+              >while True: ... success, frame = cap.read()</code
+            >: Logika ini persis sama dengan Modul 2, namun sekarang
+            <code class="code-piece">frame</code> adalah gambar
+            <em>live</em> dari kameramu, bukan dari file video.
+          </li>
+          <li>
+            <code class="code-piece">frame = cv2.flip(frame, 1)</code>:
+            <strong>Sebuah detail tambahan yang sangat berguna.</strong>
+            Kebanyakan webcam menampilkan gambar tidak seperti cermin (jika kamu
+            angkat tangan kanan, di layar terlihat seperti tangan kiri). Ini
+            bisa membingungkan. Perintah
+            <code class="code-piece">cv2.flip()</code> digunakan untuk membalik
+            gambar.
+            <ul>
+              <li>
+                <code class="code-piece">frame</code>: Gambar yang ingin
+                dibalik.
+              </li>
+              <li>
+                <code class="code-piece">1</code>: Kode untuk membalik secara
+                horizontal (sumbu Y).
+              </li>
+              <li>
+                (Info tambahan: kode <code class="code-piece">0</code> untuk
+                membalik vertikal, dan <code class="code-piece">-1</code> untuk
+                membalik keduanya).
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code class="code-piece">results = model(frame)</code> dan
+            <code class="code-piece">annotated_frame = results[0].plot()</code>:
+            Bagian ini <strong>TIDAK BERUBAH SAMA SEKALI</strong>. Model YOLO
+            tidak peduli dari mana gambar itu berasal—apakah dari file
+            <code class="code-piece">jpg</code>, frame video, atau stream
+            webcam. Selama inputnya adalah data gambar (NumPy array), ia akan
+            memprosesnya.
+          </li>
+          <li>
+            <code class="code-piece"
+              >if cv2.waitKey(1) & 0xFF == ord('q'): break</code
+            >: Peran baris ini sekarang menjadi vital sebagai satu-satunya jalan
+            keluar yang disengaja dari program.
+          </li>
+          <li>
+            <code class="code-piece">cap.release()</code>: Jika pada file video
+            ini berarti "menutup file", namun di sini artinya adalah "mematikan
+            dan melepaskan koneksi ke perangkat keras webcam", sehingga program
+            lain bisa menggunakannya. Ini sangat penting!
+          </li>
+        </ul>
+        <h3>Output yang Diharapkan</h3>
+        <p>
+          Saat kamu menjalankan kode ini, webcam di laptopmu akan menyala.
+          Sebuah jendela berjudul "Deteksi Live dari Webcam" akan muncul,
+          menampilkan apa pun yang dilihat oleh kameramu. Jika kamu mengarahkan
+          kamera ke wajahmu, sebuah kotak dengan label
+          <code class="code-piece">person</code> akan muncul dan mengikutimu.
+          Jika kamu menunjukkan ponselmu, kotak
+          <code class="code-piece">cell phone</code> akan muncul. Semua deteksi
+          ini terjadi secara <em>real-time</em> atau dengan sedikit jeda
+          (tergantung kecepatan komputermu). Program ini akan terus berjalan
+          sampai kamu menekan tombol <code class="code-piece">q</code> di
+          keyboardmu.
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./module_2.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="#" class="nav-button"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+    <script src="../../../static/scripts/python_blog_script.js"></script>
+  </body>
+</html>

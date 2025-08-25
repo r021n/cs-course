@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../static/styles/python_blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Modul 2: Melacak Objek dalam Video</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Daftar Materi</h3>
+      <ul>
+        <li>
+          <a href="../create_account/create_account.html"
+            >Membuat Akun Roboflow</a
+          >
+        </li>
+        <li>
+          <a href="../create_account/data_prep.html">Mempersiapkan Data</a>
+        </li>
+        <li>
+          <a href="./module_1.html">Deteksi objek dalam gambar</a>
+        </li>
+        <li>
+          <a href="#" class="active">Deteksi objek dalam video</a>
+        </li>
+        <li>
+          <a href="./module_3.html">Deteksi objek dengan kamera</a>
+        </li>
+      </ul>
+    </div>
+    <div id="sidebar-overlay"></div>
+    <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="main-content">
+      <div class="header">
+        <div class="logo">
+          <a id="back_home" href="../../index.html"
+            ><i class="fas fa-eye"></i> Computer Vision</a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>Modul 2: Melacak Objek dalam Video</h1>
+        <p>
+          Di modul sebelumnya, detektif AI kita berhasil menganalisis satu foto
+          TKP. Sekarang, kita akan naik level! Kita akan memberinya sebuah
+          rekaman CCTV (file video) dan memintanya untuk menganalisis setiap
+          gerak-gerik di dalamnya, secara <em>real-time</em>. Ini seperti
+          mengubah detektif foto kita menjadi seorang analis video profesional.
+        </p>
+        <h2>Prerequisite (Persiapan Sebelum Memulai)</h2>
+        <ol>
+          <li>
+            <strong>Semua dari Modul 1:</strong> Pastikan kamu sudah paham dan
+            bisa menjalankan semua kode dari Modul 1.
+          </li>
+          <li>
+            <strong>Satu File Video:</strong> Siapkan sebuah file video pendek
+            (format <code class="code-piece">.mp4</code> paling umum) yang
+            berisi objek-objek untuk dideteksi. Simpan di folder yang sama
+            dengan kode Python-mu. Beri nama yang simpel, misalnya
+            <code class="code-piece">jalan_raya.mp4</code>.
+          </li>
+        </ol>
+        <hr />
+        <h2>Langkah 1: Memahami Sifat Asli Video</h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Apa itu video? Jawaban yang paling sederhana dan paling teknis adalah:
+          <strong
+            >video adalah kumpulan gambar diam (disebut <em>frame</em>) yang
+            ditampilkan secara berurutan dengan sangat cepat.</strong
+          >
+        </p>
+        <p>
+          Bayangkan kamu punya sebuah buku gambar tipis (<em>flipbook</em>).
+          Setiap halaman kamu gambar sedikit berbeda dari halaman sebelumnya.
+          Saat kamu membuka halaman-halaman itu dengan cepat menggunakan
+          jempolmu, gambar-gambar itu akan terlihat seolah-olah bergerak.
+        </p>
+        <p>
+          Video di komputermu bekerja persis seperti itu. File
+          <code class="code-piece">.mp4</code> itu adalah "flipbook digital".
+          Tugas kita bukan memberikan seluruh buku ini sekaligus ke detektif AI
+          kita (dia akan bingung!), melainkan memberinya halaman demi halaman,
+          satu per satu, untuk dianalisis.
+        </p>
+        <h3>Kode</h3>
+        <pre><code class="language-python"># Impor asisten untuk urusan video dan gambar
+import cv2
+
+# Siapkan alat untuk "membaca" file video kita
+# Ini seperti membuka sampul depan flipbook kita
+video_path = 'jalan_raya.mp4'  # Ganti dengan nama file videomu
+cap = cv2.VideoCapture(video_path)</code></pre>
+        <h3>Penjelasan Kode</h3>
+        <ul>
+          <li>
+            <code class="code-piece">import cv2</code>: Kita kembali memanggil
+            asisten andalan kita, OpenCV, karena dia sangat ahli dalam menangani
+            "flipbook digital".
+          </li>
+          <li>
+            <code class="code-piece">video_path = 'jalan_raya.mp4'</code>: Kita
+            menyimpan nama file video kita ke dalam variabel agar kode lebih
+            rapi.
+          </li>
+          <li>
+            <code class="code-piece">cap = cv2.VideoCapture(video_path)</code>:
+            Ini adalah perintah kuncinya. Kita meminta
+            <code class="code-piece">cv2</code> untuk membuka file video yang
+            kita tunjuk. Hasilnya adalah sebuah objek "pembaca video" yang kita
+            simpan dalam variabel <code class="code-piece">cap</code> (singkatan
+            dari <em>capture</em>). Penting untuk diingat:
+            <strong>baris ini tidak memuat seluruh video ke memori.</strong> Itu
+            akan menghabiskan RAM-mu! Sebaliknya,
+            <code class="code-piece">cap</code> hanya bertindak sebagai penunjuk
+            atau gerbang ke file video tersebut, siap untuk membaca frame satu
+            per satu saat kita minta.
+          </li>
+        </ul>
+        <hr />
+        <h2>Langkah 2: Proses Halaman demi Halaman (Frame-by-Frame Loop)</h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Karena kita harus menganalisis setiap halaman dari
+          <em>flipbook</em> kita, kita perlu sebuah proses yang berulang-ulang.
+          Dalam pemrograman, ini disebut <strong>loop</strong>. Kita akan
+          membuat sebuah loop yang terus berjalan selama masih ada halaman
+          (frame) di dalam video kita untuk dibaca.
+        </p>
+        <p>Prosesnya begini:</p>
+        <ol>
+          <li>Minta satu frame dari video.</li>
+          <li>
+            Periksa apakah kita berhasil mendapatkan frame (mungkin saja
+            videonya sudah habis).
+          </li>
+          <li>Jika berhasil, berikan frame itu ke detektif AI kita.</li>
+          <li>Tampilkan hasilnya.</li>
+          <li>Ulangi lagi dari langkah 1 untuk frame berikutnya.</li>
+        </ol>
+        <p>
+          Ini seperti pabrik perakitan. Setiap frame adalah satu produk di ban
+          berjalan. AI kita adalah stasiun pengecekan kualitas.
+        </p>
+        <h3>Kode Lanjutan</h3>
+        <pre><code class="language-python"># ... (kode dari atas, termasuk inisialisasi model YOLO dari Modul 1) ...
+
+# Loop ini akan terus berjalan selamanya, sampai kita perintahkan berhenti
+while True:
+    # Minta satu halaman (frame) dari flipbook kita
+    success, frame = cap.read()
+    
+    # Jika tidak berhasil (success == False), berarti video sudah habis
+    if not success:
+        print("Video sudah selesai atau gagal membaca frame.")
+        break # Keluar dari loop</code></pre>
+        <h3>Penjelasan Kode (Sangat Detail)</h3>
+        <ul>
+          <li>
+            <code class="code-piece">while True:</code>: Ini memulai sebuah
+            <em>infinite loop</em> atau perulangan tak terbatas. Loop ini akan
+            terus berputar selamanya kecuali ada perintah
+            <code class="code-piece">break</code> di dalamnya.
+          </li>
+          <li>
+            <code class="code-piece">success, frame = cap.read()</code>:
+            <strong>Ini adalah baris paling krusial di modul ini.</strong>
+            Fungsi <code class="code-piece">cap.read()</code> melakukan dua hal
+            dan memberikan dua hasil:
+            <ol>
+              <li>
+                <strong><code class="code-piece">frame</code>:</strong> Ini
+                adalah data gambar dari frame berikutnya dalam video (halaman
+                selanjutnya dari <em>flipbook</em> kita). Isinya adalah data
+                NumPy array, sama seperti gambar yang kita proses di Modul 1.
+              </li>
+              <li>
+                <strong><code class="code-piece">success</code>:</strong> Ini
+                adalah sebuah <em>boolean</em> (nilainya
+                <code class="code-piece">True</code> atau
+                <code class="code-piece">False</code>). Nilainya
+                <code class="code-piece">True</code> jika
+                <code class="code-piece">cv2</code> berhasil membaca frame.
+                Nilainya akan menjadi <code class="code-piece">False</code> jika
+                sudah tidak ada lagi frame yang bisa dibaca (alias, videonya
+                sudah tamat).
+              </li>
+            </ol>
+          </li>
+          <li>
+            <code class="code-piece">if not success:</code>: Kita selalu harus
+            memeriksa variabel <code class="code-piece">success</code> ini. Jika
+            nilainya <code class="code-piece">False</code> (atau
+            <code class="code-piece">not success</code>), itu adalah sinyal bagi
+            kita untuk berhenti.
+          </li>
+          <li>
+            <code class="code-piece">break</code>: Perintah ini secara paksa
+            menghentikan <code class="code-piece">while loop</code> dan
+            melanjutkan ke kode yang ada di bawah loop.
+          </li>
+        </ul>
+        <hr />
+        <h2>
+          Langkah 3: Menerapkan Deteksi di Setiap Frame dan Menampilkannya
+        </h2>
+        <h3>Penjelasan Langkah</h3>
+        <p>
+          Sekarang kita gabungkan semuanya. Di dalam loop tadi, setiap kali kita
+          berhasil mendapatkan satu <code class="code-piece">frame</code>, kita
+          akan langsung memberikannya kepada
+          <code class="code-piece">model</code> YOLOv8 kita untuk dianalisis.
+          Prosesnya sama persis seperti di Modul 1. Model akan mengembalikan
+          hasil, kita akan menggambar hasilnya di atas
+          <code class="code-piece">frame</code> tersebut, lalu kita akan
+          menampilkannya di layar.
+        </p>
+        <p>
+          Karena loop ini berjalan sangat cepat (misalnya 30 kali per detik),
+          mata kita akan tertipu dan melihatnya sebagai video yang bergerak,
+          lengkap dengan kotak-kotak deteksi yang juga ikut bergerak secara
+          dinamis.
+        </p>
+        <h3>Kode Lengkap</h3>
+        <pre><code class="language-python">from ultralytics import YOLO
+import cv2
+
+# Siapkan detektif AI kita
+model = YOLO('yolov8n.pt')
+
+# Buka file video (flipbook digital)
+video_path = 'jalan_raya.mp4'
+cap = cv2.VideoCapture(video_path)
+
+# Mulai proses halaman demi halaman
+while True:
+    success, frame = cap.read()
+
+    if not success:
+        print("Video selesai.")
+        break
+
+    # Berikan frame saat ini ke detektif AI untuk dianalisis
+    results = model(frame)
+
+    # Minta hasilnya untuk langsung digambar di atas frame
+    # 'results[0]' karena kita hanya memproses satu frame pada satu waktu
+    annotated_frame = results[0].plot()
+
+    # Tampilkan frame yang sudah ada hasil deteksinya
+    cv2.imshow("Deteksi Video YOLOv8", annotated_frame)
+
+    # Ini bagian PENTING! Tunggu 1 milidetik, DAN cek apakah tombol 'q' ditekan
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Setelah loop selesai, bereskan semuanya
+cap.release()
+cv2.destroyAllWindows()</code></pre>
+        <h3>Penjelasan Kode (Sangat Detail)</h3>
+        <ul>
+          <li>
+            <code class="code-piece">results = model(frame)</code>: Di dalam
+            loop, kita sekarang memberikan
+            <code class="code-piece">frame</code> (bukan nama file!) sebagai
+            input ke model kita.
+          </li>
+          <li>
+            <code class="code-piece">annotated_frame = results[0].plot()</code>:
+            Sama seperti di modul 1,
+            <code class="code-piece">.plot()</code> akan menggambar kotak dan
+            label. Kita menggunakan
+            <code class="code-piece">results[0]</code> karena
+            <code class="code-piece">model()</code> selalu mengembalikan list,
+            dan untuk satu gambar/frame, hasilnya ada di indeks pertama.
+          </li>
+          <li>
+            <code class="code-piece">cv2.imshow(...)</code>: Menampilkan frame
+            yang sudah dicoret-coret.
+          </li>
+          <li>
+            <code class="code-piece">if cv2.waitKey(1) & 0xFF == ord('q'):</code
+            >:
+            <strong
+              >Ini adalah konsep kunci kedua yang sering disalahpahami.</strong
+            >
+            <ul>
+              <li>
+                <code class="code-piece">cv2.waitKey(1)</code>: Berbeda dengan
+                <code class="code-piece">waitKey(0)</code> yang menunggu
+                selamanya, <code class="code-piece">waitKey(1)</code> hanya akan
+                menjeda program selama <strong>1 milidetik</strong>. Jeda
+                singkat ini sangat penting untuk memberi waktu bagi komputer
+                untuk menampilkan gambar di layar. Tanpa jeda ini, loop berjalan
+                terlalu cepat dan kamu mungkin tidak akan melihat apa-apa.
+              </li>
+              <li>
+                <code class="code-piece">& 0xFF == ord('q')</code>: Ini adalah
+                cara standar di OpenCV untuk mendeteksi penekanan tombol.
+                Artinya: "Jika tombol yang ditekan selama jeda 1 milidetik itu
+                adalah tombol 'q', maka hentikan loop." Ini memberi kita cara
+                untuk menutup video secara manual sebelum selesai.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code class="code-piece">cap.release()</code>: Setelah selesai
+            menggunakan file video, kita harus "melepaskannya". Ini seperti
+            menutup buku setelah selesai membaca. Ini memberitahu sistem operasi
+            bahwa program kita sudah tidak lagi mengunci file video tersebut.
+          </li>
+          <li>
+            <code class="code-piece">cv2.destroyAllWindows()</code>: Sama
+            seperti sebelumnya, ini menutup jendela tampilan setelah loop
+            berakhir.
+          </li>
+        </ul>
+        <h3>Output yang Diharapkan</h3>
+        <p>
+          Saat kamu menjalankan kode ini, sebuah jendela akan muncul dan mulai
+          memutar video <code class="code-piece">jalan_raya.mp4</code>. Namun,
+          video ini tidak biasa. Kamu akan melihat kotak-kotak deteksi yang
+          secara dinamis muncul, bergerak, dan menghilang, mengikuti setiap
+          objek (mobil, orang, motor) yang ada di dalam video. Video akan terus
+          berjalan hingga selesai, atau hingga kamu menekan tombol
+          <code class="code-piece">q</code> pada keyboard untuk menghentikannya.
+        </p>
+        <footer></footer>
+      </div>
+    </div>
+    <div id="floating-navbar">
+      <a href="./module_1.html" class="nav-button"
+        ><i class="fas fa-arrow-left"></i
+      ></a>
+      <span class="nav-title"></span>
+      <a href="./module_3.html" class="nav-button"
+        ><i class="fas fa-arrow-right"></i
+      ></a>
+      <!-- Ganti dengan link yang sesuai -->
+    </div>
+    <a
+      href="https://wa.me/6285117242664"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i> Ask me
+    </a>
+    <!-- Menggunakan highlight.js untuk syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </body>
+  <script src="../../../static/scripts/python_blog_script.js"></script>
+</html>
