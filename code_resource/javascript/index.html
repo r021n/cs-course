@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <div>
+      <h1>Rock Paper Scissor Game</h1>
+
+      <div>
+        <button data-choice="rock">👊 Rock</button>
+        <button data-choice="paper">🖐️ Paper</button>
+        <button data-choice="scissor">✌️ Scissor</button>
+      </div>
+
+      <div>
+        <p>Your choice: <span id="user-choice-text"></span></p>
+        <p>Computer choice: <span id="computer-choice-text"></span></p>
+      </div>
+
+      <h2>Hasil: <span id="result"></span></h2>
+    </div>
+
+    <script>
+      const buttonChoices = document.querySelectorAll("button[data-choice]");
+      const userChoiceElement = document.getElementById("user-choice-text");
+      const computerChoiceElement = document.getElementById(
+        "computer-choice-text"
+      );
+      const resultElement = document.getElementById("result");
+
+      const choices = ["rock", "paper", "scissor"];
+
+      buttonChoices.forEach((button) => {
+        button.addEventListener("click", () => {
+          const randomNumber = Math.floor(Math.random() * 3);
+          const computerChoice = choices[randomNumber];
+          const userChoice = button.dataset.choice;
+
+          computerChoiceElement.textContent = computerChoice;
+          userChoiceElement.textContent = userChoice;
+          const result = compare(userChoice, computerChoice);
+          resultElement.textContent = result;
+        });
+        function compare(userChoice, computerChoice) {
+          if (userChoice === computerChoice) {
+            return "Hasil seri";
+          } else if (
+            (userChoice === "rock" && computerChoice === "scissor") ||
+            (userChoice === "paper" && computerChoice === "rock") ||
+            (userChoice === "scissor" && computerChoice === "paper")
+          ) {
+            return "Kamu menang";
+          } else {
+            return "kamu kalah/computer menang";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
