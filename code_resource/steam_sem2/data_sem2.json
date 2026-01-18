@@ -1,0 +1,1211 @@
+[
+  {
+    "id": "unit-1",
+    "title": "Unit 1: Struktur Web (HTML)",
+    "description": "Belajar HTML dasar, tag, dan struktur elemen untuk pemula.",
+    "icon": "🏗️",
+    "blocks": [
+      {
+        "id": "1.1-1",
+        "type": "TEXT",
+        "title": "1.1 Apa Itu HTML?",
+        "content": "HTML adalah singkatan dari HyperText Markup Language. Bayangkan HTML sebagai kerangka atau tulang belakang sebuah website. Tanpa HTML, website tidak akan memiliki struktur yang jelas. Setiap elemen di website—seperti judul, paragraf, tombol, dan gambar—dibuat menggunakan HTML."
+      },
+      {
+        "id": "1.1-2",
+        "type": "TEXT",
+        "content": "HTML bekerja dengan menggunakan **tag**. Tag adalah kata kunci khusus yang dibungkus dengan tanda kurung sudut, seperti `<html>`, `<body>`, atau `<button>`. Sebagian besar tag memiliki tag pembuka dan tag penutup. Tag pembuka ditulis seperti `<html>`, sedangkan tag penutup ditulis dengan garis miring seperti `</html>`. Isi website ditempatkan di antara tag pembuka dan tag penutup ini."
+      },
+      {
+        "id": "1.1-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Tampilkan screenshot website sederhana (misalnya Wikipedia atau blog) dan tunjukkan bahwa semua yang terlihat—tombol, menu, teks—dibuat dengan HTML."
+      },
+      {
+        "id": "q-1.1-1",
+        "type": "QUIZ",
+        "content": "Apa kepanjangan dari HTML?",
+        "options": [
+          { "text": "Hyperlink Text Mode Language", "isCorrect": false },
+          { "text": "HyperText Markup Language", "isCorrect": true },
+          { "text": "High Tech Modern Language", "isCorrect": false },
+          { "text": "Home Tool Markup Language", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.1-2",
+        "type": "QUIZ",
+        "content": "Berikut ini yang merupakan contoh tag HTML adalah...",
+        "options": [
+          { "text": "(html)", "isCorrect": false },
+          { "text": "<html>", "isCorrect": true },
+          { "text": "{html}", "isCorrect": false },
+          { "text": "/html/", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.1-3",
+        "type": "QUIZ",
+        "content": "Mengapa HTML penting dalam pembuatan website?",
+        "options": [
+          { "text": "Untuk membuat website bergerak animasi", "isCorrect": false },
+          { "text": "Untuk memberi warna pada tampilan", "isCorrect": false },
+          { "text": "Untuk membuat kerangka dan struktur website", "isCorrect": true },
+          { "text": "Untuk menyimpan data di server", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.1-4",
+        "type": "QUIZ",
+        "content": "Tag yang memiliki penutup ditandai dengan tanda...",
+        "options": [
+          { "text": "Tanda bintang (*)", "isCorrect": false },
+          { "text": "Garis miring (/)", "isCorrect": true },
+          { "text": "Tanda titik (.)", "isCorrect": false },
+          { "text": "Tanda hubung (-)", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "1.2-1",
+        "type": "TEXT",
+        "title": "1.2 Struktur Dasar HTML",
+        "content": "Setiap file HTML memiliki struktur dasar yang harus diikuti. Struktur ini dimulai dengan deklarasi `<!doctype html>` yang memberitahu browser bahwa ini adalah dokumen HTML5. Setelah itu, ada tag `<html>` yang membungkus seluruh konten website. Di dalam `<html>`, ada dua bagian utama: `<head>` dan `<body>`."
+      },
+      {
+        "id": "1.2-2",
+        "type": "TEXT",
+        "content": "Bagian `<head>` berisi informasi tentang halaman yang tidak ditampilkan secara langsung ke pengguna. Di sini kita bisa menemukan judul halaman yang muncul di tab browser, pengaturan karakter, dan link ke file CSS eksternal. Bagian `<body>` adalah tempat semua konten yang terlihat disimpan—seperti teks, gambar, dan tombol."
+      },
+      {
+        "id": "1.2-code",
+        "type": "CODE",
+        "content": "<!doctype html>\n<html>\n  <head>\n    <title>Judul Halaman</title>\n  </head>\n  <body>\n    <h1>Selamat Datang</h1>\n    <p>Ini adalah paragraf pertama saya.</p>\n  </body>\n</html>",
+        "language": "html"
+      },
+      {
+        "id": "1.2-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Gambarlah diagram seperti inverted pyramid yang menunjukkan hubungan: `<!doctype html>` di paling atas, lalu `<html>` membungkus `<head>` dan `<body>`, kemudian `<head>` berisi meta dan title, `<body>` berisi konten visual."
+      },
+      {
+        "id": "q-1.2-1",
+        "type": "QUIZ",
+        "content": "Bagian HTML yang berisi informasi tidak terlihat oleh pengguna adalah...",
+        "options": [
+          { "text": "<body>", "isCorrect": false },
+          { "text": "<head>", "isCorrect": true },
+          { "text": "<footer>", "isCorrect": false },
+          { "text": "<title>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.2-2",
+        "type": "QUIZ",
+        "content": "Tag yang digunakan untuk menampilkan judul di tab browser adalah...",
+        "options": [
+          { "text": "<header>", "isCorrect": false },
+          { "text": "<title>", "isCorrect": true },
+          { "text": "<h1>", "isCorrect": false },
+          { "text": "<name>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.2-3",
+        "type": "QUIZ",
+        "content": "Mana yang merupakan struktur yang benar?",
+        "options": [
+          { "text": "<html><head><body></html>", "isCorrect": false },
+          { "text": "<html><body><head></html>", "isCorrect": false },
+          { "text": "<html><head></head><body></body></html>", "isCorrect": true },
+          { "text": "<html><body></html><head></head>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.2-4",
+        "type": "QUIZ",
+        "content": "Fungsi utama dari `<!doctype html>` adalah...",
+        "options": [
+          { "text": "Membuat website menjadi responsif", "isCorrect": false },
+          { "text": "Memberitahu browser bahwa ini dokumen HTML5", "isCorrect": true },
+          { "text": "Menghubungkan ke file CSS", "isCorrect": false },
+          { "text": "Membuat animasi di halaman", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "1.3-1",
+        "type": "TEXT",
+        "title": "1.3 Elemen-Elemen Penting dalam HTML",
+        "content": "HTML memiliki banyak elemen untuk berbagai keperluan. Untuk membuat aplikasi kasir, kita membutuhkan beberapa elemen penting. Elemen `<button>` digunakan untuk membuat tombol yang bisa diklik pengguna. Elemen `<p>` untuk membuat paragraf atau menampilkan teks. Elemen `<input>` untuk membuat kotak input di mana pengguna bisa mengetikkan angka atau teks. Elemen `<b>` untuk membuat teks menjadi tebal."
+      },
+      {
+        "id": "1.3-2",
+        "type": "TEXT",
+        "content": "Setiap elemen bisa diberi **atribut id** untuk memudahkan pengenalan di JavaScript. Bayangkan id seperti nama peserta ujian—setiap peserta punya nama unik agar tidak tertukar. Dalam aplikasi kasir, kita menggunakan id seperti `btnA`, `qtyA`, dan `totalText` untuk menandai elemen-elemen spesifik."
+      },
+      {
+        "id": "1.3-code",
+        "type": "CODE",
+        "content": "<button id=\"btnA\">Es Teh (Rp 3000)</button>\n<p>Total: <b id=\"totalText\">Rp 0</b></p>\n<input id=\"uang\" type=\"number\" placeholder=\"masukkan uang\" />",
+        "language": "html"
+      },
+      {
+        "id": "1.3-3",
+        "type": "TEXT",
+        "content": "Perhatikan bahwa elemen `<input>` memiliki atribut `type` yang menentukan jenis input. `type=\"number\"` berarti input hanya menerima angka. Atribut `placeholder` menampilkan contoh text sebelum pengguna mengetik."
+      },
+      {
+        "id": "1.3-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Buat tabel di papan tulis dengan dua kolom: \"Elemen\" dan \"Fungsi\". Minta siswa menebak fungsi masing-masing elemen sebelum dijelaskan."
+      },
+      {
+        "id": "q-1.3-1",
+        "type": "QUIZ",
+        "content": "Elemen HTML yang digunakan untuk membuat tombol adalah...",
+        "options": [
+          { "text": "<input type=\"button\">", "isCorrect": false },
+          { "text": "<button>", "isCorrect": true },
+          { "text": "<click>", "isCorrect": false },
+          { "text": "<tombol>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.3-2",
+        "type": "QUIZ",
+        "content": "Atribut yang digunakan untuk memberi nama unik pada elemen adalah...",
+        "options": [
+          { "text": "class", "isCorrect": false },
+          { "text": "name", "isCorrect": false },
+          { "text": "id", "isCorrect": true },
+          { "text": "type", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.3-3",
+        "type": "QUIZ",
+        "content": "Apa fungsi dari `<b>` dalam HTML?",
+        "options": [
+          { "text": "Membuat teks menjadi miring", "isCorrect": false },
+          { "text": "Membuat teks menjadi garis bawah", "isCorrect": false },
+          { "text": "Membuat teks menjadi besar", "isCorrect": false },
+          { "text": "Membuat teks menjadi tebal", "isCorrect": true }
+        ]
+      },
+      {
+        "id": "q-1.3-4",
+        "type": "QUIZ",
+        "content": "Perhatikan kode berikut: `<input id=\"uang\" type=\"number\" />`. Atribut `type=\"number\"` berarti...",
+        "options": [
+          { "text": "Input wajib diisi dengan angka", "isCorrect": false },
+          { "text": "Input hanya menerima karakter angka", "isCorrect": true },
+          { "text": "Input akan menampilkan keyboard angka", "isCorrect": false },
+          { "text": "Semua benar", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "1.4-1",
+        "type": "TEXT",
+        "title": "1.4 Praktek: Membuat Struktur HTML Aplikasi Kasir",
+        "content": "Sekarang kita akan membuat struktur HTML untuk aplikasi kasir sederhana. Ikuti langkah-langkah berikut dengan teliti. Pertama, buka text editor seperti Notepad atau VS Code. Ketik kode di bawah ini dengan benar, perhatikan setiap tanda kurung dan spasi."
+      },
+      {
+        "id": "1.4-code-full",
+        "type": "CODE",
+        "content": "<!doctype html>\n<html lang=\"id\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Kasir Sederhana</title>\n</head>\n<body>\n  <div class=\"box\">\n    <h1>Kasir Sederhana</h1>\n\n    <div class=\"menu\">\n      <button id=\"btnA\">Es Teh (Rp 3000)</button>\n      <button id=\"btnB\">Mie Ayam (Rp 10000)</button>\n      <button id=\"btnC\">Bakwan (Rp 1000)</button>\n    </div>\n\n    <p>Es Teh: <b id=\"qtyA\">0</b></p>\n    <p>Mie Ayam: <b id=\"qtyB\">0</b></p>\n    <p>Bakwan: <b id=\"qtyC\">0</b></p>\n\n    <hr />\n\n    <p>Total: <b id=\"totalText\">Rp 0</b></p>\n\n    <label>Uang bayar:</label>\n    <input id=\"uang\" type=\"number\" min=\"0\" placeholder=\"mis. 20000\" />\n\n    <p>Kembalian: <b id=\"kembalianText\">Rp 0</b></p>\n\n    <button id=\"reset\">Reset</button>\n  </div>\n</body>\n</html>",
+        "language": "html"
+      },
+      {
+        "id": "1.4-2",
+        "type": "TEXT",
+        "content": "Perhatikan beberapa hal penting. Atribut `lang=\"id\"` di tag `<html>` menyatakan bahwa bahasa website adalah Indonesia. Tag `<div>` adalah kontainer untuk mengelompokkan elemen-elemen terkait. Elemen dengan `class=\"box\"` dan `class=\"menu\"` akan kita gunakan untuk styling di bagian CSS nanti. Tag `<hr>` membuat garis horizontal untuk memisahkan bagian."
+      },
+      {
+        "id": "1.4-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Minta siswa mengidentifikasi setiap elemen dan fungsinya secara lisan. Tunjukkan bahwa `<b id=\"qtyA\">0</b>` berarti ada teks tebal yang awalnya menampilkan angka 0, dan id-nya adalah \"qtyA\"."
+      },
+      {
+        "id": "q-1.4-1",
+        "type": "QUIZ",
+        "content": "Apa fungsi dari `<div class=\"box\">`?",
+        "options": [
+          { "text": "Membuat kotak dengan warna khusus", "isCorrect": false },
+          { "text": "Mengelompokkan elemen menjadi satu kontainer", "isCorrect": true },
+          { "text": "Membuat garis di sekitar elemen", "isCorrect": false },
+          { "text": "Memberi nama pada section", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.4-2",
+        "type": "QUIZ",
+        "content": "Perhatikan kode ini: `<p>Mie Ayam: <b id=\"qtyB\">0</b></p>`. Angka 0 yang tampil di browser adalah isi dari elemen...",
+        "options": [
+          { "text": "<p>", "isCorrect": false },
+          { "text": "<b>", "isCorrect": true },
+          { "text": "<div>", "isCorrect": false },
+          { "text": "<span>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.4-3",
+        "type": "QUIZ",
+        "content": "Atribut `min=\"0\"` pada input berarti...",
+        "options": [
+          { "text": "Nilai minimum yang bisa dimasukkan adalah 0", "isCorrect": true },
+          { "text": "Input tidak boleh kosong", "isCorrect": false },
+          { "text": "Input harus diisi dengan angka positif", "isCorrect": false },
+          { "text": "Input maksimal 0 karakter", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-1.4-4",
+        "type": "QUIZ",
+        "content": "Mengapa ada tiga tombol dengan id berbeda (btnA, btnB, btnC)?",
+        "options": [
+          { "text": "Agar terlihat berbeda secara visual", "isCorrect": false },
+          { "text": "Supaya JavaScript bisa membedakan tombol mana yang diklik", "isCorrect": true },
+          { "text": "Agar tombol bisa diurutkan otomatis", "isCorrect": false },
+          { "text": "Supaya user tahu makanan apa yang dipilih", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "TEXT",
+        "title": "Ringkasan Unit 1",
+        "content": "Dalam Unit ini, kita telah belajar bahwa HTML adalah bahasa untuk membuat kerangka website. HTML menggunakan tag untuk mendefinisikan elemen-elemen di halaman web. Struktur dasar HTML meliputi `<!doctype html>`, `<html>`, `<head>`, dan `<body>`. Untuk aplikasi kasir, kita menggunakan elemen button, input, p, dan b dengan id unik untuk menandai setiap elemen. Di Unit berikutnya, kita akan belajar CSS untuk mempercantik tampilan aplikasi ini."
+      }
+    ]
+  },
+  {
+    "id": "unit-2",
+    "title": "Unit 2: Tampilan (CSS)",
+    "description": "Mempercantik tampilan aplikasi dengan CSS, mengatur warna, layout, dan gaya.",
+    "icon": "🎨",
+    "blocks": [
+      {
+        "id": "2.1-1",
+        "type": "TEXT",
+        "title": "2.1 Apa Itu CSS?",
+        "content": "CSS adalah singkatan dari Cascading Style Sheets. Jika HTML adalah kerangka rumah, maka CSS adalah cat, furniture, dan dekorasi yang membuat rumah terlihat indah. CSS mengontrol bagaimana elemen-elemen HTML ditampilkan di browser—termasuk warna, ukuran, jarak, dan tata letak."
+      },
+      {
+        "id": "2.1-2",
+        "type": "TEXT",
+        "content": "CSS bekerja dengan cara memilih elemen HTML dan kemudian menerapkan aturan gaya pada elemen tersebut. Aturan gaya bisa mengubah warna teks, ukuran font, jarak antar elemen, dan masih banyak lagi. Dengan CSS, kita bisa mengubah tampilan website dari sederhana menjadi profesional dan menarik."
+      },
+      {
+        "id": "2.1-3",
+        "type": "TEXT",
+        "content": "Penting untuk dipahami bahwa HTML dan CSS memiliki tugas yang berbeda. HTML menentukan **apa** yang ditampilkan, sedangkan CSS menentukan **bagaimana** tampilannya. Pemisahan ini membuat kode lebih terstruktur dan mudah dikelola. Jika kita ingin mengubah warna semua tombol, kita cukup mengubah satu bagian di CSS tanpa harus mengubah setiap elemen button di HTML."
+      },
+      {
+        "id": "2.1-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Tunjukkan perbandingan website yang sama—dengan dan tanpa CSS. Minta siswa mengidentifikasi perbedaan yang mereka lihat (warna, tata letak, ukuran font, dll)."
+      },
+      {
+        "id": "q-2.1-1",
+        "type": "QUIZ",
+        "content": "Apa kepanjangan dari CSS?",
+        "options": [
+          { "text": "Computer Style Sheets", "isCorrect": false },
+          { "text": "Cascading Style Sheets", "isCorrect": true },
+          { "text": "Creative Style System", "isCorrect": false },
+          { "text": "Colorful Style Sheets", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.1-2",
+        "type": "QUIZ",
+        "content": "Mana yang merupakan tugas CSS?",
+        "options": [
+          { "text": "Membuat struktur halaman web", "isCorrect": false },
+          { "text": "Mengontrol tampilan dan desain halaman", "isCorrect": true },
+          { "text": "Menambahkan interaksi ke website", "isCorrect": false },
+          { "text": "Menyimpan data di database", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.1-3",
+        "type": "QUIZ",
+        "content": "Mengapa sebaiknya memisahkan HTML dan CSS?",
+        "options": [
+          { "text": "Agar file lebih kecil ukurannya", "isCorrect": false },
+          { "text": "Supaya kode lebih rapi dan mudah diubah", "isCorrect": true },
+          { "text": "Agar browser bisa membukanya lebih cepat", "isCorrect": false },
+          { "text": "Supaya hanya satu orang yang bisa mengedit", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.1-4",
+        "type": "QUIZ",
+        "content": "Dengan CSS, kita bisa mengubah...",
+        "options": [
+          { "text": "Hanya warna teks saja", "isCorrect": false },
+          { "text": "Hanya ukuran font saja", "isCorrect": false },
+          { "text": "Warna, ukuran, tata letak, dan banyak lagi", "isCorrect": true },
+          { "text": "Tidak bisa mengubah tampilan sama sekali", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "2.2-1",
+        "type": "TEXT",
+        "title": "2.2 Cara Menggunakan CSS",
+        "content": "Ada tiga cara untuk menambahkan CSS ke halaman HTML. Cara pertama adalah **inline CSS**, yaitu menuliskan CSS langsung di dalam elemen HTML menggunakan atribut `style`. Cara kedua adalah **internal CSS**, yaitu menuliskan CSS di dalam tag `<style>` yang ditempatkan di bagian `<head>`. Cara ketiga adalah **external CSS**, yaitu menuliskan CSS di file terpisah dengan ekstensi `.css` dan menghubungkannya ke HTML."
+      },
+      {
+        "id": "2.2-2",
+        "type": "TEXT",
+        "content": "Untuk proyek yang lebih besar seperti aplikasi kasir kita, cara ketiga adalah yang terbaik. Mengapa? Karena kita bisa menggunakan satu file CSS untuk banyak halaman HTML. Jika kita ingin mengubah tampilan, kita cukup mengubah satu file CSS dan perubahan akan berlaku di semua halaman yang menggunakannya."
+      },
+      {
+        "id": "2.2-code",
+        "type": "CODE",
+        "content": "<link rel=\"stylesheet\" href=\"style.css\" />",
+        "language": "html"
+      },
+      {
+        "id": "2.2-3",
+        "type": "TEXT",
+        "content": "Atribut `rel=\"stylesheet\"` menyatakan bahwa file ini adalah stylesheet, sedangkan `href=\"style.css\"` menunjukkan lokasi file CSS kita."
+      },
+      {
+        "id": "q-2.2-1",
+        "type": "QUIZ",
+        "content": "Tag yang digunakan untuk menghubungkan file CSS adalah...",
+        "options": [
+          { "text": "<css>", "isCorrect": false },
+          { "text": "<link>", "isCorrect": true },
+          { "text": "<style>", "isCorrect": false },
+          { "text": "<script>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.2-2",
+        "type": "QUIZ",
+        "content": "Atribut yang menunjukkan lokasi file CSS adalah...",
+        "options": [
+          { "text": "src", "isCorrect": false },
+          { "text": "href", "isCorrect": true },
+          { "text": "path", "isCorrect": false },
+          { "text": "url", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.2-3",
+        "type": "QUIZ",
+        "content": "Manakah yang merupakan cara terbaik untuk proyek besar?",
+        "options": [
+          { "text": "Inline CSS", "isCorrect": false },
+          { "text": "Internal CSS", "isCorrect": false },
+          { "text": "External CSS", "isCorrect": true },
+          { "text": "Semua cara sama baiknya", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.2-4",
+        "type": "QUIZ",
+        "content": "Kode `<link rel=\"stylesheet\" href=\"style.css\" />` diletakkan di bagian...",
+        "options": [
+          { "text": "<body>", "isCorrect": false },
+          { "text": "<head>", "isCorrect": true },
+          { "text": "<footer>", "isCorrect": false },
+          { "text": "<title>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "2.3-1",
+        "type": "TEXT",
+        "title": "2.3 Syntax Dasar CSS",
+        "content": "Setiap aturan CSS terdiri dari dua bagian utama: **selector** dan **declaration block**. Selector adalah bagian yang memilih elemen HTML mana yang akan diatur gayanya. Declaration block adalah bagian yang berisi satu atau lebih deklarasi gaya, masing-masing terdiri dari property dan value."
+      },
+      {
+        "id": "2.3-code-1",
+        "type": "CODE",
+        "content": "selector {\n  property: value;\n}",
+        "language": "css"
+      },
+      {
+        "id": "2.3-2",
+        "type": "TEXT",
+        "content": "Perhatikan contoh berikut. Pada contoh di bawah, `body` dan `button` adalah selector. `font-family` adalah property, dan `Arial, sans-serif` adalah value."
+      },
+      {
+        "id": "2.3-code-2",
+        "type": "CODE",
+        "content": "body {\n  font-family: Arial, sans-serif;\n  background: #f6f6f6;\n}\n\nbutton {\n  padding: 8px 12px;\n  border: 1px solid #111;\n}",
+        "language": "css"
+      },
+      {
+        "id": "2.3-3",
+        "type": "TEXT",
+        "content": "Kita juga bisa menggunakan **class selector** untuk memilih elemen dengan class tertentu. Class selector ditulis dengan titik (.) di depan nama class."
+      },
+      {
+        "id": "2.3-code-3",
+        "type": "CODE",
+        "content": ".box {\n  max-width: 420px;\n  background: white;\n}\n\n.menu {\n  display: grid;\n  gap: 8px;\n}",
+        "language": "css"
+      },
+      {
+        "id": "2.3-note",
+        "type": "TEXT",
+        "content": "**Catatan untuk Guru:** Gunakan analogi \"resep masakan\" untuk menjelaskan CSS selector seperti \"siapa yang akan dimasak\", property seperti \"bahan apa yang digunakan\", dan value seperti \"berapa jumlah bahan\"."
+      },
+      {
+        "id": "q-2.3-1",
+        "type": "QUIZ",
+        "content": "Bagian dari aturan CSS yang memilih elemen HTML adalah...",
+        "options": [
+          { "text": "Declaration", "isCorrect": false },
+          { "text": "Property", "isCorrect": false },
+          { "text": "Selector", "isCorrect": true },
+          { "text": "Value", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.3-2",
+        "type": "QUIZ",
+        "content": "Perhatikan: `p { color: blue; }`. Yang merupakan selector adalah...",
+        "options": [
+          { "text": "color", "isCorrect": false },
+          { "text": "blue", "isCorrect": false },
+          { "text": "p", "isCorrect": true },
+          { "text": "{ color: blue; }", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.3-3",
+        "type": "QUIZ",
+        "content": "Cara menulis selector untuk class \"menu\" adalah...",
+        "options": [
+          { "text": "menu", "isCorrect": false },
+          { "text": "#menu", "isCorrect": false },
+          { "text": ".menu", "isCorrect": true },
+          { "text": "*menu", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.3-4",
+        "type": "QUIZ",
+        "content": "Setiap deklarasi CSS diakhiri dengan...",
+        "options": [
+          { "text": "Titik koma (;)", "isCorrect": true },
+          { "text": "Titik dua (:)", "isCorrect": false },
+          { "text": "Koma (,)", "isCorrect": false },
+          { "text": "Kurung ()", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "2.4-1",
+        "type": "TEXT",
+        "title": "2.4 Property CSS Penting untuk Aplikasi Kasir",
+        "content": "Property **font-family** mengatur jenis huruf. Property **background** mengatur warna latar belakang. Property **margin** memberikan jarak di luar elemen, sedangkan **padding** memberikan jarak di dalam elemen."
+      },
+      {
+        "id": "2.4-2",
+        "type": "TEXT",
+        "content": "Property **display** mengatur bagaimana elemen ditampilkan. Nilai `grid` membuat elemen behave seperti grid. Nilai `block` membuat elemen mengambil seluruh lebar. Perhatikan juga property **cursor: pointer** pada button yang membuat kursor berubah menjadi tangan saat dihover."
+      },
+      {
+        "id": "2.4-code",
+        "type": "CODE",
+        "content": ".box {\n  max-width: 420px;\n  background: white;\n  border: 1px solid #ddd;\n  padding: 12px;\n}\n\n.menu {\n  display: grid;\n  gap: 8px;\n  margin: 10px 0;\n}\n\nbutton {\n  padding: 8px 12px;\n  border: 1px solid #111;\n  background: #fff;\n  cursor: pointer;\n}\n\ninput {\n  padding: 8px;\n  margin-top: 6px;\n  border: 1px solid #ddd;\n}",
+        "language": "css"
+      },
+      {
+        "id": "q-2.4-1",
+        "type": "QUIZ",
+        "content": "Property CSS yang memberikan jarak di luar elemen adalah...",
+        "options": [
+          { "text": "padding", "isCorrect": false },
+          { "text": "margin", "isCorrect": true },
+          { "text": "border", "isCorrect": false },
+          { "text": "gap", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.4-2",
+        "type": "QUIZ",
+        "content": "Property yang membuat kursor berubah menjadi tangan saat dihover adalah...",
+        "options": [
+          { "text": "cursor: hand", "isCorrect": false },
+          { "text": "cursor: pointer", "isCorrect": true },
+          { "text": "mouse: hand", "isCorrect": false },
+          { "text": "pointer: cursor", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.4-3",
+        "type": "QUIZ",
+        "content": "Fungsi dari `display: grid` adalah...",
+        "options": [
+          { "text": "Membuat elemen menjadi tabel", "isCorrect": false },
+          { "text": "Mengatur elemen dalam baris dan kolom", "isCorrect": true },
+          { "text": "Membuat elemen menjadi baris horizontal", "isCorrect": false },
+          { "text": "Menghilangkan elemen dari tampilan", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.4-4",
+        "type": "QUIZ",
+        "content": "Jika tertulis `input { padding: 8px; margin-top: 6px; }`, apa yang terjadi?",
+        "options": [
+          { "text": "Hanya mendapat jarak atas 6px", "isCorrect": false },
+          { "text": "Hanya mendapat jarak dalam 8px", "isCorrect": false },
+          { "text": "Mendapat jarak dalam 8px dan jarak atas 6px", "isCorrect": true },
+          { "text": "Mendapat jarak luar 8px", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "2.5-1",
+        "type": "TEXT",
+        "title": "2.5 Praktek: Membuat File CSS",
+        "content": "Sekarang kita akan membuat file CSS lengkap untuk aplikasi kasir. Buka text editor baru dan simpan dengan nama `style.css`. Ketik kode berikut dengan teliti:"
+      },
+      {
+        "id": "2.5-code",
+        "type": "CODE",
+        "content": "body {\n  font-family: Arial, sans-serif;\n  background: #f6f6f6;\n  margin: 16px;\n}\n\n.box {\n  max-width: 420px;\n  background: white;\n  border: 1px solid #ddd;\n  padding: 12px;\n}\n\n.menu {\n  display: grid;\n  gap: 8px;\n  margin: 10px 0;\n}\n\nbutton {\n  padding: 8px 12px;\n  border: 1px solid #111;\n  background: #fff;\n  cursor: pointer;\n}\n\ninput {\n  padding: 8px;\n  margin-top: 6px;\n  border: 1px solid #ddd;\n}\n\nhr {\n  border: none;\n  border-top: 1px solid #eee;\n  margin: 12px 0;\n}",
+        "language": "css"
+      },
+      {
+        "id": "2.5-2",
+        "type": "TEXT",
+        "content": "Simpan file ini di folder yang sama dengan file `index.html`. Jangan lupa untuk memastikan tag `<link>` di file HTML sudah benar dan menunjuk ke `style.css`."
+      },
+      {
+        "id": "q-2.5-1",
+        "type": "QUIZ",
+        "content": "Fungsi dari `max-width: 420px` pada class `.box` adalah...",
+        "options": [
+          { "text": "Lebar kotak minimal 420px", "isCorrect": false },
+          { "text": "Lebar kotak maksimal 420px", "isCorrect": true },
+          { "text": "Lebar kotak selalu 420px", "isCorrect": false },
+          { "text": "Lebar kotak adalah 420% dari lebar asli", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.5-2",
+        "type": "QUIZ",
+        "content": "Jika `hr` memiliki style `border-top: 1px solid #eee`, itu berarti...",
+        "options": [
+          { "text": "Hapus garis", "isCorrect": false },
+          { "text": "Hapus border, tapi tambahkan garis di bagian atas", "isCorrect": true },
+          { "text": "Buat border di semua sisi", "isCorrect": false },
+          { "text": "Buat garis putus-putus", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.5-3",
+        "type": "QUIZ",
+        "content": "Untuk melihat perubahan CSS di browser, kita perlu...",
+        "options": [
+          { "text": "Me-refresh halaman browser", "isCorrect": true },
+          { "text": "Menutup dan membuka browser", "isCorrect": false },
+          { "text": "Menghapus cache browser", "isCorrect": false },
+          { "text": "Merestart komputer", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-2.5-4",
+        "type": "QUIZ",
+        "content": "Jika CSS tidak bekerja, kemungkinan penyebabnya adalah...",
+        "options": [
+          { "text": "File HTML tidak disimpan", "isCorrect": false },
+          { "text": "Tag <link> salah atau path file salah", "isCorrect": true },
+          { "text": "Browser terlalu lama tidak di-update", "isCorrect": false },
+          { "text": "Komputer kekurangan RAM", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "summary-2",
+        "type": "TEXT",
+        "title": "Ringkasan Unit 2",
+        "content": "Dalam Unit ini, kita telah belajar bahwa CSS adalah bahasa untuk mempercantik tampilan website. CSS mengontrol warna, ukuran, tata letak, dan aspek visual lainnya. Untuk menghubungkan CSS dengan HTML, kita menggunakan tag `<link>` di bagian `<head>`. Syntax CSS terdiri dari selector dan declaration block. Di Unit berikutnya, kita akan belajar JavaScript untuk membuat aplikasi menjadi interaktif."
+      }
+    ]
+  },
+  {
+    "id": "unit-3",
+    "title": "Unit 3: Interaksi (JavaScript)",
+    "description": "Membuat halaman hidup dengan JavaScript: variabel, fungsi, logika, dan event.",
+    "icon": "⚡",
+    "blocks": [
+      {
+        "id": "3.1-1",
+        "type": "TEXT",
+        "title": "3.1 Apa Itu JavaScript?",
+        "content": "JavaScript adalah bahasa pemrograman yang membuat website menjadi interaktif. Bayangkan HTML sebagai kerangka rumah dan CSS sebagai cat dan furnitur, maka JavaScript adalah listrik dan sistem otomatis yang membuat rumah \"hidup\"—lampu bisa menyala, pintu bisa terbuka otomatis, AC bisa menyesuaikan suhu."
+      },
+      {
+        "id": "3.1-2",
+        "type": "TEXT",
+        "content": "Dengan JavaScript, kita bisa membuat tombol berfungsi, menghitung total harga secara otomatis, menampilkan pesan kepada pengguna, dan masih banyak lagi. JavaScript berjalan di browser, artinya kode JavaScript dieksekusi di komputer pengguna, bukan di server."
+      },
+      {
+        "id": "3.1-3",
+        "type": "TEXT",
+        "content": "Penting untuk tidak mencampuradukkan JavaScript dengan bahasa pemrograman lain yang serupa namanya. Java sama sekali berbeda dari JavaScript—Java adalah bahasa untuk membuat aplikasi desktop dan mobile, sedangkan JavaScript secara khusus dirancang untuk website dan browser."
+      },
+      {
+        "id": "q-3.1-1",
+        "type": "QUIZ",
+        "content": "JavaScript terutama digunakan untuk...",
+        "options": [
+          { "text": "Membuat database", "isCorrect": false },
+          { "text": "Mengedit gambar", "isCorrect": false },
+          { "text": "Membuat website interaktif", "isCorrect": true },
+          { "text": "Mengoperasikan sistem server", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.1-2",
+        "type": "QUIZ",
+        "content": "Di mana JavaScript dijalankan?",
+        "options": [
+          { "text": "Di server komputer", "isCorrect": false },
+          { "text": "Di browser pengguna", "isCorrect": true },
+          { "text": "Di aplikasi desktop", "isCorrect": false },
+          { "text": "Di smartphone", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.1-3",
+        "type": "QUIZ",
+        "content": "Manakah yang BENAR tentang JavaScript?",
+        "options": [
+          { "text": "JavaScript sama dengan Java", "isCorrect": false },
+          { "text": "JavaScript hanya untuk backend", "isCorrect": false },
+          { "text": "JavaScript membuat website interaktif", "isCorrect": true },
+          { "text": "JavaScript tidak bisa mengakses elemen HTML", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.1-4",
+        "type": "QUIZ",
+        "content": "Berikut ini yang merupakan contoh interaksi yang bisa dibuat dengan JavaScript adalah...",
+        "options": [
+          { "text": "Menghitung angka secara otomatis saat tombol ditekan", "isCorrect": true },
+          { "text": "Mengubah warna background permanent", "isCorrect": false },
+          { "text": "Menyimpan data ke flash drive", "isCorrect": false },
+          { "text": "Mengontrol kamera keamanan", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "3.2-1",
+        "type": "TEXT",
+        "title": "3.2 Variabel dalam JavaScript",
+        "content": "Variabel adalah tempat untuk menyimpan data di dalam program. Di JavaScript, kita bisa membuat variabel menggunakan kata kunci `let` atau `const`."
+      },
+      {
+        "id": "3.2-2",
+        "type": "TEXT",
+        "content": "Gunakan `let` untuk variabel yang nilainya bisa berubah. Misalnya, jumlah pesanan pelanggan. Gunakan `const` untuk variabel yang nilainya tetap konstan (tidak berubah), seperti harga barang."
+      },
+      {
+        "id": "3.2-code",
+        "type": "CODE",
+        "content": "// Variabel yang nilainya bisa berubah\nlet qtyA = 0;\nlet qtyB = 0;\nlet qtyC = 0;\n\n// Variabel konstan (tidak berubah)\nconst hargaA = 3000;\nconst hargaB = 10000;\nconst hargaC = 1000;",
+        "language": "javascript"
+      },
+      {
+        "id": "3.2-3",
+        "type": "TEXT",
+        "content": "Nama variabel harus dimulai dengan huruf, tidak boleh dimulai dengan angka. Nama variabel tidak boleh menggunakan spasi—gunakan camelCase seperti `qtyA` atau garis bawah seperti `qty_a`. JavaScript bersifat case-sensitive, artinya `qtyA` dan `qtya` adalah variabel yang berbeda."
+      },
+      {
+        "id": "q-3.2-1",
+        "type": "QUIZ",
+        "content": "Manakah cara yang BENAR untuk membuat variabel di JavaScript?",
+        "options": [
+          { "text": "variable qtyA = 0;", "isCorrect": false },
+          { "text": "let qtyA = 0;", "isCorrect": true },
+          { "text": "let = qtyA 0;", "isCorrect": false },
+          { "text": "var qtyA = 0;", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.2-2",
+        "type": "QUIZ",
+        "content": "Kapan sebaiknya kita menggunakan `const`?",
+        "options": [
+          { "text": "Ketika nilai variabel sering berubah", "isCorrect": false },
+          { "text": "Ketika nilai variabel tidak akan berubah", "isCorrect": true },
+          { "text": "Ketika variabel berisi teks", "isCorrect": false },
+          { "text": "Ketika variabel berisi angka", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.2-3",
+        "type": "QUIZ",
+        "content": "Jika `let harga = 5000;` lalu `harga = 6000;`, berapa nilai akhirnya?",
+        "options": [
+          { "text": "5000", "isCorrect": false },
+          { "text": "6000", "isCorrect": true },
+          { "text": "Error, tidak bisa diubah", "isCorrect": false },
+          { "text": "50006000", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.2-4",
+        "type": "QUIZ",
+        "content": "Mana yang merupakan nama variabel yang TIDAK valid?",
+        "options": [
+          { "text": "qtyA", "isCorrect": false },
+          { "text": "hargaBarang", "isCorrect": false },
+          { "text": "2harga", "isCorrect": true },
+          { "text": "total_harga", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "3.3-1",
+        "type": "TEXT",
+        "title": "3.3 Fungsi dalam JavaScript",
+        "content": "Fungsi adalah sekumpulan kode yang bisa digunakan kembali berkali-kali. Fungsi membantu kita mengorganisir kode dan menghindari pengulangan."
+      },
+      {
+        "id": "3.3-2",
+        "type": "TEXT",
+        "content": "Di JavaScript, kita bisa membuat fungsi menggunakan kata kunci `function`. Fungsi bisa menerima **parameter** (data masukkan) dan bisa mengembalikan **nilai kembalian** (hasil)."
+      },
+      {
+        "id": "3.3-code",
+        "type": "CODE",
+        "content": "function hitungTotal(a, b, c) {\n  const total = (a * hargaA) + (b * hargaB) + (c * hargaC);\n  return total;\n}\n\nfunction updateTampilan() {\n  qtyAEl.textContent = qtyA;\n  qtyBEl.textContent = qtyB;\n  qtyCEl.textContent = qtyC;\n}",
+        "language": "javascript"
+      },
+      {
+        "id": "q-3.3-1",
+        "type": "QUIZ",
+        "content": "Apa fungsi dari `function` di JavaScript?",
+        "options": [
+          { "text": "Menjalankan program secara otomatis", "isCorrect": false },
+          { "text": "Mengelompokkan kode yang bisa digunakan ulang", "isCorrect": true },
+          { "text": "Menghapus variabel dari memori", "isCorrect": false },
+          { "text": "Menghubungkan ke internet", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.3-2",
+        "type": "QUIZ",
+        "content": "`return` berfungsi untuk...",
+        "options": [
+          { "text": "Menghentikan fungsi", "isCorrect": false },
+          { "text": "Mengembalikan hasil perhitungan", "isCorrect": true },
+          { "text": "Memanggil fungsi lain", "isCorrect": false },
+          { "text": "Menampilkan pesan", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.3-3",
+        "type": "QUIZ",
+        "content": "Berapa hasil dari `function kali(a, b) { return a * b; }` jika dipanggil `kali(3, 4)`?",
+        "options": [
+          { "text": "3", "isCorrect": false },
+          { "text": "4", "isCorrect": false },
+          { "text": "7", "isCorrect": false },
+          { "text": "12", "isCorrect": true }
+        ]
+      },
+      {
+        "id": "q-3.3-4",
+        "type": "QUIZ",
+        "content": "Mana yang merupakan fungsi TANPA nilai kembalian?",
+        "options": [
+          { "text": "Fungsi yang menggunakan `return`", "isCorrect": false },
+          { "text": "Fungsi yang hanya mengubah variabel global", "isCorrect": false },
+          { "text": "Fungsi yang tidak menggunakan `return`", "isCorrect": true },
+          { "text": "Semua fungsi harus ada `return`", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "3.4-1",
+        "type": "TEXT",
+        "title": "3.4 Operasi Aritmatika dan Logika",
+        "content": "JavaScript bisa melakukan operasi matematika seperti kalkulator. Operator aritmatika dasar meliputi penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/). Kita juga menggunakan tanda kurung () untuk mengatur urutan operasi."
+      },
+      {
+        "id": "3.4-code-1",
+        "type": "CODE",
+        "content": "const total = (qtyA * hargaA) + (qtyB * hargaB) + (qtyC * hargaC);",
+        "language": "javascript"
+      },
+      {
+        "id": "3.4-2",
+        "type": "TEXT",
+        "content": "Selain aritmatika, kita juga perlu memahami operator logika. Operator **AND** (&&) menghasilkan true jika kedua kondisi benar. Operator **OR** (||) menghasilkan true jika salah satu kondisi benar. Operator **!** (not) membalikkan nilai boolean."
+      },
+      {
+        "id": "3.4-code-2",
+        "type": "CODE",
+        "content": "// Contoh penggunaan logika\nconst kembalian = uang - total;\nconst kembalianValid = kembalian > 0; // true jika uang cukup",
+        "language": "javascript"
+      },
+      {
+        "id": "q-3.4-1",
+        "type": "QUIZ",
+        "content": "Operator JavaScript untuk perkalian adalah...",
+        "options": [
+          { "text": "x", "isCorrect": false },
+          { "text": "*", "isCorrect": true },
+          { "text": "^", "isCorrect": false },
+          { "text": "/", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.4-2",
+        "type": "QUIZ",
+        "content": "Berapa nilai `hasil` dari `let hasil = (2 + 3) * 4;`?",
+        "options": [
+          { "text": "14", "isCorrect": false },
+          { "text": "20", "isCorrect": true },
+          { "text": "11", "isCorrect": false },
+          { "text": "10", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.4-3",
+        "type": "QUIZ",
+        "content": "Operator logika AND ditulis dengan...",
+        "options": [
+          { "text": "||", "isCorrect": false },
+          { "text": "&&", "isCorrect": true },
+          { "text": "!", "isCorrect": false },
+          { "text": "==", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.4-4",
+        "type": "QUIZ",
+        "content": "Apa hasil dari `10 > 5 && 3 < 1`?",
+        "options": [
+          { "text": "true", "isCorrect": false },
+          { "text": "false", "isCorrect": true },
+          { "text": "1", "isCorrect": false },
+          { "text": "Error", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "3.5-1",
+        "type": "TEXT",
+        "title": "3.5 Manipulasi Dokumen HTML (DOM)",
+        "content": "DOM manipulation memungkinkan JavaScript mengubah elemen HTML secara langsung. Untuk mengakses elemen HTML, kita menggunakan `document.getElementById()`. Metode ini mencari elemen berdasarkan id-nya."
+      },
+      {
+        "id": "3.5-2",
+        "type": "TEXT",
+        "content": "Setelah mendapatkan elemen, kita bisa mengubah isi teksnya dengan property `textContent` atau mendapatkan nilainya dengan `value` (untuk input)."
+      },
+      {
+        "id": "3.5-code",
+        "type": "CODE",
+        "content": "// Mengambil elemen dari HTML\nconst qtyAEl = document.getElementById(\"qtyA\");\nconst totalEl = document.getElementById(\"totalText\");\n\n// Mengubah isi elemen\nqtyAEl.textContent = 5;\ntotalEl.textContent = \"Rp 15000\";",
+        "language": "javascript"
+      },
+      {
+        "id": "q-3.5-1",
+        "type": "QUIZ",
+        "content": "Method untuk mengakses elemen HTML berdasarkan id adalah...",
+        "options": [
+          { "text": "document.getElementById()", "isCorrect": true },
+          { "text": "document.getElementByClass()", "isCorrect": false },
+          { "text": "document.querySelector()", "isCorrect": false },
+          { "text": "document.findElement()", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.5-2",
+        "type": "QUIZ",
+        "content": "Property yang digunakan untuk mengubah teks elemen adalah...",
+        "options": [
+          { "text": "textContent", "isCorrect": true },
+          { "text": "innerText", "isCorrect": false },
+          { "text": "value", "isCorrect": false },
+          { "text": "innerHTML", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.5-3",
+        "type": "QUIZ",
+        "content": "Jika kita menulis `console.log(inputEl.value)`, apa yang ditampilkan?",
+        "options": [
+          { "text": "Teks di dalam tag input", "isCorrect": false },
+          { "text": "Nilai yang diketik pengguna di input", "isCorrect": true },
+          { "text": "ID dari elemen input", "isCorrect": false },
+          { "text": "Type dari elemen input", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.5-4",
+        "type": "QUIZ",
+        "content": "Untuk elemen `<input>`, kita menggunakan property... untuk mendapatkan nilai.",
+        "options": [
+          { "text": "textContent", "isCorrect": false },
+          { "text": "innerHTML", "isCorrect": false },
+          { "text": "value", "isCorrect": true },
+          { "text": "innerText", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "3.6-1",
+        "type": "TEXT",
+        "title": "3.6 Event dan Interaksi Pengguna",
+        "content": "Event adalah kejadian yang terjadi di halaman web, seperti klik tombol atau mengetik. Untuk menangani event, kita menggunakan event listener dengan metode `addEventListener()` atau property seperti `onclick`."
+      },
+      {
+        "id": "3.6-code",
+        "type": "CODE",
+        "content": "document.getElementById(\"btnA\").onclick = function() {\n  qtyA = qtyA + 1;\n  update();\n};",
+        "language": "javascript"
+      },
+      {
+        "id": "q-3.6-1",
+        "type": "QUIZ",
+        "content": "Apa yang dimaksud dengan event dalam JavaScript?",
+        "options": [
+          { "text": "Kesalahan dalam kode program", "isCorrect": false },
+          { "text": "Kejadian yang terjadi di halaman web", "isCorrect": true },
+          { "text": "Jenis variabel khusus", "isCorrect": false },
+          { "text": "Method untuk menghitung angka", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.6-2",
+        "type": "QUIZ",
+        "content": "Method untuk menambahkan event listener adalah...",
+        "options": [
+          { "text": "addEvent()", "isCorrect": false },
+          { "text": "listenEvent()", "isCorrect": false },
+          { "text": "addEventListener()", "isCorrect": true },
+          { "text": "onEvent()", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.6-3",
+        "type": "QUIZ",
+        "content": "Event yang terjadi saat user mengetik di input adalah...",
+        "options": [
+          { "text": "onchange", "isCorrect": false },
+          { "text": "onkeypress", "isCorrect": false },
+          { "text": "oninput", "isCorrect": true },
+          { "text": "onkeyup", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-3.6-4",
+        "type": "QUIZ",
+        "content": "Jika `tombol.onclick = function() { alert('Hai!'); };`, kapan alert muncul?",
+        "options": [
+          { "text": "Saat halaman dimuat", "isCorrect": false },
+          { "text": "Saat tombol ditekan", "isCorrect": true },
+          { "text": "Saat mouse hover tombol", "isCorrect": false },
+          { "text": "Saat halaman ditutup", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "summary-3",
+        "type": "TEXT",
+        "title": "Ringkasan Unit 3",
+        "content": "Dalam Unit ini, kita telah belajar bahwa JavaScript adalah bahasa pemrograman untuk membuat website interaktif. Variabel `let` dan `const` digunakan untuk menyimpan data. Fungsi mengorganisir kode yang bisa digunakan ulang. Operasi aritmatika dan logika memungkinkan kita menghitung dan membandingkan nilai. DOM manipulation dengan `getElementById()` memungkinkan kita mengubah elemen HTML. Event listener membuat website merespons tindakan pengguna."
+      }
+    ]
+  },
+  {
+    "id": "unit-4",
+    "title": "Unit 4: Integrasi (HTML, CSS, JS)",
+    "description": "Menghubungkan ketiga bahasa untuk membuat aplikasi web yang utuh.",
+    "icon": "🔗",
+    "blocks": [
+      {
+        "id": "4.1-1",
+        "type": "TEXT",
+        "title": "4.1 Menyatukan Tiga Lapis Website",
+        "content": "Sekarang kita akan memahami bagaimana HTML, CSS, dan JavaScript bekerja bersama dalam satu aplikasi. Bayangkan tiga lapisan ini sebagai tim yang saling melengkapi. HTML menyediakan kerangka dan konten, CSS mempercantik tampilannya, dan JavaScript membuatnya interaktif. Ketiga lapisan ini dihubungkan melalui tag khusus di HTML."
+      },
+      {
+        "id": "4.1-2",
+        "type": "TEXT",
+        "content": "File HTML menjadi \"rumah\" utama yang menghubungkan file CSS dan JavaScript. Kita sudah belajar bahwa CSS dihubungkan dengan tag `<link>` di bagian `<head>`, sedangkan JavaScript dihubungkan dengan tag `<script>` di bagian `<body>` (biasanya di akhir). Urutan ini penting—browser membaca dari atas ke bawah, jadi pastikan elemen HTML dimuat sebelum JavaScript mencoba mengaksesnya."
+      },
+      {
+        "id": "4.1-code",
+        "type": "CODE",
+        "content": "<!-- Di dalam <head> untuk CSS -->\n<link rel=\"stylesheet\" href=\"style.css\" />\n\n<!-- Di dalam <body> untuk JavaScript -->\n<script src=\"script.js\"></script>",
+        "language": "html"
+      },
+      {
+        "id": "4.1-3",
+        "type": "TEXT",
+        "content": "Atribut `src` pada tag `<script>` berfungsi seperti `href` pada tag `<link>`—keduanya menunjukkan lokasi file yang akan dihubungkan."
+      },
+      {
+        "id": "q-4.1-1",
+        "type": "QUIZ",
+        "content": "Tag yang digunakan untuk menghubungkan file JavaScript adalah...",
+        "options": [
+          { "text": "<link>", "isCorrect": false },
+          { "text": "<script>", "isCorrect": true },
+          { "text": "<js>", "isCorrect": false },
+          { "text": "<code>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.1-2",
+        "type": "QUIZ",
+        "content": "Di bagian mana tag `<script>` biasanya ditempatkan?",
+        "options": [
+          { "text": "Di dalam <head>", "isCorrect": false },
+          { "text": "Di dalam <body> di bagian akhir", "isCorrect": true },
+          { "text": "Di dalam <title>", "isCorrect": false },
+          { "text": "Di dalam <style>", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.1-3",
+        "type": "QUIZ",
+        "content": "Atribut yang menunjukkan lokasi file JavaScript adalah...",
+        "options": [
+          { "text": "href", "isCorrect": false },
+          { "text": "src", "isCorrect": true },
+          { "text": "path", "isCorrect": false },
+          { "text": "url", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.1-4",
+        "type": "QUIZ",
+        "content": "Mengapa urutan pemuatan penting?",
+        "options": [
+          { "text": "Browser hanya bisa membaca satu file", "isCorrect": false },
+          { "text": "JavaScript perlu elemen HTML sudah ada sebelum mengaksesnya", "isCorrect": true },
+          { "text": "CSS harus dimuat setelah JavaScript", "isCorrect": false },
+          { "text": "Urutan tidak mempengaruhi hasil", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "4.2-1",
+        "type": "TEXT",
+        "title": "4.2 Alur Kerja Aplikasi Kasir",
+        "content": "Mari kita pahami alur kerja aplikasi kasir secara keseluruhan. Saat halaman dimuat, browser membaca HTML untuk membuat struktur halaman, kemudian membaca CSS untuk mempercantik tampilan, dan terakhir menjalankan JavaScript untuk menambahkan interaksi."
+      },
+      {
+        "id": "4.2-2",
+        "type": "TEXT",
+        "content": "Alur kerja aplikasi kasir adalah sebagai berikut. Pertama, saat halaman dimuat, JavaScript mengambil elemen-elemen HTML dan menyimpannya dalam variabel. Kedua, saat user klik tombol menu, fungsi tertentu dijalankan yang menambah jumlah pesanan. Ketiga, setiap kali jumlah berubah, fungsi `update()` dijalankan untuk menghitung total dan kembalian. Keempat, fungsi `update()` mengubah teks di layar untuk menampilkan informasi terbaru."
+      },
+      {
+        "id": "4.2-code",
+        "type": "CODE",
+        "content": "// Alur utama aplikasi\n\n// 1. Siapkan variabel untuk menyimpan harga dan jumlah\nconst hargaA = 3000;\nlet qtyA = 0;\n\n// 2. Ambil elemen HTML dan simpan\nconst qtyAEl = document.getElementById(\"qtyA\");\n\n// 3. Tambahkan event listener ke tombol\ndocument.getElementById(\"btnA\").onclick = function() {\n  qtyA = qtyA + 1;\n  update();\n};\n\n// 4. Update tampilan setiap kali ada perubahan\nfunction update() {\n  qtyAEl.textContent = qtyA;\n}",
+        "language": "javascript"
+      },
+      {
+        "id": "q-4.2-1",
+        "type": "QUIZ",
+        "content": "Kapan variabel `qtyA` nilainya berubah?",
+        "options": [
+          { "text": "Saat halaman dimuat", "isCorrect": false },
+          { "text": "Saat user klik tombol btnA", "isCorrect": true },
+          { "text": "Saat user memasukkan uang", "isCorrect": false },
+          { "text": "Saat user me-refresh halaman", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.2-2",
+        "type": "QUIZ",
+        "content": "Apa yang terjadi saat fungsi `update()` dijalankan?",
+        "options": [
+          { "text": "Halaman di-refresh", "isCorrect": false },
+          { "text": "Nilai variabel dihitung ulang dan tampilan diubah", "isCorrect": true },
+          { "text": "Browser ditutup", "isCorrect": false },
+          { "text": "File CSS dimuat ulang", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.2-3",
+        "type": "QUIZ",
+        "content": "Urutan yang BENAR saat aplikasi berjalan adalah...",
+        "options": [
+          { "text": "JavaScript → CSS → HTML", "isCorrect": false },
+          { "text": "HTML → CSS → JavaScript", "isCorrect": true },
+          { "text": "CSS → HTML → JavaScript", "isCorrect": false },
+          { "text": "Bersamaan tanpa urutan", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.2-4",
+        "type": "QUIZ",
+        "content": "Fungsi `update()` dipanggil saat...",
+        "options": [
+          { "text": "Hanya saat tombol ditekan", "isCorrect": false },
+          { "text": "Hanya saat uang dimasukkan", "isCorrect": false },
+          { "text": "Kedua hal di atas", "isCorrect": true },
+          { "text": "Tidak pernah dipanggil", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "4.3-1",
+        "type": "TEXT",
+        "title": "4.3 Praktek: Membuat File JavaScript",
+        "content": "Sekarang kita akan membuat file JavaScript lengkap untuk aplikasi kasir. Buka text editor baru dan simpan dengan nama `script.js`. Ketik kode berikut dengan teliti, perhatikan setiap detail:"
+      },
+      {
+        "id": "4.3-code",
+        "type": "CODE",
+        "content": "// Harga\nconst hargaA = 3000;  // Es Teh\nconst hargaB = 10000; // Mie Ayam\nconst hargaC = 1000;  // Bakwan\n\n// Jumlah\nlet qtyA = 0;\nlet qtyB = 0;\nlet qtyC = 0;\n\n// Elemen\nconst qtyAEl = document.getElementById(\"qtyA\");\nconst qtyBEl = document.getElementById(\"qtyB\");\nconst qtyCEl = document.getElementById(\"qtyC\");\nconst totalEl = document.getElementById(\"totalText\");\nconst uangEl = document.getElementById(\"uang\");\nconst kembaliEl = document.getElementById(\"kembalianText\");\n\n// Format sangat sederhana\nfunction rupiah(n) {\n  return \"Rp \" + n;\n}\n\nfunction update() {\n  qtyAEl.textContent = qtyA;\n  qtyBEl.textContent = qtyB;\n  qtyCEl.textContent = qtyC;\n\n  const total = (qtyA * hargaA) + (qtyB * hargaB) + (qtyC * hargaC);\n  totalEl.textContent = rupiah(total);\n\n  const uang = Number(uangEl.value || 0);\n  const kembalian = uang - total;\n  kembaliEl.textContent = rupiah(kembalian > 0 ? kembalian : 0);\n}\n\n// Klik menu -> tambah qty\ndocument.getElementById(\"btnA\").onclick = function() {\n  qtyA = qtyA + 1;\n  update();\n};\n\ndocument.getElementById(\"btnB\").onclick = function() {\n  qtyB = qtyB + 1;\n  update();\n};\n\ndocument.getElementById(\"btnC\").onclick = function() {\n  qtyC = qtyC + 1;\n  update();\n};\n\n// Uang berubah -> update kembalian\nuangEl.oninput = update;\n\n// Reset\ndocument.getElementById(\"reset\").onclick = function() {\n  qtyA = 0;\n  qtyB = 0;\n  qtyC = 0;\n  uangEl.value = \"\";\n  update();\n};\n\nupdate();",
+        "language": "javascript"
+      },
+      {
+        "id": "q-4.3-1",
+        "type": "QUIZ",
+        "content": "Apa fungsi dari `rupiah(n)`?",
+        "options": [
+          { "text": "Menghitung total harga", "isCorrect": false },
+          { "text": "Mengubah angka menjadi format \"Rp ...\"", "isCorrect": true },
+          { "text": "Validasi input uang", "isCorrect": false },
+          { "text": "Menghitung kembalian", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.3-2",
+        "type": "QUIZ",
+        "content": "Fungsi `Number()` pada `Number(uangEl.value)` adalah...",
+        "options": [
+          { "text": "Membuang angka desimal", "isCorrect": false },
+          { "text": "Mengkonversi teks menjadi angka", "isCorrect": true },
+          { "text": "Membulatkan ke angka terdekat", "isCorrect": false },
+          { "text": "Menambahkan angka", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.3-3",
+        "type": "QUIZ",
+        "content": "Apa yang terjadi saat user klik tombol Reset?",
+        "options": [
+          { "text": "Hanya jumlah dikembalikan ke 0", "isCorrect": false },
+          { "text": "Hanya uang dikosongkan", "isCorrect": false },
+          { "text": "Keduanya (jumlah dan uang) dikembalikan ke awal", "isCorrect": true },
+          { "text": "Browser di-refresh", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "q-4.3-4",
+        "type": "QUIZ",
+        "content": "Mengapa `update()` dipanggil di baris terakhir?",
+        "options": [
+          { "text": "Untuk memulai aplikasi", "isCorrect": false },
+          { "text": "Untuk inisialisasi tampilan awal", "isCorrect": true },
+          { "text": "Untuk memuat CSS", "isCorrect": false },
+          { "text": "Untuk mengambil data dari server", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "summary-4",
+        "type": "TEXT",
+        "title": "Ringkasan Unit 4",
+        "content": "Dalam Unit ini, kita telah belajar bagaimana HTML, CSS, dan JavaScript dihubungkan. File HTML menghubungkan CSS di `<head>` dan JavaScript di akhir `<body>`. Browser membaca file secara berurutan dari atas ke bawah. Alur kerja aplikasi kasir meliputi pengambilan elemen HTML, penambahan event listener ke tombol, dan pembaruan tampilan saat ada interaksi."
+      }
+    ]
+  }
+]
