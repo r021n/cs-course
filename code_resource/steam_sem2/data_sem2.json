@@ -17,19 +17,26 @@
         "content": "HTML bekerja dengan menggunakan **tag**. Tag adalah kata kunci khusus yang dibungkus dengan tanda kurung sudut, seperti `<html>`, `<body>`, atau `<button>`. Sebagian besar tag memiliki tag pembuka dan tag penutup. Tag pembuka ditulis seperti `<html>`, sedangkan tag penutup ditulis dengan garis miring seperti `</html>`. Isi website ditempatkan di antara tag pembuka dan tag penutup ini."
       },
       {
-        "id": "1.1-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Tampilkan screenshot website sederhana (misalnya Wikipedia atau blog) dan tunjukkan bahwa semua yang terlihat—tombol, menu, teks—dibuat dengan HTML."
-      },
-      {
         "id": "q-1.1-1",
         "type": "QUIZ",
         "content": "Apa kepanjangan dari HTML?",
         "options": [
-          { "text": "Hyperlink Text Mode Language", "isCorrect": false },
-          { "text": "HyperText Markup Language", "isCorrect": true },
-          { "text": "High Tech Modern Language", "isCorrect": false },
-          { "text": "Home Tool Markup Language", "isCorrect": false }
+          {
+            "text": "Hyperlink Text Mode Language",
+            "isCorrect": false
+          },
+          {
+            "text": "HyperText Markup Language",
+            "isCorrect": true
+          },
+          {
+            "text": "High Tech Modern Language",
+            "isCorrect": false
+          },
+          {
+            "text": "Home Tool Markup Language",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -37,10 +44,22 @@
         "type": "QUIZ",
         "content": "Berikut ini yang merupakan contoh tag HTML adalah...",
         "options": [
-          { "text": "(html)", "isCorrect": false },
-          { "text": "<html>", "isCorrect": true },
-          { "text": "{html}", "isCorrect": false },
-          { "text": "/html/", "isCorrect": false }
+          {
+            "text": "(html)",
+            "isCorrect": false
+          },
+          {
+            "text": "<html>",
+            "isCorrect": true
+          },
+          {
+            "text": "{html}",
+            "isCorrect": false
+          },
+          {
+            "text": "/html/",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -48,10 +67,22 @@
         "type": "QUIZ",
         "content": "Mengapa HTML penting dalam pembuatan website?",
         "options": [
-          { "text": "Untuk membuat website bergerak animasi", "isCorrect": false },
-          { "text": "Untuk memberi warna pada tampilan", "isCorrect": false },
-          { "text": "Untuk membuat kerangka dan struktur website", "isCorrect": true },
-          { "text": "Untuk menyimpan data di server", "isCorrect": false }
+          {
+            "text": "Untuk membuat website bergerak animasi",
+            "isCorrect": false
+          },
+          {
+            "text": "Untuk memberi warna pada tampilan",
+            "isCorrect": false
+          },
+          {
+            "text": "Untuk membuat kerangka dan struktur website",
+            "isCorrect": true
+          },
+          {
+            "text": "Untuk menyimpan data di server",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -59,10 +90,22 @@
         "type": "QUIZ",
         "content": "Tag yang memiliki penutup ditandai dengan tanda...",
         "options": [
-          { "text": "Tanda bintang (*)", "isCorrect": false },
-          { "text": "Garis miring (/)", "isCorrect": true },
-          { "text": "Tanda titik (.)", "isCorrect": false },
-          { "text": "Tanda hubung (-)", "isCorrect": false }
+          {
+            "text": "Tanda bintang (*)",
+            "isCorrect": false
+          },
+          {
+            "text": "Garis miring (/)",
+            "isCorrect": true
+          },
+          {
+            "text": "Tanda titik (.)",
+            "isCorrect": false
+          },
+          {
+            "text": "Tanda hubung (-)",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -83,19 +126,26 @@
         "language": "html"
       },
       {
-        "id": "1.2-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Gambarlah diagram seperti inverted pyramid yang menunjukkan hubungan: `<!doctype html>` di paling atas, lalu `<html>` membungkus `<head>` dan `<body>`, kemudian `<head>` berisi meta dan title, `<body>` berisi konten visual."
-      },
-      {
         "id": "q-1.2-1",
         "type": "QUIZ",
         "content": "Bagian HTML yang berisi informasi tidak terlihat oleh pengguna adalah...",
         "options": [
-          { "text": "<body>", "isCorrect": false },
-          { "text": "<head>", "isCorrect": true },
-          { "text": "<footer>", "isCorrect": false },
-          { "text": "<title>", "isCorrect": false }
+          {
+            "text": "<body>",
+            "isCorrect": false
+          },
+          {
+            "text": "<head>",
+            "isCorrect": true
+          },
+          {
+            "text": "<footer>",
+            "isCorrect": false
+          },
+          {
+            "text": "<title>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -103,10 +153,22 @@
         "type": "QUIZ",
         "content": "Tag yang digunakan untuk menampilkan judul di tab browser adalah...",
         "options": [
-          { "text": "<header>", "isCorrect": false },
-          { "text": "<title>", "isCorrect": true },
-          { "text": "<h1>", "isCorrect": false },
-          { "text": "<name>", "isCorrect": false }
+          {
+            "text": "<header>",
+            "isCorrect": false
+          },
+          {
+            "text": "<title>",
+            "isCorrect": true
+          },
+          {
+            "text": "<h1>",
+            "isCorrect": false
+          },
+          {
+            "text": "<name>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -114,10 +176,22 @@
         "type": "QUIZ",
         "content": "Mana yang merupakan struktur yang benar?",
         "options": [
-          { "text": "<html><head><body></html>", "isCorrect": false },
-          { "text": "<html><body><head></html>", "isCorrect": false },
-          { "text": "<html><head></head><body></body></html>", "isCorrect": true },
-          { "text": "<html><body></html><head></head>", "isCorrect": false }
+          {
+            "text": "<html><head><body></html>",
+            "isCorrect": false
+          },
+          {
+            "text": "<html><body><head></html>",
+            "isCorrect": false
+          },
+          {
+            "text": "<html><head></head><body></body></html>",
+            "isCorrect": true
+          },
+          {
+            "text": "<html><body></html><head></head>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -125,10 +199,22 @@
         "type": "QUIZ",
         "content": "Fungsi utama dari `<!doctype html>` adalah...",
         "options": [
-          { "text": "Membuat website menjadi responsif", "isCorrect": false },
-          { "text": "Memberitahu browser bahwa ini dokumen HTML5", "isCorrect": true },
-          { "text": "Menghubungkan ke file CSS", "isCorrect": false },
-          { "text": "Membuat animasi di halaman", "isCorrect": false }
+          {
+            "text": "Membuat website menjadi responsif",
+            "isCorrect": false
+          },
+          {
+            "text": "Memberitahu browser bahwa ini dokumen HTML5",
+            "isCorrect": true
+          },
+          {
+            "text": "Menghubungkan ke file CSS",
+            "isCorrect": false
+          },
+          {
+            "text": "Membuat animasi di halaman",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -154,19 +240,26 @@
         "content": "Perhatikan bahwa elemen `<input>` memiliki atribut `type` yang menentukan jenis input. `type=\"number\"` berarti input hanya menerima angka. Atribut `placeholder` menampilkan contoh text sebelum pengguna mengetik."
       },
       {
-        "id": "1.3-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Buat tabel di papan tulis dengan dua kolom: \"Elemen\" dan \"Fungsi\". Minta siswa menebak fungsi masing-masing elemen sebelum dijelaskan."
-      },
-      {
         "id": "q-1.3-1",
         "type": "QUIZ",
         "content": "Elemen HTML yang digunakan untuk membuat tombol adalah...",
         "options": [
-          { "text": "<input type=\"button\">", "isCorrect": false },
-          { "text": "<button>", "isCorrect": true },
-          { "text": "<click>", "isCorrect": false },
-          { "text": "<tombol>", "isCorrect": false }
+          {
+            "text": "<input type=\"button\">",
+            "isCorrect": false
+          },
+          {
+            "text": "<button>",
+            "isCorrect": true
+          },
+          {
+            "text": "<click>",
+            "isCorrect": false
+          },
+          {
+            "text": "<tombol>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -174,10 +267,22 @@
         "type": "QUIZ",
         "content": "Atribut yang digunakan untuk memberi nama unik pada elemen adalah...",
         "options": [
-          { "text": "class", "isCorrect": false },
-          { "text": "name", "isCorrect": false },
-          { "text": "id", "isCorrect": true },
-          { "text": "type", "isCorrect": false }
+          {
+            "text": "class",
+            "isCorrect": false
+          },
+          {
+            "text": "name",
+            "isCorrect": false
+          },
+          {
+            "text": "id",
+            "isCorrect": true
+          },
+          {
+            "text": "type",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -185,10 +290,22 @@
         "type": "QUIZ",
         "content": "Apa fungsi dari `<b>` dalam HTML?",
         "options": [
-          { "text": "Membuat teks menjadi miring", "isCorrect": false },
-          { "text": "Membuat teks menjadi garis bawah", "isCorrect": false },
-          { "text": "Membuat teks menjadi besar", "isCorrect": false },
-          { "text": "Membuat teks menjadi tebal", "isCorrect": true }
+          {
+            "text": "Membuat teks menjadi miring",
+            "isCorrect": false
+          },
+          {
+            "text": "Membuat teks menjadi garis bawah",
+            "isCorrect": false
+          },
+          {
+            "text": "Membuat teks menjadi besar",
+            "isCorrect": false
+          },
+          {
+            "text": "Membuat teks menjadi tebal",
+            "isCorrect": true
+          }
         ]
       },
       {
@@ -196,10 +313,22 @@
         "type": "QUIZ",
         "content": "Perhatikan kode berikut: `<input id=\"uang\" type=\"number\" />`. Atribut `type=\"number\"` berarti...",
         "options": [
-          { "text": "Input wajib diisi dengan angka", "isCorrect": false },
-          { "text": "Input hanya menerima karakter angka", "isCorrect": true },
-          { "text": "Input akan menampilkan keyboard angka", "isCorrect": false },
-          { "text": "Semua benar", "isCorrect": false }
+          {
+            "text": "Input wajib diisi dengan angka",
+            "isCorrect": false
+          },
+          {
+            "text": "Input hanya menerima karakter angka",
+            "isCorrect": true
+          },
+          {
+            "text": "Input akan menampilkan keyboard angka",
+            "isCorrect": false
+          },
+          {
+            "text": "Semua benar",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -220,19 +349,26 @@
         "content": "Perhatikan beberapa hal penting. Atribut `lang=\"id\"` di tag `<html>` menyatakan bahwa bahasa website adalah Indonesia. Tag `<div>` adalah kontainer untuk mengelompokkan elemen-elemen terkait. Elemen dengan `class=\"box\"` dan `class=\"menu\"` akan kita gunakan untuk styling di bagian CSS nanti. Tag `<hr>` membuat garis horizontal untuk memisahkan bagian."
       },
       {
-        "id": "1.4-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Minta siswa mengidentifikasi setiap elemen dan fungsinya secara lisan. Tunjukkan bahwa `<b id=\"qtyA\">0</b>` berarti ada teks tebal yang awalnya menampilkan angka 0, dan id-nya adalah \"qtyA\"."
-      },
-      {
         "id": "q-1.4-1",
         "type": "QUIZ",
         "content": "Apa fungsi dari `<div class=\"box\">`?",
         "options": [
-          { "text": "Membuat kotak dengan warna khusus", "isCorrect": false },
-          { "text": "Mengelompokkan elemen menjadi satu kontainer", "isCorrect": true },
-          { "text": "Membuat garis di sekitar elemen", "isCorrect": false },
-          { "text": "Memberi nama pada section", "isCorrect": false }
+          {
+            "text": "Membuat kotak dengan warna khusus",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengelompokkan elemen menjadi satu kontainer",
+            "isCorrect": true
+          },
+          {
+            "text": "Membuat garis di sekitar elemen",
+            "isCorrect": false
+          },
+          {
+            "text": "Memberi nama pada section",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -240,10 +376,22 @@
         "type": "QUIZ",
         "content": "Perhatikan kode ini: `<p>Mie Ayam: <b id=\"qtyB\">0</b></p>`. Angka 0 yang tampil di browser adalah isi dari elemen...",
         "options": [
-          { "text": "<p>", "isCorrect": false },
-          { "text": "<b>", "isCorrect": true },
-          { "text": "<div>", "isCorrect": false },
-          { "text": "<span>", "isCorrect": false }
+          {
+            "text": "<p>",
+            "isCorrect": false
+          },
+          {
+            "text": "<b>",
+            "isCorrect": true
+          },
+          {
+            "text": "<div>",
+            "isCorrect": false
+          },
+          {
+            "text": "<span>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -251,10 +399,22 @@
         "type": "QUIZ",
         "content": "Atribut `min=\"0\"` pada input berarti...",
         "options": [
-          { "text": "Nilai minimum yang bisa dimasukkan adalah 0", "isCorrect": true },
-          { "text": "Input tidak boleh kosong", "isCorrect": false },
-          { "text": "Input harus diisi dengan angka positif", "isCorrect": false },
-          { "text": "Input maksimal 0 karakter", "isCorrect": false }
+          {
+            "text": "Nilai minimum yang bisa dimasukkan adalah 0",
+            "isCorrect": true
+          },
+          {
+            "text": "Input tidak boleh kosong",
+            "isCorrect": false
+          },
+          {
+            "text": "Input harus diisi dengan angka positif",
+            "isCorrect": false
+          },
+          {
+            "text": "Input maksimal 0 karakter",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -262,10 +422,22 @@
         "type": "QUIZ",
         "content": "Mengapa ada tiga tombol dengan id berbeda (btnA, btnB, btnC)?",
         "options": [
-          { "text": "Agar terlihat berbeda secara visual", "isCorrect": false },
-          { "text": "Supaya JavaScript bisa membedakan tombol mana yang diklik", "isCorrect": true },
-          { "text": "Agar tombol bisa diurutkan otomatis", "isCorrect": false },
-          { "text": "Supaya user tahu makanan apa yang dipilih", "isCorrect": false }
+          {
+            "text": "Agar terlihat berbeda secara visual",
+            "isCorrect": false
+          },
+          {
+            "text": "Supaya JavaScript bisa membedakan tombol mana yang diklik",
+            "isCorrect": true
+          },
+          {
+            "text": "Agar tombol bisa diurutkan otomatis",
+            "isCorrect": false
+          },
+          {
+            "text": "Supaya user tahu makanan apa yang dipilih",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -299,19 +471,26 @@
         "content": "Penting untuk dipahami bahwa HTML dan CSS memiliki tugas yang berbeda. HTML menentukan **apa** yang ditampilkan, sedangkan CSS menentukan **bagaimana** tampilannya. Pemisahan ini membuat kode lebih terstruktur dan mudah dikelola. Jika kita ingin mengubah warna semua tombol, kita cukup mengubah satu bagian di CSS tanpa harus mengubah setiap elemen button di HTML."
       },
       {
-        "id": "2.1-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Tunjukkan perbandingan website yang sama—dengan dan tanpa CSS. Minta siswa mengidentifikasi perbedaan yang mereka lihat (warna, tata letak, ukuran font, dll)."
-      },
-      {
         "id": "q-2.1-1",
         "type": "QUIZ",
         "content": "Apa kepanjangan dari CSS?",
         "options": [
-          { "text": "Computer Style Sheets", "isCorrect": false },
-          { "text": "Cascading Style Sheets", "isCorrect": true },
-          { "text": "Creative Style System", "isCorrect": false },
-          { "text": "Colorful Style Sheets", "isCorrect": false }
+          {
+            "text": "Computer Style Sheets",
+            "isCorrect": false
+          },
+          {
+            "text": "Cascading Style Sheets",
+            "isCorrect": true
+          },
+          {
+            "text": "Creative Style System",
+            "isCorrect": false
+          },
+          {
+            "text": "Colorful Style Sheets",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -319,10 +498,22 @@
         "type": "QUIZ",
         "content": "Mana yang merupakan tugas CSS?",
         "options": [
-          { "text": "Membuat struktur halaman web", "isCorrect": false },
-          { "text": "Mengontrol tampilan dan desain halaman", "isCorrect": true },
-          { "text": "Menambahkan interaksi ke website", "isCorrect": false },
-          { "text": "Menyimpan data di database", "isCorrect": false }
+          {
+            "text": "Membuat struktur halaman web",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengontrol tampilan dan desain halaman",
+            "isCorrect": true
+          },
+          {
+            "text": "Menambahkan interaksi ke website",
+            "isCorrect": false
+          },
+          {
+            "text": "Menyimpan data di database",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -330,10 +521,22 @@
         "type": "QUIZ",
         "content": "Mengapa sebaiknya memisahkan HTML dan CSS?",
         "options": [
-          { "text": "Agar file lebih kecil ukurannya", "isCorrect": false },
-          { "text": "Supaya kode lebih rapi dan mudah diubah", "isCorrect": true },
-          { "text": "Agar browser bisa membukanya lebih cepat", "isCorrect": false },
-          { "text": "Supaya hanya satu orang yang bisa mengedit", "isCorrect": false }
+          {
+            "text": "Agar file lebih kecil ukurannya",
+            "isCorrect": false
+          },
+          {
+            "text": "Supaya kode lebih rapi dan mudah diubah",
+            "isCorrect": true
+          },
+          {
+            "text": "Agar browser bisa membukanya lebih cepat",
+            "isCorrect": false
+          },
+          {
+            "text": "Supaya hanya satu orang yang bisa mengedit",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -341,10 +544,22 @@
         "type": "QUIZ",
         "content": "Dengan CSS, kita bisa mengubah...",
         "options": [
-          { "text": "Hanya warna teks saja", "isCorrect": false },
-          { "text": "Hanya ukuran font saja", "isCorrect": false },
-          { "text": "Warna, ukuran, tata letak, dan banyak lagi", "isCorrect": true },
-          { "text": "Tidak bisa mengubah tampilan sama sekali", "isCorrect": false }
+          {
+            "text": "Hanya warna teks saja",
+            "isCorrect": false
+          },
+          {
+            "text": "Hanya ukuran font saja",
+            "isCorrect": false
+          },
+          {
+            "text": "Warna, ukuran, tata letak, dan banyak lagi",
+            "isCorrect": true
+          },
+          {
+            "text": "Tidak bisa mengubah tampilan sama sekali",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -374,10 +589,22 @@
         "type": "QUIZ",
         "content": "Tag yang digunakan untuk menghubungkan file CSS adalah...",
         "options": [
-          { "text": "<css>", "isCorrect": false },
-          { "text": "<link>", "isCorrect": true },
-          { "text": "<style>", "isCorrect": false },
-          { "text": "<script>", "isCorrect": false }
+          {
+            "text": "<css>",
+            "isCorrect": false
+          },
+          {
+            "text": "<link>",
+            "isCorrect": true
+          },
+          {
+            "text": "<style>",
+            "isCorrect": false
+          },
+          {
+            "text": "<script>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -385,10 +612,22 @@
         "type": "QUIZ",
         "content": "Atribut yang menunjukkan lokasi file CSS adalah...",
         "options": [
-          { "text": "src", "isCorrect": false },
-          { "text": "href", "isCorrect": true },
-          { "text": "path", "isCorrect": false },
-          { "text": "url", "isCorrect": false }
+          {
+            "text": "src",
+            "isCorrect": false
+          },
+          {
+            "text": "href",
+            "isCorrect": true
+          },
+          {
+            "text": "path",
+            "isCorrect": false
+          },
+          {
+            "text": "url",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -396,10 +635,22 @@
         "type": "QUIZ",
         "content": "Manakah yang merupakan cara terbaik untuk proyek besar?",
         "options": [
-          { "text": "Inline CSS", "isCorrect": false },
-          { "text": "Internal CSS", "isCorrect": false },
-          { "text": "External CSS", "isCorrect": true },
-          { "text": "Semua cara sama baiknya", "isCorrect": false }
+          {
+            "text": "Inline CSS",
+            "isCorrect": false
+          },
+          {
+            "text": "Internal CSS",
+            "isCorrect": false
+          },
+          {
+            "text": "External CSS",
+            "isCorrect": true
+          },
+          {
+            "text": "Semua cara sama baiknya",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -407,10 +658,22 @@
         "type": "QUIZ",
         "content": "Kode `<link rel=\"stylesheet\" href=\"style.css\" />` diletakkan di bagian...",
         "options": [
-          { "text": "<body>", "isCorrect": false },
-          { "text": "<head>", "isCorrect": true },
-          { "text": "<footer>", "isCorrect": false },
-          { "text": "<title>", "isCorrect": false }
+          {
+            "text": "<body>",
+            "isCorrect": false
+          },
+          {
+            "text": "<head>",
+            "isCorrect": true
+          },
+          {
+            "text": "<footer>",
+            "isCorrect": false
+          },
+          {
+            "text": "<title>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -448,19 +711,26 @@
         "language": "css"
       },
       {
-        "id": "2.3-note",
-        "type": "TEXT",
-        "content": "**Catatan untuk Guru:** Gunakan analogi \"resep masakan\" untuk menjelaskan CSS selector seperti \"siapa yang akan dimasak\", property seperti \"bahan apa yang digunakan\", dan value seperti \"berapa jumlah bahan\"."
-      },
-      {
         "id": "q-2.3-1",
         "type": "QUIZ",
         "content": "Bagian dari aturan CSS yang memilih elemen HTML adalah...",
         "options": [
-          { "text": "Declaration", "isCorrect": false },
-          { "text": "Property", "isCorrect": false },
-          { "text": "Selector", "isCorrect": true },
-          { "text": "Value", "isCorrect": false }
+          {
+            "text": "Declaration",
+            "isCorrect": false
+          },
+          {
+            "text": "Property",
+            "isCorrect": false
+          },
+          {
+            "text": "Selector",
+            "isCorrect": true
+          },
+          {
+            "text": "Value",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -468,10 +738,22 @@
         "type": "QUIZ",
         "content": "Perhatikan: `p { color: blue; }`. Yang merupakan selector adalah...",
         "options": [
-          { "text": "color", "isCorrect": false },
-          { "text": "blue", "isCorrect": false },
-          { "text": "p", "isCorrect": true },
-          { "text": "{ color: blue; }", "isCorrect": false }
+          {
+            "text": "color",
+            "isCorrect": false
+          },
+          {
+            "text": "blue",
+            "isCorrect": false
+          },
+          {
+            "text": "p",
+            "isCorrect": true
+          },
+          {
+            "text": "{ color: blue; }",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -479,10 +761,22 @@
         "type": "QUIZ",
         "content": "Cara menulis selector untuk class \"menu\" adalah...",
         "options": [
-          { "text": "menu", "isCorrect": false },
-          { "text": "#menu", "isCorrect": false },
-          { "text": ".menu", "isCorrect": true },
-          { "text": "*menu", "isCorrect": false }
+          {
+            "text": "menu",
+            "isCorrect": false
+          },
+          {
+            "text": "#menu",
+            "isCorrect": false
+          },
+          {
+            "text": ".menu",
+            "isCorrect": true
+          },
+          {
+            "text": "*menu",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -490,10 +784,22 @@
         "type": "QUIZ",
         "content": "Setiap deklarasi CSS diakhiri dengan...",
         "options": [
-          { "text": "Titik koma (;)", "isCorrect": true },
-          { "text": "Titik dua (:)", "isCorrect": false },
-          { "text": "Koma (,)", "isCorrect": false },
-          { "text": "Kurung ()", "isCorrect": false }
+          {
+            "text": "Titik koma (;)",
+            "isCorrect": true
+          },
+          {
+            "text": "Titik dua (:)",
+            "isCorrect": false
+          },
+          {
+            "text": "Koma (,)",
+            "isCorrect": false
+          },
+          {
+            "text": "Kurung ()",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -518,10 +824,22 @@
         "type": "QUIZ",
         "content": "Property CSS yang memberikan jarak di luar elemen adalah...",
         "options": [
-          { "text": "padding", "isCorrect": false },
-          { "text": "margin", "isCorrect": true },
-          { "text": "border", "isCorrect": false },
-          { "text": "gap", "isCorrect": false }
+          {
+            "text": "padding",
+            "isCorrect": false
+          },
+          {
+            "text": "margin",
+            "isCorrect": true
+          },
+          {
+            "text": "border",
+            "isCorrect": false
+          },
+          {
+            "text": "gap",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -529,10 +847,22 @@
         "type": "QUIZ",
         "content": "Property yang membuat kursor berubah menjadi tangan saat dihover adalah...",
         "options": [
-          { "text": "cursor: hand", "isCorrect": false },
-          { "text": "cursor: pointer", "isCorrect": true },
-          { "text": "mouse: hand", "isCorrect": false },
-          { "text": "pointer: cursor", "isCorrect": false }
+          {
+            "text": "cursor: hand",
+            "isCorrect": false
+          },
+          {
+            "text": "cursor: pointer",
+            "isCorrect": true
+          },
+          {
+            "text": "mouse: hand",
+            "isCorrect": false
+          },
+          {
+            "text": "pointer: cursor",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -540,10 +870,22 @@
         "type": "QUIZ",
         "content": "Fungsi dari `display: grid` adalah...",
         "options": [
-          { "text": "Membuat elemen menjadi tabel", "isCorrect": false },
-          { "text": "Mengatur elemen dalam baris dan kolom", "isCorrect": true },
-          { "text": "Membuat elemen menjadi baris horizontal", "isCorrect": false },
-          { "text": "Menghilangkan elemen dari tampilan", "isCorrect": false }
+          {
+            "text": "Membuat elemen menjadi tabel",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengatur elemen dalam baris dan kolom",
+            "isCorrect": true
+          },
+          {
+            "text": "Membuat elemen menjadi baris horizontal",
+            "isCorrect": false
+          },
+          {
+            "text": "Menghilangkan elemen dari tampilan",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -551,10 +893,22 @@
         "type": "QUIZ",
         "content": "Jika tertulis `input { padding: 8px; margin-top: 6px; }`, apa yang terjadi?",
         "options": [
-          { "text": "Hanya mendapat jarak atas 6px", "isCorrect": false },
-          { "text": "Hanya mendapat jarak dalam 8px", "isCorrect": false },
-          { "text": "Mendapat jarak dalam 8px dan jarak atas 6px", "isCorrect": true },
-          { "text": "Mendapat jarak luar 8px", "isCorrect": false }
+          {
+            "text": "Hanya mendapat jarak atas 6px",
+            "isCorrect": false
+          },
+          {
+            "text": "Hanya mendapat jarak dalam 8px",
+            "isCorrect": false
+          },
+          {
+            "text": "Mendapat jarak dalam 8px dan jarak atas 6px",
+            "isCorrect": true
+          },
+          {
+            "text": "Mendapat jarak luar 8px",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -579,10 +933,22 @@
         "type": "QUIZ",
         "content": "Fungsi dari `max-width: 420px` pada class `.box` adalah...",
         "options": [
-          { "text": "Lebar kotak minimal 420px", "isCorrect": false },
-          { "text": "Lebar kotak maksimal 420px", "isCorrect": true },
-          { "text": "Lebar kotak selalu 420px", "isCorrect": false },
-          { "text": "Lebar kotak adalah 420% dari lebar asli", "isCorrect": false }
+          {
+            "text": "Lebar kotak minimal 420px",
+            "isCorrect": false
+          },
+          {
+            "text": "Lebar kotak maksimal 420px",
+            "isCorrect": true
+          },
+          {
+            "text": "Lebar kotak selalu 420px",
+            "isCorrect": false
+          },
+          {
+            "text": "Lebar kotak adalah 420% dari lebar asli",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -590,10 +956,22 @@
         "type": "QUIZ",
         "content": "Jika `hr` memiliki style `border-top: 1px solid #eee`, itu berarti...",
         "options": [
-          { "text": "Hapus garis", "isCorrect": false },
-          { "text": "Hapus border, tapi tambahkan garis di bagian atas", "isCorrect": true },
-          { "text": "Buat border di semua sisi", "isCorrect": false },
-          { "text": "Buat garis putus-putus", "isCorrect": false }
+          {
+            "text": "Hapus garis",
+            "isCorrect": false
+          },
+          {
+            "text": "Hapus border, tapi tambahkan garis di bagian atas",
+            "isCorrect": true
+          },
+          {
+            "text": "Buat border di semua sisi",
+            "isCorrect": false
+          },
+          {
+            "text": "Buat garis putus-putus",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -601,10 +979,22 @@
         "type": "QUIZ",
         "content": "Untuk melihat perubahan CSS di browser, kita perlu...",
         "options": [
-          { "text": "Me-refresh halaman browser", "isCorrect": true },
-          { "text": "Menutup dan membuka browser", "isCorrect": false },
-          { "text": "Menghapus cache browser", "isCorrect": false },
-          { "text": "Merestart komputer", "isCorrect": false }
+          {
+            "text": "Me-refresh halaman browser",
+            "isCorrect": true
+          },
+          {
+            "text": "Menutup dan membuka browser",
+            "isCorrect": false
+          },
+          {
+            "text": "Menghapus cache browser",
+            "isCorrect": false
+          },
+          {
+            "text": "Merestart komputer",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -612,10 +1002,22 @@
         "type": "QUIZ",
         "content": "Jika CSS tidak bekerja, kemungkinan penyebabnya adalah...",
         "options": [
-          { "text": "File HTML tidak disimpan", "isCorrect": false },
-          { "text": "Tag <link> salah atau path file salah", "isCorrect": true },
-          { "text": "Browser terlalu lama tidak di-update", "isCorrect": false },
-          { "text": "Komputer kekurangan RAM", "isCorrect": false }
+          {
+            "text": "File HTML tidak disimpan",
+            "isCorrect": false
+          },
+          {
+            "text": "Tag <link> salah atau path file salah",
+            "isCorrect": true
+          },
+          {
+            "text": "Browser terlalu lama tidak di-update",
+            "isCorrect": false
+          },
+          {
+            "text": "Komputer kekurangan RAM",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -653,10 +1055,22 @@
         "type": "QUIZ",
         "content": "JavaScript terutama digunakan untuk...",
         "options": [
-          { "text": "Membuat database", "isCorrect": false },
-          { "text": "Mengedit gambar", "isCorrect": false },
-          { "text": "Membuat website interaktif", "isCorrect": true },
-          { "text": "Mengoperasikan sistem server", "isCorrect": false }
+          {
+            "text": "Membuat database",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengedit gambar",
+            "isCorrect": false
+          },
+          {
+            "text": "Membuat website interaktif",
+            "isCorrect": true
+          },
+          {
+            "text": "Mengoperasikan sistem server",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -664,10 +1078,22 @@
         "type": "QUIZ",
         "content": "Di mana JavaScript dijalankan?",
         "options": [
-          { "text": "Di server komputer", "isCorrect": false },
-          { "text": "Di browser pengguna", "isCorrect": true },
-          { "text": "Di aplikasi desktop", "isCorrect": false },
-          { "text": "Di smartphone", "isCorrect": false }
+          {
+            "text": "Di server komputer",
+            "isCorrect": false
+          },
+          {
+            "text": "Di browser pengguna",
+            "isCorrect": true
+          },
+          {
+            "text": "Di aplikasi desktop",
+            "isCorrect": false
+          },
+          {
+            "text": "Di smartphone",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -675,10 +1101,22 @@
         "type": "QUIZ",
         "content": "Manakah yang BENAR tentang JavaScript?",
         "options": [
-          { "text": "JavaScript sama dengan Java", "isCorrect": false },
-          { "text": "JavaScript hanya untuk backend", "isCorrect": false },
-          { "text": "JavaScript membuat website interaktif", "isCorrect": true },
-          { "text": "JavaScript tidak bisa mengakses elemen HTML", "isCorrect": false }
+          {
+            "text": "JavaScript sama dengan Java",
+            "isCorrect": false
+          },
+          {
+            "text": "JavaScript hanya untuk backend",
+            "isCorrect": false
+          },
+          {
+            "text": "JavaScript membuat website interaktif",
+            "isCorrect": true
+          },
+          {
+            "text": "JavaScript tidak bisa mengakses elemen HTML",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -686,10 +1124,22 @@
         "type": "QUIZ",
         "content": "Berikut ini yang merupakan contoh interaksi yang bisa dibuat dengan JavaScript adalah...",
         "options": [
-          { "text": "Menghitung angka secara otomatis saat tombol ditekan", "isCorrect": true },
-          { "text": "Mengubah warna background permanent", "isCorrect": false },
-          { "text": "Menyimpan data ke flash drive", "isCorrect": false },
-          { "text": "Mengontrol kamera keamanan", "isCorrect": false }
+          {
+            "text": "Menghitung angka secara otomatis saat tombol ditekan",
+            "isCorrect": true
+          },
+          {
+            "text": "Mengubah warna background permanent",
+            "isCorrect": false
+          },
+          {
+            "text": "Menyimpan data ke flash drive",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengontrol kamera keamanan",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -719,10 +1169,22 @@
         "type": "QUIZ",
         "content": "Manakah cara yang BENAR untuk membuat variabel di JavaScript?",
         "options": [
-          { "text": "variable qtyA = 0;", "isCorrect": false },
-          { "text": "let qtyA = 0;", "isCorrect": true },
-          { "text": "let = qtyA 0;", "isCorrect": false },
-          { "text": "var qtyA = 0;", "isCorrect": false }
+          {
+            "text": "variable qtyA = 0;",
+            "isCorrect": false
+          },
+          {
+            "text": "let qtyA = 0;",
+            "isCorrect": true
+          },
+          {
+            "text": "let = qtyA 0;",
+            "isCorrect": false
+          },
+          {
+            "text": "var qtyA = 0;",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -730,10 +1192,22 @@
         "type": "QUIZ",
         "content": "Kapan sebaiknya kita menggunakan `const`?",
         "options": [
-          { "text": "Ketika nilai variabel sering berubah", "isCorrect": false },
-          { "text": "Ketika nilai variabel tidak akan berubah", "isCorrect": true },
-          { "text": "Ketika variabel berisi teks", "isCorrect": false },
-          { "text": "Ketika variabel berisi angka", "isCorrect": false }
+          {
+            "text": "Ketika nilai variabel sering berubah",
+            "isCorrect": false
+          },
+          {
+            "text": "Ketika nilai variabel tidak akan berubah",
+            "isCorrect": true
+          },
+          {
+            "text": "Ketika variabel berisi teks",
+            "isCorrect": false
+          },
+          {
+            "text": "Ketika variabel berisi angka",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -741,10 +1215,22 @@
         "type": "QUIZ",
         "content": "Jika `let harga = 5000;` lalu `harga = 6000;`, berapa nilai akhirnya?",
         "options": [
-          { "text": "5000", "isCorrect": false },
-          { "text": "6000", "isCorrect": true },
-          { "text": "Error, tidak bisa diubah", "isCorrect": false },
-          { "text": "50006000", "isCorrect": false }
+          {
+            "text": "5000",
+            "isCorrect": false
+          },
+          {
+            "text": "6000",
+            "isCorrect": true
+          },
+          {
+            "text": "Error, tidak bisa diubah",
+            "isCorrect": false
+          },
+          {
+            "text": "50006000",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -752,10 +1238,22 @@
         "type": "QUIZ",
         "content": "Mana yang merupakan nama variabel yang TIDAK valid?",
         "options": [
-          { "text": "qtyA", "isCorrect": false },
-          { "text": "hargaBarang", "isCorrect": false },
-          { "text": "2harga", "isCorrect": true },
-          { "text": "total_harga", "isCorrect": false }
+          {
+            "text": "qtyA",
+            "isCorrect": false
+          },
+          {
+            "text": "hargaBarang",
+            "isCorrect": false
+          },
+          {
+            "text": "2harga",
+            "isCorrect": true
+          },
+          {
+            "text": "total_harga",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -780,10 +1278,22 @@
         "type": "QUIZ",
         "content": "Apa fungsi dari `function` di JavaScript?",
         "options": [
-          { "text": "Menjalankan program secara otomatis", "isCorrect": false },
-          { "text": "Mengelompokkan kode yang bisa digunakan ulang", "isCorrect": true },
-          { "text": "Menghapus variabel dari memori", "isCorrect": false },
-          { "text": "Menghubungkan ke internet", "isCorrect": false }
+          {
+            "text": "Menjalankan program secara otomatis",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengelompokkan kode yang bisa digunakan ulang",
+            "isCorrect": true
+          },
+          {
+            "text": "Menghapus variabel dari memori",
+            "isCorrect": false
+          },
+          {
+            "text": "Menghubungkan ke internet",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -791,10 +1301,22 @@
         "type": "QUIZ",
         "content": "`return` berfungsi untuk...",
         "options": [
-          { "text": "Menghentikan fungsi", "isCorrect": false },
-          { "text": "Mengembalikan hasil perhitungan", "isCorrect": true },
-          { "text": "Memanggil fungsi lain", "isCorrect": false },
-          { "text": "Menampilkan pesan", "isCorrect": false }
+          {
+            "text": "Menghentikan fungsi",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengembalikan hasil perhitungan",
+            "isCorrect": true
+          },
+          {
+            "text": "Memanggil fungsi lain",
+            "isCorrect": false
+          },
+          {
+            "text": "Menampilkan pesan",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -802,10 +1324,22 @@
         "type": "QUIZ",
         "content": "Berapa hasil dari `function kali(a, b) { return a * b; }` jika dipanggil `kali(3, 4)`?",
         "options": [
-          { "text": "3", "isCorrect": false },
-          { "text": "4", "isCorrect": false },
-          { "text": "7", "isCorrect": false },
-          { "text": "12", "isCorrect": true }
+          {
+            "text": "3",
+            "isCorrect": false
+          },
+          {
+            "text": "4",
+            "isCorrect": false
+          },
+          {
+            "text": "7",
+            "isCorrect": false
+          },
+          {
+            "text": "12",
+            "isCorrect": true
+          }
         ]
       },
       {
@@ -813,10 +1347,22 @@
         "type": "QUIZ",
         "content": "Mana yang merupakan fungsi TANPA nilai kembalian?",
         "options": [
-          { "text": "Fungsi yang menggunakan `return`", "isCorrect": false },
-          { "text": "Fungsi yang hanya mengubah variabel global", "isCorrect": false },
-          { "text": "Fungsi yang tidak menggunakan `return`", "isCorrect": true },
-          { "text": "Semua fungsi harus ada `return`", "isCorrect": false }
+          {
+            "text": "Fungsi yang menggunakan `return`",
+            "isCorrect": false
+          },
+          {
+            "text": "Fungsi yang hanya mengubah variabel global",
+            "isCorrect": false
+          },
+          {
+            "text": "Fungsi yang tidak menggunakan `return`",
+            "isCorrect": true
+          },
+          {
+            "text": "Semua fungsi harus ada `return`",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -847,10 +1393,22 @@
         "type": "QUIZ",
         "content": "Operator JavaScript untuk perkalian adalah...",
         "options": [
-          { "text": "x", "isCorrect": false },
-          { "text": "*", "isCorrect": true },
-          { "text": "^", "isCorrect": false },
-          { "text": "/", "isCorrect": false }
+          {
+            "text": "x",
+            "isCorrect": false
+          },
+          {
+            "text": "*",
+            "isCorrect": true
+          },
+          {
+            "text": "^",
+            "isCorrect": false
+          },
+          {
+            "text": "/",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -858,10 +1416,22 @@
         "type": "QUIZ",
         "content": "Berapa nilai `hasil` dari `let hasil = (2 + 3) * 4;`?",
         "options": [
-          { "text": "14", "isCorrect": false },
-          { "text": "20", "isCorrect": true },
-          { "text": "11", "isCorrect": false },
-          { "text": "10", "isCorrect": false }
+          {
+            "text": "14",
+            "isCorrect": false
+          },
+          {
+            "text": "20",
+            "isCorrect": true
+          },
+          {
+            "text": "11",
+            "isCorrect": false
+          },
+          {
+            "text": "10",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -869,10 +1439,22 @@
         "type": "QUIZ",
         "content": "Operator logika AND ditulis dengan...",
         "options": [
-          { "text": "||", "isCorrect": false },
-          { "text": "&&", "isCorrect": true },
-          { "text": "!", "isCorrect": false },
-          { "text": "==", "isCorrect": false }
+          {
+            "text": "||",
+            "isCorrect": false
+          },
+          {
+            "text": "&&",
+            "isCorrect": true
+          },
+          {
+            "text": "!",
+            "isCorrect": false
+          },
+          {
+            "text": "==",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -880,10 +1462,22 @@
         "type": "QUIZ",
         "content": "Apa hasil dari `10 > 5 && 3 < 1`?",
         "options": [
-          { "text": "true", "isCorrect": false },
-          { "text": "false", "isCorrect": true },
-          { "text": "1", "isCorrect": false },
-          { "text": "Error", "isCorrect": false }
+          {
+            "text": "true",
+            "isCorrect": false
+          },
+          {
+            "text": "false",
+            "isCorrect": true
+          },
+          {
+            "text": "1",
+            "isCorrect": false
+          },
+          {
+            "text": "Error",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -908,10 +1502,22 @@
         "type": "QUIZ",
         "content": "Method untuk mengakses elemen HTML berdasarkan id adalah...",
         "options": [
-          { "text": "document.getElementById()", "isCorrect": true },
-          { "text": "document.getElementByClass()", "isCorrect": false },
-          { "text": "document.querySelector()", "isCorrect": false },
-          { "text": "document.findElement()", "isCorrect": false }
+          {
+            "text": "document.getElementById()",
+            "isCorrect": true
+          },
+          {
+            "text": "document.getElementByClass()",
+            "isCorrect": false
+          },
+          {
+            "text": "document.querySelector()",
+            "isCorrect": false
+          },
+          {
+            "text": "document.findElement()",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -919,10 +1525,22 @@
         "type": "QUIZ",
         "content": "Property yang digunakan untuk mengubah teks elemen adalah...",
         "options": [
-          { "text": "textContent", "isCorrect": true },
-          { "text": "innerText", "isCorrect": false },
-          { "text": "value", "isCorrect": false },
-          { "text": "innerHTML", "isCorrect": false }
+          {
+            "text": "textContent",
+            "isCorrect": true
+          },
+          {
+            "text": "innerText",
+            "isCorrect": false
+          },
+          {
+            "text": "value",
+            "isCorrect": false
+          },
+          {
+            "text": "innerHTML",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -930,10 +1548,22 @@
         "type": "QUIZ",
         "content": "Jika kita menulis `console.log(inputEl.value)`, apa yang ditampilkan?",
         "options": [
-          { "text": "Teks di dalam tag input", "isCorrect": false },
-          { "text": "Nilai yang diketik pengguna di input", "isCorrect": true },
-          { "text": "ID dari elemen input", "isCorrect": false },
-          { "text": "Type dari elemen input", "isCorrect": false }
+          {
+            "text": "Teks di dalam tag input",
+            "isCorrect": false
+          },
+          {
+            "text": "Nilai yang diketik pengguna di input",
+            "isCorrect": true
+          },
+          {
+            "text": "ID dari elemen input",
+            "isCorrect": false
+          },
+          {
+            "text": "Type dari elemen input",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -941,10 +1571,22 @@
         "type": "QUIZ",
         "content": "Untuk elemen `<input>`, kita menggunakan property... untuk mendapatkan nilai.",
         "options": [
-          { "text": "textContent", "isCorrect": false },
-          { "text": "innerHTML", "isCorrect": false },
-          { "text": "value", "isCorrect": true },
-          { "text": "innerText", "isCorrect": false }
+          {
+            "text": "textContent",
+            "isCorrect": false
+          },
+          {
+            "text": "innerHTML",
+            "isCorrect": false
+          },
+          {
+            "text": "value",
+            "isCorrect": true
+          },
+          {
+            "text": "innerText",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -964,10 +1606,22 @@
         "type": "QUIZ",
         "content": "Apa yang dimaksud dengan event dalam JavaScript?",
         "options": [
-          { "text": "Kesalahan dalam kode program", "isCorrect": false },
-          { "text": "Kejadian yang terjadi di halaman web", "isCorrect": true },
-          { "text": "Jenis variabel khusus", "isCorrect": false },
-          { "text": "Method untuk menghitung angka", "isCorrect": false }
+          {
+            "text": "Kesalahan dalam kode program",
+            "isCorrect": false
+          },
+          {
+            "text": "Kejadian yang terjadi di halaman web",
+            "isCorrect": true
+          },
+          {
+            "text": "Jenis variabel khusus",
+            "isCorrect": false
+          },
+          {
+            "text": "Method untuk menghitung angka",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -975,10 +1629,22 @@
         "type": "QUIZ",
         "content": "Method untuk menambahkan event listener adalah...",
         "options": [
-          { "text": "addEvent()", "isCorrect": false },
-          { "text": "listenEvent()", "isCorrect": false },
-          { "text": "addEventListener()", "isCorrect": true },
-          { "text": "onEvent()", "isCorrect": false }
+          {
+            "text": "addEvent()",
+            "isCorrect": false
+          },
+          {
+            "text": "listenEvent()",
+            "isCorrect": false
+          },
+          {
+            "text": "addEventListener()",
+            "isCorrect": true
+          },
+          {
+            "text": "onEvent()",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -986,10 +1652,22 @@
         "type": "QUIZ",
         "content": "Event yang terjadi saat user mengetik di input adalah...",
         "options": [
-          { "text": "onchange", "isCorrect": false },
-          { "text": "onkeypress", "isCorrect": false },
-          { "text": "oninput", "isCorrect": true },
-          { "text": "onkeyup", "isCorrect": false }
+          {
+            "text": "onchange",
+            "isCorrect": false
+          },
+          {
+            "text": "onkeypress",
+            "isCorrect": false
+          },
+          {
+            "text": "oninput",
+            "isCorrect": true
+          },
+          {
+            "text": "onkeyup",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -997,10 +1675,22 @@
         "type": "QUIZ",
         "content": "Jika `tombol.onclick = function() { alert('Hai!'); };`, kapan alert muncul?",
         "options": [
-          { "text": "Saat halaman dimuat", "isCorrect": false },
-          { "text": "Saat tombol ditekan", "isCorrect": true },
-          { "text": "Saat mouse hover tombol", "isCorrect": false },
-          { "text": "Saat halaman ditutup", "isCorrect": false }
+          {
+            "text": "Saat halaman dimuat",
+            "isCorrect": false
+          },
+          {
+            "text": "Saat tombol ditekan",
+            "isCorrect": true
+          },
+          {
+            "text": "Saat mouse hover tombol",
+            "isCorrect": false
+          },
+          {
+            "text": "Saat halaman ditutup",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1044,10 +1734,22 @@
         "type": "QUIZ",
         "content": "Tag yang digunakan untuk menghubungkan file JavaScript adalah...",
         "options": [
-          { "text": "<link>", "isCorrect": false },
-          { "text": "<script>", "isCorrect": true },
-          { "text": "<js>", "isCorrect": false },
-          { "text": "<code>", "isCorrect": false }
+          {
+            "text": "<link>",
+            "isCorrect": false
+          },
+          {
+            "text": "<script>",
+            "isCorrect": true
+          },
+          {
+            "text": "<js>",
+            "isCorrect": false
+          },
+          {
+            "text": "<code>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1055,10 +1757,22 @@
         "type": "QUIZ",
         "content": "Di bagian mana tag `<script>` biasanya ditempatkan?",
         "options": [
-          { "text": "Di dalam <head>", "isCorrect": false },
-          { "text": "Di dalam <body> di bagian akhir", "isCorrect": true },
-          { "text": "Di dalam <title>", "isCorrect": false },
-          { "text": "Di dalam <style>", "isCorrect": false }
+          {
+            "text": "Di dalam <head>",
+            "isCorrect": false
+          },
+          {
+            "text": "Di dalam <body> di bagian akhir",
+            "isCorrect": true
+          },
+          {
+            "text": "Di dalam <title>",
+            "isCorrect": false
+          },
+          {
+            "text": "Di dalam <style>",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1066,10 +1780,22 @@
         "type": "QUIZ",
         "content": "Atribut yang menunjukkan lokasi file JavaScript adalah...",
         "options": [
-          { "text": "href", "isCorrect": false },
-          { "text": "src", "isCorrect": true },
-          { "text": "path", "isCorrect": false },
-          { "text": "url", "isCorrect": false }
+          {
+            "text": "href",
+            "isCorrect": false
+          },
+          {
+            "text": "src",
+            "isCorrect": true
+          },
+          {
+            "text": "path",
+            "isCorrect": false
+          },
+          {
+            "text": "url",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1077,10 +1803,22 @@
         "type": "QUIZ",
         "content": "Mengapa urutan pemuatan penting?",
         "options": [
-          { "text": "Browser hanya bisa membaca satu file", "isCorrect": false },
-          { "text": "JavaScript perlu elemen HTML sudah ada sebelum mengaksesnya", "isCorrect": true },
-          { "text": "CSS harus dimuat setelah JavaScript", "isCorrect": false },
-          { "text": "Urutan tidak mempengaruhi hasil", "isCorrect": false }
+          {
+            "text": "Browser hanya bisa membaca satu file",
+            "isCorrect": false
+          },
+          {
+            "text": "JavaScript perlu elemen HTML sudah ada sebelum mengaksesnya",
+            "isCorrect": true
+          },
+          {
+            "text": "CSS harus dimuat setelah JavaScript",
+            "isCorrect": false
+          },
+          {
+            "text": "Urutan tidak mempengaruhi hasil",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1105,10 +1843,22 @@
         "type": "QUIZ",
         "content": "Kapan variabel `qtyA` nilainya berubah?",
         "options": [
-          { "text": "Saat halaman dimuat", "isCorrect": false },
-          { "text": "Saat user klik tombol btnA", "isCorrect": true },
-          { "text": "Saat user memasukkan uang", "isCorrect": false },
-          { "text": "Saat user me-refresh halaman", "isCorrect": false }
+          {
+            "text": "Saat halaman dimuat",
+            "isCorrect": false
+          },
+          {
+            "text": "Saat user klik tombol btnA",
+            "isCorrect": true
+          },
+          {
+            "text": "Saat user memasukkan uang",
+            "isCorrect": false
+          },
+          {
+            "text": "Saat user me-refresh halaman",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1116,10 +1866,22 @@
         "type": "QUIZ",
         "content": "Apa yang terjadi saat fungsi `update()` dijalankan?",
         "options": [
-          { "text": "Halaman di-refresh", "isCorrect": false },
-          { "text": "Nilai variabel dihitung ulang dan tampilan diubah", "isCorrect": true },
-          { "text": "Browser ditutup", "isCorrect": false },
-          { "text": "File CSS dimuat ulang", "isCorrect": false }
+          {
+            "text": "Halaman di-refresh",
+            "isCorrect": false
+          },
+          {
+            "text": "Nilai variabel dihitung ulang dan tampilan diubah",
+            "isCorrect": true
+          },
+          {
+            "text": "Browser ditutup",
+            "isCorrect": false
+          },
+          {
+            "text": "File CSS dimuat ulang",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1127,10 +1889,22 @@
         "type": "QUIZ",
         "content": "Urutan yang BENAR saat aplikasi berjalan adalah...",
         "options": [
-          { "text": "JavaScript → CSS → HTML", "isCorrect": false },
-          { "text": "HTML → CSS → JavaScript", "isCorrect": true },
-          { "text": "CSS → HTML → JavaScript", "isCorrect": false },
-          { "text": "Bersamaan tanpa urutan", "isCorrect": false }
+          {
+            "text": "JavaScript → CSS → HTML",
+            "isCorrect": false
+          },
+          {
+            "text": "HTML → CSS → JavaScript",
+            "isCorrect": true
+          },
+          {
+            "text": "CSS → HTML → JavaScript",
+            "isCorrect": false
+          },
+          {
+            "text": "Bersamaan tanpa urutan",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1138,10 +1912,22 @@
         "type": "QUIZ",
         "content": "Fungsi `update()` dipanggil saat...",
         "options": [
-          { "text": "Hanya saat tombol ditekan", "isCorrect": false },
-          { "text": "Hanya saat uang dimasukkan", "isCorrect": false },
-          { "text": "Kedua hal di atas", "isCorrect": true },
-          { "text": "Tidak pernah dipanggil", "isCorrect": false }
+          {
+            "text": "Hanya saat tombol ditekan",
+            "isCorrect": false
+          },
+          {
+            "text": "Hanya saat uang dimasukkan",
+            "isCorrect": false
+          },
+          {
+            "text": "Kedua hal di atas",
+            "isCorrect": true
+          },
+          {
+            "text": "Tidak pernah dipanggil",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1161,10 +1947,22 @@
         "type": "QUIZ",
         "content": "Apa fungsi dari `rupiah(n)`?",
         "options": [
-          { "text": "Menghitung total harga", "isCorrect": false },
-          { "text": "Mengubah angka menjadi format \"Rp ...\"", "isCorrect": true },
-          { "text": "Validasi input uang", "isCorrect": false },
-          { "text": "Menghitung kembalian", "isCorrect": false }
+          {
+            "text": "Menghitung total harga",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengubah angka menjadi format \"Rp ...\"",
+            "isCorrect": true
+          },
+          {
+            "text": "Validasi input uang",
+            "isCorrect": false
+          },
+          {
+            "text": "Menghitung kembalian",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1172,10 +1970,22 @@
         "type": "QUIZ",
         "content": "Fungsi `Number()` pada `Number(uangEl.value)` adalah...",
         "options": [
-          { "text": "Membuang angka desimal", "isCorrect": false },
-          { "text": "Mengkonversi teks menjadi angka", "isCorrect": true },
-          { "text": "Membulatkan ke angka terdekat", "isCorrect": false },
-          { "text": "Menambahkan angka", "isCorrect": false }
+          {
+            "text": "Membuang angka desimal",
+            "isCorrect": false
+          },
+          {
+            "text": "Mengkonversi teks menjadi angka",
+            "isCorrect": true
+          },
+          {
+            "text": "Membulatkan ke angka terdekat",
+            "isCorrect": false
+          },
+          {
+            "text": "Menambahkan angka",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1183,10 +1993,22 @@
         "type": "QUIZ",
         "content": "Apa yang terjadi saat user klik tombol Reset?",
         "options": [
-          { "text": "Hanya jumlah dikembalikan ke 0", "isCorrect": false },
-          { "text": "Hanya uang dikosongkan", "isCorrect": false },
-          { "text": "Keduanya (jumlah dan uang) dikembalikan ke awal", "isCorrect": true },
-          { "text": "Browser di-refresh", "isCorrect": false }
+          {
+            "text": "Hanya jumlah dikembalikan ke 0",
+            "isCorrect": false
+          },
+          {
+            "text": "Hanya uang dikosongkan",
+            "isCorrect": false
+          },
+          {
+            "text": "Keduanya (jumlah dan uang) dikembalikan ke awal",
+            "isCorrect": true
+          },
+          {
+            "text": "Browser di-refresh",
+            "isCorrect": false
+          }
         ]
       },
       {
@@ -1194,10 +2016,22 @@
         "type": "QUIZ",
         "content": "Mengapa `update()` dipanggil di baris terakhir?",
         "options": [
-          { "text": "Untuk memulai aplikasi", "isCorrect": false },
-          { "text": "Untuk inisialisasi tampilan awal", "isCorrect": true },
-          { "text": "Untuk memuat CSS", "isCorrect": false },
-          { "text": "Untuk mengambil data dari server", "isCorrect": false }
+          {
+            "text": "Untuk memulai aplikasi",
+            "isCorrect": false
+          },
+          {
+            "text": "Untuk inisialisasi tampilan awal",
+            "isCorrect": true
+          },
+          {
+            "text": "Untuk memuat CSS",
+            "isCorrect": false
+          },
+          {
+            "text": "Untuk mengambil data dari server",
+            "isCorrect": false
+          }
         ]
       },
       {
