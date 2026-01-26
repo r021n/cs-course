@@ -1914,7 +1914,7 @@
         "options": [
           {
             "text": "Hanya saat tombol ditekan",
-            "isCorrect": false
+            "isCorrect": true
           },
           {
             "text": "Hanya saat uang dimasukkan",
@@ -1922,7 +1922,7 @@
           },
           {
             "text": "Kedua hal di atas",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "text": "Tidak pernah dipanggil",
