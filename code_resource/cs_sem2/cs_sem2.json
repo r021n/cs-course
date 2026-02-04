@@ -1,0 +1,88 @@
+[
+  {
+    "id": "unit-1770187530946",
+    "title": "Linear Regression",
+    "description": "Deskripsi unit baru",
+    "icon": "",
+    "blocks": [
+      {
+        "id": "text-1770187542127-28yi1",
+        "type": "TEXT",
+        "content": "Bayangkan kamu seorang dokter yang ingin memprediksi seberapa parah penyakit pasien di masa depan berdasarkan data kesehatan mereka sekarang. Bagaimana caranya? Kamu bisa melihat pola dari data pasien-pasien sebelumnya. Nah, itulah yang akan kita lakukan dalam kode ini! Kita akan mengajarkan komputer untuk menemukan pola dalam data, lalu menggunakan pola tersebut untuk memprediksi nilai yang belum diketahui. Kode ini menggunakan dataset tentang diabetes, di mana kita ingin memprediksi tingkat penyakit diabetes berdasarkan berbagai parameter kesehatan. Mari kita bedah kode ini bersama-sama, potongan demi potongan, agar kamu memahami setiap langkah dengan jelas.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187573686-o69ko",
+        "type": "CODE",
+        "content": "from sklearn.datasets import load_diabetes\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LinearRegression, Ridge\nfrom sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score\nimport numpy as np",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187601351-6k0tq",
+        "type": "TEXT",
+        "content": "Bayangkan kamu akan memasak makanan. Sebelum memasak, kamu pasti mengambil semua peralatan dan bahan yang diperlukan terlebih dahulu, kan? Nah, bagian kode ini fungsinya sama seperti itu. Kita sedang mengambil \"alat-alat\" yang diperlukan untuk membuat model machine learning dari sebuah tempat yang bernama scikit-learn, atau sering disingkat sklearn. Scikit-learn adalah sebuah perpustakaan yang sudah menyediakan berbagai alat siap pakai untuk mengolah data dan membuat model. Di sini kita mengambil alat untuk memuat data diabetes, membagi data menjadi dua bagian, melakukan penskalaan angka, membuat model regresi linear, dan menghitung seberapa baik prediksi yang dihasilkan. Dengan kata lain, kita sedang mengumpulkan semua perkakas sebelum mulai bekerja agar prosesnya lancar dan terstruktur.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187617459-crxro",
+        "type": "CODE",
+        "content": "# 1) Load data\ndata = load_diabetes(as_frame=True)\nX = data.data\ny = data.target  # target kontinu (regresi)",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187637850-qzkzo",
+        "type": "TEXT",
+        "content": "Sekarang bayangkan kamu pergi ke perpustakaan dan meminjam sebuah buku yang berisi informasi kesehatan ribuan pasien. Buku itu sudah dikumpulkan oleh peneliti sebelumnya dan siap untuk dibaca. Dalam kode ini, kita \"meminjam\" dataset diabetes dari sklearn. Dataset ini sudah famous dan sering digunakan untuk belajar regresi. Parameter `as_frame=True` membuat data berbentuk seperti tabel yang familiar, yaitu DataFrame dari pandas, sehingga lebih mudah dibaca dan dipahami. Setelah data dimuat, kita memisahkannya menjadi dua bagian: `X` yang berisi semua fitur atau ciri-ciri pasien (seperti tekanan darah, indeks massa tubuh, dan lain sebagainya), serta y yang berisi target, yaitu nilai yang ingin kita prediksi, dalam hal ini adalah tingkat keparahan penyakit diabetes. Pemilihan nama `X` dan 1y1 ini adalah konvensi umum di dunia machine learning, di mana `X` melambangkan input atau informasi yang kita punya, dan `y` melambangkan output atau jawaban yang ingin kita cari.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187701756-aei81",
+        "type": "CODE",
+        "content": "# 2) Split\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187723898-5w5pw",
+        "type": "TEXT",
+        "content": "Bayangkan kamu seorang guru yang ingin menguji apakah siswamu sudah benar-benar memahami materi yang kamu ajarkan. Apa yang biasanya kamu lakukan? Kamu memberikan soal-soal latihan saat belajar di kelas, lalu memberikan soal ujian yang berbeda untuk menguji pemahaman mereka. Nah, prinsip yang sama diterapkan di sini! Kita membagi data menjadi dua kelompok: data latih (training) dan data uji (testing). Fungsi `train_test_split` secara otomatis membagi data kita dengan perbandingan 80:20, di mana 80 persen data masuk ke `X_train` dan `y_train` untuk mengajarkan model, sementara 20 persen sisanya masuk ke `X_test` dan `y_test` untuk menguji kemampuan model. Parameter `test_size=0.2` berarti 20 persen data digunakan untuk testing, sedangkan `random_state=42` memastikan bahwa pembagian data ini selalu sama setiap kali kode dijalankan, sehingga hasil bisa digunakan lagi (reproducible) dan teman-temanmu akan mendapatkan hasil yang sama saat mencoba kode ini.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187826810-43ay5",
+        "type": "CODE",
+        "content": "# 3) Model (Linear Regression) + scaling (opsional, tapi bagus untuk kebiasaan)\nlinreg = Pipeline([\n    (\"scaler\", StandardScaler()),\n    (\"model\", LinearRegression())\n])",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187845254-859pf",
+        "type": "TEXT",
+        "content": "Sekarang kita sampai pada bagian paling penting, yaitu membuat model yang akan belajar dari data. Dalam kode ini, kita membuat sebuah \"mesin\" atau pipeline yang terdiri dari dua tahap. Tahap pertama adalah `StandardScaler`, yang fungsinya adalah menormalkan data. Bayangkan kamu punya data dengan skala yang berbeda-beda, misalnya ada yang berkisar antara 0 sampai 1 dan ada yang berkisar antara 1000 sampai 10000. Jika kita biarkan seperti itu, angka yang besar akan mendominasi perhitungan dan angka yang kecil akan diabaikan. Dengan melakukan penskalaan, kita memastikan semua fitur berada pada skala yang sama, sehingga model bisa belajar dengan lebih adil dan akurat. Tahap kedua adalah `LinearRegression`, yaitu algoritma utama yang akan belajar menemukan pola hubungan antara fitur dan target. Algoritma ini mencari garis terbaik yang mewakili hubungan antara input dan output. Pipeline adalah cara yang sangat bagus untuk menggabungkan kedua tahap ini, karena kita tidak perlu melakukan penskalaan secara manual setiap kali—pipeline akan melakukannya secara otomatis.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187872669-wu1rw",
+        "type": "CODE",
+        "content": "linreg.fit(X_train, y_train)\npred = linreg.predict(X_test)",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187888344-52e3o",
+        "type": "TEXT",
+        "content": "Sekarang tiba saat yang paling mendebarkan, yaitu mengajarkan model untuk belajar dari data! Perintah `linreg.fit(X_train, y_train)` adalah perintah untuk \"melatih\" atau \"memasukkan\" data ke dalam model. Perhatikan bahwa kita menggunakan data latih (`X_train` dan `y_train`) di sini. Selama proses ini, model akan mencari pola dan hubungan antara fitur-fitur dalam data dengan target yang ingin diprediksi. Ini seperti saat kamu belajar matematika dengan mengerjakan banyak soal latihan—semakin banyak soal yang kamu kerjakan, semakin kamu memahami pola dan cara penyelesaiannya. Setelah model selesai belajar, kita meminta model untuk memprediksi nilai untuk data uji yang belum pernah dilihatnya sebelumnya, yaitu dengan perintah `linreg.predict(X_test)`. Hasil prediksi ini disimpan dalam variabel pred. Mengapa kita memprediksi data uji? Tujuannya adalah untuk menguji apakah model benar-benar bisa menerapkan apa yang dipelajarinya ke data baru, bukan sekadar menghafal data latih.",
+        "title": "Section Title"
+      },
+      {
+        "id": "code-1770187931265-r7kt6",
+        "type": "CODE",
+        "content": "# 4) Evaluasi\nmae = mean_absolute_error(y_test, pred)\nrmse = np.sqrt(mean_squared_error(y_test, pred))\nr2 = r2_score(y_test, pred)\n\nprint(\"MAE :\", mae)\nprint(\"RMSE:\", rmse)\nprint(\"R^2 :\", r2)",
+        "language": "python"
+      },
+      {
+        "id": "text-1770187963169-hglz6",
+        "type": "TEXT",
+        "content": "Setelah model memberikan prediksi, kita perlu mengecek seberapa baik prediksi tersebut. Bayangkan kamu sudah mengerjakan soal ujian dan sekarang ingin tahu nilaimu. Kamu membandingkan jawabanmu dengan kunci jawaban, kan? Nah, di sini kita membandingkan prediksi model (`pred`) dengan nilai sebenarnya (`y_test`) menggunakan tiga ukuran kesalahan atau error. `MAE` (Mean Absolute Error) adalah rata-rata dari selisih absolut antara prediksi dan nilai sebenarnya. Angka ini memberitahu kita rata-rata seberapa jauh prediksi meleset dari nilai yang sebenarnya. `RMSE` (Root Mean Squared Error) mirip dengan MAE, tetapi memberikan hukuman yang lebih besar untuk kesalahan yang besar. Bayangkan jika ada satu prediksi yang meleset sangat jauh—RMSE akan menunjukkan angka yang lebih besar dibandingkan MAE, karena kita \"mengkuadratkan\" kesalahan sebelum menghitung rata-ratanya. `R² (R-squared)` adalah ukuran yang menunjukkan seberapa besar variasi dalam data yang bisa dijelaskan oleh model. Nilainya berkisar antara 0 sampai 1, di mana semakin mendekati 1, semakin baik model menjelaskan data. Ketiga metrik ini bersama-sama memberikan gambaran menyeluruh tentang kualitas model yang telah kita buat.",
+        "title": "Section Title"
+      }
+    ]
+  }
+]
