@@ -1,5 +1,55 @@
 [
   {
+    "id": "unit-1770189969391",
+    "title": "Linear Regression Menggunakan Desmos",
+    "description": "Deskripsi unit baru",
+    "icon": "",
+    "blocks": [
+      {
+        "id": "text-1770190033260-boux9",
+        "type": "TEXT",
+        "content": "Mari kita visualisasikan mekanisme kerja Linear Regression menggunakan Desmos agar konsep \"fitting\" data menjadi lebih jelas. Silakan buka **desmos.com/calculator**. Langkah pertama adalah mendefinisikan dataset yang akan kita gunakan. Klik tanda tambah di pojok kiri atas, pilih \"Table\", lalu masukkan koordinat berikut ke dalam kolom x 1 dan y 1​ : (1, 2), (2, 3), (4, 7), dan (5, 6). Titik-titik data yang muncul di layar ini merepresentasikan variabel independen (X) dan variabel dependen (y) yang akan diproses oleh model.",
+        "title": ""
+      },
+      {
+        "id": "text-1770190135650-vat8u",
+        "type": "TEXT",
+        "content": "Selanjutnya, kita akan mencoba menentukan parameter model secara manual. Persamaan linear dasar didefinisikan sebagai `y = m x + c`, di mana `m` merepresentasikan koefisien (slope) dan `c` merepresentasikan intercept. Silakan ketik persamaan berikut pada baris input di bawah tabel:",
+        "title": ""
+      },
+      {
+        "id": "code-1770190185275-kcaef",
+        "type": "CODE",
+        "content": "y = mx + c",
+        "language": "text"
+      },
+      {
+        "id": "text-1770190195339-4vr9f",
+        "type": "TEXT",
+        "content": "Pilih opsi \"all\" untuk mengaktifkan slider bagi variabel `m` dan `c`. Tugas Anda sekarang adalah menggeser nilai slider tersebut untuk memposisikan garis agar berada sedekat mungkin dengan seluruh titik data. Perhatikan bahwa jarak vertikal antara setiap titik data dengan garis lurus tersebut adalah representasi dari error atau residual. Tujuan dari regresi linear adalah mencari nilai parameter `m` dan `c` yang menghasilkan total error paling minimum.",
+        "title": ""
+      },
+      {
+        "id": "text-1770190288144-uwf2l",
+        "type": "TEXT",
+        "content": "Setelah Anda menentukan posisi garis manual yang menurut Anda paling optimal, kita akan membandingkannya dengan hasil perhitungan komputasi. Kita perlu menggunakan variabel baru agar tidak terjadi konflik dengan variabel `m` dan `c` yang sedang Anda gunakan. Ketikkan sintaks regresi berikut di baris input baru untuk memerintahkan Desmos mencari garis terbaik (best fit line) secara otomatis:",
+        "title": ""
+      },
+      {
+        "id": "code-1770190315088-km4hs",
+        "type": "CODE",
+        "content": "y1 ~ ax1 + b",
+        "language": "text"
+      },
+      {
+        "id": "text-1770190332852-duih8",
+        "type": "TEXT",
+        "content": "Garis baru akan muncul pada grafik berdasarkan perhitungan statistik `Least Squares`. Desmos akan menampilkan nilai `a` dan `b` yang secara matematis menghasilkan error terkecil. Bandingkan garis hasil komputasi ini dengan garis manual yang Anda buat sebelumnya untuk melihat seberapa akurat estimasi visual Anda dibandingkan dengan hasil optimasi algoritma.",
+        "title": ""
+      }
+    ]
+  },
+  {
     "id": "unit-1770187530946",
     "title": "Linear Regression",
     "description": "Deskripsi unit baru",
