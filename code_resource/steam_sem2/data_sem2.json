@@ -2158,7 +2158,7 @@
           },
           {
             "text": "<css>",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "text": "<script>",
@@ -2166,7 +2166,7 @@
           },
           {
             "text": "<link>",
-            "isCorrect": false
+            "isCorrect": true
           },
           {
             "text": "<import>",
