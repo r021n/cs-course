@@ -25,9 +25,9 @@
     </script>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed antialiased">
+<body class="bg-white text-gray-800 font-sans leading-relaxed antialiased">
 
-    <div class="max-w-3xl mx-auto px-6 py-12">
+    <div class="max-w-4xl mx-auto px-8 py-12">
 
         <header class="mb-10 border-b border-gray-200 pb-8">
             <h1 class="text-4xl font-bold text-gray-900 mb-2">YOLOv12 Training Code</h1>
@@ -35,56 +35,95 @@
                 model.</p>
         </header>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 1: Environment Preparation (Setup)</h2>
-        <p>Before working, we must first prepare the work environment. Think of it like setting up a table and equipment
-            before starting to cook. There are three steps: check the machine, prepare the folder, and install the
-            equipment (library).</p>
+        <!-- Accordion -->
+        <button id="accordion-toggle"
+            class="w-full flex items-center justify-between px-0 py-4 border-b border-gray-200 transition-colors duration-200 mt-12 cursor-pointer hover:text-indigo-600">
+            <span class="text-lg font-semibold text-gray-900">Phase 1 & 2: Environment Setup & Dataset
+                Preparation</span>
+            <svg id="accordion-chevron" class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
 
-        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.1. Check GPU Availability</h3>
-        <p>A GPU is a very fast, specialized <strong>"brain"</strong> for training AI. The command below checks whether
-            we have access to a GPU. The <code class="inline-code">!</code> at the beginning indicates that this is a
-            system command, not regular Python code. Simply run this cell and see if any lines contain the GPU name
-            (e.g., <code class="inline-code">Tesla T4</code>).</p>
-        <pre class="code-block font-mono text-sm bg-gray-900 text-gray-100 border border-gray-700 rounded-md p-4 my-4 overflow-x-auto"><code>!nvidia-smi</code></pre>
+        <div id="accordion-content" class="overflow-hidden transition-all duration-300 ease-in-out"
+            style="max-height: 0; opacity: 0;">
+            <div class="py-6">
 
-        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.2. Define Work Folder (HOME)</h3>
-        <p>We'll use a variable called <code class="inline-code">HOME</code> as the <span
-                class="keyword">"address"</span>
-            of the folder where all data and results are stored. <code class="inline-code">os.getcwd()</code> means
-            <strong>get current working directory</strong> = view the folder we're currently in.
-        </p>
-        <pre class="code-block font-mono text-sm bg-gray-900 text-gray-100 border border-gray-700 rounded-md p-4 my-4 overflow-x-auto"><code>import os
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">Phase 1: Environment Preparation (Setup)</h2>
+                <p>Before working, we must first prepare the work environment. Think of it like setting up a table and
+                    equipment
+                    before starting to cook. There are three steps: check the machine, prepare the folder, and install
+                    the
+                    equipment (library).</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.1. Check GPU Availability</h3>
+                <p>A GPU is a very fast, specialized <strong>"brain"</strong> for training AI. The command below checks
+                    whether
+                    we have access to a GPU. The <code class="inline-code">!</code> at the beginning indicates that this
+                    is a
+                    system command, not regular Python code. Simply run this cell and see if any lines contain the GPU
+                    name
+                    (e.g., <code class="inline-code">Tesla T4</code>).</p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>!nvidia-smi</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.2. Define Work Folder (HOME)</h3>
+                <p>We'll use a variable called <code class="inline-code">HOME</code> as the <span
+                        class="keyword">"address"</span>
+                    of the folder where all data and results are stored. <code class="inline-code">os.getcwd()</code>
+                    means
+                    <strong>get current working directory</strong> = view the folder we're currently in.
+                </p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>import os
 HOME = os.getcwd()
-print(HOME)</code></pre>
+print(HOME)</code></pre><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
 
-        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.3. Install Required Libraries</h3>
-        <p><strong>Library</strong> is a collection of ready-to-use code written by others, so that we don't have to
-            write everything from scratch. Here we install:</p>
-        <ul class="list-disc pl-6 space-y-1.5 my-3 text-gray-700">
-            <li><strong class="chip">ultralytics</strong> — the main tool for using and training YOLO.</li>
-            <li><strong class="chip">supervision</strong> — a helper tool for processing detection results.</li>
-            <li><strong class="chip">roboflow</strong> — a tool to download datasets (images + labels) from Roboflow.
-            </li>
-        </ul>
-        <p>The <code class="inline-code">%pip install</code> line tells Python to install them. This only needs to be run
-            <strong>once</strong>.</p>
-        <pre class="code-block font-mono text-sm bg-gray-900 text-gray-100 border border-gray-700 rounded-md p-4 my-4 overflow-x-auto"><code>%pip install -q "ultralytics&gt;=8.4.0" supervision roboflow
+                <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">1.3. Install Required Libraries</h3>
+                <p><strong>Library</strong> is a collection of ready-to-use code written by others, so that we don't
+                    have to
+                    write everything from scratch. Here we install:</p>
+                <ul class="list-disc pl-6 space-y-1.5 my-3 text-gray-700">
+                    <li><strong class="chip">ultralytics</strong> — the main tool for using and training YOLO.</li>
+                    <li><strong class="chip">supervision</strong> — a helper tool for processing detection results.</li>
+                    <li><strong class="chip">roboflow</strong> — a tool to download datasets (images + labels) from
+                        Roboflow.
+                    </li>
+                </ul>
+                <p>The <code class="inline-code">%pip install</code> line tells Python to install them. This only needs
+                    to be run
+                    <strong>once</strong>.
+                </p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>%pip install -q "ultralytics&gt;=8.4.0" supervision roboflow
 
 # prevent ultralytics from tracking your activity
 !yolo settings sync=False
 import ultralytics
-ultralytics.checks()</code></pre>
+ultralytics.checks()</code></pre><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 2: Preparing the Dataset for Fine-Tuning</h2>
-        <p><strong>Dataset</strong> is a collection of images along with annotations (labels) of object locations within
-            the images. The model learns from this dataset.</p>
-        <p>We download the dataset from <strong class="chip">Roboflow Universe</strong> (a collection of public
-            datasets). When the program asks for an <em>authentication token</em>, follow the instructions:</p>
-        <ol class="list-decimal pl-6 space-y-1.5 my-3 text-gray-700">
-            <li>Open the link that appears and log in to your Roboflow account.</li>
-            <li>Copy the token, then paste it into the input box and press Enter.</li>
-        </ol>
-        <pre class="code-block font-mono text-sm bg-gray-900 text-gray-100 border border-gray-700 rounded-md p-4 my-4 overflow-x-auto"><code>!mkdir {HOME}/datasets
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 2: Preparing the Dataset for Fine-Tuning
+                </h2>
+                <p><strong>Dataset</strong> is a collection of images along with annotations (labels) of object
+                    locations within
+                    the images. The model learns from this dataset.</p>
+                <p>We download the dataset from <strong class="chip">Roboflow Universe</strong> (a collection of public
+                    datasets). When the program asks for an <em>authentication token</em>, follow the instructions:</p>
+                <ol class="list-decimal pl-6 space-y-1.5 my-3 text-gray-700">
+                    <li>Open the link that appears and log in to your Roboflow account.</li>
+                    <li>Copy the token, then paste it into the input box and press Enter.</li>
+                </ol>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>!mkdir {HOME}/datasets
 %cd {HOME}/datasets
 
 from google.colab import userdata
@@ -95,12 +134,105 @@ rf = roboflow.Roboflow()
 
 project = rf.workspace("").project("")
 version = project.version()
-dataset = version.download("yolov12")</code></pre>
+dataset = version.download("yolov12")</code></pre><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Accordion -->
+
+        <!-- Accordion 2 -->
+        <button id="accordion2-toggle"
+            class="w-full flex items-center justify-between px-0 py-4 border-b border-gray-200 transition-colors duration-200 mt-6 cursor-pointer hover:text-indigo-600">
+            <span class="text-lg font-semibold text-gray-900">Phase 3 - 6: Training, Export &amp; Class
+                List</span>
+            <svg id="accordion2-chevron" class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+
+        <div id="accordion2-content" class="overflow-hidden transition-all duration-300 ease-in-out"
+            style="max-height: 0; opacity: 0;">
+            <div class="py-6">
+
+                <!-- Phase 3 -->
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">Phase 3: Training the Model (Custom Training)</h2>
+                <p>This is the <strong>core</strong> of this guide — where the model "learns" from the dataset.
+                    Here's an explanation of each command parameter:</p>
+                <ul class="list-disc pl-6 space-y-1.5 my-3 text-gray-700">
+                    <li><code class="inline-code">task=detect</code> — task type: object detection.</li>
+                    <li><code class="inline-code">mode=train</code> — mode: training (not prediction).</li>
+                    <li><code class="inline-code">model=yolo12n.pt</code> — starting model: YOLOv12 nano version
+                        (small &amp; fast), which we will <em>fine-tune</em>.</li>
+                    <li><code class="inline-code">data=.../data.yaml</code> — path to the file that describes the
+                        dataset location.</li>
+                    <li><code class="inline-code">epochs=20</code> — number of training rounds (20 times viewing the
+                        entire dataset).</li>
+                    <li><code class="inline-code">imgsz=320</code> — image size used (320 × 320 pixels).</li>
+                    <li><code class="inline-code">plots=True</code> — automatically generate training result graphs.
+                    </li>
+                </ul>
+                <p><span class="keyword">Note:</span> During training, <strong>preprocessing</strong> (resizing &amp;
+                    normalizing images) and <strong>data augmentation</strong> (manipulating images such as rotating/
+                    zooming to make the model more robust) are <strong>performed automatically</strong> by
+                    Ultralytics. You don't need to write them manually.</p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>%cd {HOME}
+
+!yolo task=detect mode=train model=yolo12n.pt data={dataset.location}/data.yaml epochs=20 imgsz=320 plots=True</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+                <!-- Phase 5 -->
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 4: Exporting the Model to ONNX Format</h2>
+                <p><strong>ONNX</strong> is a file format that allows the model to be used across many platforms (web,
+                    apps, other devices). We convert the <code class="inline-code">.pt</code> model to
+                    <code class="inline-code">.onnx</code>, then download it to our computer.
+                </p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>!yolo export model={HOME}/runs/detect/train/weights/best.pt format=onnx imgsz=320
+from google.colab import files
+files.download(f'{HOME}/runs/detect/train/weights/best.onnx')</code></pre><button class="copy-btn"
+                        onclick="copyCode(this)">Copy</button>
+                </div>
+
+                <!-- Phase 6 -->
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 5: Checking &amp; Downloading the
+                    Class List</h2>
+                <p>Finally, we view the <strong>class list</strong> (object names) recognized by the model, then save
+                    it to a <code class="inline-code">classes.json</code> file and download it. This is useful when
+                    the model is used in other applications.</p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>import json
+from ultralytics import YOLO
+from google.colab import files
+
+model = YOLO(f'{HOME}/runs/detect/train/weights/best.pt')
+
+class_list = list(model.names.values())
+
+file_path = f'{HOME}/runs/detect/train/weights/classes.json'
+with open(file_path, 'w') as f:
+    json.dump(class_list, f, indent=4)
+
+print(f"JSON file created at: {file_path}")
+
+files.download(file_path)</code></pre><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Accordion 2 -->
 
         <style>
             pre.code-block {
                 white-space: pre;
                 tab-size: 4;
+                border-radius: 0.5rem;
             }
 
             pre.code-block code {
@@ -112,7 +244,6 @@ dataset = version.download("yolov12")</code></pre>
                 font-size: 0.875rem;
                 background-color: #f3f4f6;
                 color: #dc2626;
-                border: 1px solid #e5e7eb;
                 border-radius: 0.25rem;
                 padding: 0.125rem 0.375rem;
             }
@@ -123,7 +254,6 @@ dataset = version.download("yolov12")</code></pre>
                 font-weight: 500;
                 color: #4338ca;
                 background-color: #eef2ff;
-                border: 1px solid #e0e7ff;
                 border-radius: 0.25rem;
                 padding: 0.125rem 0.375rem;
             }
@@ -135,7 +265,78 @@ dataset = version.download("yolov12")</code></pre>
                 border-radius: 0.25rem;
                 white-space: nowrap;
             }
+
+            .code-wrapper {
+                position: relative;
+            }
+
+            .copy-btn {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                background-color: #374151;
+                color: #d1d5db;
+                border-radius: 0.375rem;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+                font-family: "Inter", sans-serif;
+                cursor: pointer;
+                transition: all 0.2s;
+                opacity: 0;
+            }
+
+            .code-wrapper:hover .copy-btn {
+                opacity: 1;
+            }
+
+            .copy-btn:hover {
+                background-color: #4b5563;
+                color: #ffffff;
+            }
+
+            .copy-btn.copied {
+                background-color: #166534;
+                color: #ffffff;
+            }
         </style>
+
+        <script>
+            function setupAccordion(toggleId, contentId, chevronId) {
+                const toggle = document.getElementById(toggleId);
+                const content = document.getElementById(contentId);
+                const chevron = document.getElementById(chevronId);
+                let isOpen = false;
+
+                toggle.addEventListener('click', () => {
+                    isOpen = !isOpen;
+                    if (isOpen) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                        chevron.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.style.maxHeight = '0';
+                        content.style.opacity = '0';
+                        chevron.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+            setupAccordion('accordion-toggle', 'accordion-content', 'accordion-chevron');
+            setupAccordion('accordion2-toggle', 'accordion2-content', 'accordion2-chevron');
+
+            function copyCode(btn) {
+                const codeBlock = btn.parentElement.querySelector('code');
+                const text = codeBlock.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        </script>
 
     </div>
 </body>
