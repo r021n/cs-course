@@ -226,7 +226,51 @@ files.download(file_path)</code></pre><button class="copy-btn" onclick="copyCode
 
             </div>
         </div>
-        <!-- End Accordion 2 -->
+        <!-- Accordion 3 -->
+        <button id="accordion3-toggle"
+            class="w-full flex items-center justify-between px-0 py-4 border-b border-gray-200 transition-colors duration-200 mt-6 cursor-pointer hover:text-indigo-600">
+            <span class="text-lg font-semibold text-gray-900">Phase 6 &amp; 7: Model Evaluation &amp; Validation</span>
+            <svg id="accordion3-chevron" class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+
+        <div id="accordion3-content" class="overflow-hidden transition-all duration-300 ease-in-out"
+            style="max-height: 0; opacity: 0;">
+            <div class="py-6">
+
+                <!-- Phase 6 -->
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">Phase 6: Displaying the Confusion Matrix</h2>
+                <p>A <strong>Confusion Matrix</strong> is a visual evaluation table that summarizes the prediction results on a classification or detection problem. It plots the true labels against the predicted labels to reveal how well the model distinguishes between different classes and identify any frequent misclassifications.</p>
+                <p class="mt-2">During training with <code class="inline-code">plots=True</code>, Ultralytics automatically generates and saves a <code class="inline-code">confusion_matrix.png</code> in the run directory. We use <strong class="chip">IPython.display.Image</strong> to render this chart directly within the notebook interface.</p>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>from IPython.display import Image as IPyImage
+
+IPyImage(filename=f'{HOME}/runs/detect/train/confusion_matrix.png', width=600)</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+                <!-- Phase 7 -->
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-3">Phase 7: Validating the Model (Validation Metrics)</h2>
+                <p>After training is complete, we run model validation to measure detection accuracy on the unseen validation dataset using the best saved weights (<code class="inline-code">best.pt</code>). This step outputs quantitative performance metrics including <strong class="chip">Precision</strong>, <strong class="chip">Recall</strong>, and <strong class="chip">mAP50 / mAP50-95</strong>.</p>
+                <p class="mt-2">Here is an overview of each validation parameter:</p>
+                <ul class="list-disc pl-6 space-y-1.5 my-3 text-gray-700">
+                    <li><code class="inline-code">task=detect</code> — specifies object detection mode.</li>
+                    <li><code class="inline-code">mode=val</code> — runs validation mode to calculate evaluation metrics.</li>
+                    <li><code class="inline-code">model=.../best.pt</code> — path to the best-performing checkpoint saved during training.</li>
+                    <li><code class="inline-code">data=.../data.yaml</code> — points to the dataset configuration file containing the validation set paths and class names.</li>
+                </ul>
+                <div class="code-wrapper">
+                    <pre
+                        class="code-block font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 my-4 overflow-x-auto"><code>!yolo task=detect mode=val model={HOME}/runs/detect/train/weights/best.pt data={dataset.location}/data.yaml</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Accordion 3 -->
 
         <style>
             pre.code-block {
@@ -323,6 +367,7 @@ files.download(file_path)</code></pre><button class="copy-btn" onclick="copyCode
 
             setupAccordion('accordion-toggle', 'accordion-content', 'accordion-chevron');
             setupAccordion('accordion2-toggle', 'accordion2-content', 'accordion2-chevron');
+            setupAccordion('accordion3-toggle', 'accordion3-content', 'accordion3-chevron');
 
             function copyCode(btn) {
                 const codeBlock = btn.parentElement.querySelector('code');
