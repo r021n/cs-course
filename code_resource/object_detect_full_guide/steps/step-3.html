@@ -1,0 +1,53 @@
+<div class="accordion-item" data-accordion-id="step-3">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-3">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 03</span>
+            <span class="step-title">Melabeli Gambar (Image Annotation)</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-3">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Anotasi atau pelabelan adalah proses krusial untuk memberikan informasi letak dan kelas objek
+                    kepada model pembelajaran mesin melalui bounding box (kotak pembatas).
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/3_image_labeling.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Buka Menu Annotate:</strong> Masuk ke tab <strong>Annotate</strong> dan klik pada
+                        batch gambar yang belum diberi label (Unannotated).</li>
+                    <li><strong>Gunakan Tool Bounding Box:</strong> Pilih tool kotak pembatas pada toolbar atau
+                        tekan shortcut keyboard <strong>W</strong>.</li>
+                    <li><strong>Tarik Kotak Mengelilingi Objek:</strong> Klik dan seret kursor tepat mengelilingi
+                        seluruh area objek yang ingin dideteksi.</li>
+                    <li><strong>Pilih / Beri Nama Label Kelas:</strong> Tulis atau pilih nama label yang sesuai
+                        dengan objek di dalam kotak (contoh: <code>person</code>, <code>car</code>).</li>
+                    <li><strong>Ulangi untuk Seluruh Objek:</strong> Jika dalam satu gambar terdapat lebih dari satu
+                        objek, tandai semua objek tersebut.</li>
+                    <li><strong>Lanjut ke Gambar Berikutnya:</strong> Tekan tombol panah kanan atau shortcut
+                        keyboard untuk menyimpan dan berpindah ke gambar selanjutnya hingga seluruh dataset
+                        terlabeli 100%.</li>
+                </ol>
+
+                <div class="note-block">
+                    <strong>Prinsip Pelabelan yang Baik:</strong>
+                    <br>• <strong>Tight Bounding Box:</strong> Kotak harus memuat seluruh bagian objek tanpa
+                    menyisakan terlalu banyak ruang kosong (margin).
+                    <br>• <strong>Konsistensi:</strong> Jika memberi label bagian tertentu (misal helm atau roda),
+                    pastikan konsisten di seluruh gambar dataset.
+                    <br>• <strong>Objek Terpotong (Occlusion):</strong> Jika objek terhalang sebagian namun masih
+                    dapat dikenali, tetap buat kotak pembatas pada area objek yang terlihat.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

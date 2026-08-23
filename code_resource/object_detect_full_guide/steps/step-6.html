@@ -1,0 +1,50 @@
+<div class="accordion-item" data-accordion-id="step-6">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-6">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 06</span>
+            <span class="step-title">Menghubungkan Dataset ke Google Colab</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-6">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Menghubungkan dataset yang telah dibuat langsung ke Google Colab menggunakan Roboflow Python SDK
+                    memudahkan proses training tanpa perlu mengunduh dan mengunggah file dataset besar secara manual.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/6_add_dataset_to_colab.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Buka Versi Dataset yang Telah Dibuat:</strong> Pada dashboard versi dataset Anda, klik
+                        tombol <strong>Export Dataset</strong> atau <strong>Download Dataset</strong>.</li>
+                    <li><strong>Pilih Format Ekspor:</strong> Pilih format model yang ingin Anda gunakan untuk training
+                        (misal: <strong>YOLOv8</strong>, <strong>YOLOv11</strong>, atau YOLOv5 PyTorch).</li>
+                    <li><strong>Pilih "Show download code":</strong> Pilih opsi tampilan kode untuk <em>Terminal /
+                            Jupyter / Colab</em>.</li>
+                    <li><strong>Salin Snippet Kode:</strong> Salin baris kode Python yang disediakan oleh Roboflow.</li>
+                    <li><strong>Tempel di Google Colab:</strong> Buka notebook Google Colab Anda, tambahkan code cell
+                        baru, lalu paste snippet tersebut dan jalankan cell untuk mengunduh dataset ke workspace runtime
+                        Colab.</li>
+                </ol>
+
+                <div class="note-block">
+                    <strong>Snippet Contoh Kode:</strong>
+                    <br><code>!pip install roboflow</code>
+                    <br><code>from roboflow import Roboflow</code>
+                    <br><code>rf = Roboflow(api_key="YOUR_API_KEY")</code>
+                    <br><code>project = rf.workspace("workspace-id").project("project-id")</code>
+                    <br><code>version = project.version(1)</code>
+                    <br><code>dataset = version.download("yolov8")</code>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="accordion-item" data-accordion-id="step-4">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-4">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 04</span>
+            <span class="step-title">Menambahkan Gambar Terlabeli ke Dataset</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-4">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Setelah gambar selesai diberi anotasi atau label, gambar tersebut harus dipindahkan dari antrean
+                    anotasi (Annotating Job) ke dalam kumpulan dataset utama proyek agar siap diproses pada pembuatan
+                    versi model.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/4_adding_image_to_dataset.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Periksa Kelengkapan Anotasi:</strong> Pastikan seluruh gambar pada job pelabelan sudah
+                        berstatus <em>100% Annotated</em> atau disetujui (Approved).</li>
+                    <li><strong>Klik Tombol "Add approved images to Dataset":</strong> Pada sudut kanan atas tab
+                        Annotate, klik tombol untuk memproses penggabungan gambar terlabeli ke dataset utama.</li>
+                    <li><strong>Konfirmasi Pembagian Dataset (Split):</strong> Tinjau ulang pembagian rasio antara
+                        <strong>Train</strong>, <strong>Valid</strong>, dan <strong>Test</strong> jika diminta.</li>
+                    <li><strong>Selesaikan Penggabungan:</strong> Klik tombol konfirmasi dan tunggu beberapa saat hingga
+                        gambar dan label berhasil terindeks ke dalam dataset utama.</li>
+                </ol>
+
+                <div class="note-block">
+                    <strong>Catatan:</strong> Gambar yang belum dimasukkan ke dalam dataset utama tidak akan ikut
+                    diproses saat Anda men-generate versi dataset di langkah berikutnya.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,274 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nonaktifkan transisi/animasi saat hover pada seluruh elemen */
+*:hover {
+  transition: none !important;
+  animation: none !important;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  line-height: 1.6;
+  padding: 40px 20px 80px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  border-bottom: 2px solid #111111;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  background-color: #111111;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #444444;
+  line-height: 1.5;
+}
+
+/* Accordion Container (Seamless - No cards) */
+.accordion-group {
+  border-top: 1px solid #111111;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e0e0e0;
+  background: transparent;
+}
+
+.accordion-item.active {
+  border-bottom: 1px solid #111111;
+}
+
+.step-header {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.step-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.step-number {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #000000;
+  min-width: 60px;
+}
+
+.step-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.step-icon {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111111;
+  padding-left: 12px;
+  user-select: none;
+}
+
+.step-icon::before {
+  content: "+";
+}
+
+.accordion-item.active .step-icon::before {
+  content: "−";
+}
+
+/* Accordion Expand & Shrink Transition */
+.accordion-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.active .accordion-collapse {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Step Content Body */
+.step-body {
+  padding: 8px 0 36px 0;
+}
+
+.step-description {
+  font-size: 15px;
+  color: #333333;
+  margin-bottom: 24px;
+}
+
+/* Video Player */
+.video-wrapper {
+  margin: 20px 0 28px;
+  border: 1px solid #111111;
+  background: #000000;
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  outline: none;
+  background-color: #000000;
+}
+
+/* Instructions & Lists */
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 24px 0 12px;
+  color: #000000;
+  border-left: 3px solid #111111;
+  padding-left: 8px;
+}
+
+ol.detailed-steps {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+ol.detailed-steps li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #222222;
+}
+
+ol.detailed-steps li strong {
+  color: #000000;
+}
+
+ul.pro-tips {
+  list-style-type: square;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+ul.pro-tips li {
+  font-size: 14px;
+  color: #444444;
+  margin-bottom: 8px;
+}
+
+.note-block {
+  border-left: 2px solid #111111;
+  padding: 12px 16px;
+  margin: 18px 0;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  color: #222222;
+}
+
+.note-block strong {
+  color: #000000;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  font-size: 13px;
+  font-family:
+    SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  border: 1px solid #e0e0e0;
+}
+
+/* Loading state */
+.loading-state {
+  padding: 30px 0;
+  text-align: center;
+  color: #666666;
+  font-size: 15px;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 13px;
+  color: #666666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 16px 60px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .step-title-wrap {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .step-title {
+    font-size: 18px;
+  }
+
+  .step-number {
+    font-size: 12px;
+  }
+}

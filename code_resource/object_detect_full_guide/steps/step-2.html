@@ -1,0 +1,51 @@
+<div class="accordion-item" data-accordion-id="step-2">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-2">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 02</span>
+            <span class="step-title">Mengunggah Dataset Gambar</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-2">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Setelah proyek dibuat, langkah selanjutnya adalah mengunggah kumpulan gambar (dataset) mentah
+                    yang akan digunakan untuk proses training, validasi, dan pengujian model.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/2_uploading_image.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Buka Tab Upload:</strong> Pada dashboard proyek Anda, navigasikan ke menu
+                        <strong>Upload Data</strong>.
+                    </li>
+                    <li><strong>Pilih atau Drag & Drop Gambar:</strong> Masukkan gambar atau folder berisi gambar
+                        dari penyimpanan lokal komputer Anda. Format yang didukung meliputi JPG, PNG, dan BMP.</li>
+                    <li><strong>Pemeriksaan & Validasi Gambar:</strong> Roboflow akan memeriksa format, resolusi,
+                        dan integritas file gambar secara otomatis.</li>
+                    <li><strong>Pengaturan Split Dataset:</strong> Tentukan rasio pembagian data (standar
+                        rekomendasi: 70% Train, 20% Valid, 10% Test).</li>
+                    <li><strong>Klik "Save and Continue":</strong> Tekan tombol simpan untuk memproses unggahan
+                        gambar ke dalam antrean anotasi (Annotate).</li>
+                </ol>
+
+                <h3>Tips Kualitas Dataset:</h3>
+                <ul class="pro-tips">
+                    <li>Gunakan gambar dengan berbagai sudut pandang (angles), variasi pencahayaan, dan latar
+                        belakang yang berbeda.</li>
+                    <li>Pastikan resolusi gambar cukup jelas agar batas objek dapat diidentifikasi secara presisi.
+                    </li>
+                    <li>Hindari gambar yang terlalu buram (blurry) kecuali skenario nyata memang mengharuskannya.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

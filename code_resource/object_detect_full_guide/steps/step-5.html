@@ -1,0 +1,50 @@
+<div class="accordion-item" data-accordion-id="step-5">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-5">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 05</span>
+            <span class="step-title">Membuat Dataset Version</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-5">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Membuat versi dataset (Dataset Version) adalah langkah membekukan (freeze) kondisi dataset saat ini
+                    dengan menerapkan opsi preprocessing dan augmentasi data sebelum digunakan untuk proses training
+                    model.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/5_create_dataset_version.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Buka Menu Generate:</strong> Navigasikan ke tab <strong>Generate</strong> atau
+                        <strong>Versions</strong> pada menu samping kiri.</li>
+                    <li><strong>Tinjau Dataset Health:</strong> Periksa ringkasan distribusi data seperti jumlah gambar,
+                        rasio pembagian (Train/Valid/Test), dan distribusi kelas label.</li>
+                    <li><strong>Konfigurasi Preprocessing:</strong> Tentukan langkah pra-pemrosesan seperti
+                        <em>Auto-Orient</em> dan standarisasi ukuran gambar (misal: <em>Resize ke 640x640</em>).</li>
+                    <li><strong>Tambahkan Augmentasi (Opsional):</strong> Tambahkan augmentasi seperti flip horizontal,
+                        rotasi, perubahan kecerahan (brightness), atau blur untuk melipatgandakan variasi data training.
+                    </li>
+                    <li><strong>Generate Version:</strong> Klik tombol <strong>Generate</strong> untuk membuat snapshot
+                        versi dataset permanen (misalnya <em>Version 1</em>).</li>
+                </ol>
+
+                <h3>Tips Konfigurasi:</h3>
+                <ul class="pro-tips">
+                    <li>Gunakan ukuran resize standar (seperti 640x640) yang paling optimal untuk arsitektur model YOLO.
+                    </li>
+                    <li>Hindari augmentasi ekstrem (misal flip vertikal pada objek mobil atau teks) jika orientasi
+                        tersebut tidak mungkin terjadi di dunia nyata.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

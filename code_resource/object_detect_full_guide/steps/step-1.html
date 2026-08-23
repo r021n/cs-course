@@ -1,0 +1,68 @@
+<div class="accordion-item" data-accordion-id="step-1">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-1">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 01</span>
+            <span class="step-title">Membuat Project Baru</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-1">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Langkah awal dalam membuat model object detection adalah menginisialisasi workspace dan
+                    menentukan jenis proyek pada Roboflow sesuai dengan kebutuhan pendeteksian target objek.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/1_create_project.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Masuk / Login ke Roboflow:</strong> Akses situs <code>roboflow.com</code> dan klik
+                        tombol <strong>Sign In</strong> di pojok kanan atas untuk masuk ke dashboard/workspace.</li>
+                    <li><strong>Buka Menu Projects:</strong> Pada bilah navigasi (sidebar) sebelah kiri, pilih menu
+                        <strong>Projects</strong>.
+                    </li>
+                    <li><strong>Buat Proyek Baru:</strong> Klik tombol <strong>+ New Project</strong> yang terletak di
+                        bagian kanan atas halaman.</li>
+                    <li><strong>Konfigurasi Detail Proyek (<em>Create Project</em>):</strong>
+                        <ul>
+                            <li><strong>Project Name:</strong> Masukkan nama proyek yang diinginkan (pada video
+                                dicontohkan: <code>eyeglass</code>).</li>
+                            <li><strong>Visibility:</strong> Pilih tingkat visibilitas proyek (<em>Public</em> atau
+                                <em>Private</em>).
+                            </li>
+                            <li><strong>Licenses:</strong> Tentukan lisensi dataset (contoh: <em>CC BY 4.0</em>).</li>
+                            <li><strong>Tool:</strong> Pilih metode/alat anotasi (pada video dipilih
+                                <em>Traditional</em>).
+                            </li>
+                            <li><strong>Project Type:</strong> Pilih tipe <strong>Object Detection</strong>
+                                (<em>Identify objects and their positions with bounding boxes</em>).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Konfirmasi Pembuatan Proyek:</strong> Klik tombol <strong>Create Public Project</strong>
+                        di bagian bawah untuk membuat dan mengaktifkan proyek.</li>
+                    <li><strong>Tahap Upload Dataset:</strong> Setelah proyek berhasil dibuat, sistem akan otomatis
+                        mengarahkan ke halaman <strong>Upload Data</strong> untuk mengunggah gambar atau data yang akan
+                        dianotasi.</li>
+                </ol>
+
+                <div class="note-block">
+                    <strong>Catatan Penting:</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Pilihan Jenis Proyek (<em>Project Type</em>):</strong> Roboflow menyediakan berbagai
+                            jenis tugas <em>Computer Vision</em> (seperti <em>Classification</em>, <em>Instance
+                                Segmentation</em>, dan <em>Keypoint Detection</em>). Pastikan memilih <strong>Object
+                                Detection</strong> jika target model menggunakan deteksi berbasis kotak batas
+                            (<em>bounding box</em>).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

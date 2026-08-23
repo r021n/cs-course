@@ -1,0 +1,46 @@
+<div class="accordion-item" data-accordion-id="step-7">
+    <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-7">
+        <div class="step-title-wrap">
+            <span class="step-number">STEP 07</span>
+            <span class="step-title">Mendapatkan Token dan Menggunakannya</span>
+        </div>
+        <span class="step-icon" aria-hidden="true"></span>
+    </button>
+    <div class="accordion-collapse" id="content-step-7">
+        <div class="accordion-inner">
+            <div class="step-body">
+                <p class="step-description">
+                    Token atau Private API Key digunakan untuk mengautentikasi akun Roboflow Anda saat mengunduh dataset
+                    private atau mengakses fitur Roboflow secara terprogram dari script eksternal.
+                </p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata">
+                        <source src="videos/7_submit_token.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
+
+                <h3>Tahapan Pelaksanaan:</h3>
+                <ol class="detailed-steps">
+                    <li><strong>Buka Pengaturan Akun (Settings):</strong> Klik ikon profil atau nama workspace di pojok
+                        kanan atas, lalu pilih <strong>Settings</strong>.</li>
+                    <li><strong>Masuk ke Menu Roboflow API:</strong> Pilih opsi <strong>Roboflow API</strong> atau
+                        <strong>API Keys</strong> pada menu navigasi akun.</li>
+                    <li><strong>Salin Private API Key:</strong> Temukan bagian <em>Private API Key</em> Anda dan klik
+                        tombol <strong>Copy</strong>.</li>
+                    <li><strong>Gunakan Token di Colab / Script:</strong> Masukkan token API key tersebut ke dalam kode
+                        Python (pada parameter <code>Roboflow(api_key="...")</code>) atau tempelkan pada prompt terminal
+                        yang meminta token.</li>
+                    <li><strong>Eksekusi Autentikasi:</strong> Jalankan cell untuk memverifikasi autentikasi. Setelah
+                        berhasil, dataset akan otomatis diunduh dan diekstrak ke folder proyek di Google Colab.</li>
+                </ol>
+
+                <div class="note-block">
+                    <strong>Keamanan Token:</strong> Jaga kerahasiaan Private API Key Anda. Jangan mempublikasikan token
+                    ini ke repository publik (misalnya GitHub publik) untuk mencegah akses data yang tidak diotorisasi.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
