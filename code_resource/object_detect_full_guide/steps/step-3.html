@@ -23,29 +23,37 @@
 
                 <h3>Tahapan Pelaksanaan:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Buka Menu Annotate:</strong> Masuk ke tab <strong>Annotate</strong> dan klik pada
-                        batch gambar yang belum diberi label (Unannotated).</li>
-                    <li><strong>Gunakan Tool Bounding Box:</strong> Pilih tool kotak pembatas pada toolbar atau
-                        tekan shortcut keyboard <strong>W</strong>.</li>
-                    <li><strong>Tarik Kotak Mengelilingi Objek:</strong> Klik dan seret kursor tepat mengelilingi
-                        seluruh area objek yang ingin dideteksi.</li>
-                    <li><strong>Pilih / Beri Nama Label Kelas:</strong> Tulis atau pilih nama label yang sesuai
-                        dengan objek di dalam kotak (contoh: <code>person</code>, <code>car</code>).</li>
-                    <li><strong>Ulangi untuk Seluruh Objek:</strong> Jika dalam satu gambar terdapat lebih dari satu
-                        objek, tandai semua objek tersebut.</li>
-                    <li><strong>Lanjut ke Gambar Berikutnya:</strong> Tekan tombol panah kanan atau shortcut
-                        keyboard untuk menyimpan dan berpindah ke gambar selanjutnya hingga seluruh dataset
-                        terlabeli 100%.</li>
+                    <li><strong>Pilih Metode Pelabelan Manual:</strong> Pada halaman <em>Unassigned Images</em>, klik
+                        opsi <strong>Label Manually</strong> pada panel sebelah kanan untuk membuat sesi tugas pelabelan
+                        (<em>labeling job</em>).</li>
+                    <li><strong>Mulai Sesi Anotasi:</strong> Pada halaman ringkasan tugas (<em>job dashboard</em>), klik
+                        tombol <strong>Start Annotating</strong> di pojok kanan atas untuk masuk ke antarmuka editor
+                        gambar.</li>
+                    <li><strong>Pilih Alat Bounding Box:</strong> Pilih ikon <strong>Bounding Box Tool</strong> (tools
+                        nomor 2 dari atas) pada bilah alat (<em>toolbar</em>) di sisi kanan (atau tekan pintasan
+                        <em>keyboard</em> <code>B</code>).</li>
+                    <li><strong>Tandai Objek Sasaran:</strong> Klik dan seret (<em>drag</em>) kursor untuk membuat kotak
+                        pembatas (<em>bounding box</em>) yang membungkus objek secara presisi (pada video: objek
+                        kacamata).</li>
+                    <li><strong>Beri Nama dan Simpan Kelas (<em>Class</em>):</strong> Pada jendela <em>Annotation
+                            Editor</em> yang muncul, ketik nama kelas objek (contoh: <code>eyeglass</code>), lalu klik
+                        <strong>Create Class "eyeglass"</strong> atau klik tombol simpan.</li>
+                    <li><strong>Pindah ke Gambar Berikutnya:</strong> Klik tombol panah kanan (<strong>Next
+                            Image</strong>) pada bilah navigasi atas untuk melanjutkan ke gambar berikutnya.</li>
+                    <li><strong>Ulangi Pelabelan pada Seluruh Gambar:</strong> Buat <em>bounding box</em> pada setiap
+                        gambar berikutnya, lalu cukup klik nama kelas yang telah tersimpan (<code>eyeglass</code>) tanpa
+                        perlu mengetik ulang. Ulangi proses ini hingga semua gambar (23 gambar) selesai dianotasi.</li>
+                    <li><strong>Tinjau Kembali Hasil Anotasi:</strong> Gunakan tombol panah navigasi kiri/kanan untuk
+                        memeriksa ulang ketepatan letak dan ukuran <em>bounding box</em> pada seluruh gambar.</li>
                 </ol>
 
                 <div class="note-block">
-                    <strong>Prinsip Pelabelan yang Baik:</strong>
-                    <br>• <strong>Tight Bounding Box:</strong> Kotak harus memuat seluruh bagian objek tanpa
-                    menyisakan terlalu banyak ruang kosong (margin).
-                    <br>• <strong>Konsistensi:</strong> Jika memberi label bagian tertentu (misal helm atau roda),
-                    pastikan konsisten di seluruh gambar dataset.
-                    <br>• <strong>Objek Terpotong (Occlusion):</strong> Jika objek terhalang sebagian namun masih
-                    dapat dikenali, tetap buat kotak pembatas pada area objek yang terlihat.
+                    <strong>Catatan Penting:</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Pembuatan/Pemilihan Kelas:</strong> Kelas baru hanya perlu dibuat satu kali di awal.
+                            Untuk gambar-gambar berikutnya, kelas tersebut akan muncul di daftar pilihan cepat pada
+                            pop-up <em>Annotation Editor</em>.</li>
+                    </ul>
                 </div>
             </div>
         </div>

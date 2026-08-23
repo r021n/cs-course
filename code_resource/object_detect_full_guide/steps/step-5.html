@@ -24,26 +24,61 @@
 
                 <h3>Tahapan Pelaksanaan:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Buka Menu Generate:</strong> Navigasikan ke tab <strong>Generate</strong> atau
-                        <strong>Versions</strong> pada menu samping kiri.</li>
-                    <li><strong>Tinjau Dataset Health:</strong> Periksa ringkasan distribusi data seperti jumlah gambar,
-                        rasio pembagian (Train/Valid/Test), dan distribusi kelas label.</li>
-                    <li><strong>Konfigurasi Preprocessing:</strong> Tentukan langkah pra-pemrosesan seperti
-                        <em>Auto-Orient</em> dan standarisasi ukuran gambar (misal: <em>Resize ke 640x640</em>).</li>
-                    <li><strong>Tambahkan Augmentasi (Opsional):</strong> Tambahkan augmentasi seperti flip horizontal,
-                        rotasi, perubahan kecerahan (brightness), atau blur untuk melipatgandakan variasi data training.
+                    <li><strong>Buka Menu Versions:</strong> Pilih menu <strong>Versions</strong> pada bilah navigasi di
+                        sebelah kiri.</li>
+                    <li><strong>Periksa Pembagian Data (<em>Train/Test Split</em>):</strong> Pastikan rasio pembagian
+                        dataset pada tahap awal sudah sesuai (pada video: 16 data <em>training</em>, 5 data
+                        <em>validation</em>, dan 2 data <em>testing</em>).</li>
+                    <li><strong>Konfigurasi Tahap Pemrosesan Awal (<em>Preprocessing</em>):</strong> Klik <strong>+ Add
+                            Preprocessing Step</strong> untuk menambahkan teknik prapemrosesan gambar yang diinginkan:
+                        <ul>
+                            <li><strong>Auto-Orient:</strong> Diterapkan secara <em>default</em>.</li>
+                            <li><strong>Resize:</strong> Mengubah ukuran resolusi gambar (pada video dipilih <em>Stretch
+                                    to 512x512</em>), lalu klik <strong>Apply</strong>.</li>
+                            <li><strong>Grayscale:</strong> Mengubah semua kanal warna gambar menjadi hitam-putih/skala
+                                abu-abu, lalu klik <strong>Apply</strong>.</li>
+                            <li>Setelah selesai, klik tombol <strong>Continue</strong>.</li>
+                        </ul>
                     </li>
-                    <li><strong>Generate Version:</strong> Klik tombol <strong>Generate</strong> untuk membuat snapshot
-                        versi dataset permanen (misalnya <em>Version 1</em>).</li>
+                    <li><strong>Konfigurasi Tahap Augmentasi (<em>Augmentation</em>):</strong> Klik <strong>+ Add
+                            Augmentation Step</strong> untuk menambah variasi data latih (<em>training set</em>):
+                        <ul>
+                            <li><strong>Rotation:</strong> Menambahkan variasi rotasi sudut (pada video diatur antara
+                                <code>-15°</code> dan <code>+15°</code>), lalu klik <strong>Apply</strong>.</li>
+                            <li><strong>Shear:</strong> Menambahkan distorsi perspektif (pada video diatur
+                                <code>±10°</code> Horizontal dan <code>±10°</code> Vertikal), lalu klik
+                                <strong>Apply</strong>.</li>
+                            <li><strong>Grayscale:</strong> Menerapkan efek abu-abu pada sebagian data latih secara
+                                probabilistik (pada video diatur <code>Apply to 15% of images</code>), lalu klik
+                                <strong>Apply</strong>.</li>
+                            <li>Setelah selesai, klik tombol <strong>Continue</strong>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tentukan Pengali Augmentasi (<em>Augmentation Multiplier</em>) & Buat Versi:</strong>
+                        <ul>
+                            <li>Pilih faktor kelipatan data pada menu <em>dropdown</em> <strong>Augmentation
+                                    Multiplier</strong> (pada video dipilih <code>3x</code> sehingga total bertambah
+                                menjadi 55 gambar).</li>
+                            <li>Masukkan catatan versi pada kolom <em>version notes</em> jika diperlukan.</li>
+                            <li>Klik tombol <strong>Create</strong> di bagian bawah.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Selesai dan Siap Dilatih:</strong> Tunggu proses <em>Initializing version...</em>
+                        selesai hingga muncul ringkasan dataset version baru yang siap digunakan untuk proses <em>Train
+                            Model</em>.</li>
                 </ol>
 
-                <h3>Tips Konfigurasi:</h3>
-                <ul class="pro-tips">
-                    <li>Gunakan ukuran resize standar (seperti 640x640) yang paling optimal untuk arsitektur model YOLO.
-                    </li>
-                    <li>Hindari augmentasi ekstrem (misal flip vertikal pada objek mobil atau teks) jika orientasi
-                        tersebut tidak mungkin terjadi di dunia nyata.</li>
-                </ul>
+                <div class="note-block">
+                    <strong>Catatan Penting:</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Tujuan Preprocessing:</strong> Teknik prapemrosesan (seperti <em>Resize</em> dan
+                            <em>Grayscale</em>) berfungsi untuk mengurangi waktu pelatihan (<em>training time</em>)
+                            serta mempercepat kinerja inferensi (<em>inference speed</em>) model.</li>
+                        <li><strong>Tujuan Augmentasi:</strong> Augmentasi hanya diterapkan pada <em>Training Set</em>
+                            guna memperkaya variasi sampel dan melatih ketahanan model terhadap perubahan sudut kamera
+                            atau orientasi objek tanpa mengubah data validasi/tes.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

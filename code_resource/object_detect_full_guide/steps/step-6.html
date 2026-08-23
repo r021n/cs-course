@@ -2,7 +2,7 @@
     <button type="button" class="step-header" aria-expanded="false" aria-controls="content-step-6">
         <div class="step-title-wrap">
             <span class="step-number">STEP 06</span>
-            <span class="step-title">Menghubungkan Dataset ke Google Colab</span>
+            <span class="step-title">Menggunakan Dataset Roboflow di Google Colab</span>
         </div>
         <span class="step-icon" aria-hidden="true"></span>
     </button>
@@ -10,8 +10,8 @@
         <div class="accordion-inner">
             <div class="step-body">
                 <p class="step-description">
-                    Menghubungkan dataset yang telah dibuat langsung ke Google Colab menggunakan Roboflow Python SDK
-                    memudahkan proses training tanpa perlu mengunduh dan mengunggah file dataset besar secara manual.
+                    Menghubungkan dataset yang telah dibuat langsung ke Google Colab memudahkan proses training model
+                    object detection tanpa perlu mengunduh dan mengunggah file dataset secara manual ke komputer lokal.
                 </p>
 
                 <div class="video-wrapper">
@@ -21,28 +21,76 @@
                     </video>
                 </div>
 
-                <h3>Tahapan Pelaksanaan:</h3>
+                <h3>Tahapan Menggunakan Dataset Roboflow di Google Colab:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Buka Versi Dataset yang Telah Dibuat:</strong> Pada dashboard versi dataset Anda, klik
-                        tombol <strong>Export Dataset</strong> atau <strong>Download Dataset</strong>.</li>
-                    <li><strong>Pilih Format Ekspor:</strong> Pilih format model yang ingin Anda gunakan untuk training
-                        (misal: <strong>YOLOv8</strong>, <strong>YOLOv11</strong>, atau YOLOv5 PyTorch).</li>
-                    <li><strong>Pilih "Show download code":</strong> Pilih opsi tampilan kode untuk <em>Terminal /
-                            Jupyter / Colab</em>.</li>
-                    <li><strong>Salin Snippet Kode:</strong> Salin baris kode Python yang disediakan oleh Roboflow.</li>
-                    <li><strong>Tempel di Google Colab:</strong> Buka notebook Google Colab Anda, tambahkan code cell
-                        baru, lalu paste snippet tersebut dan jalankan cell untuk mengunduh dataset ke workspace runtime
-                        Colab.</li>
+                    <li><strong>Simpan Salinan Notebook Google Colab:</strong>
+                        <ul>
+                            <li>Buka tautan Google Colab (<a
+                                    href="https://colab.research.google.com/drive/1nxZ2rdYlPZSbOUUduSE3o3N1diEdn-A0?usp=sharing"
+                                    target="_blank" rel="noopener noreferrer">Notebook YOLOv12</a>).</li>
+                            <li>Klik menu <strong>File</strong> di pojok kiri atas, lalu pilih <strong>Save a copy in
+                                    Drive</strong> agar notebook tersimpan di Google Drive pribadi Anda dan dapat
+                                diedit.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Buka Roboflow dan Unduh Kode Dataset:</strong>
+                        <ul>
+                            <li>Buka tab Roboflow pada versi dataset yang telah dibuat (<em>Versions</em>), lalu klik
+                                tombol <strong>Download Dataset</strong> di pojok kanan atas.</li>
+                            <li>Pada jendela pop-up:
+                                <ul>
+                                    <li>Pilih format anotasi yang sesuai (pada video dipilih <strong>YOLOv12</strong>).
+                                    </li>
+                                    <li>Pada opsi <em>Download Options</em>, pilih <strong>Show download code</strong>,
+                                        lalu klik <strong>Continue</strong>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Salin Kode Cuplikan (<em>Snippet Code</em>):</strong>
+                        <ul>
+                            <li>Pada tab <strong>Jupyter</strong>, salin baris kode konfigurasi proyek Roboflow Anda:
+                                <div class="note-block" style="margin: 8px 0;">
+                                    <code>project = rf.workspace("...").project("...")</code><br>
+                                    <code>version = project.version(1)</code><br>
+                                    <code>dataset = version.download("yolov12")</code>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Tempel Kode ke Google Colab:</strong>
+                        <ul>
+                            <li>Kembali ke tab notebook Google Colab salinan Anda (<em>Copy of YOLO12...</em>).</li>
+                            <li>Gulir ke bagian <strong>Fase 2: Menyiapkan Dataset untuk Fine-Tuning</strong>.</li>
+                            <li>Tempelkan (<em>paste</em>) baris kode yang telah disalin ke dalam sel kode tersebut
+                                untuk menggantikan nilai <em>workspace</em> dan <em>project</em> bawaan.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hubungkan Runtime dan Jalankan Notebook:</strong>
+                        <ul>
+                            <li>Klik tombol <strong>Connect</strong> di pojok kanan atas untuk menghubungkan runtime
+                                (menggunakan GPU T4).</li>
+                            <li>Klik menu <strong>Run all</strong> (atau jalankan sel secara berurutan) untuk memulai
+                                seluruh proses persiapan lingkungan, pengunduhan dataset langsung dari Roboflow, hingga
+                                pelatihan model.</li>
+                        </ul>
+                    </li>
                 </ol>
 
                 <div class="note-block">
-                    <strong>Snippet Contoh Kode:</strong>
-                    <br><code>!pip install roboflow</code>
-                    <br><code>from roboflow import Roboflow</code>
-                    <br><code>rf = Roboflow(api_key="YOUR_API_KEY")</code>
-                    <br><code>project = rf.workspace("workspace-id").project("project-id")</code>
-                    <br><code>version = project.version(1)</code>
-                    <br><code>dataset = version.download("yolov8")</code>
+                    <strong>Catatan Penting:</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Penyalinan Notebook (<em>Save a copy in Drive</em>):</strong> Langkah ini wajib
+                            dilakukan karena notebook asli berstatus hanya-baca (<em>view-only</em>). Menyalinnya ke
+                            Drive memungkinkan perubahan kode dan penyimpanan progres secara permanen.</li>
+                        <li><strong>Kesesuaian Format Anotasi:</strong> Format ekspor dataset pada Roboflow harus
+                            disesuaikan dengan arsitektur model yang digunakan di Colab (pada contoh ini menggunakan
+                            format <strong>YOLOv12</strong>).</li>
+                        <li><strong>Integrasi Tanpa Unduh Manual (<em>Show Download Code</em>):</strong> Memilih opsi
+                            <em>Show download code</em> memungkinkan Colab mengunduh dan mengekstrak dataset secara
+                            otomatis langsung dari server Roboflow ke direktori kerja Colab tanpa memakan ruang
+                            penyimpanan lokal komputer.</li>
+                    </ul>
                 </div>
             </div>
         </div>

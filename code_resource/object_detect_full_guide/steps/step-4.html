@@ -24,19 +24,33 @@
 
                 <h3>Tahapan Pelaksanaan:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Periksa Kelengkapan Anotasi:</strong> Pastikan seluruh gambar pada job pelabelan sudah
-                        berstatus <em>100% Annotated</em> atau disetujui (Approved).</li>
-                    <li><strong>Klik Tombol "Add approved images to Dataset":</strong> Pada sudut kanan atas tab
-                        Annotate, klik tombol untuk memproses penggabungan gambar terlabeli ke dataset utama.</li>
-                    <li><strong>Konfirmasi Pembagian Dataset (Split):</strong> Tinjau ulang pembagian rasio antara
-                        <strong>Train</strong>, <strong>Valid</strong>, dan <strong>Test</strong> jika diminta.</li>
-                    <li><strong>Selesaikan Penggabungan:</strong> Klik tombol konfirmasi dan tunggu beberapa saat hingga
-                        gambar dan label berhasil terindeks ke dalam dataset utama.</li>
+                    <li><strong>Kembali ke Halaman Ringkasan Batch (<em>Annotate Overview</em>):</strong> Setelah
+                        selesai melabeli seluruh gambar, kembali ke halaman batch anotasi untuk memastikan semua data
+                        berstatus <em>Annotated</em> (pada video: 23 gambar teranotasi).</li>
+                    <li><strong>Klik Tombol Penambahan ke Dataset:</strong> Klik tombol <strong>Add [Jumlah] Images To
+                            Dataset</strong> berwarna ungu di sudut kanan atas layar.</li>
+                    <li><strong>Tentukan Metode Pembagian Data (<em>Split Method</em>):</strong> Pada jendela
+                        <em>pop-up</em> <strong>Add Images to Dataset</strong>, pilih metode pembagian data (secara
+                        <em>default</em>: <code>Split Images Between Train/Valid/Test</code>).
+                    </li>
+                    <li><strong>Atur Rasio Pembagian (<em>Train / Valid / Test</em>):</strong> Sesuaikan bilah geser
+                        persentase alokasi data sesuai kebutuhan (pada video digunakan proporsi: 70% Train / 16 gambar,
+                        20% Valid / 5 gambar, dan 10% Test / 2 gambar).</li>
+                    <li><strong>Konfirmasi Penambahan Data:</strong> Klik tombol <strong>Add 23 Images</strong> di pojok
+                        kanan bawah <em>pop-up</em> dan tunggu proses <em>Inserting Images to Dataset</em> selesai.</li>
+                    <li><strong>Periksa Data pada Menu Dataset:</strong> Buka menu <strong>Dataset</strong> pada bilah
+                        navigasi kiri untuk memverifikasi data yang telah berhasil masuk dan dikelompokkan.</li>
                 </ol>
 
                 <div class="note-block">
-                    <strong>Catatan:</strong> Gambar yang belum dimasukkan ke dalam dataset utama tidak akan ikut
-                    diproses saat Anda men-generate versi dataset di langkah berikutnya.
+                    <strong>Catatan Penting:</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Filter Berdasarkan Subset (<em>Split Filter</em>):</strong> Pada menu
+                            <em>Dataset</em>, Anda dapat memfilter tampilan gambar berdasarkan kategori
+                            <code>Train</code>, <code>Valid</code>, atau <code>Test</code> untuk memastikan data
+                            terdistribusi sesuai proporsi yang diatur.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

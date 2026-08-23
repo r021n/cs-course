@@ -23,28 +23,42 @@
 
                 <h3>Tahapan Pelaksanaan:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Buka Tab Upload:</strong> Pada dashboard proyek Anda, navigasikan ke menu
-                        <strong>Upload Data</strong>.
+                    <li><strong>Masuk ke Halaman Unggah Data:</strong> Buka proyek Anda di Roboflow dan pilih menu
+                        <strong>Upload Data</strong> pada bilah navigasi di sisi kiri.
                     </li>
-                    <li><strong>Pilih atau Drag & Drop Gambar:</strong> Masukkan gambar atau folder berisi gambar
-                        dari penyimpanan lokal komputer Anda. Format yang didukung meliputi JPG, PNG, dan BMP.</li>
-                    <li><strong>Pemeriksaan & Validasi Gambar:</strong> Roboflow akan memeriksa format, resolusi,
-                        dan integritas file gambar secara otomatis.</li>
-                    <li><strong>Pengaturan Split Dataset:</strong> Tentukan rasio pembagian data (standar
-                        rekomendasi: 70% Train, 20% Valid, 10% Test).</li>
-                    <li><strong>Klik "Save and Continue":</strong> Tekan tombol simpan untuk memproses unggahan
-                        gambar ke dalam antrean anotasi (Annotate).</li>
+                    <li><strong>Pilih Berkas / Gambar:</strong> Klik tombol <strong>Select File(s)</strong> (atau Anda
+                        juga dapat memilih opsi <em>Select Folder</em> maupun langsung melakukan <em>Drag and Drop</em>
+                        berkas ke area yang disediakan).</li>
+                    <li><strong>Pilih File dari Komputer:</strong> Pada jendela File Explorer, navigasikan ke folder
+                        tempat gambar disimpan, pilih file yang ingin diunggah (pada video dipilih 23 file foto), lalu
+                        klik <strong>Open</strong>.</li>
+                    <li><strong>Proses dan Verifikasi Pratinjau:</strong> Tunggu sejenak saat sistem menjalankan proses
+                        pembacaan file (<em>Processing files...</em>). Setelah pratinjau gambar muncul dan jumlah gambar
+                        terverifikasi, klik tombol <strong>Save and Continue</strong> di pojok kanan atas.</li>
+                    <li><strong>Menunggu Proses Pengunggahan (<em>Uploading Files</em>):</strong> Tunggu proses
+                        pengunggahan selesai. Setiap gambar yang berhasil diunggah akan ditandai dengan ikon centang.
+                    </li>
+                    <li><strong>Selesai dan Lanjut ke Tahap Pelabelan:</strong> Setelah semua gambar selesai diunggah,
+                        halaman akan otomatis diarahkan ke menu <strong>Unassigned Images</strong> untuk langkah
+                        anotasi/pelabelan data selanjutnya.</li>
                 </ol>
 
-                <h3>Tips Kualitas Dataset:</h3>
-                <ul class="pro-tips">
-                    <li>Gunakan gambar dengan berbagai sudut pandang (angles), variasi pencahayaan, dan latar
-                        belakang yang berbeda.</li>
-                    <li>Pastikan resolusi gambar cukup jelas agar batas objek dapat diidentifikasi secara presisi.
-                    </li>
-                    <li>Hindari gambar yang terlalu buram (blurry) kecuali skenario nyata memang mengharuskannya.
-                    </li>
-                </ul>
+                <div class="note-block">
+                    <strong>Catatan Penting</strong>
+                    <p style="margin: 8px 0 4px 0;"><strong>Format File yang Didukung (<em>Supported
+                                Formats</em>):</strong></p>
+                    <ul style="margin-top: 4px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Gambar (<em>Images</em>):</strong> Mendukung format <code>.jpg</code>,
+                            <code>.png</code>, <code>.bmp</code>, <code>.webp</code>, dan <code>.avif</code>.
+                        </li>
+                        <li><strong>Anotasi (<em>Annotations</em>):</strong> Mendukung 26 format anotasi (jika sudah
+                            memiliki anotasi sebelumnya).</li>
+                        <li><strong>Video:</strong> Mendukung format <code>.mp4</code>, <code>.mov</code>, dan
+                            <code>.avi</code>.
+                        </li>
+                        <li><strong>Dokumen:</strong> Mendukung format <code>.pdf</code>.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
