@@ -44,6 +44,26 @@ function saveState(id, isOpen) {
 }
 
 /**
+ * Lazy load video sources within an accordion item when it is opened.
+ * @param {HTMLElement} item
+ */
+function loadVideoForAccordionItem(item) {
+  const videos = item.querySelectorAll("video");
+  videos.forEach((video) => {
+    let shouldReload = false;
+    const sources = video.querySelectorAll("source[data-src]");
+    sources.forEach((source) => {
+      source.src = source.getAttribute("data-src");
+      source.removeAttribute("data-src");
+      shouldReload = true;
+    });
+    if (shouldReload) {
+      video.load();
+    }
+  });
+}
+
+/**
  * Initialize accordion event listeners and restore saved states.
  */
 function initAccordion() {
@@ -61,6 +81,8 @@ function initAccordion() {
     if (isInitiallyOpen) {
       item.classList.add("active");
       header.setAttribute("aria-expanded", "true");
+      // Lazy load video jika accordion ini terbuka sejak awal
+      loadVideoForAccordionItem(item);
     } else {
       item.classList.remove("active");
       header.setAttribute("aria-expanded", "false");
@@ -70,6 +92,9 @@ function initAccordion() {
     header.addEventListener("click", () => {
       const isActive = item.classList.toggle("active");
       header.setAttribute("aria-expanded", String(isActive));
+      if (isActive) {
+        loadVideoForAccordionItem(item);
+      }
       if (id) {
         saveState(id, isActive);
       }
@@ -115,5 +140,25 @@ async function loadSteps() {
   }
 }
 
+// Inisialisasi Service Worker untuk Local Browser Caching (Offline / Zero-latency)
+function registerServiceWorker() {
+  if (
+    "serviceWorker" in navigator &&
+    window.location.protocol.startsWith("http")
+  ) {
+    navigator.serviceWorker
+      .register("./sw.js")
+      .then((reg) =>
+        console.log("[Service Worker] Registered successfully:", reg.scope),
+      )
+      .catch((err) =>
+        console.warn("[Service Worker] Registration failed:", err),
+      );
+  }
+}
+
 // Jalankan loader saat DOM siap
-document.addEventListener("DOMContentLoaded", loadSteps);
+document.addEventListener("DOMContentLoaded", () => {
+  loadSteps();
+  registerServiceWorker();
+});

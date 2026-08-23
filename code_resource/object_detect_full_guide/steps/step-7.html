@@ -10,29 +10,43 @@
         <div class="accordion-inner">
             <div class="step-body">
                 <p class="step-description">
-                    Autentikasi akun Roboflow di Google Colab menggunakan token interaktif memungkinkan akses aman untuk mengunduh dataset tanpa perlu menuliskan API Key secara langsung di dalam kode.
+                    Autentikasi akun Roboflow di Google Colab menggunakan token interaktif memungkinkan akses aman untuk
+                    mengunduh dataset tanpa perlu menuliskan API Key secara langsung di dalam kode.
                 </p>
 
                 <div class="video-wrapper">
-                    <video controls preload="metadata">
-                        <source src="videos/7_submit_token.mp4" type="video/mp4">
+                    <video controls preload="none">
+                        <source data-src="videos/7_submit_token.mp4" type="video/mp4">
                         Browser Anda tidak mendukung pemutaran video HTML5.
                     </video>
                 </div>
 
                 <h3>Tahapan Mendapatkan dan Menggunakan Token Roboflow di Google Colab:</h3>
                 <ol class="detailed-steps">
-                    <li><strong>Jalankan Sel Kode Fase 2 (<em>Setup Dataset</em>):</strong> Jalankan sel kode yang memuat fungsi <code>roboflow.login()</code> dan inisialisasi dataset hingga muncul tautan autentikasi dan kolom input <em>token</em> pada keluaran (<em>output</em>) sel.</li>
-                    <li><strong>Buka Tautan Autentikasi CLI:</strong> Klik tautan <a href="https://app.roboflow.com/auth-cli" target="_blank" rel="noopener noreferrer"><code>https://app.roboflow.com/auth-cli</code></a> yang tertera pada pesan keluaran (atau salin dan buka di tab baru peramban).</li>
-                    <li><strong>Salin Kunci Token dari Roboflow:</strong> Pada halaman <em>Authorize Your Roboflow CLI</em>, klik ikon salin (<em>copy to clipboard</em>) di samping deretan kode token autentikasi.</li>
-                    <li><strong>Tempel Token ke Google Colab:</strong> Kembali ke tab Google Colab, tempelkan (<em>paste</em>) kode token ke dalam kotak isian bertuliskan <em>Paste the authentication token here:</em>.</li>
-                    <li><strong>Tekan Enter untuk Memvalidasi:</strong> Tekan tombol <strong>Enter</strong> pada <em>keyboard</em> untuk mengirimkan token. Sistem akan memuat <em>workspace</em>, memverifikasi proyek, lalu mengunduh (<em>downloading</em>) dan mengekstrak dataset secara otomatis.</li>
+                    <li><strong>Jalankan Sel Kode Fase 2 (<em>Setup Dataset</em>):</strong> Jalankan sel kode yang
+                        memuat fungsi <code>roboflow.login()</code> dan inisialisasi dataset hingga muncul tautan
+                        autentikasi dan kolom input <em>token</em> pada keluaran (<em>output</em>) sel.</li>
+                    <li><strong>Buka Tautan Autentikasi CLI:</strong> Klik tautan <a
+                            href="https://app.roboflow.com/auth-cli" target="_blank"
+                            rel="noopener noreferrer"><code>https://app.roboflow.com/auth-cli</code></a> yang tertera
+                        pada pesan keluaran (atau salin dan buka di tab baru peramban).</li>
+                    <li><strong>Salin Kunci Token dari Roboflow:</strong> Pada halaman <em>Authorize Your Roboflow
+                            CLI</em>, klik ikon salin (<em>copy to clipboard</em>) di samping deretan kode token
+                        autentikasi.</li>
+                    <li><strong>Tempel Token ke Google Colab:</strong> Kembali ke tab Google Colab, tempelkan
+                        (<em>paste</em>) kode token ke dalam kotak isian bertuliskan <em>Paste the authentication token
+                            here:</em>.</li>
+                    <li><strong>Tekan Enter untuk Memvalidasi:</strong> Tekan tombol <strong>Enter</strong> pada
+                        <em>keyboard</em> untuk mengirimkan token. Sistem akan memuat <em>workspace</em>, memverifikasi
+                        proyek, lalu mengunduh (<em>downloading</em>) dan mengekstrak dataset secara otomatis.</li>
                 </ol>
 
                 <div class="note-block">
                     <strong>Catatan Penting:</strong>
                     <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
-                        <li><strong>Metode Login Interaktif:</strong> Fungsi <code>roboflow.login()</code> mengamankan akun tanpa perlu menuliskan <em>API Key</em> secara langsung (<em>hardcoded</em>) di dalam sel kode publik atau repositori bersama.</li>
+                        <li><strong>Metode Login Interaktif:</strong> Fungsi <code>roboflow.login()</code> mengamankan
+                            akun tanpa perlu menuliskan <em>API Key</em> secara langsung (<em>hardcoded</em>) di dalam
+                            sel kode publik atau repositori bersama.</li>
                     </ul>
                 </div>
             </div>

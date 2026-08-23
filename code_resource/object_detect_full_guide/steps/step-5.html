@@ -16,8 +16,8 @@
                 </p>
 
                 <div class="video-wrapper">
-                    <video controls preload="metadata">
-                        <source src="videos/5_create_dataset_version.mp4" type="video/mp4">
+                    <video controls preload="none">
+                        <source data-src="videos/5_create_dataset_version.mp4" type="video/mp4">
                         Browser Anda tidak mendukung pemutaran video HTML5.
                     </video>
                 </div>
@@ -28,7 +28,8 @@
                         sebelah kiri.</li>
                     <li><strong>Periksa Pembagian Data (<em>Train/Test Split</em>):</strong> Pastikan rasio pembagian
                         dataset pada tahap awal sudah sesuai (pada video: 16 data <em>training</em>, 5 data
-                        <em>validation</em>, dan 2 data <em>testing</em>).</li>
+                        <em>validation</em>, dan 2 data <em>testing</em>).
+                    </li>
                     <li><strong>Konfigurasi Tahap Pemrosesan Awal (<em>Preprocessing</em>):</strong> Klik <strong>+ Add
                             Preprocessing Step</strong> untuk menambahkan teknik prapemrosesan gambar yang diinginkan:
                         <ul>
@@ -44,13 +45,16 @@
                             Augmentation Step</strong> untuk menambah variasi data latih (<em>training set</em>):
                         <ul>
                             <li><strong>Rotation:</strong> Menambahkan variasi rotasi sudut (pada video diatur antara
-                                <code>-15°</code> dan <code>+15°</code>), lalu klik <strong>Apply</strong>.</li>
+                                <code>-15°</code> dan <code>+15°</code>), lalu klik <strong>Apply</strong>.
+                            </li>
                             <li><strong>Shear:</strong> Menambahkan distorsi perspektif (pada video diatur
                                 <code>±10°</code> Horizontal dan <code>±10°</code> Vertikal), lalu klik
-                                <strong>Apply</strong>.</li>
+                                <strong>Apply</strong>.
+                            </li>
                             <li><strong>Grayscale:</strong> Menerapkan efek abu-abu pada sebagian data latih secara
                                 probabilistik (pada video diatur <code>Apply to 15% of images</code>), lalu klik
-                                <strong>Apply</strong>.</li>
+                                <strong>Apply</strong>.
+                            </li>
                             <li>Setelah selesai, klik tombol <strong>Continue</strong>.</li>
                         </ul>
                     </li>
@@ -73,7 +77,8 @@
                     <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
                         <li><strong>Tujuan Preprocessing:</strong> Teknik prapemrosesan (seperti <em>Resize</em> dan
                             <em>Grayscale</em>) berfungsi untuk mengurangi waktu pelatihan (<em>training time</em>)
-                            serta mempercepat kinerja inferensi (<em>inference speed</em>) model.</li>
+                            serta mempercepat kinerja inferensi (<em>inference speed</em>) model.
+                        </li>
                         <li><strong>Tujuan Augmentasi:</strong> Augmentasi hanya diterapkan pada <em>Training Set</em>
                             guna memperkaya variasi sampel dan melatih ketahanan model terhadap perubahan sudut kamera
                             atau orientasi objek tanpa mengubah data validasi/tes.</li>
