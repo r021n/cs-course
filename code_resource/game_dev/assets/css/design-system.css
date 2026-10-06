@@ -1,0 +1,644 @@
+/* ============================================================
+   Design System — "technical editorial"
+   Acuan: UI_DESIGN_SYSTEM.md
+   - Token warna berbasis peran di :root
+   - Dua font: Sans (prosa) + Mono (elemen mesin)
+   - Satu aksen hijau teal, garis tipis 1px, radius 4/6/8px
+   - Layout kolom tunggal 760px, tanpa breakpoint media query
+   Layer order dideklarasikan di baris pertama agar urutan
+   cascade tetap stabil walau Tailwind (vendor) di-load belakangan:
+   theme < base < components < utilities.
+   ============================================================ */
+
+@layer theme, base, components, utilities;
+
+/* ------------------------------------------------------------
+   1. Design tokens
+   ------------------------------------------------------------ */
+:root {
+  /* surface & text */
+  --paper: #faf9f5;
+  --ink: #1c1e1b;
+  --ink-soft: #4a4d47;
+  --rule: #dedbd0;
+  --table-head: #efece2;
+
+  /* aksen */
+  --accent: #2e6b5e;
+  --accent-soft: #e4eeea;
+
+  /* blok kode (selalu gelap di kedua mode) */
+  --code-bg: #14201c;
+  --code-text: #e9f2ed;
+  --code-key: #8fd9be;
+  --code-dim: #7d948b;
+
+  /* tipografi */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  /* radius */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+
+  /* layout */
+  --col: 760px;
+  --gutter: 24px;
+  --header-offset: 72px;
+
+  color-scheme: light;
+}
+
+/* Palet gelap — selector duplikat dengan dua jalur:
+   preferensi sistem ATAU override manual data-theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16181a;
+    --ink: #eceae3;
+    --ink-soft: #9b9e96;
+    --rule: #33362f;
+    --table-head: #21241f;
+    --accent: #7fd1b9;
+    --accent-soft: #1e2c27;
+    --code-bg: #0e1513;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #16181a;
+  --ink: #eceae3;
+  --ink-soft: #9b9e96;
+  --rule: #33362f;
+  --table-head: #21241f;
+  --accent: #7fd1b9;
+  --accent-soft: #1e2c27;
+  --code-bg: #0e1513;
+  color-scheme: dark;
+}
+
+/* ------------------------------------------------------------
+   2. Dasar halaman
+   (semua di @layer components supaya menang atas preflight
+   Tailwind tanpa bergantung pada urutan load file)
+   ------------------------------------------------------------ */
+@layer components {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-offset) + env(safe-area-inset-top, 0px));
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .shell {
+    max-width: var(--col);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ----------------------------------------------------------
+     3. Header sticky + nav pill
+     ---------------------------------------------------------- */
+  .site-header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding-block: 10px;
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+    margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  }
+
+  /* Layout flex header memakai utility Tailwind di markup
+     (flex flex-wrap items-center gap-2) agar bisa diubah cepat
+     per halaman — komponen lain di file ini tetap mandiri. */
+  .brand {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .brand .brand-mark {
+    color: var(--accent);
+  }
+
+  .brand:hover {
+    color: var(--accent);
+  }
+
+  .nav-pills {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    flex: 1 1 auto;
+    position: relative; /* offsetLeft pill relatif ke nav */
+
+    /* satu baris & digulir horizontal — header tetap pendek
+       di layar sempit maupun lebar, tanpa media query */
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-pill {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: var(--r-sm);
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.12s ease, border-color 0.12s ease;
+  }
+
+  .nav-pill:hover,
+  .nav-pill:focus-visible {
+    border-color: var(--rule);
+    color: var(--accent);
+  }
+
+  .nav-pill.is-active {
+    border-color: var(--rule);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .theme-toggle .tt-icon {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  /* ----------------------------------------------------------
+     4. Tipografi dokumen
+     ---------------------------------------------------------- */
+  .doc {
+    padding-block: 48px 96px;
+  }
+
+  .doc-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 14px;
+    max-width: 30ch;
+  }
+
+  .doc-subtitle {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 62ch;
+    margin-top: 0;
+  }
+
+  .doc-subtitle strong {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-right: 6px;
+  }
+
+  .doc :is(p, li) {
+    max-width: 62ch;
+  }
+
+  .doc p {
+    margin-block: 14px;
+  }
+
+  .doc > p:first-child {
+    margin-top: 0;
+  }
+
+  .doc-intro {
+    border-top: 1px solid var(--rule);
+    margin-top: 32px;
+    padding-top: 8px;
+  }
+
+  .doc strong {
+    font-weight: 600;
+  }
+
+  /* h2 seksi — dipisah garis tipis, judul mono aksen */
+  .section-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+    line-height: 1.35;
+    color: var(--accent);
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: none;
+  }
+
+  .section-title .sec-num {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    border-radius: var(--r-sm);
+    padding: 2px 8px;
+    flex: none;
+  }
+
+  .section-title .anchor {
+    font-size: 0.9rem;
+    color: var(--rule);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+    margin-left: auto;
+  }
+
+  .section-title:hover .anchor,
+  .section-title .anchor:focus-visible {
+    opacity: 1;
+  }
+
+  .section-title .anchor:hover {
+    color: var(--accent);
+  }
+
+  /* h3 label sub-bagian — prefiks "// " dekoratif */
+  .sub-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .sub-label::before {
+    content: "// ";
+    color: var(--rule);
+  }
+
+  /* daftar */
+  .doc ul,
+  .doc ol {
+    margin-block: 14px;
+    padding-left: 1.5em;
+  }
+
+  .doc ul {
+    list-style: disc;
+  }
+
+  .doc ul ul {
+    list-style: circle;
+  }
+
+  .doc ol {
+    list-style: decimal;
+  }
+
+  .doc li {
+    margin-block: 8px;
+    padding-left: 4px;
+  }
+
+  .doc li::marker {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .doc li > ul,
+  .doc li > ol {
+    margin-block: 6px;
+  }
+
+  /* checklist (mis. "Yang Perlu Disiapkan") */
+  .doc ul.checklist,
+  .doc ol.checklist {
+    list-style: none;
+    padding-left: 0.2em;
+  }
+
+  .checklist li {
+    padding-left: 1.7em;
+    position: relative;
+  }
+
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ----------------------------------------------------------
+     5. Callout / info bar
+     ---------------------------------------------------------- */
+  .callout {
+    background: var(--accent-soft);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
+    margin-block: 20px;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .callout p {
+    margin: 0;
+    max-width: none;
+  }
+
+  .callout p + p {
+    margin-top: 8px;
+  }
+
+  .callout strong {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--accent);
+  }
+
+  /* callout untuk kebutuhan/prasyarat (awal dokumen) */
+  .callout.is-meta {
+    border: 1px solid var(--rule);
+  }
+
+  /* ----------------------------------------------------------
+     6. Tabel
+     ---------------------------------------------------------- */
+  .table-wrap {
+    overflow-x: auto;
+    margin-block: 20px;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-md);
+  }
+
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: var(--paper);
+  }
+
+  .doc-table th {
+    background: var(--table-head);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  .doc-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .doc-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .doc-table tbody tr:hover td {
+    background: var(--accent-soft);
+  }
+
+  .doc-table td code {
+    background: var(--accent-soft);
+    border-radius: var(--r-sm);
+    padding: 1px 5px;
+  }
+
+  /* ----------------------------------------------------------
+     7. Kode: inline & blok terminal
+     ---------------------------------------------------------- */
+  .doc :not(pre) > code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: var(--r-sm);
+    padding: 1px 5px;
+  }
+
+  .doc pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 16px;
+    border-radius: var(--r-lg);
+    overflow-x: auto;
+    margin-block: 20px;
+  }
+
+  .doc pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .doc pre .prompt {
+    color: var(--code-key);
+    font-weight: 600;
+  }
+
+  .doc pre .cmt {
+    color: var(--code-dim);
+  }
+
+  /* ----------------------------------------------------------
+     8. Kartu video
+     ---------------------------------------------------------- */
+  .video-card {
+    margin-block: 24px;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .video-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--table-head);
+  }
+
+  .video-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .video-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--code-bg);
+  }
+
+  .video-frame iframe,
+  .video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-frame video {
+    display: block;
+    object-fit: contain;
+    background: var(--code-bg);
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding: 16px;
+    border: 1px dashed var(--code-dim);
+    margin: 10px;
+    border-radius: var(--r-md);
+    color: var(--code-dim);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .video-placeholder .vp-label {
+    color: var(--code-key);
+    font-weight: 600;
+  }
+
+  .video-error .vp-label {
+    color: var(--code-dim);
+  }
+
+  .video-placeholder code {
+    font-family: inherit;
+    background: none;
+    color: var(--code-key);
+    padding: 0;
+  }
+
+  /* ----------------------------------------------------------
+     9. Footer
+     ---------------------------------------------------------- */
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding-block: 32px 60px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .site-footer a {
+    color: var(--ink-soft);
+  }
+
+  .site-footer a:hover {
+    color: var(--accent);
+  }
+
+  .site-footer p {
+    margin-block: 4px;
+    max-width: 62ch;
+  }
+
+  .footer-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  /* peringatan bila library gagal dimuat */
+  .boot-error {
+    border: 1px solid var(--rule);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    background: var(--accent-soft);
+  }
+}
