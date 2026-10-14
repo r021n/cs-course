@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>Jajan Tracker</h2>
+
+  Uang: <input id="uang" type="number" oninput="cek()"><br><br>
+
+  Nama: <input id="nama"><br>
+  Harga: <input id="harga" type="number"><br>
+  <button onclick="tambah()">Tambah</button>
+
+  <hr>
+  <b>Bisa Dibeli:</b>
+  <div id="bisa"></div>
+
+  <hr>
+  <b>Belum Cukup:</b>
+  <div id="belum"></div>
+
+  <script>
+    // Pakai 2 array biasa, bukan object
+    var listNama = [];
+    var listHarga = [];
+
+    function tambah() {
+      var n = document.getElementById("nama").value;
+      var h = document.getElementById("harga").value;
+
+      listNama.push(n);
+      listHarga.push(Number(h));
+
+      cek();
+    }
+
+    function cek() {
+      var uang = Number(document.getElementById("uang").value);
+
+      // Kosongkan tampilan lama
+      document.getElementById("bisa").innerHTML = "";
+      document.getElementById("belum").innerHTML = "";
+
+      for (var i = 0; i < listNama.length; i++) {
+        var teks = "<p>" + listNama[i] + " - " + listHarga[i] + "</p>";
+
+        if (listHarga[i] <= uang) {
+          document.getElementById("bisa").innerHTML += teks;
+        } else {
+          document.getElementById("belum").innerHTML += teks;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
