@@ -22,6 +22,15 @@ Sekarang, `elemenPesan` merujuk pada elemen paragraf tersebut. JavaScript dapat 
 
 Nilai yang dicari harus cocok dengan `id` di HTML. Jika HTML menggunakan `id="pesan"` tetapi JavaScript mencari `"keterangan"`, elemen itu tidak akan ditemukan. Karena itu, saat membaca kode, perhatikan hubungan antara nilai `id` pada HTML dan string yang ditulis di dalam `getElementById()`.
 
+### Pertanyaan
+
+1. Buatlah elemen paragraf yang memiliki pengenal `pesan` dan berisi teks 'Selamat datang.'
+   <!-- Jawaban: `<p id="pesan">Selamat datang.</p>` -->
+2. Paragraf pada halaman ditulis `<p id="pesan">Selamat datang.</p>`. Tulis ekspresi JavaScript untuk menemukan paragraf tersebut.
+   <!-- Jawaban: `document.getElementById("pesan")` -->
+
+---
+
 ## Membaca nilai masukan
 
 Untuk membaca apa yang diketik pengguna ke dalam kolom masukan, JavaScript membaca nilai properti `.value`:
@@ -51,6 +60,15 @@ var jumlah = Number(jumlahTeks);
 
 Di sini, `jumlahTeks` menyimpan nilai yang sedang ada di kolom masukan saat dibaca, sedangkan `jumlah` menyimpan hasil konversinya menjadi angka.
 
+### Pertanyaan
+
+1. Kolom masukan ditulis `<input id="nama" type="text">`. Tulis ekspresi untuk mengambil nilai yang sedang diketik pengguna ke kolom itu.
+   <!-- Jawaban: `document.getElementById("nama").value` -->
+2. Kolom `<input id="jumlah" type="number">` berisi angka yang diketik pengguna. Tulis kode untuk membaca kolom itu langsung sebagai angka.
+   <!-- Jawaban: `Number(document.getElementById("jumlah").value)` -->
+
+---
+
 ## Mengubah isi halaman
 
 JavaScript juga dapat mengubah elemen yang sudah ditemukan. Misalnya, properti `textContent` digunakan untuk membaca atau mengganti teks di dalam elemen:
@@ -75,6 +93,17 @@ elemenPesan.innerHTML = "<strong>Halo, Rani!</strong>";
 Dalam contoh ini, teks di dalam `<strong>` ditampilkan tebal karena browser menafsirkan string (teks) tersebut sebagai HTML. Sebaliknya, jika menggunakan `textContent`, rangkaian tag akan dianggap sebagai teks biasa.
 
 Untuk memasukkan teks dari pengguna, `textContent` biasanya pilihan yang lebih aman. `innerHTML` dapat berguna ketika memang ingin memasukkan struktur HTML, tetapi jangan memasukkan teks dari pengguna ke dalamnya secara langsung: teks yang mengandung markup dapat ditafsirkan browser sebagai HTML, bukan sebagai tulisan biasa.
+
+### Pertanyaan
+
+1. Tuliskan nama properti yang mengganti teks di dalam elemen sebagai teks biasa sehingga rangkaian tag di dalamnya tidak dijalankan browser.
+   <!-- Jawaban: `textContent` -->
+2. Tuliskan nama properti yang menafsirkan string sebagai HTML sehingga tag di dalamnya ikut dijalankan browser.
+   <!-- Jawaban: `innerHTML` -->
+3. Paragraf `<p id="pesan">Belum ada pesan.</p>` harus menampilkan 'Halo, Rani!' sebagai teks biasa. Tulis satu baris kode langsung tanpa memakai variabel sementara.
+   <!-- Jawaban: `document.getElementById("pesan").textContent = "Halo, Rani!"` -->
+
+---
 
 ## Mengakses DOM pada kode Jajan Tracker
 
@@ -101,8 +130,26 @@ Baris ini menemukan elemen dengan `id="bisa"`, lalu mengganti isinya dengan teks
 
 Pola yang sama digunakan pada elemen lain, seperti elemen dengan `id="belum"`. HTML menyediakan elemen dengan `id` tertentu, lalu JavaScript menemukannya melalui DOM untuk membaca atau memperbarui isinya.
 
+### Pertanyaan
+
+1. Tulis satu baris kode untuk membaca kolom `id="uang"` sebagai angka.
+   <!-- Jawaban: `Number(document.getElementById("uang").value)` -->
+2. Sebelum daftar baru ditambahkan, kode mengosongkan isi elemen `id="bisa"` dengan `innerHTML`. Tulis baris tersebut.
+   <!-- Jawaban: `document.getElementById("bisa").innerHTML = ""` -->
+3. Tuliskan nilai `id` elemen lain yang diperbarui dengan pola yang sama seperti elemen `bisa`.
+   <!-- Jawaban: `belum` -->
+
+---
+
 ## Mengapa DOM penting?
 
 DOM adalah penghubung antara halaman HTML dan kode JavaScript. Tanpanya, JavaScript tidak bisa mengetahui nilai yang diketik pengguna atau memperbarui bagian halaman tertentu.
 
 Saat membaca kode yang mengakses halaman, coba telusuri urutannya: elemen mana yang dicari, nilai atau bagian mana yang dibaca, lalu perubahan apa yang dilakukan. Cara itu membantu membedakan apakah JavaScript sedang **mengambil informasi dari halaman** atau **mengubah halaman**.
+
+### Pertanyaan
+
+1. Tuliskan nama model yang menjadi penghubung antara halaman HTML dan kode JavaScript.
+   <!-- Jawaban: `DOM` -->
+2. Paragraf `<p id="pesan">Belum ada pesan.</p>` harus menampilkan `<strong>Halo</strong>` sebagai HTML sehingga tulisannya tampil tebal. Tulis satu baris kode langsung tanpa memakai variabel sementara.
+   <!-- Jawaban: `document.getElementById("pesan").innerHTML = "<strong>Halo</strong>"` -->
