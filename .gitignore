@@ -1,0 +1,58 @@
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ===== Windows =====
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+pythonenv*/
+
+# Testing / linting cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== Logs / temporary =====
+*.log
+*.tmp
+temp/
+tmp/
+
+# ===== Secrets (jangan pernah commit) =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
